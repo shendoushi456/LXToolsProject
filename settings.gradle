@@ -1,0 +1,83 @@
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        google()
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url "https://jitpack.io" }
+        maven { url "https://artifact.bytedance.com/repository/pangle" }
+
+        maven { url 'https://developer.huawei.com/repo' }
+        maven { url 'https://developer.hihonor.com/repo' }
+
+        // 巨量广告转化 融合归因
+        maven {
+            url 'https://artifact.bytedance.com/repository/Volcengine/'
+        }
+
+
+    }
+
+}
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url "https://jitpack.io" }
+        maven { url "https://artifact.bytedance.com/repository/pangle" }
+
+        maven { url 'https://developer.huawei.com/repo' }
+        maven { url 'https://developer.hihonor.com/repo' }
+
+        // 巨量广告转化 融合归因
+        maven {
+            url 'https://artifact.bytedance.com/repository/Volcengine/'
+        }
+    }
+
+}
+
+rootProject.name = "LXToolsProject"
+include ':app'
+include ':custom_honor_library'
+include ':toolsbox_moduel:toolsbox'
+include ':third-module:setting'
+include ':third-module:hotSceniclib'
+include ':third-module:sharedPreferences'
+include ':third-module:scanlibrary'
+include ':third-module:weather_lib'
+
+
+
+
+
+include':custom_honor_library:aarlibrary:baidu_mobads_sdk_release'
+include':custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter'
+include':custom_honor_library:aarlibrary:gdtsdk_unionnormal'
+include':custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter'
+include':custom_honor_library:aarlibrary:kssdk_ct_publishRelease'
+include':custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter'
+include':custom_honor_library:aarlibrary:open_ad_sdk'
+include':custom_honor_library:aarlibrary:appupdate'
+include':custom_honor_library:aarlibrary:octopus_ad_sdk'
+include':custom_honor_library:aarlibrary:pij_ad_sdk'

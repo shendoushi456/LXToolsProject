@@ -1,0 +1,148 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
+
+    id 'org.jetbrains.kotlin.android'
+    id 'walle'
+
+
+}
+//apply plugin: 'walle'
+
+
+android {
+    namespace 'com.lx.lxtoolsproject'
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId "com.gzchwl.chengluxun"
+        minSdk 24
+        targetSdk 33
+        versionCode rootProject.ext.appConfig["versionCode"]
+        versionName rootProject.ext.appConfig["versionName"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        ndk { // 设置支持的 SO 库构架，注意这里要根据你的实际情况来设置
+            abiFilters   "arm64-v8a"
+        }
+
+
+
+        buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
+        buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
+        buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
+    }
+
+
+    signingConfigs {
+        release {
+            keyAlias 'chengluxun'
+            keyPassword '123456'
+            storeFile file('chengluxun.jks')
+            storePassword '123456'
+        }
+        debug {
+            keyAlias 'chengluxun'
+            keyPassword '123456'
+            storeFile file('chengluxun.jks')
+            storePassword '123456'
+        }
+    }
+
+
+
+
+    buildTypes {
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled false
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        compose true
+        buildConfig = true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
+    }
+
+
+
+    dataBinding {
+        enabled = true
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+
+    walle {
+        // 指定渠道包的输出路径
+        apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+        // 定制渠道包的APK的文件名称
+        apkFileNameFormat = '城路寻-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        // 渠道配置文件
+        channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
+
+    }
+
+
+}
+
+dependencies {
+    implementation platform(libs.androidx.compose.bom)
+//    implementation project(':custom_honor_library')
+//    implementation project(':toolsbox_moduel:toolsbox')
+//    implementation files('libs/shell_chengluxun.aar')
+    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
+    implementation libs.androidx.activity.compose
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.compose.material3
+    implementation libs.androidx.compose.ui
+    implementation libs.com.blankj.utilcode
+    implementation libs.androidx.compose.ui.graphics
+    implementation libs.androidx.compose.ui.tooling.preview
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.material
+    implementation libs.io.coilkt
+    testImplementation libs.junit
+    androidTestImplementation platform(libs.androidx.compose.bom)
+    androidTestImplementation libs.androidx.compose.ui.test.junit4
+    androidTestImplementation libs.androidx.espresso.core
+    androidTestImplementation libs.androidx.junit
+    debugImplementation libs.androidx.compose.ui.test.manifest
+    debugImplementation libs.androidx.compose.ui.tooling
+
+    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("com.github.Petterpx.walle:library:1.0.4")
+
+
+}

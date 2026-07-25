@@ -1,0 +1,86 @@
+package com.lx.lxtoolsproject
+
+import android.animation.ObjectAnimator
+import android.content.Intent
+import android.os.Bundle
+import android.view.animation.LinearInterpolator
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+//import com.ep.custom_honor_library.ControllerUtils
+//import com.ep.custom_honor_library.http.CommonHttpUtils
+//import com.ep.custom_honor_library.utils.CommonSpUtils
+//import com.ep.custom_honor_library.utils.DefAPIUtils
+//import com.ep.custom_honor_library.utils.doBackgroundThread
+import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
+//import com.p.a_b.MainWeatherActivity
+import kotlin.jvm.java
+
+class LaunchPageActivity : AppCompatActivity() {
+
+    var launchBind: LaunchPageActivityBinding? = null
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        launchBind = LaunchPageActivityBinding.inflate(layoutInflater)
+//        setContentView(launchBind!!.root)
+//        initView()
+    }
+
+
+    fun initView(){
+//        if (CommonSpUtils.getSpIsFirstAppStr()){
+//            val dialog = ProtocolDialog()
+//            dialog.show(supportFragmentManager,"dialog")
+//
+//            dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
+//                override fun clickOk() {
+//                   CommonSpUtils.setSpIsFirstAppStr(false)
+//                    initConfig(DefAPIUtils.randomConfig_from_first)
+//                }
+//                override fun clickCancel() {
+//                   finish()
+//                }
+//            })
+//            return
+//        }
+//
+//        initConfig(DefAPIUtils.randomConfig_from_later)
+    }
+
+
+    private fun initConfig(from:String){
+
+//        ControllerUtils.initStrategy(from,object : CommonHttpUtils.OnHttpListener {
+//            override fun onSuccess() {
+//                toMainActivity()
+//                launchBind?.launcherProgress?.setProgress(100)
+//            }
+//
+//            override fun onFail(e: Exception?) {
+//                doBackgroundThread.doOnMainThreadIdle({
+//                    toMainActivity()
+//                   }, null)
+//            }
+//        })
+
+
+
+
+        val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
+        animation.duration = 4000
+        animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
+        animation.start()
+    }
+
+
+    private fun toMainActivity(){
+//        val intent = Intent(this, MainWeatherActivity::class.java)
+//        startActivity(intent)
+    }
+
+}

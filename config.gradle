@@ -1,0 +1,50 @@
+ext{
+    android = [
+            versionCode      : 25,
+            versionName      : "2.0.5",
+    ]
+    dependencies = [
+
+    ]
+
+
+
+
+
+
+    appConfig = [
+
+            "HOST"        :  "https://api.longqinrui.cn/",
+            //TODO 隐私协议
+            "privacyUrl": "https://api.longqinrui.cn/agreement/wlclx/privacy",
+            "userUrl"   : "https://api.longqinrui.cn/agreement/wlclx/user",
+            "VERSIONNAME":android.versionName,
+
+            //TODO 接口加密key
+
+            "RELEASE_APPID": "11ec160f3597d644",
+            "RELEASE_SSK"  : "06aabb389555c36256160f45992fe9f1",
+
+
+            //TODO 接口环境  日志log开关
+            "logSwitch"    : false,
+
+            //TODO 启动时间
+            "ad_LiveTime":"2026-07-29 18:00:00",
+
+
+            //TODO 友盟Id
+            "umID":"6a4b610c6f259537c7c3f296",
+
+            //TODO 第三方广告SDK ID
+            "TOPON_APPID"  : "", //topOne Id
+            "TOPON_APPKEY" : "", //topOne key
+            "APPID"        : "5844462", //穿山甲Id
+            "FISRT_SPLASH" : "",  //开屏
+            "FIRST_REWORD" : "",//开屏激励视频
+            "JL_APPID"     : "",//巨量appId
+
+            "lx_tools_pt":"shell_chengluxun.aar",
+    ]
+
+}
