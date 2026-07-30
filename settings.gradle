@@ -78,8 +78,8 @@ include ':color_picker_library'
 include ':c_interface_library'
 
  
-project(':custom_honor_library').projectDir =file('./modules/custom_honor_library')
-project(':c_interface_library').projectDir =file('./modules/c_interface_library')
+project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
+project(':c_interface_library').projectDir =file('./modules/custom_honor_ad_library/c_interface_library')
 project(':toolsbox').projectDir =file('./modulesUI/toolsbox_moduel/toolsbox')
 project(':setting').projectDir =file('./modulesUI/third-module/setting')
 project(':hotSceniclib').projectDir =file('./modulesUI/third-module/hotSceniclib')
@@ -100,14 +100,14 @@ project(':color_picker_library').projectDir =file('./modulesUI/third-module/colo
 
 
 
-include':modules:custom_honor_library:aarlibrary:baidu_mobads_sdk_release'
-include':modules:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter'
-include':modules:custom_honor_library:aarlibrary:gdtsdk_unionnormal'
-include':modules:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter'
-include':modules:custom_honor_library:aarlibrary:kssdk_ct_publishRelease'
-include':modules:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter'
-include':modules:custom_honor_library:aarlibrary:open_ad_sdk'
-include':modules:custom_honor_library:aarlibrary:appupdate'
-include':modules:custom_honor_library:aarlibrary:octopus_ad_sdk'
-include':modules:custom_honor_library:aarlibrary:pij_ad_sdk'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:open_ad_sdk'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:appupdate'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:octopus_ad_sdk'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:pij_ad_sdk'
 
