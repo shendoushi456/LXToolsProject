@@ -15,11 +15,11 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.gzchwl.chengluxun"
-        minSdk 24
+        applicationId "com.whcqy.qingtongxianweihelp"
+        minSdk 26
         targetSdk 33
-        versionCode rootProject.ext.appConfig["versionCode"]
-        versionName rootProject.ext.appConfig["versionName"]
+        versionCode 22
+        versionName "2.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'chengluxun'
+            keyAlias 'qingtongxianweihelp'
             keyPassword '123456'
-            storeFile file('chengluxun.jks')
+            storeFile file('qingtongxianweihelp.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'chengluxun'
+            keyAlias 'qingtongxianweihelp'
             keyPassword '123456'
-            storeFile file('chengluxun.jks')
+            storeFile file('qingtongxianweihelp.jks')
             storePassword '123456'
         }
     }
@@ -87,7 +87,11 @@ android {
                 "-Xjvm-default=all",
         ]
     }
-
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES']
+        }
+    }
 
 
     dataBinding {
@@ -107,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '城路寻-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '清瞳显微助手-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -118,9 +122,8 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-//    implementation project(':custom_honor_library')
-//    implementation project(':toolsbox_moduel:toolsbox')
-//    implementation files('libs/shell_chengluxun.aar')
+    implementation project(':modules:custom_honor_library')
+    implementation project(':toolsbox')
     implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
@@ -145,4 +148,8 @@ dependencies {
     implementation ("com.github.Petterpx.walle:library:1.0.4")
 
 
+}
+
+configurations.all {
+    exclude group: 'com.intellij', module: 'annotations'
 }

@@ -31,7 +31,7 @@ pluginManagement {
 }
 plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
-
+//    id 'com.google.devtools.ksp' version '2.1.0-1.0.29' apply false
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -60,24 +60,52 @@ dependencyResolutionManagement {
 rootProject.name = "LXToolsProject"
 include ':app'
 include ':custom_honor_library'
-include ':toolsbox_moduel:toolsbox'
-include ':third-module:setting'
-include ':third-module:hotSceniclib'
-include ':third-module:sharedPreferences'
-include ':third-module:scanlibrary'
-include ':third-module:weather_lib'
+include ':toolsbox'
+include ':setting'
+include ':hotSceniclib'
+include ':sharedPreferences'
+include ':scanlibrary'
+include ':weather_lib'
+include ':calculatorlibrary'
+
+include ':tallynotes'
+include ':pic_toolslibrary'
+include ':pic_edit_library'
+include ':smalltoolslibrary'
+include ':toolslibrary'
+include ':tools_extra_lib'
+include ':color_picker_library'
+
+
+ 
+project(':custom_honor_library').projectDir =file('./modules/custom_honor_library')
+project(':toolsbox').projectDir =file('./modulesUI/toolsbox_moduel/toolsbox')
+project(':setting').projectDir =file('./modulesUI/third-module/setting')
+project(':hotSceniclib').projectDir =file('./modulesUI/third-module/hotSceniclib')
+project(':sharedPreferences').projectDir =file('./modulesUI/third-module/sharedPreferences')
+project(':scanlibrary').projectDir =file('./modulesUI/third-module/scanlibrary')
+project(':weather_lib').projectDir =file('./modulesUI/third-module/weather_lib')
+project(':calculatorlibrary').projectDir =file('./modulesUI/third-module/calculatorlibrary')
+project(':tallynotes').projectDir =file('./modulesUI/third-module/tallynotes')
+project(':pic_toolslibrary').projectDir =file('./modulesUI/third-module/pic_toolslibrary')
+project(':pic_edit_library').projectDir =file('./modulesUI/third-module/pic_edit_library')
+project(':smalltoolslibrary').projectDir =file('./modulesUI/third-module/smalltoolslibrary')
+project(':toolslibrary').projectDir =file('./modulesUI/third-module/toolslibrary')
+project(':tools_extra_lib').projectDir =file('./modulesUI/third-module/tools_extra_lib')
+project(':color_picker_library').projectDir =file('./modulesUI/third-module/color_picker_library')
 
 
 
 
 
-include':custom_honor_library:aarlibrary:baidu_mobads_sdk_release'
-include':custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter'
-include':custom_honor_library:aarlibrary:gdtsdk_unionnormal'
-include':custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter'
-include':custom_honor_library:aarlibrary:kssdk_ct_publishRelease'
-include':custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter'
-include':custom_honor_library:aarlibrary:open_ad_sdk'
-include':custom_honor_library:aarlibrary:appupdate'
-include':custom_honor_library:aarlibrary:octopus_ad_sdk'
-include':custom_honor_library:aarlibrary:pij_ad_sdk'
+
+include':modules:custom_honor_library:aarlibrary:baidu_mobads_sdk_release'
+include':modules:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter'
+include':modules:custom_honor_library:aarlibrary:gdtsdk_unionnormal'
+include':modules:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter'
+include':modules:custom_honor_library:aarlibrary:kssdk_ct_publishRelease'
+include':modules:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter'
+include':modules:custom_honor_library:aarlibrary:open_ad_sdk'
+include':modules:custom_honor_library:aarlibrary:appupdate'
+include':modules:custom_honor_library:aarlibrary:octopus_ad_sdk'
+include':modules:custom_honor_library:aarlibrary:pij_ad_sdk'
