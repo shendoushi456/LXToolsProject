@@ -53,6 +53,8 @@ walle-plugin = { group = "com.github.Petterpx.walle", name = "plugin", version.r
 android-application = { id = "com.android.application", version.ref = "agp" }
 #kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinCompose" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinCompose" }
 
 
 

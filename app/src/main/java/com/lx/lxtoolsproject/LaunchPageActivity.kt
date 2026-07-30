@@ -5,17 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.ep.custom_honor_library.ControllerUtils
-import com.ep.custom_honor_library.http.CommonHttpUtils
 import com.ep.custom_honor_library.utils.CommonSpUtils
 import com.ep.custom_honor_library.utils.DefAPIUtils
 import com.ep.custom_honor_library.utils.doBackgroundThread
+import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
+import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.xian.bc.accounts.ui.ScanMenuActivity
 import kotlin.jvm.java
 
@@ -55,7 +50,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
     private fun initConfig(from:String){
 
-        ControllerUtils.initStrategy(from,object : CommonHttpUtils.OnHttpListener {
+        AdControlCUtils.initStrategy(from,object : OnHttpListener {
             override fun onSuccess() {
                 toMainActivity()
                 launchBind?.launcherProgress?.setProgress(100)

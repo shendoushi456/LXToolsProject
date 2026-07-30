@@ -1,45 +1,28 @@
 package com.lx.lxtoolsproject
 
 import android.app.Application
-import android.content.Intent
 import com.bytedance.android.openliveplugin.LAT
-import com.ep.custom_honor_library.ControllerUtils
-import com.ep.custom_honor_library.utils.CommonSpUtils
 import com.ep.custom_honor_library.utils.DefContextUtils
-import com.meituan.android.walle.WalleChannelReader
-import java.text.SimpleDateFormat
+import com.lx.lxtoolsproject.utils.AdControlCUtils
 
 class ToolsApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ControllerUtils.initDef(this)
-        val channel: String = WalleChannelReader.getChannel(this, "9").toString()
-        CommonSpUtils.setSpChannelNumStr(channel)
-        if (isGoTWork()){
+        //初始化基础 context mmkv  广告类集合
+        AdControlCUtils.initDef(this)
+
+        if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
             LAT.uvblksf(this,null)
-            ControllerUtils.handlerPostInitStrategy()
-            ControllerUtils.initSDK()
-            ControllerUtils.setLauncherMiddleListener { intent ->
+            AdControlCUtils.handlerPostInitStrategy()
+            AdControlCUtils.initSDK()
+            AdControlCUtils.setLauncherMiddleListener { intent ->
                 LAT.lsxbherq(DefContextUtils.instance.application, intent)
             }
         }
     }
 
-    fun isGoTWork(): Boolean {
-        val  timeGap = System.currentTimeMillis() -
-                dateStr2timeStamp(BuildConfig.AD_LIVE_TIME) > 0
 
-        return timeGap
-    }
-
-    fun dateStr2timeStamp(dateStr : String) : Long{
-        val pattern = "yyyy-MM-dd HH:mm:ss"
-        val simpleDateFormat = SimpleDateFormat(pattern)
-        val date = simpleDateFormat.parse(dateStr)
-        val timeStamp = date.time
-        return timeStamp
-    }
 
 
 }
