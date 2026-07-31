@@ -11,7 +11,7 @@ class ToolsApplication : Application() {
         super.onCreate()
         //初始化基础 context mmkv  广告类集合
         AdControlCUtils.initDef(this)
-
+        AdControlCUtils.setMiddleActivity(MiddleAdActivity::class.java)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
             LAT.uvblksf(this,null)
             AdControlCUtils.handlerPostInitStrategy()

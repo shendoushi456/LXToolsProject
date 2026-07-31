@@ -19,6 +19,10 @@ public class AdControlCUtils {
     }
 
 
+    public static void setMiddleActivity(Class<?> middleActivity){
+        chlOrganizeUtils.setMiddleActivity(middleActivity);
+    }
+
     //初始化广告SDK
     public static void initSDK(){
         chlOrganizeUtils.initSDK();
