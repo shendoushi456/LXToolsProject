@@ -1,6 +1,9 @@
 package com.lx.lxtoolsproject.utils;
 
+import android.app.Activity;
 import android.app.Application;
+import android.content.Intent;
+import android.view.ViewGroup;
 
 import com.ep.custom_honor_library.chlOrganizeUtils;
 import com.lx.c_interface_library.OnHttpListener;
@@ -43,6 +46,11 @@ public class AdControlCUtils {
     //启动页初始化策略
     public static void initStrategy(String form, OnHttpListener httpListener){
         chlOrganizeUtils.initStrategy(form,httpListener);
+    }
+
+
+    public static void initAdShow(Intent intent, Activity activity, ViewGroup adLayout){
+        chlOrganizeUtils.initAdShow(intent,activity,adLayout);
     }
 
 

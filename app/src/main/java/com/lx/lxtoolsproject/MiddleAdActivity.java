@@ -13,6 +13,7 @@ import com.ep.custom_honor_library.bean.ControlAdBean;
 import com.lx.c_interface_library.CommonAPI;
 import com.ep.custom_honor_library.utils.CustomLogUtils;
 import com.lx.c_interface_library.OnMiddleInterface;
+import com.lx.lxtoolsproject.utils.AdControlCUtils;
 
 import java.lang.ref.WeakReference;
 
@@ -38,16 +39,7 @@ public class MiddleAdActivity extends AppCompatActivity implements OnMiddleInter
 
 
     private void initAdView(Intent intent){
-        String adScreen = intent.getStringExtra(CommonAPI.INTENT_MIDDLE_FLAG);
-        int adIndex = intent.getIntExtra(CommonAPI.INTENT_MIDDLE_INDEX,0);
-        CustomLogUtils.i("获取到的KEY == "+adScreen);
-        ControlAdBean controlAdBean = new ControlAdBean();
-        controlAdBean.setWrContext(new WeakReference<>(this));
-        controlAdBean.setWrViewGroup(new WeakReference<>(adLayout));
-        controlAdBean.setAdIndex(adIndex);
-        controlAdBean.setAdSCreen(adScreen);
-        AdController.getAdControllerInstance().intentAd(controlAdBean);
-
+        AdControlCUtils.initAdShow(intent,this,adLayout);
     }
 
 }
