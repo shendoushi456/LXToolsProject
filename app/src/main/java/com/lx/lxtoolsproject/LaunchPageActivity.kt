@@ -3,15 +3,14 @@ package com.lx.lxtoolsproject
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import com.ep.custom_honor_library.utils.CommonSpUtils
-import com.ep.custom_honor_library.utils.DefAPIUtils
-import com.ep.custom_honor_library.utils.doBackgroundThread
+import cn.hzw.doodledemo.ScanMenuActivity
 import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.xian.bc.accounts.ui.ScanMenuActivity
 import kotlin.jvm.java
 
 class LaunchPageActivity : AppCompatActivity() {
@@ -28,14 +27,14 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     fun initView(){
-        if (CommonSpUtils.getSpIsFirstAppStr()){
+        if (APPSpUtils.getSpIsFirstAppStr()){
             val dialog = ProtocolDialog()
             dialog.show(supportFragmentManager,"dialog")
 
             dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
                 override fun clickOk() {
-                   CommonSpUtils.setSpIsFirstAppStr(false)
-                    initConfig(DefAPIUtils.randomConfig_from_first)
+                   APPSpUtils.setSpIsFirstAppStr(false)
+                    initConfig("from_welcom_first")
                 }
                 override fun clickCancel() {
                    finish()
@@ -44,7 +43,7 @@ class LaunchPageActivity : AppCompatActivity() {
             return
         }
 
-        initConfig(DefAPIUtils.randomConfig_from_later)
+        initConfig("from_welcom_later")
     }
 
 
@@ -62,6 +61,14 @@ class LaunchPageActivity : AppCompatActivity() {
                    }, null)
             }
         })
+
+
+//        Handler().postDelayed(object : Runnable{
+//            override fun run() {
+//                toMainActivity()
+//            }
+//
+//        },4000)
 
 
 

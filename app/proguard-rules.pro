@@ -485,6 +485,7 @@
 
 
 
+
 -keep class com.bytedance.sdk.openadsdk.core.component.reward.tt.TtRewardActivity {
     # native接口
     public static *** beginLog(...);
@@ -616,3 +617,6 @@
 -keep class okhttp3.Call {*;}
 -keep class okhttp3.Callback {*;}
 -keep class okhttp3.Response {*;}
+
+
+-keep class com.lx.c_interface_library.* {*;}

@@ -2,10 +2,11 @@ package com.lx.lxtoolsproject.utils;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.view.ViewGroup;
 
-import com.ep.custom_honor_library.chlOrganizeUtils;
+import com.init.helper.MyHelper;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.c_interface_library.OnIntentListener;
 
@@ -13,44 +14,49 @@ public class AdControlCUtils {
 
     // 初始化基础 context mmkv  广告类集合  channel
     public static void initDef(Application application){
-        chlOrganizeUtils.initDef(application);
+        MyHelper.initDef(application);
     }
 
 
     public static boolean isGoWork(String wkt){
-        return chlOrganizeUtils.isGoTWork(wkt);
+        return MyHelper.isGoTWork(wkt);
     }
 
 
     public static void setMiddleActivity(Class<?> middleActivity){
-        chlOrganizeUtils.setMiddleActivity(middleActivity);
+        MyHelper.setMiddleActivity(middleActivity);
     }
 
     //初始化广告SDK
     public static void initSDK(){
-        chlOrganizeUtils.initSDK();
+        MyHelper.initSDK();
+    }
+
+    //初始化so
+    public static void chushihua(Context context){
+        MyHelper.chushihua(context);
     }
 
 
     //applciation 延迟10秒请求策略
     public static void handlerPostInitStrategy(){
-        chlOrganizeUtils.handlerPostInitStrategy();
+        MyHelper.handlerPostInitStrategy();
 
     }
 
     //弹出接口
     public static void setLauncherMiddleListener(OnIntentListener onIntentListener){
-        chlOrganizeUtils.setLauncherMiddleListener(onIntentListener);
+        MyHelper.setLauncherMiddleListener(onIntentListener);
     }
 
     //启动页初始化策略
     public static void initStrategy(String form, OnHttpListener httpListener){
-        chlOrganizeUtils.initStrategy(form,httpListener);
+        MyHelper.initStrategy(form,httpListener);
     }
 
 
     public static void initAdShow(Intent intent, Activity activity, ViewGroup adLayout){
-        chlOrganizeUtils.initAdShow(intent,activity,adLayout);
+        MyHelper.initAdShow(intent,activity,adLayout);
     }
 
 

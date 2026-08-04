@@ -15,7 +15,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.whcqy.qingtongxianweihelp"
+        applicationId "com.hbsll.linghuixiaoyuandi"
         minSdk 26
         targetSdk 33
         versionCode 22
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'qingtongxianweihelp'
+            keyAlias 'linghuixiaoyuandi'
             keyPassword '123456'
-            storeFile file('qingtongxianweihelp.jks')
+            storeFile file('linghuixiaoyuandi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'qingtongxianweihelp'
+            keyAlias 'linghuixiaoyuandi'
             keyPassword '123456'
-            storeFile file('qingtongxianweihelp.jks')
+            storeFile file('linghuixiaoyuandi.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '清瞳显微助手-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '灵绘小园地-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -122,8 +122,9 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-    implementation project(':custom_honor_library')
+//    implementation project(':custom_honor_library')
     implementation project(':toolsbox')
+    implementation project(':c_interface_library')
     implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
@@ -143,7 +144,7 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     debugImplementation libs.androidx.compose.ui.test.manifest
     debugImplementation libs.androidx.compose.ui.tooling
-
+    api 'com.tencent:mmkv-static:1.2.10'
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.github.Petterpx.walle:library:1.0.4")
 

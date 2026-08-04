@@ -14,23 +14,23 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zhangshenhan1.top/",
+            "HOST"        :  "https://api.yuanyiqi1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbqtxwzs/privacy",
-            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbqtxwzs/user",
+            "privacyUrl": "https://api.yuanyiqi1.top/agreement/wllhxyd/privacy",
+            "userUrl"   : "https://api.yuanyiqi1.top/agreement/wllhxyd/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "87007ebfd98bb2fb",
-            "RELEASE_SSK"  : "2c1b5ef72f8945f019eac03847bdd3f0",
+            "RELEASE_APPID": "db3b6bc6da72fe35",
+            "RELEASE_SSK"  : "c39a1a84468ca6ab6a50444052309609",
 
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : true,
+            "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2023-08-02 11:00:00",
+            "ad_LiveTime":"2027-08-02 11:00:00",
 
 
             //TODO 友盟Id
@@ -44,7 +44,7 @@ ext{
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
-            "lx_tools_pt":"qingtongxianweizhhushou.aar",
+            "lx_tools_pt":"load_h_v1company.aar",
     ]
 
 }
