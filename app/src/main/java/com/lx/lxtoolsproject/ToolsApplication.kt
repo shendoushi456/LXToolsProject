@@ -1,11 +1,18 @@
 package com.lx.lxtoolsproject
 
 import android.app.Application
+import android.content.Context
+import android.content.Intent
 import com.bytedance.android.openliveplugin.LAT
-import com.ep.custom_honor_library.utils.DefContextUtils
+import com.init.helper.MyHelper
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 
 class ToolsApplication : Application() {
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MyHelper.chushihua(base)
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -17,7 +24,8 @@ class ToolsApplication : Application() {
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
-                LAT.lsxbherq(DefContextUtils.instance.application, intent)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                LAT.lsxbherq(this, intent)
             }
         }
     }
