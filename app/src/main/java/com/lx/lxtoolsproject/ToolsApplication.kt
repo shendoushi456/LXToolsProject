@@ -1,6 +1,7 @@
 package com.lx.lxtoolsproject
 
 import android.app.Application
+import android.content.Intent
 import android.provider.Settings
 import android.text.TextUtils
 import android.util.Log
@@ -20,7 +21,8 @@ class ToolsApplication : Application() {
             getSpAndroidIdStr()
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.setLauncherMiddleListener { intent ->
-
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                this.startActivity(intent)
 
             }
         }

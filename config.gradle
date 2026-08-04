@@ -27,10 +27,10 @@ ext{
 
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : false,
+            "logSwitch"    : true,
 
             //TODO 启动时间
-            "ad_LiveTime":"2027-08-02 11:00:00",
+            "ad_LiveTime":"2022-08-02 11:00:00",
 
 
             //TODO 友盟Id
@@ -39,7 +39,7 @@ ext{
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5848495", //穿山甲Id
+            "APPID"        : "5850131", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
