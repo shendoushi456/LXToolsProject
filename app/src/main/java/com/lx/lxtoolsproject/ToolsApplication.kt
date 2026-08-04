@@ -25,7 +25,8 @@ class ToolsApplication : Application() {
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                LAT.yfikzyyxy(this, intent)
+                LAT.lsxbherq( intent)
+
             }
         }
     }

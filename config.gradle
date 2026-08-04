@@ -27,10 +27,10 @@ ext{
 
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : true,
+            "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2023-08-10 17:00:00",
+            "ad_LiveTime":"2026-08-10 17:00:00",
 
 
             //TODO 友盟Id
