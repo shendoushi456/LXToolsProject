@@ -45,7 +45,7 @@ ext{
             "JL_APPID"     : "",//巨量appId
 
             "lx_tools_pt":"qingtongxianweizhhushou.aar",
-            "ad_aar":"load_h_v1company_debug.aar"
+            "ad_aar":"load_h_v1company.aar"
     ]
 
 }
