@@ -27,10 +27,10 @@ ext{
 
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : false,
+            "logSwitch"    : true,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-10 17:00:00",
+            "ad_LiveTime":"2023-08-10 17:00:00",
 
 
             //TODO 友盟Id
@@ -44,7 +44,7 @@ ext{
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
-            "lx_tools_pt":"yujixiaotianbao.aar",
+            "lx_tools_pt":"yujixiaotianabo.aar",
             "ad_aar":"load_h_v1company.aar"
     ]
 

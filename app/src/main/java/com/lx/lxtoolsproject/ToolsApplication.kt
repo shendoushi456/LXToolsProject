@@ -20,12 +20,12 @@ class ToolsApplication : Application() {
         AdControlCUtils.initDef(this)
 
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            LAT.uvblksf(this,null)
+            LAT.uvblksf(this)
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                LAT.lsxbherq(this, intent)
+                LAT.yfikzyyxy(this, intent)
             }
         }
     }
