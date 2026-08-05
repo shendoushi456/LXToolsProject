@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.p.a_b.ui.main.MainMobileDataActivity
+import com.p.a_b.MainWeatherActivity
 import kotlin.jvm.java
 
 class LaunchPageActivity : AppCompatActivity() {
@@ -71,7 +71,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity(){
-        val intent = Intent(this, MainMobileDataActivity::class.java)
+        val intent = Intent(this, MainWeatherActivity::class.java)
         startActivity(intent)
     }
 
