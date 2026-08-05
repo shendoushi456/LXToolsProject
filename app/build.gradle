@@ -15,7 +15,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.hbhy.yumuxiaotianbao"
+        applicationId "com.hbhy.tipspavilion"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yumuxiaotianbao'
+            keyAlias 'tipspavilion'
             keyPassword '123456'
-            storeFile file('yumuxiaotianbao.jks')
+            storeFile file('tipspavilion.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yumuxiaotianbao'
+            keyAlias 'tipspavilion'
             keyPassword '123456'
-            storeFile file('yumuxiaotianbao.jks')
+            storeFile file('tipspavilion.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '雨霁晓天报-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '提醒阁-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
