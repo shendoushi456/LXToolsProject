@@ -429,11 +429,11 @@
 -keep class com.bytedance.ads.convert.broadcast.common.EncryptionTools {*;}
 
 ######方法名等混淆指定配置
--obfuscationdictionary proguard-chinese.txt
+-obfuscationdictionary proguard_en.txt
 #####类名混淆指定配置
--classobfuscationdictionary proguard-chinese.txt
+-classobfuscationdictionary proguard_en.txt
 #####包名混淆指定配置
--packageobfuscationdictionary proguard-chinese.txt
+-packageobfuscationdictionary proguard_en.txt
 #
 
 -keep class android.app.ActivityThread {

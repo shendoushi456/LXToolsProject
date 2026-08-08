@@ -15,7 +15,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.hbsll.shenghuoxingyiban"
+        applicationId "com.whcqy.yaoshimemorandum"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'shenghuoxingyiban'
+            keyAlias 'yaoshimemorandum'
             keyPassword '123456'
-            storeFile file('shenghuoxingyiban.jks')
+            storeFile file('yaoshimemorandum.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'shenghuoxingyiban'
+            keyAlias 'yaoshimemorandum'
             keyPassword '123456'
-            storeFile file('shenghuoxingyiban.jks')
+            storeFile file('yaoshimemorandum.jks')
             storePassword '123456'
         }
     }
@@ -105,13 +105,13 @@ android {
     buildFeatures {
         compose true
     }
-
+    	
 
     walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '生活醒忆伴-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '要事备忘宝-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
