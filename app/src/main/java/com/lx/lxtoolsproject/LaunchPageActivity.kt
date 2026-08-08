@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.p.a_b.ui.main.MainMobileDataActivity
+import com.xian.bc.accounts.ui.ScanMenuActivity
+
+//import com.p.a_b.ui.main.MainMobileDataActivity
 
 
 class LaunchPageActivity : AppCompatActivity() {
@@ -78,7 +80,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity(){
-        val intent = Intent(this, MainMobileDataActivity::class.java)
+        val intent = Intent(this, ScanMenuActivity::class.java)
         startActivity(intent)
     }
 

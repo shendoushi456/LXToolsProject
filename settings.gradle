@@ -77,6 +77,7 @@ include ':tools_extra_lib'
 include ':color_picker_library'
 include ':c_interface_library'
 include ':toDoListlib'
+include ':h5_lib'
 
  
 project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
@@ -96,6 +97,7 @@ project(':toolslibrary').projectDir =file('./modulesUI/third-module/toolslibrary
 project(':tools_extra_lib').projectDir =file('./modulesUI/third-module/tools_extra_lib')
 project(':color_picker_library').projectDir =file('./modulesUI/third-module/color_picker_library')
 project(':toDoListlib').projectDir =file('./modulesUI/third-module/toDoListlib')
+project(':h5_lib').projectDir =file('./modulesUI/third-module/h5_lib')
 
 
 
