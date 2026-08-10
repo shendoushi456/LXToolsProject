@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 21,
-            versionName      : "2.0.1",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
@@ -12,10 +12,10 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.yuanyiqi1.top/",
+            "HOST"        :  "https://api.zhangshenhan1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.yuanyiqi1.top/agreement/wlzpsmj/privacy",
-            "userUrl"   : "https://api.yuanyiqi1.top/agreement/wlzpsmj/user",
+            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbalqx/privacy",
+            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbalqx/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
@@ -28,7 +28,7 @@ ext{
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-12 18:00:00",
+            "ad_LiveTime":"2026-09-12 18:00:00",
 
 
             //TODO 友盟Id
@@ -42,7 +42,7 @@ ext{
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
-            "lx_tools_pt":"zhipaiaomiaojia.aar",
+//            "lx_tools_pt":"zhipaiaomiaojia.aar",
             "ad_aar":"load_h_v1company.aar"
     ]
 
