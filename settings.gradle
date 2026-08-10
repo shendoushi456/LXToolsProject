@@ -74,13 +74,15 @@ include ':pic_edit_library'
 include ':smalltoolslibrary'
 include ':toolslibrary'
 include ':tools_extra_lib'
+include ':coloring_book'
 include ':color_picker_library'
 include ':c_interface_library'
+include ':toDoListlib'
 
  
 project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
 project(':c_interface_library').projectDir =file('./modules/custom_honor_ad_library/c_interface_library')
-project(':toolsbox').projectDir =file('./modulesUI/toolsbox_moduel/toolsbox')
+project(':toolsbox').projectDir =file('./modulesUI/tools-ui-library/tools-ui-library')
 project(':setting').projectDir =file('./modulesUI/third-module/setting')
 project(':hotSceniclib').projectDir =file('./modulesUI/third-module/hotSceniclib')
 project(':sharedPreferences').projectDir =file('./modulesUI/third-module/sharedPreferences')
@@ -94,6 +96,8 @@ project(':smalltoolslibrary').projectDir =file('./modulesUI/third-module/smallto
 project(':toolslibrary').projectDir =file('./modulesUI/third-module/toolslibrary')
 project(':tools_extra_lib').projectDir =file('./modulesUI/third-module/tools_extra_lib')
 project(':color_picker_library').projectDir =file('./modulesUI/third-module/color_picker_library')
+project(':coloring_book').projectDir =file('./modulesUI/third-module/coloring_book')
+project(':toDoListlib').projectDir =file('./modulesUI/third-module/toDoListlib')
 
 
 

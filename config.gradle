@@ -14,25 +14,25 @@ ext{
 
             "HOST"        :  "https://api.zhangshenhan1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbtxg/privacy",
-            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbtxg/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbmyshg/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbmyshg/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "01031d07c77bc4a3",
-            "RELEASE_SSK"  : "519da9f59c7cc2b3f93179cbf6cb89fe",
+            "RELEASE_APPID": "4afa3bb22e8114f7",
+            "RELEASE_SSK"  : "28f6ba6e9f2ef44cf5027f4f7f739d66",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-10 17:00:00",
+            "ad_LiveTime":"2026-09-10 17:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a5454ebcbfa69595175b544",
+            "umID":"6a79800d934d206f5856a2d5",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
@@ -42,8 +42,6 @@ ext{
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
-            "lx_tools_pt":"yujixiaotianabo.aar",
-            "ad_aar":"load_h_v1company.aar"
     ]
 
 }
