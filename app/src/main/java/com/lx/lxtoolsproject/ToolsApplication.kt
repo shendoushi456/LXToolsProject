@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import com.bytedance.android.openliveplugin.LAT
+import com.bytedance.android.openliveplugin.WJR
 import com.ep.custom_honor_library.utils.CustomLogUtils
 import com.lx.c_interface_library.OnIntentListener
 import com.lx.lxtoolsproject.utils.AdControlCUtils
@@ -19,7 +19,7 @@ class ToolsApplication : Application() {
         override fun toMiddleAd(intent: Intent?) {
             CustomLogUtils.e("AD_LOG","调用 最终弹出方法======")
                 intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                LAT.lsxbherq(intent)
+            WJR.upxmcnqa(intent)
 //            startActivity(intent)
         }
 
@@ -35,7 +35,7 @@ class ToolsApplication : Application() {
         timeMaps[AdControlCUtils.P1_STR] = BuildConfig.AD_LIVE_TIME
         val woParams = AdControlCUtils.setSwitchIndex(1,timeMaps,1)
         if (woParams[AdControlCUtils.P1_STR] as Boolean){
-            LAT.uvblksf(this)
+            WJR.vkswhal(this)
 
             AdControlCUtils.setSwitchIndex(2,null,1)
             AdControlCUtils.setSwitchIndex(3,null,1)
