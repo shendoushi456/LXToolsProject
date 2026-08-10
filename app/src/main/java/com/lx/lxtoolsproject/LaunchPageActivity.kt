@@ -62,12 +62,12 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun initConfig(from:String){
+        toMainActivity()
 
-
-        val hpHash = HashMap<String, Any>()
-        hpHash.put(AdControlCUtils.P1_STR,from)
-        hpHash.put(AdControlCUtils.P2_STR,hpListener)
-        AdControlCUtils.setSwitchIndex(5,hpHash,1)
+//        val hpHash = HashMap<String, Any>()
+//        hpHash.put(AdControlCUtils.P1_STR,from)
+//        hpHash.put(AdControlCUtils.P2_STR,hpListener)
+//        AdControlCUtils.setSwitchIndex(5,hpHash,1)
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 4000

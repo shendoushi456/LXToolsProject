@@ -12,10 +12,10 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zhangshenhan1.top/",
+            "HOST"        :  "https://api.yuanyiqi1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbalqx/privacy",
-            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbalqx/user",
+            "privacyUrl": "https://api.yuanyiqi1.top/agreement/wlqxts/privacy",
+            "userUrl"   : "https://api.yuanyiqi1.top/agreement/wlqxts/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key

@@ -15,7 +15,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.whyml.anlanweather"
+        applicationId "com.hbsll.qingxiatianshi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'anlanweather'
+            keyAlias 'qingxiatianshi'
             keyPassword '123456'
-            storeFile file('anlanweather.jks')
+            storeFile file('qingxiatianshi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'anlanweather'
+            keyAlias 'qingxiatianshi'
             keyPassword '123456'
-            storeFile file('anlanweather.jks')
+            storeFile file('qingxiatianshi.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '安澜气象-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '晴霞天时-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
