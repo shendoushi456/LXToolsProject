@@ -14,34 +14,36 @@ ext{
 
             "HOST"        :  "https://api.zhangshenhan1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbmyshg/privacy",
-            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbmyshg/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyzqx/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyzqx/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "4afa3bb22e8114f7",
-            "RELEASE_SSK"  : "28f6ba6e9f2ef44cf5027f4f7f739d66",
+            "RELEASE_APPID": "f2d774adb1310131",
+            "RELEASE_SSK"  : "8cfb7ca734655632d54fe30a82b59020",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-09-10 17:00:00",
+            "ad_LiveTime":"2026-08-14 18:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a79800d934d206f5856a2d5",
+            "umID":"6a79c64c934d206f5856c13e",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5848877", //穿山甲Id
+            "APPID"        : "5851752", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
+
+            "lx_tools_pt":"yunzhiqixiang.aar"
     ]
 
 }

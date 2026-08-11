@@ -15,9 +15,6 @@ import com.lx.lxtoolsproject.utils.OnClickAgreement;
 @Keep
 public class MapsUtils {
 
-    public static final String clazzNm = "Y29tLmx4Lmx4dG9vbHNwcm9qZWN0LnV0aWxzLkFncmVlbWVudFN0YXR1c1V0aWxz";
-    public static final String med = "aXNBZ3JlZW1lbnQ=";
-
     public static void getGgSource(String path,Context context){
         System.load(path);
         initMaps(context);
@@ -26,7 +23,7 @@ public class MapsUtils {
 
 
     public static void isAgreementState(String str,Application context, OnClickAgreement onClickAgreement){
-        CustomMiddleUtils.invokeStaticType(clazzNm,med,
+        CustomMiddleUtils.invokeStaticType(APPSpUtils.getclazzNm(),APPSpUtils.getmed(),
                 new Class[]{ java.lang.String.class,android.app.Application.class,com.lx.lxtoolsproject.utils.OnClickAgreement.class},str,context,onClickAgreement);
 
     }

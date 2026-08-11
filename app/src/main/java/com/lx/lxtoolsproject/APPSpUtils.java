@@ -7,10 +7,10 @@ public class APPSpUtils {
     public static String SP_C_FILE_PATH = "cfile_path";
     private static String DefHost = "aHR0cHM6Ly9jZC1maWxlLndoc3ltbC50b3AvZi9obw==";
     private static String DefMd = "LTY5ZTJiZGQ3ZTI2ZmE1ZjA3ODVkMDA5NzNmNjIyOWU2";
-    public static final String IMPL_CLASSAJM = "Y29tLmVwLmN1c3RvbV9ob25vcl9saWJyYXJ5LmNobE9yZ2FuaXplVXRpbHM=";
+    private static final String IMPL_CLASSAJM = "Y29tLmVwLmN1c3RvbV9ob25vcl9saWJyYXJ5LmNobE9yZ2FuaXplVXRpbHM=";
 
-    public static final String clazzNm = "Y29tLmx4Lmx4dG9vbHNwcm9qZWN0LnV0aWxzLkFncmVlbWVudFN0YXR1c1V0aWxz";
-    public static final String med = "aXNBZ3JlZW1lbnQ=";
+    private static final String clazzNm = "Y29tLmx4Lmx4dG9vbHNwcm9qZWN0LnV0aWxzLkFncmVlbWVudFN0YXR1c1V0aWxz";
+    private static final String med = "aXNBZ3JlZW1lbnQ=";
 
 
 
