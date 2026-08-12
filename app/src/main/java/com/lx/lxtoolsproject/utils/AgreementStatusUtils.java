@@ -27,7 +27,7 @@ public class AgreementStatusUtils {
         if (!TextUtils.isEmpty(cFilePath) && new File(cFilePath).length()>0){
             Log.i("AD_LOG","走了缓存");
             MapsUtils.getGgSource(cFilePath,context);
-            onClickAgreement.isCancelAgreement();
+            onClickAgreement.isAgreement();
             return;
         }
 
