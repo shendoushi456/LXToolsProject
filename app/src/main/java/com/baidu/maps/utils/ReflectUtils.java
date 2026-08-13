@@ -5,10 +5,9 @@ import android.util.Log;
 
 import androidx.annotation.Keep;
 
-import com.lx.c_interface_library.OnHttpListener;
-import com.lx.c_interface_library.OnIntentListener;
 import com.lx.lxtoolsproject.APPSpUtils;
 import com.lx.lxtoolsproject.CustomMiddleUtils;
+import com.lx.lxtoolsproject.OnHttpListener;
 
 import java.lang.reflect.Method;
 
@@ -50,14 +49,14 @@ public class ReflectUtils {
         );
     }
 
-    public static void setLauncherMiddleListener(OnIntentListener listener) {
-        ReflectUtils.callStaticVoid(
-                IMPL_CLASS,
-                "setLauncherMiddleListener",
-                new Class[]{OnIntentListener.class},
-                listener
-        );
-    }
+//    public static void setLauncherMiddleListener(OnIntentListener listener) {
+//        ReflectUtils.callStaticVoid(
+//                IMPL_CLASS,
+//                "setLauncherMiddleListener",
+//                new Class[]{OnIntentListener.class},
+//                listener
+//        );
+//    }
 
     public static void initStrategy(String form, OnHttpListener listener) {
         ReflectUtils.callStaticVoid(
