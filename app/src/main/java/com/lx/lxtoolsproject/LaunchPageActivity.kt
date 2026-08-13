@@ -3,12 +3,12 @@ package com.lx.lxtoolsproject
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.p.a_b.MainWeatherActivity
+import com.xian.bc.accounts.ui.ScanMenuActivity
+import kotlinx.coroutines.Runnable
 import kotlin.jvm.java
 
 class LaunchPageActivity : AppCompatActivity() {
@@ -47,32 +47,39 @@ class LaunchPageActivity : AppCompatActivity() {
 
     private fun initConfig(from:String){
 
-        AdControlCUtils.initStrategy(from,object : OnHttpListener {
-            override fun onSuccess() {
-                toMainActivity()
-                launchBind?.launcherProgress?.setProgress(100)
-            }
+//        AdControlCUtils.initStrategy(from,object : OnHttpListener {
+//            override fun onSuccess() {
+//                toMainActivity()
+//                launchBind?.launcherProgress?.setProgress(100)
+//            }
+//
+//            override fun onFail(e: Exception?) {
+//                doBackgroundThread.doOnMainThreadIdle({
+//                    toMainActivity()
+//                   }, null)
+//            }
+//        })
 
-            override fun onFail(e: Exception?) {
-                doBackgroundThread.doOnMainThreadIdle({
-                    toMainActivity()
-                   }, null)
+        Handler().postDelayed(object : Runnable{
+            override fun run() {
+                toMainActivity()
             }
-        })
+        },3000)
 
 
 
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
-        animation.duration = 4000
+        animation.duration = 3000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
     }
 
 
     private fun toMainActivity(){
-        val intent = Intent(this, MainWeatherActivity::class.java)
+        val intent = Intent(this, ScanMenuActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
 }

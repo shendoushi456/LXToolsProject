@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 24,
+            versionName      : "2.0.4",
     ]
     dependencies = [
 
@@ -16,8 +16,8 @@ ext{
 
             "HOST"        :  "https://api.zhangshenhan1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbyjxtb/privacy",
-            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbyjxtb/user",
+            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbqtxwzs/privacy",
+            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbqtxwzs/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
@@ -30,7 +30,7 @@ ext{
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-10 17:00:00",
+            "ad_LiveTime":"2029-08-10 17:00:00",
 
 
             //TODO 友盟Id
