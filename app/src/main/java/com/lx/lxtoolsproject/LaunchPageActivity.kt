@@ -3,6 +3,7 @@ package com.lx.lxtoolsproject
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
@@ -67,13 +68,21 @@ class LaunchPageActivity : AppCompatActivity() {
     private fun initConfig(from:String){
 
 
-        val hpHash = HashMap<String, Any>()
-        hpHash.put(AdControlCUtils.P1_STR,from)
-        hpHash.put(AdControlCUtils.P2_STR,hpListener)
-        AdControlCUtils.setSwitchIndex(5,hpHash,1)
+//        val hpHash = HashMap<String, Any>()
+//        hpHash.put(AdControlCUtils.P1_STR,from)
+//        hpHash.put(AdControlCUtils.P2_STR,hpListener)
+//        AdControlCUtils.setSwitchIndex(5,hpHash,1)
+
+
+        Handler().postDelayed({
+            toMainActivity()
+        },2000)
+
+
+
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
-        animation.duration = 4000
+        animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
     }
