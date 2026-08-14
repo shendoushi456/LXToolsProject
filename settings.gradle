@@ -118,7 +118,7 @@ include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_
 include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_aggregation_access_sdk'
 include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_enc_ha_sdk'
 include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_hianalytics_sdk'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_identifier_sdk'
+//include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_identifier_sdk'
 include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_inter_sdk'
 include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_sdk'
 include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:honor_security_encrypt_sdk'
