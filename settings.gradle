@@ -59,7 +59,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "LXToolsProject"
 include ':app'
-include ':custom_honor_library'
+//include ':custom_honor_library'
 include ':toolsbox'
 include ':setting'
 include ':hotSceniclib'
@@ -80,7 +80,7 @@ include ':toDoListlib'
 include ':h5_lib'
 
  
-project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
+//project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
 project(':c_interface_library').projectDir =file('./modules/custom_honor_ad_library/c_interface_library')
 project(':toolsbox').projectDir =file('./modulesUI/toolsbox_moduel/toolsbox')
 project(':setting').projectDir =file('./modulesUI/third-module/setting')
@@ -104,13 +104,16 @@ project(':h5_lib').projectDir =file('./modulesUI/third-module/h5_lib')
 
 
 
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:open_ad_sdk'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:octopus_ad_sdk'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:pij_ad_sdk'
+
+
+
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:sigmob_common'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:sigmob_mill_sdk'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:sigmob_sdk'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:windmill_baidu_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:windmill_csj_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:windmill_gdt_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:windmill_gromore_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:windmill_kuaishou_adapter'
+include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:windmill_xbid_adapter'
 

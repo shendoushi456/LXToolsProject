@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 24,
+            versionName      : "2.0.4",
     ]
     dependencies = [
 
@@ -28,7 +28,7 @@ ext{
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-09-12 18:00:00",
+            "ad_LiveTime":"2029-09-12 18:00:00",
 
 
             //TODO 友盟Id

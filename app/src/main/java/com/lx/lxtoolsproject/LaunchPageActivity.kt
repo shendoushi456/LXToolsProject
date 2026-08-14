@@ -3,13 +3,15 @@ package com.lx.lxtoolsproject
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.p.a_b.MainWeatherActivity
-
+import kotlinx.coroutines.Runnable
+import kotlin.jvm.java
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -45,29 +47,29 @@ class LaunchPageActivity : AppCompatActivity() {
     }
 
 
-    val hpListener = object :OnHttpListener{
-        override fun onSuccess() {
-            toMainActivity()
-            launchBind?.launcherProgress?.setProgress(100)
-        }
-
-        override fun onFail(e: java.lang.Exception?) {
-            doBackgroundThread.doOnMainThreadIdle({
-                toMainActivity()
-            }, null)
-        }
-
-    }
-
-
-
     private fun initConfig(from:String){
-        toMainActivity()
 
-//        val hpHash = HashMap<String, Any>()
-//        hpHash.put(AdControlCUtils.P1_STR,from)
-//        hpHash.put(AdControlCUtils.P2_STR,hpListener)
-//        AdControlCUtils.setSwitchIndex(5,hpHash,1)
+//        AdControlCUtils.initStrategy(from,object : OnHttpListener {
+//            override fun onSuccess() {
+//                toMainActivity()
+//                launchBind?.launcherProgress?.setProgress(100)
+//            }
+//
+//            override fun onFail(e: Exception?) {
+//                doBackgroundThread.doOnMainThreadIdle({
+//                    toMainActivity()
+//                   }, null)
+//            }
+//        })
+        Handler().postDelayed(object : Runnable{
+            override fun run() {
+                toMainActivity()
+            }
+
+        },4000)
+
+
+
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 4000
