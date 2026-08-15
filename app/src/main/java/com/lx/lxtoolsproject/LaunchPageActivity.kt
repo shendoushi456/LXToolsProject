@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.p.a_b.MainWeatherActivity
+import com.p.a_b.ui.main.MainMobileDataActivity
 import kotlinx.coroutines.Runnable
 import kotlin.jvm.java
 
@@ -49,24 +49,24 @@ class LaunchPageActivity : AppCompatActivity() {
 
     private fun initConfig(from:String){
 
-//        AdControlCUtils.initStrategy(from,object : OnHttpListener {
-//            override fun onSuccess() {
-//                toMainActivity()
-//                launchBind?.launcherProgress?.setProgress(100)
-//            }
-//
-//            override fun onFail(e: Exception?) {
-//                doBackgroundThread.doOnMainThreadIdle({
-//                    toMainActivity()
-//                   }, null)
-//            }
-//        })
-        Handler().postDelayed(object : Runnable{
-            override fun run() {
+        AdControlCUtils.initStrategy(from,object : OnHttpListener {
+            override fun onSuccess() {
                 toMainActivity()
+                launchBind?.launcherProgress?.setProgress(100)
             }
 
-        },4000)
+            override fun onFail(e: Exception?) {
+                doBackgroundThread.doOnMainThreadIdle({
+                    toMainActivity()
+                   }, null)
+            }
+        })
+//        Handler().postDelayed(object : Runnable{
+//            override fun run() {
+//                toMainActivity()
+//            }
+//
+//        },4000)
 
 
 
@@ -79,7 +79,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity(){
-        val intent = Intent(this, MainWeatherActivity::class.java)
+        val intent = Intent(this, MainMobileDataActivity::class.java)
         startActivity(intent)
     }
 
