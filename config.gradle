@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 23,
-            versionName      : "2.0.3",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
@@ -16,8 +16,8 @@ ext{
 
             "HOST"        :  "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbtyxjb/privacy",
-            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbtyxjb/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbydwyt/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbydwyt/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key

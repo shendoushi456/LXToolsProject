@@ -8,14 +8,14 @@ plugins {
 
 }
 //apply plugin: 'walle'
-
+	
 
 android {
     namespace 'com.lx.lxtoolsproject'
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.hbfml.tuyuexingjibu"
+        applicationId "com.hbbnq.yidianwanyantong"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yumuxiaotianbao'
+            keyAlias 'yidianwanyantong'
             keyPassword '123456'
-            storeFile file('yumuxiaotianbao.jks')
+            storeFile file('yidianwanyantong.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yumuxiaotianbao'
+            keyAlias 'yidianwanyantong'
             keyPassword '123456'
-            storeFile file('yumuxiaotianbao.jks')
+            storeFile file('yidianwanyantong.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '途悦行记簿-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '译典万言通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -133,7 +133,7 @@ dependencies {
     api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter')
 //    api project(':c_interface_library')
 
-
+    api 'com.tencent:mmkv-static:1.2.10'
 
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
