@@ -15,7 +15,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.hbhy.yumuxiaotianbao"
+        applicationId "com.hbfml.tuyuexingjibu"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '雨霁晓天报-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '途悦行记簿-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -123,10 +123,20 @@ android {
 dependencies {
     implementation platform(libs.androidx.compose.bom)
 //    implementation project(':custom_honor_library')
-    implementation project(':c_interface_library')
+//    implementation project(':c_interface_library')
     implementation project(':toolsbox')
-    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
-    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+//    api project(':c_interface_library')
+
+
+
+//    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
+//    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
     implementation libs.androidx.compose.material3

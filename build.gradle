@@ -16,6 +16,8 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.android) apply false
+//    alias(libs.plugins.kotlin.android) apply false
+    id("com.google.devtools.ksp") version "2.2.10-2.0.2" apply false
 }
 
 apply from: "config.gradle"
@@ -29,3 +31,14 @@ apply from: "config.gradle"
 //        }
 //    }
 //}
+
+
+allprojects {
+
+    //此处为了解决mac M1芯片到问题 强制使用 sqlite版本
+    configurations.all {
+        resolutionStrategy {
+            force 'org.xerial:sqlite-jdbc:3.34.0'
+        }
+    }
+}

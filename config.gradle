@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 23,
+            versionName      : "2.0.3",
     ]
     dependencies = [
 
@@ -14,10 +14,10 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zhangshenhan1.top/",
+            "HOST"        :  "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbyjxtb/privacy",
-            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbyjxtb/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbtyxjb/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbtyxjb/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
@@ -30,7 +30,7 @@ ext{
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-10 17:00:00",
+            "ad_LiveTime":"2029-08-10 17:00:00",
 
 
             //TODO 友盟Id
@@ -39,13 +39,13 @@ ext{
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5848502", //穿山甲Id
+            "APPID"        : "5848910", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
-            "lx_tools_pt":"yujixiaotianabo.aar",
-            "ad_aar":"load_h_v1company.aar"
+//            "lx_tools_pt":"tuyuexingjibu.aar",
+
     ]
 
 }
