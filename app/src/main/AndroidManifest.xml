@@ -32,15 +32,6 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.ep.custom_honor_library.ui.MiddleAdActivity"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
-            android:taskAffinity=":surface"
-            android:theme="@style/Transparent" >
-        </activity>
     </application>
 
 </manifest>

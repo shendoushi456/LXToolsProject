@@ -143,6 +143,15 @@ dependencies {
     debugImplementation libs.androidx.compose.ui.test.manifest
     debugImplementation libs.androidx.compose.ui.tooling
 
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:open_ad_sdk')
+
+
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.github.Petterpx.walle:library:1.0.4")
     api 'com.tencent:mmkv-static:1.2.10'
