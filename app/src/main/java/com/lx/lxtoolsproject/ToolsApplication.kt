@@ -11,6 +11,8 @@ import com.bytedance.android.openliveplugin.LAT
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
+import com.youdao.compositioncorrection.CompositionCorrection
+import com.youdao.sdk.app.YouDaoApplication
 
 class ToolsApplication : Application() {
 
@@ -24,12 +26,28 @@ class ToolsApplication : Application() {
         super.onCreate()
         MMKV.initialize(this)
         intGgSource()
+        // 初始化有道翻译SDK
+        if (YouDaoApplication.getApplicationContext() == null) {
+            YouDaoApplication.init(
+                this@ToolsApplication,
+                "6d9b3e77125a6ffe",
+                "05aa408ecddef6659a3511b07954c989e673a98633e99696794d142b20d2d19b"
+            )
+        }
+
+        // 初始化有道作文批改SDK
+        CompositionCorrection.init(
+            this@ToolsApplication,
+            "6d9b3e77125a6ffe",
+            "05aa408ecddef6659a3511b07954c989e673a98633e99696794d142b20d2d19b"
+        )
     }
 
 
     val clickAgreement = object : OnClickAgreement {
         override fun isAgreement() {
             initApp()
+
         }
 
         override fun isCancelAgreement() {
@@ -58,6 +76,7 @@ class ToolsApplication : Application() {
             }
 
         }
+
 
 
     }
