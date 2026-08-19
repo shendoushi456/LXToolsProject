@@ -6,11 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.p.a_b.ui.main.MainMobileDataActivity
-import kotlinx.coroutines.Runnable
 import kotlin.jvm.java
 
 class LaunchPageActivity : AppCompatActivity() {
@@ -61,18 +58,18 @@ class LaunchPageActivity : AppCompatActivity() {
 //                   }, null)
 //            }
 //        })
+
         Handler().postDelayed(object : Runnable{
             override fun run() {
                 toMainActivity()
             }
-
-        },4000)
+        },3000)
 
 
 
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
-        animation.duration = 4000
+        animation.duration = 3000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
     }
