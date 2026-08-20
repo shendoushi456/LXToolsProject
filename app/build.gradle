@@ -124,7 +124,7 @@ dependencies {
     implementation platform(libs.androidx.compose.bom)
 //    implementation project(':custom_honor_library')
     implementation project(':c_interface_library')
-    implementation project(':toolsbox')
+    implementation project(':tools-ui-library')
     implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
     implementation libs.androidx.activity.compose
