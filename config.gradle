@@ -29,7 +29,7 @@ ext{
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-24 18:00:00",
+            "ad_LiveTime":"2026-08-26 18:00:00",
 
 
             //TODO 友盟Id
@@ -44,7 +44,7 @@ ext{
             "JL_APPID"     : "",//巨量appId
 
 
-            "lx_tools_pt":""
+            "lx_tools_pt":"shell_duoyuyanfanyishengqi.aar"
     ]
 
 }
