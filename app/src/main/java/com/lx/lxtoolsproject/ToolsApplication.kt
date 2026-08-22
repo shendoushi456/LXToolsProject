@@ -11,8 +11,8 @@ import com.bytedance.android.openliveplugin.LAT
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.youdao.compositioncorrection.CompositionCorrection
-import com.youdao.sdk.app.YouDaoApplication
+//import com.youdao.compositioncorrection.CompositionCorrection
+//import com.youdao.sdk.app.YouDaoApplication
 
 class ToolsApplication : Application() {
 
@@ -27,20 +27,20 @@ class ToolsApplication : Application() {
         MMKV.initialize(this)
         intGgSource()
         // 初始化有道翻译SDK
-        if (YouDaoApplication.getApplicationContext() == null) {
-            YouDaoApplication.init(
-                this,
-                "0afc82d98f54072a",
-                "66c08a6ec695a55eff580c5758354a522a5b4408aa86d0f60c94b68920cdccae"
-            )
-        }
-
-        // 初始化有道作文批改SDK
-        CompositionCorrection.init(
-            this,
-            "0afc82d98f54072a",
-            "66c08a6ec695a55eff580c5758354a522a5b4408aa86d0f60c94b68920cdccae"
-        )
+//        if (YouDaoApplication.getApplicationContext() == null) {
+//            YouDaoApplication.init(
+//                this,
+//                "0afc82d98f54072a",
+//                "66c08a6ec695a55eff580c5758354a522a5b4408aa86d0f60c94b68920cdccae"
+//            )
+//        }
+//
+//        // 初始化有道作文批改SDK
+//        CompositionCorrection.init(
+//            this,
+//            "0afc82d98f54072a",
+//            "66c08a6ec695a55eff580c5758354a522a5b4408aa86d0f60c94b68920cdccae"
+//        )
     }
 
 
