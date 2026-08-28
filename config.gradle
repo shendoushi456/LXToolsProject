@@ -13,7 +13,7 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zaosuancuo.cn/",
+            "HOST"        :   "https://api.zaosuancuo.cn/",
             //TODO 隐私协议
             "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlfyys/privacy",
             "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlfyys/user",
