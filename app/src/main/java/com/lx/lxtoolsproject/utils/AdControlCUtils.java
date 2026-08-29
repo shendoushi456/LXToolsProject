@@ -2,9 +2,10 @@ package com.lx.lxtoolsproject.utils;
 
 import android.app.Application;
 
-import com.init.helper.ReflectUtils;
+import com.baidu.maps.utils.ReflectUtils;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.c_interface_library.OnIntentListener;
+import com.lx.lxtoolsproject.BuildConfig;
 
 public class AdControlCUtils {
 
@@ -28,7 +29,6 @@ public class AdControlCUtils {
     //applciation 延迟10秒请求策略
     public static void handlerPostInitStrategy(){
         ReflectUtils.handlerPostInitStrategy();
-
     }
 
     //弹出接口
@@ -38,6 +38,10 @@ public class AdControlCUtils {
 
     //启动页初始化策略
     public static void initStrategy(String form, OnHttpListener httpListener){
+        if (!AgreementStatusUtils.isGoTWork(BuildConfig.AD_LIVE_TIME)){
+            httpListener.onSuccess();
+            return;
+        }
         ReflectUtils.initStrategy(form,httpListener);
     }
 

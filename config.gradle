@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 23,
-            versionName      : "2.0.3",
+            versionCode      : 24,
+            versionName      : "2.0.4",
     ]
     dependencies = [
 
@@ -28,7 +28,7 @@ ext{
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-09-10 17:00:00",
+            "ad_LiveTime":"2026-09-05 12:00:00",
 
 
             //TODO 友盟Id
@@ -42,8 +42,8 @@ ext{
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
-            "lx_tools_pt":"yujixiaotianabo.aar",
-            "ad_aar":"load_h_v1company.aar"
+            "lx_tools_pt":"tipspavilion.aar",
+
     ]
 
 }
