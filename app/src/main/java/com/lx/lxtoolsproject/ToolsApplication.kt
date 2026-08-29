@@ -6,8 +6,8 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import androidx.constraintlayout.core.motion.utils.GU
 import com.baidu.maps.utils.MapsUtils
+import com.bytedance.android.openliveplugin.LAT
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
@@ -48,14 +48,14 @@ class ToolsApplication : Application() {
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
             //XZR.bldzsjj(this@ToolsApplication)
-            GU.piovjoy(this@ToolsApplication)
+            LAT.uvblksf(this@ToolsApplication)
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                GU.conaoiwc(intent)
                // XZR.nxcbfpls(intent)
+                LAT.lsxbherq(intent)
             }
 
         }

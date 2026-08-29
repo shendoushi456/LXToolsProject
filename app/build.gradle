@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.hbzxq.jieyidatixing"
+        applicationId "com.hyrj.xingcangpiaowu"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'jieyidatixing'
+            keyAlias 'xingcangpiaowu'
             keyPassword '123456'
-            storeFile file('jieyidatixing.jks')
+            storeFile file('xingcangpiaowu.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'jieyidatixing'
+            keyAlias 'xingcangpiaowu'
             keyPassword '123456'
-            storeFile file('jieyidatixing.jks')
+            storeFile file('xingcangpiaowu.jks')
             storePassword '123456'
         }
     }
@@ -91,6 +91,9 @@ android {
         resources {
             excludes += ['META-INF/DEPENDENCIES']
         }
+        jniLibs {
+            pickFirsts += ['**/libc++_shared.so']
+        }
     }
 
 
@@ -111,7 +114,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '捷忆大提醒-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '拍个照吧-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
