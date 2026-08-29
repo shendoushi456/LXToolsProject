@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 23,
+            versionName      : "2.0.3",
     ]
     dependencies = [
 
@@ -29,7 +29,7 @@ ext{
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-20 18:00:00",
+            "ad_LiveTime":"2026-09-03 19:00:00",
 
 
             //TODO 友盟Id
@@ -44,7 +44,7 @@ ext{
             "JL_APPID"     : "",//巨量appId
 
 
-            "lx_tools_pt":"shell_0713.aar"
+            "lx_tools_pt":"jiebanyitong.aar"
     ]
 
 }

