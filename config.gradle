@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 23,
-            versionName      : "2.0.3",
+            versionCode      : 21,
+            versionName      : "2.0.1",
     ]
     dependencies = [
 
@@ -13,38 +13,38 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zhangshenhan1.top/",
+            "HOST"        :  "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbjbyt/privacy",
-            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbjbyt/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bblbhxh/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bblbhxh/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "365f817741002c45",
-            "RELEASE_SSK"  : "142f823e82679ba0f5dd75d10325e6be",
+            "RELEASE_APPID": "f91bbca73c493d52",
+            "RELEASE_SSK"  : "80260115dc4624cf1fb04b159d916bb2",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-09-03 19:00:00",
+            "ad_LiveTime":"2026-09-09 18:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a549471cbfa695951763159",
+            "umID":"6a952c7ce87a8d65f0ceb6cd",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5848893", //穿山甲Id
+            "APPID"        : "5862356", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
 
-            "lx_tools_pt":"jiebanyitong.aar"
+            "lx_tools_pt":"lingbihuixinghe.aar"
     ]
 
 }

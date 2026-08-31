@@ -60,7 +60,7 @@ dependencyResolutionManagement {
 rootProject.name = "LXToolsProject"
 include ':app'
 include ':custom_honor_library'
-include ':toolsbox'
+include ':tools-ui-library'
 include ':setting'
 include ':hotSceniclib'
 include ':sharedPreferences'
@@ -82,7 +82,7 @@ include ':toDoListlib'
  
 project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
 project(':c_interface_library').projectDir =file('./modules/custom_honor_ad_library/c_interface_library')
-project(':toolsbox').projectDir =file('./modulesUI/toolsbox_moduel/toolsbox')
+project(':tools-ui-library').projectDir =file('./modulesUI/tools-ui-library/tools-ui-library')
 project(':setting').projectDir =file('./modulesUI/third-module/setting')
 project(':hotSceniclib').projectDir =file('./modulesUI/third-module/hotSceniclib')
 project(':sharedPreferences').projectDir =file('./modulesUI/third-module/sharedPreferences')
