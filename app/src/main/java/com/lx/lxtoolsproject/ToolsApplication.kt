@@ -30,16 +30,16 @@ class ToolsApplication : Application() {
         if (YouDaoApplication.getApplicationContext() == null) {
             YouDaoApplication.init(
                 this,
-                "05226bfd8cff3898",
-                "190767934a66dd5f07510b710f5c146f5f098b2b3c62d9ee5c9e4ec186f28519"
+                "740385f4731ab74b",
+                "1ddffa63628715536cea42217f77fe73691b46c594cb937fd62f61b47110bfb1"
             )
         }
 
         // 初始化有道作文批改SDK
         CompositionCorrection.init(
             this,
-            "05226bfd8cff3898",
-            "190767934a66dd5f07510b710f5c146f5f098b2b3c62d9ee5c9e4ec186f28519"
+            "740385f4731ab74b",
+            "1ddffa63628715536cea42217f77fe73691b46c594cb937fd62f61b47110bfb1"
         )
     }
 

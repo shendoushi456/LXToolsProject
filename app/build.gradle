@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.hyrj.fuyangyishe"
+        applicationId "com.hbbnq.yidianwanyantong"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'fuyangyishe'
+            keyAlias 'yidianwanyantong'
             keyPassword '123456'
-            storeFile file('fuyangyishe.jks')
+            storeFile file('yidianwanyantong.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'fuyangyishe'
+            keyAlias 'yidianwanyantong'
             keyPassword '123456'
-            storeFile file('fuyangyishe.jks')
+            storeFile file('yidianwanyantong.jks')
             storePassword '123456'
         }
     }
