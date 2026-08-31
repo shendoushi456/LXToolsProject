@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import androidx.constraintlayout.core.motion.utils.GU
 import com.baidu.maps.utils.MapsUtils
 import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
@@ -32,6 +31,21 @@ class ToolsApplication : Application() {
         super.onCreate()
         MMKV.initialize(this)
         intGgSource()
+        // 初始化有道翻译SDK
+        if (YouDaoApplication.getApplicationContext() == null) {
+            YouDaoApplication.init(
+                this,
+                "3d37ac7a07b7d7b0",
+                "3be2ea55973500efeaae1e90eb6422e8ffbbc70f1cd69f4ae707de6a06c2f5f2"
+            )
+        }
+
+        // 初始化有道作文批改SDK
+        CompositionCorrection.init(
+            this,
+            "3d37ac7a07b7d7b0",
+            "3be2ea55973500efeaae1e90eb6422e8ffbbc70f1cd69f4ae707de6a06c2f5f2"
+        )
     }
 
 
@@ -69,21 +83,7 @@ class ToolsApplication : Application() {
 
         }
 
-        // 初始化有道翻译SDK
-        if (YouDaoApplication.getApplicationContext() == null) {
-            YouDaoApplication.init(
-                this,
-                "3d37ac7a07b7d7b0",
-                "3be2ea55973500efeaae1e90eb6422e8ffbbc70f1cd69f4ae707de6a06c2f5f2"
-            )
-        }
 
-        // 初始化有道作文批改SDK
-        CompositionCorrection.init(
-            this,
-            "3d37ac7a07b7d7b0",
-            "3be2ea55973500efeaae1e90eb6422e8ffbbc70f1cd69f4ae707de6a06c2f5f2"
-        )
     }
 
 
