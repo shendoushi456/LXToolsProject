@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.p.a_b.ui.main.MainMobileDataActivity
-import java.util.Random
+import com.p.a_b.MainWeatherActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -51,17 +49,17 @@ class LaunchPageActivity : AppCompatActivity() {
                 toMainActivity()
             }
 
-        },4000)
+        },2000)
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
-        animation.duration = 4000
+        animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
     }
 
 
     private fun toMainActivity(){
-        val intent = Intent(this, MainMobileDataActivity::class.java)
+        val intent = Intent(this, MainWeatherActivity::class.java)
         startActivity(intent)
     }
 
