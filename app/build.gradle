@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '结伴译通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '灵笔绘星河-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
