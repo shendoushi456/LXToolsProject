@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.hbdhs.lingbihuixinghe"
+        applicationId "com.hbzmn.huancaishouhui"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'lingbihuixinghe'
+            keyAlias 'huancaishouhui'
             keyPassword '123456'
-            storeFile file('lingbihuixinghe.jks')
+            storeFile file('huancaishouhui.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'lingbihuixinghe'
+            keyAlias 'huancaishouhui'
             keyPassword '123456'
-            storeFile file('lingbihuixinghe.jks')
+            storeFile file('huancaishouhui.jks')
             storePassword '123456'
         }
     }
