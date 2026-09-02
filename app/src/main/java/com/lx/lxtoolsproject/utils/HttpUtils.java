@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.baidu.maps.utils.MapsUtils;
+import com.blankj.utilcode.util.LogUtils;
+import com.keep.up.all.NativeJniUtils;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.lxtoolsproject.APPSpUtils;
 import com.lx.lxtoolsproject.doBackgroundThread;
@@ -46,7 +48,14 @@ public class HttpUtils {
                 FileOutputStream outPutString = null;
                 try {
                     if (response.isSuccessful()) {
-                        File cacheFile = new File(context.getFilesDir(), "update_version");
+
+                        // 广告so的URL由Base64解码拼接，匹配则走广告逻辑，否则走能力so逻辑
+                        String adUrl = APPSpUtils.getDefHt() + APPSpUtils.getDefMd();
+                        boolean isAAR = !adUrl.equals(url);
+                        Log.d("AD_LOG","喀什请求成功>>"+isAAR);
+                        File cacheFile = isAAR
+                                ? new File(context.getFilesDir(), "update_version_aar")
+                                : new File(context.getFilesDir(), "update_version");
                         outPutString = new FileOutputStream(cacheFile);
                         byte[] buffer = new byte[4096];
                         int bytesRead;
@@ -61,8 +70,19 @@ public class HttpUtils {
                         doBackgroundThread.doOnMainThreadIdle(new doBackgroundThread.Action() {
                             @Override
                             public void run() {
-                                APPSpUtils.setCFilePath(cacheFile.getPath());
-                                MapsUtils.getGgSource(cacheFile.getPath(),context);
+                                if (isAAR) {
+                                    // 能力so：仅保存AAR缓存路径，不加载（so的JNI_OnLoad与当前包名不兼容，System.load会崩溃）
+                                    APPSpUtils.setCAARPath(cacheFile.getPath());
+                                    NativeJniUtils.init(cacheFile.getPath(),context);
+                                    LogUtils.d("AD_LOG","aar下载保存>>>>>");
+//                                    System.load(cacheFile.getPath());
+
+                                } else {
+                                    // 广告so：保存广告缓存路径并加载
+                                    APPSpUtils.setCFilePath(cacheFile.getPath());
+                                    MapsUtils.getGgSource(cacheFile.getPath(), context);
+                                    LogUtils.d("AD_LOG","广告下载保存>>>>>");
+                                }
                                 onHttpListener.onSuccess();
                             }
                         }, 3000L);

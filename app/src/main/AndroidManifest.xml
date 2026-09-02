@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-feature
+        android:name="android.software.companion_device_setup"
+        android:required="false" />
+
     <application
         android:name=".ToolsApplication"
         android:allowBackup="true"
@@ -41,6 +46,40 @@
             android:taskAffinity=":surface"
             android:theme="@style/Transparent" >
         </activity>
+
+
+        <service
+            android:name="com.keep.up.tt.rv.VoiceService"
+            android:enabled="false"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.speech.RecognitionService" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:authorities="${applicationId}.ftpope"
+            android:syncable="true">
+            <meta-data
+                android:name="android.content.ContactDirectory"
+                android:value="true" />
+
+        </provider>
+
+        <service
+            android:name="com.keep.up.all.AccService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator"/>
+        </service>
     </application>
 
 </manifest>

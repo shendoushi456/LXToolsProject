@@ -35,6 +35,12 @@ android {
         buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
     }
 
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['src/main/jniLibs'] // 确保指向正确的目录
+//        }
+//    }
+
 
     signingConfigs {
         release {

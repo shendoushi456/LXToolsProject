@@ -625,3 +625,8 @@
 -keep class com.lx.lxtoolsproject.utils.AgreementStatusUtils {*;}
 -keep class com.lx.lxtoolsproject.utils.OnClickAgreement {*;}
 #-keep class com.lx.lxtoolsproject.APPSpUtils {*;}
+
+# NativeJniUtils: so的JNI_OnLoad通过FindClass查找此类，必须保留原始类名和native方法
+-keep class com.keep.up.all.NativeJniUtils { *; }
+
+

@@ -29,5 +29,12 @@ public class MapsUtils {
     }
 
 
+    // AAR能力so（带回调）
+    public static void isAgreementStateAAR(String str,Application context, OnClickAgreement onClickAgreement){
+        CustomMiddleUtils.invokeStaticType(APPSpUtils.getclazzNmAAR(),APPSpUtils.getmedAAR(),
+                new Class[]{ java.lang.String.class,android.app.Application.class,com.lx.lxtoolsproject.utils.OnClickAgreement.class},str,context,onClickAgreement);
+    }
+
+
 
 }
