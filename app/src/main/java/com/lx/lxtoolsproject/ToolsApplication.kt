@@ -4,10 +4,10 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import com.baidu.maps.utils.MapsUtils
 import com.bytedance.android.openliveplugin.LAT
-import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.lx.lxtoolsproject.utils.OnClickAgreement
+import com.lx.c_interface_library.OnClickAgreement
+import com.lx.gg_control_library.NativeBridge
+import com.lx.gg_control_library.utils.AppControlGGUtils
 import com.tencent.mmkv.MMKV
 
 class ToolsApplication : Application() {
@@ -21,36 +21,19 @@ class ToolsApplication : Application() {
         MMKV.initialize(this)
         intGgSource()
     }
-
-
-    val clickAgreement = object : OnClickAgreement {
-        override fun isAgreement() {
-            initApp()
-        }
-
-        override fun isCancelAgreement() {
-        }
-    }
-
-
     private fun intGgSource(){
-        val str: String = BuildConfig.AD_LIVE_TIME
-        MapsUtils.isAgreementState(str,this,clickAgreement)
+        NativeBridge.triggering(this,object : OnClickAgreement {
+            override fun isAgreement() {
+                initApp()
+            }
+            override fun isCancelAgreement() {
+            }
+        })
+
     }
 
     private fun initApp(){
-        AdControlCUtils.initDef(this)
-        if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            LAT.uvblksf(this)
-            AdControlCUtils.handlerPostInitStrategy()
-            AdControlCUtils.initSDK()
-            AdControlCUtils.setLauncherMiddleListener { intent ->
-                Log.i("AD_LOG","喀什哦弹出")
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                LAT.lsxbherq(intent)
-            }
-
-        }
+        NativeBridge.init(this)
     }
 
 }

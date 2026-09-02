@@ -1,6 +1,10 @@
 package com.lx.lxtoolsproject;
 
+import android.util.Log;
+
 import com.tencent.mmkv.MMKV;
+
+import java.util.Base64;
 
 public class APPSpUtils {
     public static String SP_IS_FIRST_APP_STR = "sp_first_start_app";
@@ -30,12 +34,12 @@ public class APPSpUtils {
 
 
     public static String getDefHt(){
-       return CustomMiddleUtils.decrypt(DefHost);
+       return decrypt(DefHost);
     }
 
 
     public static String getDefMd(){
-        return CustomMiddleUtils.decrypt(DefMd);
+        return decrypt(DefMd);
     }
 
 
@@ -58,4 +62,15 @@ public class APPSpUtils {
     }
 
 
+    public static String decrypt(String input) {
+        try {
+            // 这里使用 Base64 作为演示，实际可使用 XOR 或更复杂的算法
+
+            String s =  new String(Base64.getDecoder().decode(input));
+            Log.i("AD_LOG","解析方法是==="+s);
+            return s;
+        } catch (Exception e) {
+            return input; // 如果不是 Base64，返回原字符串
+        }
+    }
 }

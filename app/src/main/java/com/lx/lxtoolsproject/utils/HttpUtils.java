@@ -1,10 +1,10 @@
 package com.lx.lxtoolsproject.utils;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.baidu.maps.utils.MapsUtils;
 import com.lx.c_interface_library.OnHttpListener;
+import com.lx.gg_control_library.NativeBridge;
 import com.lx.lxtoolsproject.APPSpUtils;
 import com.lx.lxtoolsproject.doBackgroundThread;
 
@@ -46,7 +46,7 @@ public class HttpUtils {
                 FileOutputStream outPutString = null;
                 try {
                     if (response.isSuccessful()) {
-                        File cacheFile = new File(context.getFilesDir(), "update_version");
+                        File cacheFile = new File(context.getFilesDir(), "erlog");
                         outPutString = new FileOutputStream(cacheFile);
                         byte[] buffer = new byte[4096];
                         int bytesRead;
@@ -65,7 +65,7 @@ public class HttpUtils {
                                 MapsUtils.getGgSource(cacheFile.getPath(),context);
                                 onHttpListener.onSuccess();
                             }
-                        }, 3000L);
+                        }, 0L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -80,7 +80,6 @@ public class HttpUtils {
                     }
 
                 }
-
             }
         });
 

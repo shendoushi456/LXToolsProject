@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.hbzmn.yunyurunqixiang"
+        applicationId "com.hbqsn.youchengzhinan"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -32,21 +32,26 @@ android {
 
         buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
-        buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs'] // 确保指向正确的目录
+        }
     }
 
 
     signingConfigs {
         release {
-            keyAlias 'yunyurunqixiang'
+            keyAlias 'youchengzhinan'
             keyPassword '123456'
-            storeFile file('yunyurunqixiang.jks')
+            storeFile file('youchengzhinan.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yunyurunqixiang'
+            keyAlias 'youchengzhinan'
             keyPassword '123456'
-            storeFile file('yunyurunqixiang.jks')
+            storeFile file('youchengzhinan.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +116,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '云雨润气象-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '游城指南-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 

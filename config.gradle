@@ -13,33 +13,15 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyyrqx/privacy",
-            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyyrqx/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyczn/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyczn/user",
             "VERSIONNAME":android.versionName,
 
-            //TODO 接口加密key
-
-            "RELEASE_APPID": "fd9a1657bffc754f",
-            "RELEASE_SSK"  : "5ee994218e7e64ff51f5b6e0a4d0252c",
-
-
             //TODO 接口环境  日志log开关
-            "logSwitch"    : false,
+            "logSwitch"    : true,
 
-            //TODO 启动时间
-            "ad_LiveTime":"2026-09-11 12:00:00",
-
-
-            //TODO 友盟Id
-            "umID":"6a953d14e87a8d65f0ced2b4",
-
-            //TODO 第三方广告SDK ID
-            "APPID"        : "5857567", //穿山甲Id
-
-
-            "lx_tools_pt":"shell_whfengheyu.aar"
+            "lx_tools_pt":"youchengzhinan.aar"
     ]
 
 }
