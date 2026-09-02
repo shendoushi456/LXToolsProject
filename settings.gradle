@@ -67,6 +67,7 @@ include ':sharedPreferences'
 include ':scanlibrary'
 include ':weather_lib'
 include ':calculatorlibrary'
+include ':toDoListlib'
 
 include ':tallynotes'
 include ':pic_toolslibrary'
@@ -94,6 +95,7 @@ project(':smalltoolslibrary').projectDir =file('./modulesUI/third-module/smallto
 project(':toolslibrary').projectDir =file('./modulesUI/third-module/toolslibrary')
 project(':tools_extra_lib').projectDir =file('./modulesUI/third-module/tools_extra_lib')
 project(':color_picker_library').projectDir =file('./modulesUI/third-module/color_picker_library')
+project(':toDoListlib').projectDir =file('./modulesUI/third-module/toDoListlib')
 
 
 
