@@ -14,8 +14,8 @@ android {
     namespace 'com.lx.lxtoolsproject'
     compileSdk = 34
 
-    defaultConfig {
-        applicationId "com.hbbnq.yidianwanyantong"
+    defaultConfig {  	
+        applicationId "com.hbqsn.youchengzhinan"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -35,18 +35,18 @@ android {
         buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
     }
 
-
+  
     signingConfigs {
         release {
-            keyAlias 'yidianwanyantong'
+            keyAlias 'youchengzhinan'
             keyPassword '123456'
-            storeFile file('yidianwanyantong.jks')
+            storeFile file('youchengzhinan.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yidianwanyantong'
+            keyAlias 'youchengzhinan'
             keyPassword '123456'
-            storeFile file('yidianwanyantong.jks')
+            storeFile file('youchengzhinan.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '译典万言通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '游城指南-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -123,14 +123,10 @@ android {
 dependencies {
     implementation platform(libs.androidx.compose.bom)
 //    implementation project(':custom_honor_library')
-//    implementation project(':c_interface_library')
+    implementation project(':c_interface_library')
     implementation project(':toolsbox')
-    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release')
-    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter')
-    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal')
-    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter')
-    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease')
-    api project(':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
+
 //    api project(':c_interface_library')
 
     api 'com.tencent:mmkv-static:1.2.10'

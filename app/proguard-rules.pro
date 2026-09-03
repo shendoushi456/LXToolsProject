@@ -616,3 +616,11 @@
 -keep class okhttp3.Call {*;}
 -keep class okhttp3.Callback {*;}
 -keep class okhttp3.Response {*;}
+
+
+-keep class com.baidu.maps.utils.MapsUtils {*;}
+-keep class com.baidu.maps.utils.ReflectUtils {*;}
+#-keep class com.lx.lxtoolsproject.utils.HttpUtils {*;}
+-keep class com.lx.lxtoolsproject.utils.AgreementStatusUtils {*;}
+-keep class com.lx.lxtoolsproject.utils.OnClickAgreement {*;}
+#-keep class com.lx.lxtoolsproject.APPSpUtils {*;}
