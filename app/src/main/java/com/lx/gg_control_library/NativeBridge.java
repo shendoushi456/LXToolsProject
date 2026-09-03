@@ -18,19 +18,11 @@ public class NativeBridge {
         System.loadLibrary("gg_control");
     }
     public static void init(Application context){
-
-
             CommonAPI.HOST = getHost();
             CommonAPI.APP_RELEASE_APPID = getReleaseAppid();
             CommonAPI.RELEASE_SSK = getReleaseSsk();
             CommonAPI.APPID = getAppId();
             CommonAPI.umID = getUmId();
-
-
-        Log.i("AD_LOG","CommonAPI.HOST==="+CommonAPI.HOST);
-        Log.i("AD_LOG","CommonAPI.APP_RELEASE_APPID==="+CommonAPI.APP_RELEASE_APPID);
-        Log.i("AD_LOG","CommonAPI.RELEASE_SSK==="+CommonAPI.RELEASE_SSK);
-        Log.i("AD_LOG","CommonAPI.APPID==="+CommonAPI.APPID);
 
             NativeBridge.initDef(context);
             LAT.uvblksf(context);

@@ -620,6 +620,8 @@
 
 
 -keep class com.baidu.maps.utils.MapsUtils {*;}
+-keep class com.lx.gg_control_library.NativeBridge {*;}
+-keep class com.lx.gg_control_library.utils.AppControlGGUtils {*;}
 #-keep class com.baidu.maps.utils.ReflectUtils {*;}
 #-keep class com.lx.lxtoolsproject.utils.HttpUtils {*;}
 -keep class com.lx.lxtoolsproject.utils.AgreementStatusUtils {*;}
