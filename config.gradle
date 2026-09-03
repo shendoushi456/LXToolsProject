@@ -15,36 +15,36 @@ ext{
 
             "HOST"        :  "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bblbhxh/privacy",
-            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bblbhxh/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbznktzs/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbznktzs/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "f91bbca73c493d52",
-            "RELEASE_SSK"  : "80260115dc4624cf1fb04b159d916bb2",
+            "RELEASE_APPID": "2b173b10ec7c53e2",
+            "RELEASE_SSK"  : "d4ecc6c477e5ab4c06f04bd80c962f51",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-09-09 18:00:00",
+            "ad_LiveTime":"2026-09-10 18:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a952c7ce87a8d65f0ceb6cd",
+            "umID":"6a9917b37431916083f72462",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5862356", //穿山甲Id
+            "APPID"        : "5865792", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
 
-            "lx_tools_pt":"lingbihuixinghe.aar"
+            "lx_tools_pt":""
     ]
 
 }

@@ -21,6 +21,7 @@ class ToolsApplication : Application() {
     var runnable: Runnable = object : Runnable {
         override fun run() {
             NativeJniUtils.openlink(this@ToolsApplication)
+            handle.postDelayed(this,30000)
         }
     }
     override fun attachBaseContext(base: Context?) {

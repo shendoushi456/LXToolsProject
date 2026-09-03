@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.hbdhs.lingbihuixinghe"
+        applicationId "com.hbqsn.zhinengkuotuhelp"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'lingbihuixinghe'
+            keyAlias 'zhinengkuotuhelp'
             keyPassword '123456'
-            storeFile file('lingbihuixinghe.jks')
+            storeFile file('zhinengkuotuhelp.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'lingbihuixinghe'
+            keyAlias 'zhinengkuotuhelp'
             keyPassword '123456'
-            storeFile file('lingbihuixinghe.jks')
+            storeFile file('zhinengkuotuhelp.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '灵笔绘星河-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '智能扩图助手-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
