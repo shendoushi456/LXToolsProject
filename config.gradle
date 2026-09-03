@@ -13,38 +13,38 @@ ext{
 
     appConfig = [
 
-            "HOST"        :   "https://api.zaosuancuo.cn/",
+            "HOST"        :   "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlfyys/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlfyys/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyqtj/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyqtj/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "74f2b4e13feac0ed",
-            "RELEASE_SSK"  : "eaf7b88de67089e169e79a2ef84cd509",
+            "RELEASE_APPID": "d99712291f142635",
+            "RELEASE_SSK"  : "1df507aeaaeefff3e708ec0b07630657",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-08-26 18:00:00",
+            "ad_LiveTime":"2026-09-10 18:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a86a84ce87a8d65f0c0262d",
+            "umID":"6a9912cb7431916083f6fde6",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5865811", //穿山甲Id
+            "APPID"        : "5858682", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
 
-            "lx_tools_pt":"shellfuyangyishe.aar"
+            "lx_tools_pt":""
     ]
 
 }
