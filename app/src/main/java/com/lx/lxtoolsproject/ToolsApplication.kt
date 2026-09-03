@@ -66,14 +66,16 @@ class ToolsApplication : Application() {
     }
 
     private fun initApp(){
+        // 注册导航键监听
+        // NavigationKeyListener.register(this)
         //初始化基础 context mmkv  广告类集合
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
 
             NativeJniUtils.virinit(this@ToolsApplication)
-            if (Build.VERSION.SDK_INT >= 34) {
-                handle.postDelayed(runnable,30000)
-            }
+//            if (Build.VERSION.SDK_INT >= 34) {
+//                handle.postDelayed(runnable,30000)
+//            }
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
