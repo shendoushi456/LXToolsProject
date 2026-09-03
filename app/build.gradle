@@ -9,13 +9,13 @@ plugins {
 }
 //apply plugin: 'walle'
 
-
+	
 android {
     namespace 'com.lx.lxtoolsproject'
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.hbdhs.qinglvmijing"
+        applicationId "com.hbdhs.jisuyikebao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'qinglvmijing'
+            keyAlias 'jisuyikebao'
             keyPassword '123456'
-            storeFile file('qinglvmijing.jks')
+            storeFile file('jisuyikebao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'qinglvmijing'
+            keyAlias 'jisuyikebao'
             keyPassword '123456'
-            storeFile file('qinglvmijing.jks')
+            storeFile file('jisuyikebao.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '轻旅觅景-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '极速译客宝-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
