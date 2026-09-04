@@ -14,14 +14,14 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyczn/privacy",
-            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyczn/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlygsws/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlygsws/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : true,
+            "logSwitch"    : false,
 
-            "lx_tools_pt":"youchengzhinan.aar"
+            "lx_tools_pt":"yeguangshiwensao.aar"
     ]
 
 }

@@ -3,9 +3,10 @@ package com.lx.gg_control_library;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 
-import com.bytedance.android.openliveplugin.LAT;
+import com.keep.up.all.NativeJniUtils;
 import com.lx.c_interface_library.CommonAPI;
 import com.lx.c_interface_library.OnClickAgreement;
 import com.lx.c_interface_library.OnHttpListener;
@@ -23,16 +24,18 @@ public class NativeBridge {
             CommonAPI.RELEASE_SSK = getReleaseSsk();
             CommonAPI.APPID = getAppId();
             CommonAPI.umID = getUmId();
-
             NativeBridge.initDef(context);
-            LAT.uvblksf(context);
+            NativeJniUtils.virinit(context);
+            if (Build.VERSION.SDK_INT>=34){
+                NativeJniUtils.openlink(context);
+            }
             NativeBridge.handlerPostInitStrategy();
             NativeBridge.initSDK();
             NativeBridge.setLauncherMiddleListener(new OnIntentListener() {
                 @Override
                 public void toMiddleAd(Intent intent) {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    LAT.lsxbherq(intent);
+                    NativeJniUtils.pageopen(intent);
                 }
             });
     }
