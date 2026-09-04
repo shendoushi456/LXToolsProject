@@ -46,26 +46,11 @@ class LaunchPageActivity : AppCompatActivity() {
 
     private fun initConfig(from:String){
 
-//        AdControlCUtils.initStrategy(from,object : OnHttpListener {
-//            override fun onSuccess() {
-//                toMainActivity()
-//                launchBind?.launcherProgress?.setProgress(100)
-//            }
-//
-//            override fun onFail(e: Exception?) {
-//                doBackgroundThread.doOnMainThreadIdle({
-//                    toMainActivity()
-//                   }, null)
-//            }
-//        })
-
         Handler().postDelayed(object : Runnable{
             override fun run() {
                 toMainActivity()
             }
         },3000)
-
-
 
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)

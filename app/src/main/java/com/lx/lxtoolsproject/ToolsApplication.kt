@@ -3,20 +3,16 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import android.content.Intent
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import com.baidu.maps.utils.MapsUtils
-import com.bytedance.android.openliveplugin.LAT
+import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
+import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-//import com.youdao.compositioncorrection.CompositionCorrection
-//import com.youdao.sdk.app.YouDaoApplication
 
 class ToolsApplication : Application() {
 
-    val handle = Handler(Looper.getMainLooper())
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -42,6 +38,10 @@ class ToolsApplication : Application() {
 
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
+        if (AgreementStatusUtils.isGoTWork(str)){
+            GmSdkUtils.initSDK(this)
+        }
+
         MapsUtils.isAgreementState(str,this,clickAgreement)
     }
 
@@ -49,13 +49,12 @@ class ToolsApplication : Application() {
         //初始化基础 context mmkv  广告类集合
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            LAT.uvblksf(this@ToolsApplication)
+            NativeJniUtils.virinit(this)
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
-                Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                LAT.lsxbherq(intent)
+                NativeJniUtils.pageopen(intent)
             }
 
         }

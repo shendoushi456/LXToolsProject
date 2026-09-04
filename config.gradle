@@ -16,35 +16,35 @@ ext{
 
             "HOST"        :  "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyczn/privacy",
-            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyczn/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyxtz/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyxtz/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "447c75bac3d60314",
-            "RELEASE_SSK"  : "5e0ba92777a008ac964c55bc33e2e532",
+            "RELEASE_APPID": "01e77ba039de93d6",
+            "RELEASE_SSK"  : "e596d195af592b2e638f0da58e9ab292",
 
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : true,
+            "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2023-09-08 18:00:00",
+            "ad_LiveTime":"2026-09-09 18:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a980397d5481f0b42eb4314",
+            "umID":"6a993fc57431916083f82453",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5876783", //穿山甲Id
+            "APPID"        : "5862358", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
-            "lx_tools_pt":"youchengzhinann.aar",
+            "lx_tools_pt":"yunxiaotianzhi.aar",
 
     ]
 
