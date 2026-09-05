@@ -14,16 +14,16 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlzysmzs/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlzysmzs/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbqfb/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbqfb/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
-            "APPID"    : "5871054",
-            "umID"    : "6a9a92e3d5481f0b42edd0f5",
+            "APPID"    : "5865794",
+            "umID"    : "6a9b88cb7431916083faab3f",
 
-            "lx_tools_pt":"zhiyusaomiaozhushou.aar"
+            "lx_tools_pt":"qingfangbao.aar"
     ]
 
 }
