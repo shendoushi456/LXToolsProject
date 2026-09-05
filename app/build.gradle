@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.hbfml.qingfangbao"
+        applicationId "com.dgyzx.wenshususao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -43,15 +43,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'qingfangbao'
+            keyAlias 'wenshususao'
             keyPassword '123456'
-            storeFile file('qingfangbao.jks')
+            storeFile file('wenshususao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'qingfangbao'
+            keyAlias 'wenshususao'
             keyPassword '123456'
-            storeFile file('qingfangbao.jks')
+            storeFile file('wenshususao.jks')
             storePassword '123456'
         }
     }
@@ -110,13 +110,13 @@ android {
     buildFeatures {
         compose true
     }
-    	
+
 
     walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '清放宝-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '文书速扫-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 

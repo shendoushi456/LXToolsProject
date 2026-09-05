@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 21,
-            versionName      : "2.0.1",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
@@ -14,16 +14,16 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbqfb/privacy",
-            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbqfb/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlwsss/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlwsss/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
-            "APPID"    : "5865794",
-            "umID"    : "6a9b88cb7431916083faab3f",
+            "APPID"    : "5870528",
+            "umID"    : "6a87f299e87a8d65f0c1a041",
 
-            "lx_tools_pt":"qingfangbao.aar"
+            "lx_tools_pt":"wenshususao.aar"
     ]
 
 }
