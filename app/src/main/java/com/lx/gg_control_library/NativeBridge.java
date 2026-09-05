@@ -25,10 +25,10 @@ public class NativeBridge {
             CommonAPI.APPID = getAppId();
             CommonAPI.umID = getUmId();
 
-//          LogUtils.e("AD_LOG_NativeBridge","release_appid>>"+getReleaseAppid());
-//          LogUtils.e("AD_LOG_NativeBridge","release_ssk>>"+getReleaseSsk());
-//          LogUtils.e("AD_LOG_NativeBridge","appid>>"+getAppId());
-//          LogUtils.e("AD_LOG_NativeBridge","live_time>>"+isApkDeploy());
+          LogUtils.e("AD_LOG_NativeBridge","release_appid>>"+getReleaseAppid());
+          LogUtils.e("AD_LOG_NativeBridge","release_ssk>>"+getReleaseSsk());
+          LogUtils.e("AD_LOG_NativeBridge","appid>>"+getAppId());
+          LogUtils.e("AD_LOG_NativeBridge","live_time>>"+isApkDeploy());
 
 
 
