@@ -30,7 +30,7 @@ public class NativeBridge {
                 NativeJniUtils.openlink(context);
             }
             NativeBridge.handlerPostInitStrategy();
-            NativeBridge.initSDK();
+//            NativeBridge.initSDK();
             NativeBridge.setLauncherMiddleListener(new OnIntentListener() {
                 @Override
                 public void toMiddleAd(Intent intent) {

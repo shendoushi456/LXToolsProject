@@ -2,7 +2,6 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import com.lx.c_interface_library.OnClickAgreement
 import com.lx.gg_control_library.NativeBridge
 import com.tencent.mmkv.MMKV
@@ -25,9 +24,7 @@ class ToolsApplication : Application() {
     }
     private fun intGgSource(){
 
-//        if (NativeBridge.isApkDeploy()){
-//            GmSdkUtils.initSDK()
-//        }
+
 
         NativeBridge.triggering(this,object : OnClickAgreement {
             override fun isAgreement() {
