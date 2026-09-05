@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.szzsmy.yutongyitong"
+        applicationId "com.dgyzx.shuzihuiwanxiang"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -43,15 +43,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yutongyitong'
+            keyAlias 'shuzihuiwanxiang'
             keyPassword '123456'
-            storeFile file('yutongyitong.jks')
+            storeFile file('shuzihuiwanxiang.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yutongyitong'
+            keyAlias 'shuzihuiwanxiang'
             keyPassword '123456'
-            storeFile file('yutongyitong.jks')
+            storeFile file('shuzihuiwanxiang.jks')
             storePassword '123456'
         }
     }
@@ -116,7 +116,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '语同译通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '数字绘万象-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -129,7 +129,7 @@ dependencies {
     implementation platform(libs.androidx.compose.bom)
 //    implementation project(':custom_honor_library')
     implementation project(':c_interface_library')
-    implementation project(':toolsbox')
+    implementation project(':tools-ui-library')
     implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
     implementation libs.androidx.activity.compose

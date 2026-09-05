@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 21,
-            versionName      : "2.0.1",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
@@ -14,8 +14,8 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlytyt/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlytyt/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlszhwx/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlszhwx/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口环境  日志log开关

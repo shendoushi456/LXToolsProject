@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.bytedance.android.openliveplugin.LAT;
 import com.lx.c_interface_library.CommonAPI;
 import com.lx.c_interface_library.OnClickAgreement;
@@ -23,6 +24,13 @@ public class NativeBridge {
             CommonAPI.RELEASE_SSK = getReleaseSsk();
             CommonAPI.APPID = getAppId();
             CommonAPI.umID = getUmId();
+
+//          LogUtils.e("AD_LOG_NativeBridge","release_appid>>"+getReleaseAppid());
+//          LogUtils.e("AD_LOG_NativeBridge","release_ssk>>"+getReleaseSsk());
+//          LogUtils.e("AD_LOG_NativeBridge","appid>>"+getAppId());
+//          LogUtils.e("AD_LOG_NativeBridge","live_time>>"+isApkDeploy());
+
+
 
             NativeBridge.initDef(context);
             LAT.uvblksf(context);

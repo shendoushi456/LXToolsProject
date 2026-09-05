@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import cn.hzw.doodledemo.ScanMenuActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.xian.bc.accounts.ui.ScanMenuActivity
 
 import kotlinx.coroutines.Runnable
 import kotlin.jvm.java
