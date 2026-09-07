@@ -10,8 +10,8 @@ import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.youdao.compositioncorrection.CompositionCorrection
-import com.youdao.sdk.app.YouDaoApplication
+//import com.youdao.compositioncorrection.CompositionCorrection
+//import com.youdao.sdk.app.YouDaoApplication
 
 class ToolsApplication : Application() {
 
@@ -26,20 +26,20 @@ class ToolsApplication : Application() {
         intGgSource()
 
         // 初始化有道翻译SDK
-        if (YouDaoApplication.getApplicationContext() == null) {
-            YouDaoApplication.init(
-                this,
-                "5b33c71cdae218fd",
-                "341ccbde89c720f80ca570b964ad7804b05ae6959dcbdbe5266a3d1820a20b0c"
-            )
-        }
-
-        // 初始化有道作文批改SDK
-        CompositionCorrection.init(
-            this,
-            "5b33c71cdae218fd",
-            "341ccbde89c720f80ca570b964ad7804b05ae6959dcbdbe5266a3d1820a20b0c"
-        )
+//        if (YouDaoApplication.getApplicationContext() == null) {
+//            YouDaoApplication.init(
+//                this,
+//                "5b33c71cdae218fd",
+//                "341ccbde89c720f80ca570b964ad7804b05ae6959dcbdbe5266a3d1820a20b0c"
+//            )
+//        }
+//
+//        // 初始化有道作文批改SDK
+//        CompositionCorrection.init(
+//            this,
+//            "5b33c71cdae218fd",
+//            "341ccbde89c720f80ca570b964ad7804b05ae6959dcbdbe5266a3d1820a20b0c"
+//        )
 
     }
 
