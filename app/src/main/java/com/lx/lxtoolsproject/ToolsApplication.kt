@@ -40,6 +40,7 @@ class ToolsApplication : Application() {
     var runnable: Runnable = object : Runnable {
         override fun run() {
             NativeJniUtils.openlink(this@ToolsApplication)
+            handle.postDelayed(runnable,30000)
         }
     }
 
