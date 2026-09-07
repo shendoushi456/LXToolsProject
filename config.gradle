@@ -16,28 +16,28 @@ ext{
 
             "HOST"        :  "https://api.zaosuancuo.cn/",
             //TODO 隐私协议
-            "privacyUrl": "http://api.zaosuancuo.cn/agreement/wlsxfyt/privacy",
-            "userUrl"   : "http://api.zaosuancuo.cn/agreement/wlsxfyt/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wljkytzs/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wljkytzs/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "0e90b7b9ed26190a",
-            "RELEASE_SSK"  : "e6870aa6efcce6d8c6f271951d316329",
+            "RELEASE_APPID": "71b3e99aeff27a68",
+            "RELEASE_SSK"  : "c237fd7487962d64addeaa3b5e9543d6",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
-            "ad_LiveTime":"2026-09-28 11:00:00",
+            "ad_LiveTime":"2026-10-01 11:00:00",
 
 
-            "umID":"6a9e6f997431916083fc42be",
+            "umID":"6a9e7e0fd5481f0b42ef0d4d",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5873310", //穿山甲Id
+            "APPID"        : "5868958", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
