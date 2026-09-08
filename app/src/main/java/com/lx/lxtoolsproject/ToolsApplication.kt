@@ -19,13 +19,12 @@ import java.io.File
 
 class ToolsApplication : Application() {
 
-    val handle = Handler(Looper.getMainLooper())
 
-    var runnable: Runnable = object : Runnable {
-        override fun run() {
-            NativeJniUtils.openlink(this@ToolsApplication)
-        }
+    companion object{
+        var instanceContext:ToolsApplication? = null
     }
+
+
     var str: String?=null;
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -33,6 +32,7 @@ class ToolsApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        instanceContext = this
         MMKV.initialize(this)
         intGgSource()
         // 初始化有道翻译SDK
@@ -69,50 +69,23 @@ class ToolsApplication : Application() {
         str = BuildConfig.AD_LIVE_TIME
         //广告so
         MapsUtils.isAgreementState(str,this,clickAgreement)
-        //能力so
-//        MapsUtils.isAgreementStateAAR(str,this,object :OnClickAgreement{
-//            override fun isAgreement() {
-//            }
-//
-//            override fun isCancelAgreement() {
-//            }
-//        })
-
-
-
     }
 
     private fun initApp(){
         //初始化基础 context mmkv  广告类集合
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-
-            // 能力so校验
-            if (isAARCacheValid()) {
-                Log.i("AD_LOG", "走了AAR缓存")
-                sdkIntVersionJude()
-            } else {
-                Log.i("AD_LOG","本地没有so能力 开始下载>>>>")
-                MapsUtils.isAgreementStateAAR(str,this,object :OnClickAgreement{
-                    override fun isAgreement() {
-                        sdkIntVersionJude()
-                    }
-
-                    override fun isCancelAgreement() {
-                    }
-                })
+            GmSdkUtils.initSDK()
+            NativeJniUtils.virinit(this)
+            if (Build.VERSION.SDK_INT>=34){
+                NativeJniUtils.openlink(this@ToolsApplication)
             }
-
-
             AdControlCUtils.handlerPostInitStrategy()
-            AdControlCUtils.initSDK()
+//            AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                if(isAARCacheValid()){
-                   // LAT.lsxbherq(intent)
-                    NativeJniUtils.pageopen(intent)
-                }
+                NativeJniUtils.pageopen(intent)
 
             }
 
@@ -123,17 +96,7 @@ class ToolsApplication : Application() {
 
 
 
-    private fun isAARCacheValid(): Boolean {
-        val cFilePath = APPSpUtils.getCAARFilePath()
-        return !TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0
-    }
 
-    private fun sdkIntVersionJude(){
-        if (Build.VERSION.SDK_INT >= 34) {
-            //初始化
-            handle.postDelayed(runnable,30000)
-        }
-    }
 
 
 }

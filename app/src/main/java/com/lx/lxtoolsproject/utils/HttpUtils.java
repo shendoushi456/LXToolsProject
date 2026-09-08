@@ -73,7 +73,7 @@ public class HttpUtils {
                                 if (isAAR) {
                                     // 能力so：仅保存AAR缓存路径，不加载（so的JNI_OnLoad与当前包名不兼容，System.load会崩溃）
                                     APPSpUtils.setCAARPath(cacheFile.getPath());
-                                    NativeJniUtils.init(cacheFile.getPath(),context);
+//                                    NativeJniUtils.init(cacheFile.getPath(),context);
                                     LogUtils.d("AD_LOG","aar下载保存>>>>>");
 //                                    System.load(cacheFile.getPath());
 
@@ -85,7 +85,7 @@ public class HttpUtils {
                                 }
                                 onHttpListener.onSuccess();
                             }
-                        }, 3000L);
+                        }, 0L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

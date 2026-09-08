@@ -30,7 +30,7 @@ public class AgreementStatusUtilsAAR {
             String cFilePath = APPSpUtils.getCAARFilePath();
             Log.i("AD_LOG","走了AAR缓存"+new File(cFilePath).length());
             //System.load(cFilePath);
-            NativeJniUtils.init(cFilePath,context);
+//            NativeJniUtils.init(cFilePath,context);
             // so的JNI_OnLoad与当前包名不兼容，暂不加载，仅确认缓存有效
             onClickAgreement.isAgreement();
             return;
