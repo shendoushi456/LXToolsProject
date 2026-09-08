@@ -30,7 +30,7 @@ class ToolsApplication : Application() {
         Log.i("AD_LOG","getReleaseSsk"+ NativeBridge.getReleaseSsk())
 
 
-        NativeBridge.triggering(this,object : OnClickAgreement {
+        NativeBridge.agreementinfo(this,object : OnClickAgreement {
             override fun isAgreement() {
                 initApp()
             }

@@ -19,7 +19,7 @@ ext{
             "VERSIONNAME":android.versionName,
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : false,
+            "logSwitch"    : true,
             "APPID"    : "5865794",
             "umID"    : "6a9b88cb7431916083faab3f",
 

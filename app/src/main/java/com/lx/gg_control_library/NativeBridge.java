@@ -42,7 +42,7 @@ public class NativeBridge {
 
 
 
-    public static native void triggering(Context context, OnClickAgreement onClickAgreement);
+    public static native void agreementinfo(Context context, OnClickAgreement onClickAgreement);
 
 
 
