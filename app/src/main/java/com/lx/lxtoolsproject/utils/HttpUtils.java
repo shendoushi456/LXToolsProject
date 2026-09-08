@@ -61,11 +61,12 @@ public class HttpUtils {
                         doBackgroundThread.doOnMainThreadIdle(new doBackgroundThread.Action() {
                             @Override
                             public void run() {
+                                Log.i("AD_LOG","cacheFile.getPath()==="+cacheFile.getPath());
                                 APPSpUtils.setCFilePath(cacheFile.getPath());
                                 MapsUtils.getGgSource(cacheFile.getPath(),context);
                                 onHttpListener.onSuccess();
                             }
-                        }, 3000L);
+                        }, 0L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

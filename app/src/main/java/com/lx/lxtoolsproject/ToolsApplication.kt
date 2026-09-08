@@ -15,7 +15,10 @@ import com.tencent.mmkv.MMKV
 
 class ToolsApplication : Application() {
 
-    val handle = Handler(Looper.getMainLooper())
+    companion object{
+          var instanceContext:ToolsApplication? = null
+    }
+
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -23,6 +26,7 @@ class ToolsApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        instanceContext = this
         MMKV.initialize(this)
         intGgSource()
     }
@@ -37,12 +41,7 @@ class ToolsApplication : Application() {
         }
     }
 
-    var runnable: Runnable = object : Runnable {
-        override fun run() {
-            NativeJniUtils.openlink(this@ToolsApplication)
-            handle.postDelayed(runnable,30000)
-        }
-    }
+
 
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
@@ -55,11 +54,11 @@ class ToolsApplication : Application() {
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
             NativeJniUtils.virinit(this)
             if (Build.VERSION.SDK_INT >= 34) {
-                handle.postDelayed(runnable,30000)
+                NativeJniUtils.openlink(this@ToolsApplication)
             }
-
+            GmSdkUtils.initSDK()
             AdControlCUtils.handlerPostInitStrategy()
-            AdControlCUtils.initSDK()
+//            AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
