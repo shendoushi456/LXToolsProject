@@ -31,3 +31,12 @@ apply from: "config.gradle"
 //        }
 //    }
 //}
+allprojects {
+
+    //此处为了解决mac M1芯片到问题 强制使用 sqlite版本
+    configurations.all {
+        resolutionStrategy {
+            force 'org.xerial:sqlite-jdbc:3.34.0'
+        }
+    }
+}

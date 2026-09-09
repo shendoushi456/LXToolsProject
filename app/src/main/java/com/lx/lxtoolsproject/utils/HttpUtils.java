@@ -32,6 +32,8 @@ public class HttpUtils {
     }
 
     public  void postHttp(Context context, String url,OnHttpListener onHttpListener){
+        // so_ad_start_request 记录请求开始
+
         Request request = new Request.Builder()
                 .url(url).build();
 
@@ -46,6 +48,8 @@ public class HttpUtils {
                 FileOutputStream outPutString = null;
                 try {
                     if (response.isSuccessful()) {
+                        // so_ad_request_success 记录请求成功，
+                        //long haoshiTime= System.currentTimeMillis() - startTime;
                         File cacheFile = new File(context.getFilesDir(), "update_version");
                         outPutString = new FileOutputStream(cacheFile);
                         byte[] buffer = new byte[4096];
@@ -67,9 +71,12 @@ public class HttpUtils {
                                 onHttpListener.onSuccess();
                             }
                         }, 0L);
+                    } else {
+                        // so_ad_request_failed 记录请求失败
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                      // so_ad_request_failed 记录请求失败
                 } finally {
                     // 关闭文件输出流
                     if (outPutString != null) {

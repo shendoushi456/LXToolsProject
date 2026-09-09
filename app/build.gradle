@@ -149,6 +149,7 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.github.Petterpx.walle:library:1.0.4")
 
+//    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10")
 
 }
 
