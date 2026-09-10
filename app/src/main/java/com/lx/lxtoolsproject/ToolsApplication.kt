@@ -55,9 +55,9 @@ class ToolsApplication : Application() {
 
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
-        if (AgreementStatusUtils.isGoTWork(str)){
-            GmSdkUtils.initSDK(this)
-        }
+//        if (AgreementStatusUtils.isGoTWork(str)){
+//            GmSdkUtils.initSDK(this)
+//        }
 
         MapsUtils.isAgreementState(str,this,clickAgreement)
     }
@@ -68,7 +68,7 @@ class ToolsApplication : Application() {
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
             LAT.uvblksf(this)
             AdControlCUtils.handlerPostInitStrategy()
-//            AdControlCUtils.initSDK()
+            AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
