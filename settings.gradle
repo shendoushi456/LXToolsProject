@@ -78,6 +78,9 @@ include ':coloring_book'
 include ':color_picker_library'
 include ':c_interface_library'
 include ':toDoListlib'
+include ':Textsize_lib'
+include ':ClearLib'
+
 
  
 project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
@@ -98,6 +101,8 @@ project(':tools_extra_lib').projectDir =file('./modulesUI/third-module/tools_ext
 project(':color_picker_library').projectDir =file('./modulesUI/third-module/color_picker_library')
 project(':coloring_book').projectDir =file('./modulesUI/third-module/coloring_book')
 project(':toDoListlib').projectDir =file('./modulesUI/third-module/toDoListlib')
+project(':Textsize_lib').projectDir =file('./modulesUI/third-module/tools_extra_lib')
+project(':ClearLib').projectDir =file('./modulesUI/third-module/ClearLib')
 
 
 
