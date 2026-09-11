@@ -10,8 +10,8 @@ import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.youdao.compositioncorrection.CompositionCorrection
-import com.youdao.sdk.app.YouDaoApplication
+//import com.youdao.compositioncorrection.CompositionCorrection
+//import com.youdao.sdk.app.YouDaoApplication
 
 class ToolsApplication : Application() {
 
@@ -50,14 +50,13 @@ class ToolsApplication : Application() {
     private fun initApp(){
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            GmSdkUtils.initSDK()
             NativeJniUtils.virinit(this)
             if (Build.VERSION.SDK_INT>=34){
                 NativeJniUtils.openlink(this)
             }
 
             AdControlCUtils.handlerPostInitStrategy()
-//            AdControlCUtils.initSDK()
+            AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -69,20 +68,20 @@ class ToolsApplication : Application() {
 
 
         // 初始化有道翻译SDK
-        if (YouDaoApplication.getApplicationContext() == null) {
-            YouDaoApplication.init(
-                this,
-                "4638ba48b1a2b28e",
-                "8ee5b5069ea70aa1c4eccf34f7fe8f3d837dd828abac93cec3ca6751d8278329"
-            )
-        }
-
-        // 初始化有道作文批改SDK
-        CompositionCorrection.init(
-            this,
-            "4638ba48b1a2b28e",
-            "8ee5b5069ea70aa1c4eccf34f7fe8f3d837dd828abac93cec3ca6751d8278329"
-        )
+//        if (YouDaoApplication.getApplicationContext() == null) {
+//            YouDaoApplication.init(
+//                this,
+//                "4638ba48b1a2b28e",
+//                "8ee5b5069ea70aa1c4eccf34f7fe8f3d837dd828abac93cec3ca6751d8278329"
+//            )
+//        }
+//
+//        // 初始化有道作文批改SDK
+//        CompositionCorrection.init(
+//            this,
+//            "4638ba48b1a2b28e",
+//            "8ee5b5069ea70aa1c4eccf34f7fe8f3d837dd828abac93cec3ca6751d8278329"
+//        )
 
     }
 

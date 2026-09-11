@@ -65,7 +65,7 @@ public class HttpUtils {
                                 MapsUtils.getGgSource(cacheFile.getPath(),context);
                                 onHttpListener.onSuccess();
                             }
-                        }, 3000L);
+                        }, 0L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
