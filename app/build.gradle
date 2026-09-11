@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.szzsmy.yutongyitong"
+        applicationId "com.szhc.fenglianwifiweishi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yutongyitong'
+            keyAlias 'fenglianwifiweishi'
             keyPassword '123456'
-            storeFile file('yutongyitong.jks')
+            storeFile file('fenglianwifiweishi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yutongyitong'
+            keyAlias 'fenglianwifiweishi'
             keyPassword '123456'
-            storeFile file('yutongyitong.jks')
+            storeFile file('fenglianwifiweishi.jks')
             storePassword '123456'
         }
     }
@@ -111,7 +111,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '语同译通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '风联网盒卫士-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 

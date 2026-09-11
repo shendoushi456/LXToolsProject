@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 21,
+            versionName      : "2.0.1",
     ]
     dependencies = [
 
@@ -15,25 +15,25 @@ ext{
 
             "HOST"        :  "https://api.zaosuancuo.cn/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlytyt/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlytyt/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlflwhws/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlflwhws/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "c4662706eaf0d169",
-            "RELEASE_SSK"  : "3fcd365fed778163e9ea23af7e6c73be",
+            "RELEASE_APPID": "f674d552430e6a5c",
+            "RELEASE_SSK"  : "131e00aa8cf6f28ab103319bf816b7eb",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-09-18 18:00:00",
+            "ad_LiveTime":"2026-09-21 11:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a9a6209d5481f0b42ed66d8",
+            "umID":"6aa3e77e743191608301d745",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id

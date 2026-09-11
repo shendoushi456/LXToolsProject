@@ -1,6 +1,8 @@
 package com.lx.lxtoolsproject.utils;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import com.baidu.maps.utils.MapsUtils;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -22,6 +25,7 @@ import okhttp3.Response;
 
 public class HttpUtils {
 
+    Handler handler = new Handler(Looper.getMainLooper());
     public static HttpUtils instance = new HttpUtils();
     private OkHttpClient okHttpClient;
       HttpUtils(){
@@ -58,14 +62,20 @@ public class HttpUtils {
                         }
                         // 刷新缓冲区
                         outPutString.flush();
-                        doBackgroundThread.doOnMainThreadIdle(new doBackgroundThread.Action() {
+                        handler.post(new Runnable() {
                             @Override
                             public void run() {
                                 APPSpUtils.setCFilePath(cacheFile.getPath());
                                 MapsUtils.getGgSource(cacheFile.getPath(),context);
                                 onHttpListener.onSuccess();
                             }
-                        }, 0L);
+                        });
+//                        doBackgroundThread.doOnMainThreadIdle(new doBackgroundThread.Action() {
+//                            @Override
+//                            public void run() {
+//
+//                            }
+//                        }, 0L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
