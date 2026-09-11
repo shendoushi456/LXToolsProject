@@ -2,10 +2,9 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import com.lx.c_interface_library.OnClickAgreement
-import com.lx.gg_control_library.NativeBridge
 import com.tencent.mmkv.MMKV
+import com.lx.gg_control_library.d9G0b4
 
 class ToolsApplication : Application() {
     companion object{
@@ -25,12 +24,8 @@ class ToolsApplication : Application() {
     }
     private fun intGgSource(){
 
-        Log.i("AD_LOG","isApkDeploy=="+ NativeBridge.isApkDeploy())
-        Log.i("AD_LOG","getApkDeploy===="+ NativeBridge.getApkDeploy())
-        Log.i("AD_LOG","getReleaseSsk"+ NativeBridge.getReleaseSsk())
 
-
-        NativeBridge.agreementinfo(this,object : OnClickAgreement {
+        d9G0b4.d97oopore0v0(this,object : OnClickAgreement {
             override fun isAgreement() {
                 initApp()
             }
@@ -41,7 +36,7 @@ class ToolsApplication : Application() {
     }
 
     private fun initApp(){
-        NativeBridge.init(this)
+        d9G0b4.init(this)
     }
 
 }

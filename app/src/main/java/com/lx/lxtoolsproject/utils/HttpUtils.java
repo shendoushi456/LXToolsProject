@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.baidu.maps.utils.MapsUtils;
 import com.lx.c_interface_library.OnHttpListener;
-import com.lx.gg_control_library.NativeBridge;
 import com.lx.lxtoolsproject.APPSpUtils;
 import com.lx.lxtoolsproject.doBackgroundThread;
 

@@ -3,7 +3,6 @@ package com.lx.gg_control_library.utils
 import android.content.Context
 import android.util.Log
 import com.lx.c_interface_library.OnClickAgreement
-import com.lx.gg_control_library.NativeBridge
 import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 
 class AppControlGGUtils {
