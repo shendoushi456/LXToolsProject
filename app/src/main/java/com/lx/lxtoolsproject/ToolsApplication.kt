@@ -3,19 +3,16 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import android.content.Intent
-import android.os.Handler
-import android.os.Looper
+import android.os.Build
 import android.util.Log
-import androidx.constraintlayout.core.motion.utils.GU
 import com.baidu.maps.utils.MapsUtils
+import com.keep.up.all.NativeJniUtils
 
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
 
 class ToolsApplication : Application() {
-
-    val handle = Handler(Looper.getMainLooper())
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -30,6 +27,7 @@ class ToolsApplication : Application() {
 
     val clickAgreement = object : OnClickAgreement {
         override fun isAgreement() {
+            Log.i("AD_LOG","isAgreement====isAgreement")
             initApp()
         }
 
@@ -46,17 +44,18 @@ class ToolsApplication : Application() {
     private fun initApp(){
         //初始化基础 context mmkv  广告类集合
         AdControlCUtils.initDef(this)
-        if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            GU.piovjoy(this)
+            NativeJniUtils.virinit(this)
+            if (Build.VERSION.SDK_INT>=34){
+                NativeJniUtils.openlink(this)
+            }
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                GU.conaoiwc(intent)
+                NativeJniUtils.pageopen(intent)
             }
 
-        }
 
 
     }
