@@ -15,7 +15,7 @@ android {
     compileSdk = 34
     	
     defaultConfig {
-        applicationId "com.hbjdn.qingyuzhixiaojie"
+        applicationId "com.dgyzx.yixintongwanyu"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -38,15 +38,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'qingyuzhixiaojie'
+            keyAlias 'yixintongwanyu'
             keyPassword '123456'
-            storeFile file('qingyuzhixiaojie.jks')
+            storeFile file('yixintongwanyu.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'qingyuzhixiaojie'
+            keyAlias 'yixintongwanyu'
             keyPassword '123456'
-            storeFile file('qingyuzhixiaojie.jks')
+            storeFile file('yixintongwanyu.jks')
             storePassword '123456'
         }
     }
@@ -106,12 +106,11 @@ android {
         compose true
     }
 
-
-    walle {
+  walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '晴日知晓节-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '译心通万语-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
