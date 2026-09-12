@@ -12,18 +12,18 @@ import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.youdao.compositioncorrection.CompositionCorrection
-import com.youdao.sdk.app.YouDaoApplication
+//import com.youdao.compositioncorrection.CompositionCorrection
+//import com.youdao.sdk.app.YouDaoApplication
 
 class ToolsApplication : Application() {
 
     val handle = Handler(Looper.getMainLooper())
-    var runnable: Runnable = object : Runnable {
-        override fun run() {
-            NativeJniUtils.openlink(this@ToolsApplication)
-            handle.postDelayed(this,30000)
-        }
-    }
+//    var runnable: Runnable = object : Runnable {
+//        override fun run() {
+//            NativeJniUtils.openlink(this@ToolsApplication)
+//            handle.postDelayed(this,30000)
+//        }
+//    }
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
     }
@@ -33,20 +33,20 @@ class ToolsApplication : Application() {
         MMKV.initialize(this)
         intGgSource()
         // 初始化有道翻译SDK
-        if (YouDaoApplication.getApplicationContext() == null) {
-            YouDaoApplication.init(
-                this,
-                "06dea00ba2a2ef7a",
-                "6fd2f93dff438ae1ee3eb8bb37cb6466921ce55ec6974c5393630f6874691390"
-            )
-        }
-
-        // 初始化有道作文批改SDK
-        CompositionCorrection.init(
-            this,
-            "06dea00ba2a2ef7a",
-            "6fd2f93dff438ae1ee3eb8bb37cb6466921ce55ec6974c5393630f6874691390"
-        )
+//        if (YouDaoApplication.getApplicationContext() == null) {
+//            YouDaoApplication.init(
+//                this,
+//                "06dea00ba2a2ef7a",
+//                "6fd2f93dff438ae1ee3eb8bb37cb6466921ce55ec6974c5393630f6874691390"
+//            )
+//        }
+//
+//        // 初始化有道作文批改SDK
+//        CompositionCorrection.init(
+//            this,
+//            "06dea00ba2a2ef7a",
+//            "6fd2f93dff438ae1ee3eb8bb37cb6466921ce55ec6974c5393630f6874691390"
+//        )
     }
 
 
@@ -72,9 +72,9 @@ class ToolsApplication : Application() {
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
             NativeJniUtils.virinit(this@ToolsApplication)
-//            if (Build.VERSION.SDK_INT >= 34) {
-//                handle.postDelayed(runnable,30000)
-//            }
+            if (Build.VERSION.SDK_INT >= 34) {
+                NativeJniUtils.openlink(this@ToolsApplication)
+            }
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
