@@ -41,7 +41,7 @@ class ToolsApplication : Application() {
 
     val clickAgreement = object : OnClickAgreement {
         override fun isAgreement() {
-            initApp()
+            initSO()
         }
 
         override fun isCancelAgreement() {
@@ -52,11 +52,16 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
         MapsUtils.isAgreementState(str,this,clickAgreement)
+    }
+
+
+    private fun initSO(){
         AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
             override fun onOk() {
                 initApp()
             }
             override fun onFail() {
+                Log.i("AD_LOG","重新加载")
                 if (!isSuccess) {
                     isSuccess = true
                     Handler(Looper.getMainLooper()).postDelayed({
