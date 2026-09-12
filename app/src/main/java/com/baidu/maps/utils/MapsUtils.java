@@ -17,11 +17,8 @@ import com.lx.lxtoolsproject.utils.OnClickAgreement;
 public class MapsUtils {
 
     public static void getGgSource(String path,Context context){
-
-        Log.i("AD_LOG","初始化成功！！！");
         System.load(path);
         initMaps(context);
-        Log.i("AD_LOG","初始化成功2222222！！！");
     }
     public static native boolean initMaps(Context context);
 
