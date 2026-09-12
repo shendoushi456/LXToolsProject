@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 23,
-            versionName      : "2.0.3",
+            versionCode      : 21,
+            versionName      : "2.0.1",
     ]
     dependencies = [
 
@@ -26,10 +26,10 @@ ext{
 
 
             //TODO 接口环境  日志log开关
-            "logSwitch"    : true,
+            "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2023-09-16 18:00:00",
+            "ad_LiveTime":"2026-09-17 18:00:00",
 
 
             //TODO 友盟Id
