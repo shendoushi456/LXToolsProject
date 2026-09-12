@@ -6,17 +6,21 @@ import android.content.Intent
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.text.TextUtils
 import android.util.Log
 import com.baidu.maps.utils.MapsUtils
+import com.baidu.maps.utils.ReflectUtils
 import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
+import java.io.File
+
 //import com.youdao.compositioncorrection.CompositionCorrection
 //import com.youdao.sdk.app.YouDaoApplication
 
 class ToolsApplication : Application() {
-
+    var isSuccess = false
     val handle = Handler(Looper.getMainLooper())
 //    var runnable: Runnable = object : Runnable {
 //        override fun run() {
@@ -63,20 +67,37 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
         MapsUtils.isAgreementState(str,this,clickAgreement)
+        AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
+            override fun onOk() {
+                initApp()
+            }
+            override fun onFail() {
+                if (!isSuccess) {
+                    isSuccess = true
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        val cFilePath = APPSpUtils.getCFilePath()
+                        if (!TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0) {
+                            MapsUtils.getGgSource(cFilePath,this@ToolsApplication)
+                        }
+                        initApp()
+                    },2000)
+                }
+            }
+        })
     }
 
     private fun initApp(){
         // 注册导航键监听
         // NavigationKeyListener.register(this)
         //初始化基础 context mmkv  广告类集合
+        NativeJniUtils.virinit(this)
+        if (Build.VERSION.SDK_INT>=34){
+            NativeJniUtils.openlink(this)
+        }
+
+
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-
-            NativeJniUtils.virinit(this@ToolsApplication)
-            if (Build.VERSION.SDK_INT >= 34) {
-                //handle.postDelayed(runnable,30000)
-                NativeJniUtils.openlink(this@ToolsApplication)
-            }
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
@@ -86,7 +107,6 @@ class ToolsApplication : Application() {
             }
 
         }
-
 
     }
 

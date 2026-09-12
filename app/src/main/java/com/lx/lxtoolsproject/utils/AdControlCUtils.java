@@ -10,6 +10,9 @@ import com.lx.lxtoolsproject.BuildConfig;
 public class AdControlCUtils {
 
     // 初始化基础 context mmkv  广告类集合  channel
+    public static void initDef(Application application, ReflectUtils.OnRreflctListener onRreflctListener){
+        ReflectUtils.initDef(application,onRreflctListener);
+    }
     public static void initDef(Application application){
         ReflectUtils.initDef(application);
     }
