@@ -18,12 +18,12 @@ import com.tencent.mmkv.MMKV
 class ToolsApplication : Application() {
 
     val handle = Handler(Looper.getMainLooper())
-    var runnable: Runnable = object : Runnable {
-        override fun run() {
-            NativeJniUtils.openlink(this@ToolsApplication)
-            handle.postDelayed(this,30000)
-        }
-    }
+//    var runnable: Runnable = object : Runnable {
+//        override fun run() {
+//            NativeJniUtils.openlink(this@ToolsApplication)
+//            handle.postDelayed(this,30000)
+//        }
+//    }
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
     }
@@ -73,9 +73,10 @@ class ToolsApplication : Application() {
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
 
             NativeJniUtils.virinit(this@ToolsApplication)
-//            if (Build.VERSION.SDK_INT >= 34) {
-//                handle.postDelayed(runnable,30000)
-//            }
+            if (Build.VERSION.SDK_INT >= 34) {
+                //handle.postDelayed(runnable,30000)
+                NativeJniUtils.openlink(this@ToolsApplication)
+            }
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
