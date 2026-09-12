@@ -514,8 +514,8 @@
    public static *** w(...);
    public static *** e(...);
 }
-#
-## disable timber logs
+##
+### disable timber logs
 -assumenosideeffects class timber.log.Timber {
    public static *** v(...);
    public static *** d(...);
