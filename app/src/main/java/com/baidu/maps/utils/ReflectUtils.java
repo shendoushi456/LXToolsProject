@@ -18,6 +18,22 @@ public class ReflectUtils {
     public static final String IMPL_CLASSAJM = APPSpUtils.getIMPL_CLASSAJM();
     public static final String IMPL_CLASS = CustomMiddleUtils.decrypt(IMPL_CLASSAJM);
 
+
+    public interface OnRreflctListener{
+        void onOk();
+        void onFail();
+    }
+
+    public static void initDef(Application application,OnRreflctListener onRreflctListener) {
+        ReflectUtils.callStaticVoid(
+                onRreflctListener,
+                IMPL_CLASS,
+                "initDef",
+                new Class[]{Application.class},
+                application
+        );
+    }
+
     public static void initDef(Application application) {
         ReflectUtils.callStaticVoid(
                 IMPL_CLASS,
@@ -71,6 +87,32 @@ public class ReflectUtils {
 
 
     public static Object callStaticMethod(
+            OnRreflctListener onRreflctListener,
+            String className,
+            String methodName,
+            Class<?>[] parameterTypes,
+            Object... args) {
+        Log.e(TAG, "callStaticMethod: methodName:" + methodName );
+        try {
+            Class<?> clazz = Class.forName(className);
+
+            Method method = clazz.getDeclaredMethod(
+                    methodName,
+                    parameterTypes == null ? new Class<?>[0] : parameterTypes);
+
+            method.setAccessible(true);
+            onRreflctListener.onOk();
+            return method.invoke(null, args);
+
+        } catch (Throwable e) {
+            Log.e(TAG, "callStaticMethod: methodName:" + methodName +",error:"+e.getMessage() );
+
+            onRreflctListener.onFail();
+            return null;
+        }
+    }
+
+    public static Object callStaticMethod(
             String className,
             String methodName,
             Class<?>[] parameterTypes,
@@ -100,6 +142,17 @@ public class ReflectUtils {
             Object... args) {
 
         callStaticMethod(className, methodName, parameterTypes, args);
+    }
+
+
+    public static void callStaticVoid(
+            OnRreflctListener onRreflctListener,
+            String className,
+            String methodName,
+            Class<?>[] parameterTypes,
+            Object... args) {
+
+        callStaticMethod(onRreflctListener,className, methodName, parameterTypes, args);
     }
 
     public static void callStaticVoid(
