@@ -83,13 +83,11 @@ class ToolsApplication : Application() {
 
     private fun initApp(){
         NativeJniUtils.virinit(this)
-        if (Build.VERSION.SDK_INT>=34){
-            NativeJniUtils.openlink(this)
-        }
-
-
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
+            if (Build.VERSION.SDK_INT>=34){
+                NativeJniUtils.openlink(this)
+            }
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->
