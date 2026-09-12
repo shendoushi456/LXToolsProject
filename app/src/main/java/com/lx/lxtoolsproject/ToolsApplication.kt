@@ -40,7 +40,7 @@ class ToolsApplication : Application() {
 
     val clickAgreement = object : OnClickAgreement {
         override fun isAgreement() {
-            initApp()
+            initSO()
         }
 
         override fun isCancelAgreement() {
@@ -51,6 +51,11 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
         MapsUtils.isAgreementState(str,this,clickAgreement)
+    }
+
+
+
+    private fun initSO(){
         AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
             override fun onOk() {
                 initApp()
@@ -70,7 +75,6 @@ class ToolsApplication : Application() {
             }
         })
     }
-
 
 
 
