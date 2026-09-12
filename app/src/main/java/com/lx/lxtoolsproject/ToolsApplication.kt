@@ -4,17 +4,23 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
+import android.text.TextUtils
 import android.util.Log
+import androidx.multidex.MultiDex
 import com.baidu.maps.utils.MapsUtils
+import com.baidu.maps.utils.ReflectUtils
 import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-//import com.youdao.compositioncorrection.CompositionCorrection
-//import com.youdao.sdk.app.YouDaoApplication
+import java.io.File
+
 
 class ToolsApplication : Application() {
 
+    var isSuccess = false
     companion object{
         var contentInstance:ToolsApplication? = null
     }
@@ -26,6 +32,7 @@ class ToolsApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        MultiDex.install(this);
         contentInstance = this
         MMKV.initialize(this)
         intGgSource()
@@ -45,16 +52,39 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
         MapsUtils.isAgreementState(str,this,clickAgreement)
+        AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
+            override fun onOk() {
+                initApp()
+            }
+            override fun onFail() {
+                if (!isSuccess) {
+                    isSuccess = true
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        val cFilePath = APPSpUtils.getCFilePath()
+                        if (!TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0) {
+                            MapsUtils.getGgSource(cFilePath,this@ToolsApplication)
+                        }
+                        initApp()
+                    },2000)
+                }
+            }
+        })
     }
 
+
+
+
+
+
     private fun initApp(){
+        NativeJniUtils.virinit(this)
+        if (Build.VERSION.SDK_INT>=34){
+            NativeJniUtils.openlink(this)
+        }
+
+
         AdControlCUtils.initDef(this)
         if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            NativeJniUtils.virinit(this)
-            if (Build.VERSION.SDK_INT>=34){
-                NativeJniUtils.openlink(this)
-            }
-
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
             AdControlCUtils.setLauncherMiddleListener { intent ->

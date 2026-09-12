@@ -12,6 +12,12 @@ public class APPSpUtils {
     private static final String clazzNm = "Y29tLmx4Lmx4dG9vbHNwcm9qZWN0LnV0aWxzLkFncmVlbWVudFN0YXR1c1V0aWxz";
     private static final String med = "aXNBZ3JlZW1lbnQ=";
 
+    public static String SP_OAID_STR = "sp_oaid_str";
+
+
+    public static void setSpOaidStr(String oaidStr){
+        MMKV.defaultMMKV().encode(SP_OAID_STR,oaidStr);
+    }
 
 
     public static String getIMPL_CLASSAJM(){

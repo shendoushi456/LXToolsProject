@@ -13,33 +13,33 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zhangshenhan1.top/",
+            "HOST"        :  "https://api.zhangningjiang1.top/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zhangshenhan1.top/agreement/bbqnhsb/privacy",
-            "userUrl"   : "https://api.zhangshenhan1.top/agreement/bbqnhsb/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbxmshg/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbxmshg/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "c3df0dbf2f03a787",
-            "RELEASE_SSK"  : "cbb454ffb1aef144152b0fa5f6049702",
+            "RELEASE_APPID": "9f9b5f4e7a85e287",
+            "RELEASE_SSK"  : "a8607ebb35e42142e7214f47d728c448",
 
 
             //TODO 接口环境  日志log开关
             "logSwitch"    : false,
 
             //TODO 启动时间
-            "ad_LiveTime":"2026-09-16 18:00:00",
+            "ad_LiveTime":"2023-09-17 18:00:00",
 
 
             //TODO 友盟Id
-            "umID":"6a545ceacbfa69595175c366",
+            "umID":"6aa3f0fd743191608301dbc0",
 
             //TODO 第三方广告SDK ID
-            "APPID"        : "5848504", //穿山甲Id
+            "APPID"        : "5878260", //穿山甲Id
 
 
-            "lx_tools_pt":"quannenghuisebao.aar"
+            "lx_tools_pt":"xingmengshouhuiguan.aar"
     ]
 
 }
