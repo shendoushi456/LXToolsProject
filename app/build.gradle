@@ -4,11 +4,25 @@ plugins {
 
     id 'org.jetbrains.kotlin.android'
     id 'walle'
-
+    id 'io.github.qq549631030.android-junk-code'
 
 }
 //apply plugin: 'walle'
-
+androidJunkCode {
+    variantConfig {
+        release {
+            packageBase = "com.su.shi"
+            packageCount = 50
+            activityCountPerPackage = 40
+            excludeActivityJavaFile = false
+            otherCountPerPackage = 50
+            methodCountPerClass = 20
+            resPrefix = "wendang_"
+            drawableCount = 100
+            stringCount = 100
+        }
+    }
+}
 
 android {
     namespace 'com.lx.lxtoolsproject'
