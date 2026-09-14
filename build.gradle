@@ -7,8 +7,6 @@ buildscript {
 //    }
     dependencies {
         classpath libs.walle.plugin
-        classpath "com.github.qq549631030:android-junk-code:1.1.2"
-        
     }
 }
 

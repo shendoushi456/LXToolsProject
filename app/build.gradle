@@ -8,17 +8,18 @@ plugins {
 
 
 }
+
 //apply plugin: 'walle'
 androidJunkCode {
     variantConfig {
         release {
-            packageBase = "com.shan.paikuai"
+            packageBase = "com.hbltn.caimohuixingfanghb"
             packageCount = 50
             activityCountPerPackage = 40
             excludeActivityJavaFile = false
             otherCountPerPackage = 50
             methodCountPerClass = 20
-            resPrefix = "kuaisao_"
+            resPrefix = "cmhxf_"
             drawableCount = 100
             stringCount = 100
         }
