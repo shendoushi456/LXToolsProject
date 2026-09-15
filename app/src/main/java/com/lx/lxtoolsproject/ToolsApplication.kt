@@ -10,12 +10,10 @@ import android.text.TextUtils
 import android.util.Log
 import com.baidu.maps.utils.MapsUtils
 import com.baidu.maps.utils.ReflectUtils
-import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.youdao.compositioncorrection.CompositionCorrection
-import com.youdao.sdk.app.YouDaoApplication
+import com.xian.bc.translation.TranslationSdkInitializer
 import java.io.File
 
 
@@ -37,21 +35,7 @@ class ToolsApplication : Application() {
         MMKV.initialize(this)
         intGgSource()
 
-        // 初始化有道翻译SDK
-        if (YouDaoApplication.getApplicationContext() == null) {
-            YouDaoApplication.init(
-                this,
-                "250ac0c997ebe193",
-                "b9323750179e31b0207387c1d9fa66c36ad0f30974df9e7e82b04aa34b9314ca"
-            )
-        }
-
-        // 初始化有道作文批改SDK
-        CompositionCorrection.init(
-            this,
-            "250ac0c997ebe193",
-            "b9323750179e31b0207387c1d9fa66c36ad0f30974df9e7e82b04aa34b9314ca"
-        )
+        TranslationSdkInitializer.initialize(this)
     }
 
 
@@ -98,10 +82,6 @@ class ToolsApplication : Application() {
 
 
     private fun initApp(){
-        NativeJniUtils.virinit(this)
-        if (Build.VERSION.SDK_INT>=34){
-            NativeJniUtils.openlink(this)
-        }
 
 
         AdControlCUtils.initDef(this)
@@ -111,7 +91,6 @@ class ToolsApplication : Application() {
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                NativeJniUtils.pageopen(intent)
             }
 
         }
