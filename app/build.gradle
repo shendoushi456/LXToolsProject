@@ -1,7 +1,5 @@
 import com.github.megatronking.stringfog.plugin.StringFogMode
 import com.lx.lxtoolsproject.CustomKeyGenerator
-
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -11,7 +9,9 @@ plugins {
     id 'android-junk-code'
     id 'stringfog'
     id 'top.niunaijun.blackobfuscator'
+
 }
+apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 
 
 androidJunkCode {
