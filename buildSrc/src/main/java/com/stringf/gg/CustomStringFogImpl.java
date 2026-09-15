@@ -1,4 +1,4 @@
-package com.lx.lxtoolsproject;
+package com.stringf.gg;
 
 import com.github.megatronking.stringfog.IStringFog;
 
