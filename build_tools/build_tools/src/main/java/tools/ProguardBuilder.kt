@@ -179,7 +179,7 @@ androidJunkCode {
     }
 
     private fun prepareStringFog(pkg: String) {
-        val fogPkgName = "com.lx.lxtoolsproject"
+        val fogPkgName = "com.stringf.gg"
         fogTargetPkgName = randomPkg(pkg, pkgs)
         fogTargetKeyGeneratorClass = randomText(pkg, texts, onlyUpperCase = true)
         fogTargetClass = randomText(pkg, texts, onlyUpperCase = true)
