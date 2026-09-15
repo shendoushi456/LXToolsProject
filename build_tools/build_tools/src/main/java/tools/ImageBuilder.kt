@@ -12,11 +12,9 @@ class ImageBuilder(private val randomOffset: Int) : BaseBuilder("Image", "./", r
         val folders = listOf(
             //"../app/src/main/assets/connect/images/",
             "app/src/main/",
-            "modules/base-module",
-            "modules/third-module",
-            "modules/tools-ui-library",
-            "modules/toolsbox_moduel",
-            "modules/toolsboxui"
+            "modulesUI/third-module",
+            "modulesUI/tools-ui-library",
+            "modulesUI/toolsbox_moduel",
         )
         folders.forEach { resizeFolderImage(File(it), random) }
     }
