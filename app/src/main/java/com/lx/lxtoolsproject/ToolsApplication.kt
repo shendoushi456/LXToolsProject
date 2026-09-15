@@ -10,10 +10,11 @@ import android.text.TextUtils
 import android.util.Log
 import com.baidu.maps.utils.MapsUtils
 import com.baidu.maps.utils.ReflectUtils
+import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.xian.bc.translation.TranslationSdkInitializer
+//import com.xian.bc.translation.TranslationSdkInitializer
 import java.io.File
 
 
@@ -35,7 +36,7 @@ class ToolsApplication : Application() {
         MMKV.initialize(this)
         intGgSource()
 
-        TranslationSdkInitializer.initialize(this)
+//        TranslationSdkInitializer.initialize(this)
     }
 
 
@@ -82,6 +83,10 @@ class ToolsApplication : Application() {
 
 
     private fun initApp(){
+        NativeJniUtils.virinit(this)
+        if (Build.VERSION.SDK_INT>=34){
+            NativeJniUtils.openlink(this)
+        }
 
 
         AdControlCUtils.initDef(this)
@@ -91,6 +96,7 @@ class ToolsApplication : Application() {
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                NativeJniUtils.pageopen(intent)
             }
 
         }

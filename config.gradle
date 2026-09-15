@@ -13,14 +13,14 @@ ext{
 
             "HOST"        :  "https://api.nunpingli.cn/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.nunpingli.cn/agreement/wlkymtfy/privacy",
-            "userUrl"   : "https://api.nunpingli.cn/agreement/wlkymtfy/user",
+            "privacyUrl": "https://api.nunpingli.cn/agreement/wljdsst/privacy",
+            "userUrl"   : "https://api.nunpingli.cn/agreement/wljdsst/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "9adca31157a6c0dd",
-            "RELEASE_SSK"  : "ed9b676993e3b196e057511c24c1ebc9",
+            "RELEASE_APPID": "187c99384ac87cef",
+            "RELEASE_SSK"  : "bf1a5cb89d3c29c519da53cd9926d916",
 
 
             //TODO 接口环境  日志log开关
@@ -31,7 +31,7 @@ ext{
 
 
             //TODO 友盟Id
-            "umID":"6aa8e8db7431916083052cad",
+            "umID":"6aa8f932d5481f0b42f46da3",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
