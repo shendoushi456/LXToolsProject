@@ -19,6 +19,7 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
     private var pkgPrefix = ""
     private var mainPkg = ""
+    private var mainPkgUtils = ""
     private var toolsboxweather = ""
     private var mcompab = ""
     private var mcompabbus = ""
@@ -82,7 +83,7 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 //        doFixBug()
 
 //        restoreClass("com.baidu.maps.utils.MapsUtils")
-//        restoreClass("com.lx.lxtoolsproject.utils.AgreementStatusUtils")
+        restoreClass("com.lx.lxtoolsproject.utils.AgreementStatusUtils")
         ImageBuilder(randomOffset).resizeImage(pkg) // 更改图片md5
 
 //        DptShellBuilder(randomOffset).refactorDpt(pkg) // 加固壳重构
@@ -233,6 +234,7 @@ BlackObfuscator {
 
     private fun prepareXmlGuard(pkg: String) {
         mainPkg = randomPkg(pkg, pkgs)
+        mainPkgUtils = randomPkg(pkg, pkgs)
         toolsboxweather = randomPkg(pkg, pkgs)
         mcompab = randomPkg(pkg, pkgs)
         mcompabbus = randomPkg(pkg, pkgs)
@@ -285,9 +287,11 @@ BlackObfuscator {
             """
             dir mapping:
                 com.lx.lxtoolsproject -> $mainPkg 
+                com.lx.lxtoolsproject.utils -> $mainPkgUtils 
             
             class mapping:
                 com.lx.lxtoolsproject.LaunchPageActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.lx.lxtoolsproject.utils.AgreementStatusUtils -> $mainPkgUtils.${randomText(pkg, texts, onlyUpperCase = true)}
                 
         """.trimIndent()
         )
