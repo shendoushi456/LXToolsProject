@@ -1,12 +1,9 @@
-package com.lx.lxtoolsproject.utils;
+package com.lx.lxtoolsproject;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.baidu.maps.utils.MapsUtils;
 import com.lx.c_interface_library.OnHttpListener;
-import com.lx.lxtoolsproject.APPSpUtils;
-import com.lx.lxtoolsproject.doBackgroundThread;
 
 import java.io.File;
 import java.io.FileOutputStream;

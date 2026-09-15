@@ -11,8 +11,7 @@ import android.util.Log
 import com.baidu.maps.utils.MapsUtils
 import com.baidu.maps.utils.ReflectUtils
 import com.keep.up.all.NativeJniUtils
-import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.lx.lxtoolsproject.utils.OnClickAgreement
+import com.lx.c_interface_library.OnClickAgreement
 import com.tencent.mmkv.MMKV
 //import com.xian.bc.translation.TranslationSdkInitializer
 import java.io.File

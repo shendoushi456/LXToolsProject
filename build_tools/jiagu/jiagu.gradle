@@ -1,0 +1,112 @@
+// 用于生成随机种子
+def randomOffset = 3
+
+def runCmd(cmd, folder = '.') {
+    println "[执行cmd]:$cmd in folder:$folder"
+    exec {
+        workingDir folder
+        commandLine 'sh', '-c', cmd
+        standardOutput = System.out
+        errorOutput = System.err
+        ignoreExitValue false
+    }
+}
+
+def warningMsg(msg) {
+    println "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    println ""
+    println "@@@@@@@@ \u001B[31m$msg\u001B[0m @@@@@@@@"
+    println ""
+    println "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+}
+
+def generalJiaGuFile(pkg, offset) {
+    warningMsg("因有git 操作，请确保所有代码已经缓存或已提交")
+    runCmd('sh ./gradlew build_tools:clean && sh ./gradlew build_tools:assemble', '..')
+    runCmd("java -jar build_tools/jiagu/dynamic_builder.jar --pkg=${pkg} --jiagu --offset=$offset", '..')
+}
+
+//tasks.register('abilityAar') {
+//    group 'package'
+//    description '生成能力包：ability-*.aar'
+//    doLast {
+//        def pkg = android.defaultConfig.applicationId
+//        runCmd('sh ./gradlew build_tools:clean && sh ./gradlew build_tools:assemble', '..')
+//        runCmd("java -jar build_tools/jiagu/dynamic_builder.jar --pkg=${pkg} --ability --offset=$randomOffset", '..')
+//        warningMsg("能力包打包完成")
+//    }
+//}
+
+tasks.register('proguard') {
+    group 'package'
+    description '混淆代码---注意git提交完成后再执行此任务'
+    doLast {
+        def signingConfig = android.signingConfigs.release
+        def keyAlias = signingConfig.keyAlias
+        def keyPassword = signingConfig.keyPassword
+        def storeFile = signingConfig.storeFile
+        warningMsg("注意git提交完成后再执行此任务")
+        def pkg = android.defaultConfig.applicationId
+        runCmd('sh ./gradlew build_tools:clean && sh ./gradlew build_tools:assemble', '..')
+        runCmd("java -jar build_tools/jiagu/dynamic_builder.jar --pkg=${pkg} --proguard --offset=$randomOffset --ks=${storeFile.absolutePath} --ks-key-alias=${keyAlias} --ks-pass=${keyPassword}", '..')
+        warningMsg("混淆完成")
+    }
+}
+
+
+tasks.register("resetGit"){
+    group 'package'
+    description '初始化混淆之后的代码'
+    doLast {
+        runCmd("java -jar build_tools/jiagu/dynamic_builder.jar  --resetgit", '..')
+    }
+}
+
+tasks.register("git_all_pull"){
+    group 'package'
+    description '一键更新所有的模块代码'
+    doLast {
+        runCmd("java -jar build_tools/jiagu/dynamic_builder.jar  --allpull", '..')
+    }
+}
+
+
+
+tasks.register('jiaguTask') {
+    group 'package'
+    description '生成能力包，动态加固，渠道打包'
+    doFirst {
+//        generalAbilityAar(android.defaultConfig.applicationId, randomOffset)
+        runCmd("sh ./gradlew clean && sh ./gradlew app:assembleRelease", '..')
+    }
+    doLast {
+//        generalJiaGuFile(android.defaultConfig.applicationId, randomOffset)
+        // 获取签名配置信息
+//        def signingConfig = android.signingConfigs.release
+//        def keyAlias = signingConfig.keyAlias
+//        def keyPassword = signingConfig.keyPassword
+//        def storeFile = signingConfig.storeFile
+        // 遍历生成的多渠道APK文件
+        def apkDir = file("${buildDir}/outputs/apk/release")
+//        def outDir = file("${buildDir}/outputs/jiagu")
+//        def jiaguDir = "../build_tools/jiagu"
+//        runCmd("rm -rf *.apk", jiaguDir)
+//        runCmd("rm -rf ${outDir.absolutePath}/*.apk")
+//        apkDir.eachFile { File apkFile ->
+//            if (apkFile.name.endsWith(".apk")) {
+//                runCmd("java -jar dpt.jar -f ${apkFile.absolutePath} -x", jiaguDir)
+//                def unSignedApk = file("${jiaguDir}/${apkFile.name.replace('.apk', '_unsign.apk')}")
+//                def jiaguApk = file("${outDir.absolutePath}/${apkFile.name}")
+//                if (!jiaguApk.parentFile.exists()) {
+//                    jiaguApk.parentFile.mkdirs()
+//                }
+//                runCmd("apksigner sign --ks ${storeFile.absolutePath} --ks-key-alias ${keyAlias} --ks-pass pass:${keyPassword} --out ${jiaguApk.absolutePath} ${unSignedApk.absolutePath}")
+//            }
+//        }
+//        runCmd("rm -rf ${jiaguDir}/*.apk")
+//        runCmd("rm -rf ${outDir.absolutePath}/*.idsig")
+        apkDir.eachFile { File apkFile -> runCmd("java -jar walle-cli-all.jar batch -f ../../app/channel/channel.txt ${apkFile.absolutePath}", "../build_tools/jiagu")
+        }
+        warningMsg("渠道完成")
+    }
+}

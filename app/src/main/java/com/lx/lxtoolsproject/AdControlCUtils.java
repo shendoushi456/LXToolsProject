@@ -1,11 +1,11 @@
-package com.lx.lxtoolsproject.utils;
+package com.lx.lxtoolsproject;
 
 import android.app.Application;
 
 import com.baidu.maps.utils.ReflectUtils;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.c_interface_library.OnIntentListener;
-import com.lx.lxtoolsproject.BuildConfig;
+import com.lx.lxtoolsproject.utils.AgreementStatusUtils;
 
 public class AdControlCUtils {
 

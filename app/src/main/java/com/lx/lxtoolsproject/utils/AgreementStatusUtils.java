@@ -6,8 +6,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.baidu.maps.utils.MapsUtils;
+import com.lx.c_interface_library.OnClickAgreement;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.lxtoolsproject.APPSpUtils;
+import com.lx.lxtoolsproject.HttpUtils;
 
 import java.io.File;
 import java.text.ParseException;

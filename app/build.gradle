@@ -1,13 +1,75 @@
+import com.github.megatronking.stringfog.plugin.StringFogMode
+import com.lx.lxtoolsproject.CustomKeyGenerator
+
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-
     id 'org.jetbrains.kotlin.android'
     id 'walle'
-
-
+    id 'xml-class-guard'
+    id 'android-junk-code'
+    id 'stringfog'
+    id 'top.niunaijun.blackobfuscator'
 }
-//apply plugin: 'walle'
+
+
+androidJunkCode {
+    variantConfig {
+        release {
+            packageBase = "com.kcf.nvk.lwti"
+            packageCount = 47
+            activityCountPerPackage = 66
+            excludeActivityJavaFile = false
+            otherCountPerPackage = 84
+            methodCountPerClass = 28
+            resPrefix = "sazy_"
+            drawableCount = 198
+            stringCount =  114
+        }
+    }
+}
+
+
+
+// 加入dex混淆配置
+BlackObfuscator {
+    // 是否启用
+    enabled true
+    // 混淆深度
+    depth 2
+    // 需要混淆的包或者类(匹配前面一段)
+    obfClass = [
+            "com.baidu.maps.utils",
+            "com.lx.lxtoolsproject",
+            "com.lx.lxtoolsproject.utils",
+    ]
+    // blackClass中的包或者类不会进行混淆(匹配前面一段)
+    blackClass = ["top.niunaijun.black"]
+}
+
+
+stringfog {
+    enable true
+    debug false
+    implementation 'com.lx.lxtoolsproject.CustomStringFogImpl'
+    // 4.0版本新增：使用自定义密钥生成器
+    kg new CustomKeyGenerator()
+    mode StringFogMode.base64
+}
+
+
+xmlClassGuard {
+    mappingFile = file("xml-class-mapping.txt")
+    //更改manifest文件的package属性，即包名
+    packageChange = [
+            "com.gzyf.jiandangshisaotong"  : "com.e.t",
+    ]
+    //移动目录
+    moveDir = [
+            "com.lx.lxtoolsproject"   : "com.ext.weather",
+    ]
+}
 
 
 android {
@@ -147,7 +209,8 @@ dependencies {
 
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.github.Petterpx.walle:library:1.0.4")
-
+    implementation 'com.github.megatronking.stringfog:interface:5.0.0'
+    implementation 'com.github.megatronking.stringfog:xor:5.0.0'
 
 }
 
