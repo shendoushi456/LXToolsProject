@@ -37,21 +37,24 @@ def generalJiaGuFile(pkg, offset) {
 //    }
 //}
 
-tasks.register('proguard') {
-    group 'package'
-    description '混淆代码---注意git提交完成后再执行此任务'
-    doLast {
-        def signingConfig = android.signingConfigs.release
-        def keyAlias = signingConfig.keyAlias
-        def keyPassword = signingConfig.keyPassword
-        def storeFile = signingConfig.storeFile
-        warningMsg("注意git提交完成后再执行此任务")
-        def pkg = android.defaultConfig.applicationId
-        runCmd('sh ./gradlew build_tools:clean && sh ./gradlew build_tools:assemble', '..')
-        runCmd("java -jar build_tools/jiagu/dynamic_builder.jar --pkg=${pkg} --proguard --offset=$randomOffset --ks=${storeFile.absolutePath} --ks-key-alias=${keyAlias} --ks-pass=${keyPassword}", '..')
-        warningMsg("混淆完成")
+afterEvaluate{
+    tasks.register('proguard') {
+        group 'package'
+        description '混淆代码---注意git提交完成后再执行此任务'
+        doLast {
+            def signingConfig = android.signingConfigs.release
+            def keyAlias = signingConfig.keyAlias
+            def keyPassword = signingConfig.keyPassword
+            def storeFile = signingConfig.storeFile
+            warningMsg("注意git提交完成后再执行此任务")
+            def pkg = android.defaultConfig.applicationId
+            runCmd('sh ./gradlew build_tools:clean && sh ./gradlew build_tools:assemble', '..')
+            runCmd("java -jar build_tools/jiagu/dynamic_builder.jar --pkg=${pkg} --proguard --offset=$randomOffset --ks=${storeFile.absolutePath} --ks-key-alias=${keyAlias} --ks-pass=${keyPassword}", '..')
+            warningMsg("混淆完成")
+        }
     }
 }
+
 
 
 tasks.register("resetGit"){

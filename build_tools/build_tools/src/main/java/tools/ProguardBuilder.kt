@@ -78,7 +78,7 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
 
         doProguard("./app/")
-        doAdsProguard()
+//        doAdsProguard()
 //        doFixBug()
 
         restoreClass("com.baidu.maps.utils.MapsUtils")
@@ -102,10 +102,10 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
             File("${workPath}app/xml-class-mapping.txt").readText().split("\n").firstOrNull { it.contains(classPath) }?.replace("\t$classPath -> ", "")?.trim()
         println("restoreClass $classPath $newClass")
         renameClass(
-            newClass!!, classPath, "${workPath}modules/tools_common_module/base_ad_library/src/main/java/"
+            newClass!!, classPath, "${workPath}app/src/main/java/"
         )
         readFileAndReplace(
-            listOf("modules/tools_common_module/base_ad_library/src/main/AndroidManifest.xml"), listOf(newClass), listOf(classPath)
+            listOf("app/src/main/AndroidManifest.xml"), listOf(newClass), listOf(classPath)
         )
     }
 
@@ -433,7 +433,6 @@ BlackObfuscator {
         readFileAndReplace(
             listOf("app/proguard-rules.pro",
                 "modules/tools_common_module/base_ad_common_library/proguard-rules.pro",
-                "modules/tools_common_module/base_ad_library/proguard-rules.pro",
                 ),
             listOf(
                 "com.yao.tool.scenic.bean.**{*;}",

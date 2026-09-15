@@ -29,7 +29,6 @@ plugins {
 }
 
 apply from: "config.gradle"
-apply from: "build_tools/jiagu/jiagu.gradle"
 //subprojects {
 //    configurations.all {
 //        resolutionStrategy.eachDependency { details ->
