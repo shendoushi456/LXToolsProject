@@ -289,6 +289,7 @@ BlackObfuscator {
             dir mapping:
                 com.lx.lxtoolsproject -> $mainPkg 
                 com.lx.lxtoolsproject.utils -> $mainPkgUtils 
+                com.stringf.gg -> $fogTargetPkgName 
             
             class mapping:
                 com.lx.lxtoolsproject.LaunchPageActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
