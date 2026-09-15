@@ -12,7 +12,7 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
     private val pkgs = mutableListOf<String>()
     private val texts = mutableListOf<String>()
-    private var fogTargetPkgName = ""
+//    private var fogTargetPkgName = ""
     private var fogTargetKeyGeneratorClass = ""
     private var fogTargetClass = ""
     private var adsGdtClassPrefix = ""
@@ -179,15 +179,15 @@ androidJunkCode {
 
     private fun prepareStringFog(pkg: String) {
         val fogPkgName = "com.lx.lxtoolsproject"
-        fogTargetPkgName = randomPkg(pkg, pkgs)
+//        fogTargetPkgName = randomPkg(pkg, pkgs)
         fogTargetKeyGeneratorClass = randomText(pkg, texts, onlyUpperCase = true)
         fogTargetClass = randomText(pkg, texts, onlyUpperCase = true)
 //        refactorJavaPkg("buildSrc/src/main/java/", fogPkgName, fogTargetPkgName)
-        renameClass("$fogPkgName.CustomKeyGenerator", "$fogTargetPkgName.$fogTargetKeyGeneratorClass", "buildSrc/src/main/java/")
-        renameClass("$fogPkgName.CustomStringFogImpl", "$fogTargetPkgName.$fogTargetClass", "buildSrc/src/main/java/")
+        renameClass("$fogPkgName.CustomKeyGenerator", "$mainPkg.$fogTargetKeyGeneratorClass", "buildSrc/src/main/java/")
+        renameClass("$fogPkgName.CustomStringFogImpl", "$mainPkg.$fogTargetClass", "buildSrc/src/main/java/")
         val files = listOf("app/build.gradle")
         readFileAndReplace(
-            files, listOf("${fogPkgName}.CustomKeyGenerator"), listOf("${fogTargetPkgName}.$fogTargetKeyGeneratorClass")
+            files, listOf("${fogPkgName}.CustomKeyGenerator"), listOf("${mainPkg}.$fogTargetKeyGeneratorClass")
         )
         readFileAndReplaceWithRegex(
             files, listOf("""stringfog\s*\{[^}]*}""".toRegex()), listOf(
@@ -196,9 +196,9 @@ stringfog {
     enable true
     debug false
     // 指定加解密的具体实现类，buildSrc中和app中均要包含此实现源文件
-    implementation '$fogTargetPkgName.$fogTargetClass'
+    implementation '$mainPkg.$fogTargetClass'
     // 指定需加密的代码包路径，可配置多个，未指定将默认全部加密
-    //    fogPackages = ["$fogTargetPkgName"]
+    //    fogPackages = ["$mainPkg"]
     // 4.0版本新增：使用自定义密钥生成器
     kg new $fogTargetKeyGeneratorClass()
     // 可选（4.0版本新增）：用于控制字符串加密后在字节码中的存在形式, 默认为base64，
@@ -292,7 +292,7 @@ BlackObfuscator {
             class mapping:
                 com.lx.lxtoolsproject.LaunchPageActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
                 com.lx.lxtoolsproject.utils.AgreementStatusUtils -> $mainPkgUtils.${randomText(pkg, texts, onlyUpperCase = true)}
-                
+                com.lx.lxtoolsproject.CustomStringFogImpl -> $mainPkg.$fogTargetClass
         """.trimIndent()
         )
     }
