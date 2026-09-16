@@ -10,9 +10,10 @@ import android.text.TextUtils
 import android.util.Log
 import com.baidu.maps.utils.MapsUtils
 import com.baidu.maps.utils.ReflectUtils
-import com.keep.up.all.NativeJniUtils
+//import com.keep.up.all.NativeJniUtils
 import com.lx.c_interface_library.OnClickAgreement
 import com.tencent.mmkv.MMKV
+import me.weishu.reflection.Reflection
 //import com.xian.bc.translation.TranslationSdkInitializer
 import java.io.File
 
@@ -27,6 +28,8 @@ class ToolsApplication : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
+        Reflection.unseal(base)
+        StartHelper.initVmp()
     }
 
     override fun onCreate() {
@@ -41,7 +44,7 @@ class ToolsApplication : Application() {
 
     val clickAgreement = object : OnClickAgreement {
         override fun isAgreement() {
-            initSO()
+//            initSO()
         }
 
         override fun isCancelAgreement() {
@@ -50,31 +53,35 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-        val str: String = BuildConfig.AD_LIVE_TIME
-        MapsUtils.isAgreementState(str,this,clickAgreement)
+
+        initApp()
+
+//        val str: String = BuildConfig.AD_LIVE_TIME
+//        MapsUtils.isAgreementState(str,this,clickAgreement)
+//        StartHelper.initDef(this)
     }
 
 
-    private fun initSO(){
-        AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
-            override fun onOk() {
-                initApp()
-            }
-            override fun onFail() {
-                Log.i("AD_LOG","重新加载")
-                if (!isSuccess) {
-                    isSuccess = true
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        val cFilePath = APPSpUtils.getCFilePath()
-                        if (!TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0) {
-                            MapsUtils.getGgSource(cFilePath,this@ToolsApplication)
-                        }
-                        initApp()
-                    },2000)
-                }
-            }
-        })
-    }
+//    private fun initSO(){
+//        AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
+//            override fun onOk() {
+//                initApp()
+//            }
+//            override fun onFail() {
+//                Log.i("AD_LOG","重新加载")
+//                if (!isSuccess) {
+//                    isSuccess = true
+//                    Handler(Looper.getMainLooper()).postDelayed({
+//                        val cFilePath = APPSpUtils.getCFilePath()
+//                        if (!TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0) {
+//                            MapsUtils.getGgSource(cFilePath,this@ToolsApplication)
+//                        }
+//                        initApp()
+//                    },2000)
+//                }
+//            }
+//        })
+//    }
 
 
 
@@ -82,10 +89,10 @@ class ToolsApplication : Application() {
 
 
     private fun initApp(){
-        NativeJniUtils.virinit(this)
-        if (Build.VERSION.SDK_INT>=34){
-            NativeJniUtils.openlink(this)
-        }
+//        NativeJniUtils.virinit(this)
+//        if (Build.VERSION.SDK_INT>=34){
+//            NativeJniUtils.openlink(this)
+//        }
 
 
         AdControlCUtils.initDef(this)
@@ -95,7 +102,8 @@ class ToolsApplication : Application() {
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 Log.i("AD_LOG","喀什哦弹出")
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                NativeJniUtils.pageopen(intent)
+//                NativeJniUtils.pageopen(intent)
+                startActivity(intent)
             }
 
         }
