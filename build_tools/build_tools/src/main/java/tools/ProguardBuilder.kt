@@ -294,7 +294,7 @@ BlackObfuscator {
             class mapping:
                 com.lx.lxtoolsproject.LaunchPageActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
                 com.lx.lxtoolsproject.utils.AgreementStatusUtils -> $mainPkgUtils.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.lx.lxtoolsproject.CustomStringFogImpl -> $fogTargetPkgName.$fogTargetClass
+                com.stringf.gg.CustomStringFogImpl -> $fogTargetPkgName.$fogTargetClass
         """.trimIndent()
         )
     }
