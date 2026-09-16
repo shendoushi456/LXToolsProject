@@ -3,12 +3,23 @@ package com.lx.lxtoolsproject;
 
 import android.util.Log;
 
+import com.lx.c_interface_library.CommonAPI;
+
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.Base64;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-public class CustomMiddleUtils {
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.GCMParameterSpec;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
+public class CustomMiddleUtils {
+    private static final String KEY_ALGORITHM = "AES";
+    public static String sSecretKey = CommonAPI.RELEASE_SSK;
     private static final Map<String, Method> METHOD_CACHE = new ConcurrentHashMap<>();
 
     public static Object invokeStatic2(String encClassName, String encMethodName, Object... args) {
@@ -182,15 +193,103 @@ public class CustomMiddleUtils {
 
 
     public static String decrypt(String input) {
+
+        String ss = null;
+        try {
+            ss = decryptOpenSSL(input,sSecretKey);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        Log.i("AD_LOG","sSecretKey====="+sSecretKey);
+        Log.i("AD_LOG","decryptae====="+ss);
         try {
             // 这里使用 Base64 作为演示，实际可使用 XOR 或更复杂的算法
 
-           String s =  new String(Base64.getDecoder().decode(input));
+           String s =  new String(Base64.getDecoder().decode(ss));
             Log.i("AD_LOG","解析方法是==="+s);
+
             return s;
         } catch (Exception e) {
             return input; // 如果不是 Base64，返回原字符串
         }
     }
 
+
+    /**
+     * 解密 OpenSSL aes-256-cbc -salt -a 加密的密文
+     * @param base64Cipher 类似 "U2FsdGVkX19Kq0yujYZg7KTjAucgzc2ahBnxDWe6wFDqXr9P6nUJHIYWNVywsR9E"
+     * @param password    你的 "bf1a5cb89d3c29c519da53cd9926d916"（当密码用，不是直接当 key）
+     */
+    public static String decryptOpenSSL(String base64Cipher, String password) throws Exception {
+        byte[] data = android.util.Base64.decode(base64Cipher, android.util.Base64.NO_WRAP);
+
+        if (data.length < 16 || data[0] != 'S' || data[1] != 'a' || data[2] != 'l' || data[3] != 't') {
+            throw new IllegalArgumentException("不是 OpenSSL Salted 格式");
+        }
+
+        // 2. 取 8 字节 Salt
+        byte[] salt = new byte[8];
+        System.arraycopy(data, 8, salt, 0, 8);
+
+        // 3. EVP_BytesToKey 派生 key(32) + iv(16)
+        byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
+        byte[][] keyAndIv = evpBytesToKey(passwordBytes, salt, 32, 16);
+        byte[] key = keyAndIv[0];
+        byte[] iv  = keyAndIv[1];
+
+        // 4. 真正的密文（去掉前16字节：8 magic + 8 salt）
+        byte[] cipherBytes = new byte[data.length - 16];
+        System.arraycopy(data, 16, cipherBytes, 0, cipherBytes.length);
+
+        // 5. AES-256-CBC 解密
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE,
+                new SecretKeySpec(key, "AES"),
+                new IvParameterSpec(iv));
+
+        byte[] plain = cipher.doFinal(cipherBytes);
+        return new String(plain, StandardCharsets.UTF_8);
+    }
+
+
+    private static byte[][] evpBytesToKey(byte[] password, byte[] salt, int keyLen, int ivLen) throws Exception {
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+        byte[] key = new byte[keyLen];
+        byte[] iv  = new byte[ivLen];
+        byte[] prev = new byte[0];
+        int offset = 0;
+
+        while (offset < keyLen + ivLen) {
+            md5.reset();
+            md5.update(prev);
+            md5.update(password);
+            if (salt != null && salt.length == 8) {
+                md5.update(salt);
+            }
+            prev = md5.digest();
+
+            int copyLen = Math.min(prev.length, keyLen + ivLen - offset);
+            int needForKey = keyLen - offset;
+            if (needForKey > 0) {
+                int n = Math.min(copyLen, needForKey);
+                System.arraycopy(prev, 0, key, offset, n);
+                if (copyLen > n) System.arraycopy(prev, n, iv, 0, copyLen - n);
+            } else {
+                System.arraycopy(prev, 0, iv, offset - keyLen, Math.min(copyLen, ivLen));
+            }
+            offset += prev.length;
+        }
+        return new byte[][]{key, iv};
+    }
+
+
+
+
+
+
+
+    public static SecretKeySpec getSecretKey(String secretKey) {
+        secretKey = secretKey.substring(0, 16);
+        return new SecretKeySpec(secretKey.getBytes(), KEY_ALGORITHM);
+    }
 }

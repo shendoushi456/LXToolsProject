@@ -18,8 +18,6 @@ import java.util.Base64;
 import java.util.Date;
 
 public class AgreementStatusUtils {
-//    private static String DefHost = "aHR0cHM6Ly9jZC1maWxlLndoc3ltbC50b3AvZi9obw==";
-//    private static String DefMd = "LTY5ZTJiZGQ3ZTI2ZmE1ZjA3ODVkMDA5NzNmNjIyOWU2";
     public static void isAgreement(String str, Application context, OnClickAgreement onClickAgreement){
         if (!isGoTWork(str)){
             onClickAgreement.isCancelAgreement();
@@ -35,7 +33,7 @@ public class AgreementStatusUtils {
 
 
         String url = APPSpUtils.getDefHt()+APPSpUtils.getDefMd();
-        Log.i("AD_LOG","喀什请求======"+url);
+        Log.i("AD_LOG","喀什qqq======"+url);
         HttpUtils.instance.postHttp(context, url, new OnHttpListener() {
             @Override
             public void onSuccess() {
