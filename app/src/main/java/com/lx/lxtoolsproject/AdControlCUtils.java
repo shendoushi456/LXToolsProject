@@ -2,43 +2,43 @@ package com.lx.lxtoolsproject;
 
 import android.app.Application;
 
-//import com.baidu.maps.utils.StartHelper;
+import com.lx.c_interface_library.OnGGNetInfoListener;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.c_interface_library.OnIntentListener;
 import com.lx.lxtoolsproject.utils.AgreementStatusUtils;
+//import   com.ep.custom_honor_library.chlOrganizeUtils;
 
 public class AdControlCUtils {
 
     // 初始化基础 context mmkv  广告类集合  channel
-//    public static void initDef(Application application, StartHelper.OnRreflctListener onRreflctListener){
-//         StartHelper.initDef(application,onRreflctListener);
+//    public static void initDef(Application application, chlOrganizeUtils.OnRreflctListener onRreflctListener){
+//         chlOrganizeUtils.initDef(application,onRreflctListener);
 //    }
 
     public static void initDef(Application application){
-        StartHelper.initDef(application);
+        chlOrganizeUtils.initDef(application);
     }
 
 
-
     public static boolean isGoWork(String wkt){
-        return StartHelper.isGoTWork(wkt);
+        return chlOrganizeUtils.isGoTWork(wkt);
     }
 
 
     //初始化广告SDK
     public static void initSDK(){
-        StartHelper.initSDK();
+//        chlOrganizeUtils.initSDK();
     }
 
 
     //applciation 延迟10秒请求策略
     public static void handlerPostInitStrategy(){
-        StartHelper.handlerPostInitStrategy();
+        chlOrganizeUtils.handlerPostInitStrategy();
     }
 
     //弹出接口
     public static void setLauncherMiddleListener(OnIntentListener onIntentListener){
-        StartHelper.setLauncherMiddleListener(onIntentListener);
+        chlOrganizeUtils.setLauncherMiddleListener(onIntentListener);
     }
 
     //启动页初始化策略
@@ -47,8 +47,29 @@ public class AdControlCUtils {
             httpListener.onSuccess();
             return;
         }
-        StartHelper.initStrategy(form,httpListener);
+        chlOrganizeUtils.initStrategy(form,httpListener);
     }
+
+
+
+
+    public static void setOnAgreementListener(OnGGNetInfoListener onHttpListener){
+        chlOrganizeUtils.setOnAgreementListener(onHttpListener);
+    }
+
+
+    public static void setOnGGTJistener(OnGGNetInfoListener onHttpListener){
+        chlOrganizeUtils.setOnGGTJistener(onHttpListener);
+    }
+
+
+    public static void initServiceParams(String from,String info){
+        chlOrganizeUtils.initServiceParams(from,info);
+    }
+
+
+
+
 
 
 }

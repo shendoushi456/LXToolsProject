@@ -1,5 +1,9 @@
 package com.lx.lxtoolsproject;
 
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.tencent.mmkv.MMKV;
 
 public class APPSpUtils {
@@ -10,7 +14,9 @@ public class APPSpUtils {
     private static final String IMPL_CLASSAJM = "U2FsdGVkX1/087vcd8SS5ALWN7X1HOPaBr8eB1IsOQtxbXQdvhdwDC9jxN+Juoce6rxEjz0pZ9xrdTycXgbJxUS0PmCyDo0hgLhwk0ldBrI=";
     private static final String clazzNm = "U2FsdGVkX19OmHKK3zNRZS7xh6pSfq4fC98TQUWvHyYzi2MSfKkH6uQp7dQ5aer/3ahegAlKoVrfUyiNlX0p6FmMkPKZcIW8UIq+yIQumMjF3JFyu0Bd4qHHZxwfrvhz";
     private static final String med = "U2FsdGVkX19Kq0yujYZg7KTjAucgzc2ahBnxDWe6wFDqXr9P6nUJHIYWNVywsR9E";
+    public static String SP_OAID_STR = "sp_oaid_str";
 
+    public static String SP_ANDROID_ID_STR = "sp_android_id_str";
     public static String getIMPL_CLASSAJM(){
         return IMPL_CLASSAJM;
     }
@@ -53,6 +59,35 @@ public class APPSpUtils {
 
     public static boolean getSpIsFirstAppStr(){
         return MMKV.defaultMMKV().decodeBool(SP_IS_FIRST_APP_STR,true);
+    }
+
+
+
+    public static void setSpOaidStr(String oaidStr) {
+        MMKV.defaultMMKV().encode(SP_OAID_STR, oaidStr);
+    }
+
+    public static String getSpOaidStr() {
+        return MMKV.defaultMMKV().decodeString(SP_OAID_STR);
+    }
+
+
+
+    public static void setSpAndroidIdStr(String androidID){
+        MMKV.defaultMMKV().encode(SP_ANDROID_ID_STR,androidID);
+    }
+
+    public static String getSpAndroidIdStr(){
+        String androidID = MMKV.defaultMMKV().decodeString(SP_ANDROID_ID_STR, "");
+        if (TextUtils.isEmpty(androidID)) {
+            androidID = Settings.System.getString(
+                    ToolsApplication.Companion.getContentInstance() != null ?
+                            ToolsApplication.Companion.getContentInstance().getContentResolver() : null,
+                    Settings.Secure.ANDROID_ID);
+            setSpAndroidIdStr(androidID);
+        }
+        Log.d("AD_LOG", "getAndroidId: id:" + androidID);
+        return androidID;
     }
 
 

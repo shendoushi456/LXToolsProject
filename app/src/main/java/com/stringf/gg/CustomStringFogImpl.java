@@ -23,7 +23,7 @@ public class CustomStringFogImpl implements IStringFog {
     }
 
     @Override
-    public boolean shouldFog(String data) {
+    public boolean shouldFog(String dåata) {
         // 控制指定字符串是否加密
         // 建议过滤掉不重要或者过长的字符串
         return true;

