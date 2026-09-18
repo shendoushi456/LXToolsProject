@@ -6,13 +6,16 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import com.ep.custom_honor_library.chlOrganizeUtils
+import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.p.a_b.MainWeatherActivity
-import kotlinx.coroutines.Runnable
+import com.xian.bc.accounts.ui.CameraMenuActivity
+import java.lang.Exception
 import kotlin.jvm.java
 
 class LaunchPageActivity : AppCompatActivity() {
 
+    private var isBooleJump = true
     var launchBind: LaunchPageActivityBinding? = null
 
 
@@ -28,7 +31,6 @@ class LaunchPageActivity : AppCompatActivity() {
         if (APPSpUtils.getSpIsFirstAppStr()){
             val dialog = ProtocolDialog()
             dialog.show(supportFragmentManager,"dialog")
-
             dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
                 override fun clickOk() {
                    APPSpUtils.setSpIsFirstAppStr(false)
@@ -46,14 +48,16 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun initConfig(from:String){
-
-        Handler().postDelayed(object : Runnable{
-            override fun run() {
+        chlOrganizeUtils.initStrategy(from,object : OnHttpListener {
+            override fun onSuccess() {
                 toMainActivity()
             }
+            override fun onFail(e: Exception?) {
+                toMainActivity()
+            }
+        })
 
-        },2000)
-
+        Handler().postDelayed({ toMainActivity() },2000)
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
@@ -62,7 +66,11 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity(){
-        val intent = Intent(this, MainWeatherActivity::class.java)
+        if (!isBooleJump){
+            return
+        }
+        isBooleJump = true;
+        val intent = Intent(this, CameraMenuActivity::class.java)
         startActivity(intent)
     }
 

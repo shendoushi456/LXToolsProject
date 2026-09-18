@@ -75,9 +75,16 @@ xmlClassGuard {
 android {
     namespace 'com.lx.lxtoolsproject'
     compileSdk = 34
+
+    packaging {
+        jniLibs {
+            // 多个库带同一份 libc++_shared.so，只保留第一个，不报错
+            pickFirsts += ['**/libc++_shared.so']
+        }
+    }
     	
     defaultConfig {
-        applicationId "com.gzyf.fengruantianqi"
+        applicationId "com.gzyf.guangxucamera"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -94,21 +101,21 @@ android {
 
         buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
-        buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
+        buildConfigField "String","IS_AGREEMENT",  "\"${rootProject.ext.appConfig["IS_AGREEMENT"]}\""
     }
 
 
     signingConfigs {
         release {
-            keyAlias 'fengruantianqi'
+            keyAlias 'guangxucamera'
             keyPassword '123456'
-            storeFile file('fengruantianqi.jks')
+            storeFile file('guangxucamera.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'fengruantianqi'
+            keyAlias 'guangxucamera'
             keyPassword '123456'
-            storeFile file('fengruantianqi.jks')
+            storeFile file('guangxucamera.jks')
             storePassword '123456'
         }
     }
@@ -173,7 +180,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '风软天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '光叙相机-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -184,7 +191,7 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-//    implementation project(':custom_honor_library')
+    implementation project(':custom_honor_library')
     implementation project(':c_interface_library')
     implementation project(':toolsbox')
     implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])

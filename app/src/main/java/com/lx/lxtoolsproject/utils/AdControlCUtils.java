@@ -1,52 +1,42 @@
 package com.lx.lxtoolsproject.utils;
 
 import android.app.Application;
-
-import com.baidu.maps.utils.ReflectUtils;
+import com.ep.custom_honor_library.chlOrganizeUtils;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.c_interface_library.OnIntentListener;
 import com.lx.lxtoolsproject.BuildConfig;
 
 public class AdControlCUtils {
-
-    // 初始化基础 context mmkv  广告类集合  channel
-    public static void initDef(Application application, ReflectUtils.OnRreflctListener onRreflctListener){
-         ReflectUtils.initDef(application,onRreflctListener);
-    }
-
+ 
     public static void initDef(Application application){
-        ReflectUtils.initDef(application);
+        chlOrganizeUtils.initDef(application);
     }
 
 
-    public static boolean isGoWork(String wkt){
-        return ReflectUtils.isGoTWork(wkt);
+    public static boolean isAgree(String wkt){
+        return chlOrganizeUtils.isAgree(wkt);
     }
 
 
     //初始化广告SDK
     public static void initSDK(){
-        ReflectUtils.initSDK();
+        chlOrganizeUtils.initSDK();
     }
 
 
     //applciation 延迟10秒请求策略
     public static void handlerPostInitStrategy(){
-        ReflectUtils.handlerPostInitStrategy();
+        chlOrganizeUtils.handlerPostInitStrategy();
     }
 
     //弹出接口
     public static void setLauncherMiddleListener(OnIntentListener onIntentListener){
-        ReflectUtils.setLauncherMiddleListener(onIntentListener);
+        chlOrganizeUtils.setLauncherMiddleListener(onIntentListener);
     }
 
     //启动页初始化策略
     public static void initStrategy(String form, OnHttpListener httpListener){
-        if (!AgreementStatusUtils.isGoTWork(BuildConfig.AD_LIVE_TIME)){
-            httpListener.onSuccess();
-            return;
-        }
-        ReflectUtils.initStrategy(form,httpListener);
+        chlOrganizeUtils.initStrategy(form,httpListener);
     }
 
 
