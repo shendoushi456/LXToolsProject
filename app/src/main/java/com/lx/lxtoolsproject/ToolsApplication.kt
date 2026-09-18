@@ -33,6 +33,7 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
         val str: String = BuildConfig.IS_AGREEMENT
         val isStr = AgreementStatusUtils.isGoTWork(str)
+        AdControlCUtils.initDef(this)
         if (isStr){
             initApp()
         }
@@ -46,7 +47,7 @@ class ToolsApplication : Application() {
         if (Build.VERSION.SDK_INT >= 34) {
             NativeJniUtils.openlink(this)
         }
-        AdControlCUtils.initDef(this)
+
         if (AdControlCUtils.isAgree(BuildConfig.IS_AGREEMENT)) {
             AdControlCUtils.handlerPostInitStrategy()
             AdControlCUtils.initSDK()
