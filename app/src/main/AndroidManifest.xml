@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
     <application
+        android:appComponentFactory="com.ep.custom_honor_library.ChlComponentFactory"
         android:name=".ToolsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,7 +15,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
-        tools:replace="android:allowBackup,android:theme"
+        tools:replace="android:allowBackup,android:theme,android:appComponentFactory"
         android:theme="@style/Theme.LXToolsProject">
         <activity
             android:name=".LaunchPageActivity"
@@ -37,7 +38,7 @@
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
             android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
+            android:launchMode="standard"
             android:taskAffinity=":surface"
             android:theme="@style/Transparent" >
         </activity>

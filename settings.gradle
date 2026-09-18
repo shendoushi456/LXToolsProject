@@ -25,6 +25,8 @@ pluginManagement {
             url 'https://artifact.bytedance.com/repository/Volcengine/'
         }
 
+        maven { url 'https://jitpack.io' }
+
 
     }
 
@@ -53,6 +55,7 @@ dependencyResolutionManagement {
         maven {
             url 'https://artifact.bytedance.com/repository/Volcengine/'
         }
+        maven { url 'https://jitpack.io' }
     }
 
 }
@@ -100,22 +103,21 @@ project(':tools_extra_lib').projectDir =file('./modulesUI/third-module/tools_ext
 project(':color_picker_library').projectDir =file('./modulesUI/third-module/color_picker_library')
 project(':coloring_book').projectDir =file('./modulesUI/third-module/coloring_book')
 project(':toDoListlib').projectDir =file('./modulesUI/third-module/toDoListlib')
-
-project(':build_tools').projectDir =file('./modulesUI/third-module/build_tools/build_tools')
-
+project(':build_tools').projectDir =file('./build_tools/build_tools')
 
 
 
 
 
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:baidu_mobads_sdk_release_adapter'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:gdtsdk_unionnormal_adapter'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:kssdk_ct_publishRelease_adapter'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:open_ad_sdk'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:appupdate'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:octopus_ad_sdk'
-include':modules:custom_honor_ad_library:custom_honor_library:aarlibrary:pij_ad_sdk'
+
+include':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release'
+include':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter'
+include':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal'
+include':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter'
+include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease'
+include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter'
+include':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk'
+include':modules:custom_honor_ad_library:aarlibrary:appupdate'
+include':modules:custom_honor_ad_library:aarlibrary:octopus_ad_sdk'
+include':modules:custom_honor_ad_library:aarlibrary:pij_ad_sdk'
 

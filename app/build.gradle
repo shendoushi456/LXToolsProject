@@ -1,38 +1,96 @@
+import com.github.megatronking.stringfog.plugin.StringFogMode
+import com.stringf.gg.CustomKeyGenerator
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-
     id 'org.jetbrains.kotlin.android'
     id 'walle'
-    id 'io.github.qq549631030.android-junk-code'
-
+    id 'xml-class-guard'
+    id 'android-junk-code'
+    id 'stringfog'
+    id 'top.niunaijun.blackobfuscator'
 
 }
+apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 
-//apply plugin: 'walle'
+
 androidJunkCode {
     variantConfig {
         release {
-            packageBase = "com.hbltn.caimohuixingfanghb"
-            packageCount = 50
-            activityCountPerPackage = 40
+            packageBase = "com.kcf.nvk.lwti"
+            packageCount = 47
+            activityCountPerPackage = 66
             excludeActivityJavaFile = false
-            otherCountPerPackage = 50
-            methodCountPerClass = 20
-            resPrefix = "cmhxf_"
-            drawableCount = 100
-            stringCount = 100
+            otherCountPerPackage = 84
+            methodCountPerClass = 28
+            resPrefix = "sazy_"
+            drawableCount = 198
+            stringCount =  114
         }
     }
+}
+
+
+
+// 加入dex混淆配置
+BlackObfuscator {
+    // 是否启用
+    enabled true
+    // 混淆深度
+    depth 2
+    // 需要混淆的包或者类(匹配前面一段)
+    obfClass = [
+            "com.baidu.maps.utils",
+            "com.lx.lxtoolsproject",
+            "com.lx.lxtoolsproject.utils",
+    ]
+    // blackClass中的包或者类不会进行混淆(匹配前面一段)
+    blackClass = ["top.niunaijun.black"]
+}
+
+
+stringfog {
+    enable true
+    debug false
+    implementation 'com.stringf.gg.CustomStringFogImpl'
+    // 4.0版本新增：使用自定义密钥生成器
+    kg new CustomKeyGenerator()
+    mode StringFogMode.base64
+}
+
+
+xmlClassGuard {
+    mappingFile = file("xml-class-mapping.txt")
+    //更改manifest文件的package属性，即包名
+    packageChange = [
+            "com.gzyf.jiandangshisaotong"  : "com.e.t",
+    ]
+    //移动目录
+    moveDir = [
+            "com.lx.lxtoolsproject"   : "com.ext.weather",
+    ]
 }
 
 
 android {
     namespace 'com.lx.lxtoolsproject'
     compileSdk = 34
-    	
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs'] // 确保指向正确的目录
+        }
+    }
+
+    packaging {
+        jniLibs {
+            // 多个库带同一份 libc++_shared.so，只保留第一个，不报错
+            pickFirsts += ['**/libc++_shared.so']
+        }
+    }
+
     defaultConfig {
-        applicationId "com.hbltn.caimohuixingfanghb"
+        applicationId "com.syqch.quwubianhuihuawu"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -55,15 +113,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'caimohuixingfanghb'
+            keyAlias 'quwubianhuihuawu'
             keyPassword '123456'
-            storeFile file('caimohuixingfanghb.jks')
+            storeFile file('quwubianhuihuawu.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'caimohuixingfanghb'
+            keyAlias 'quwubianhuihuawu'
             keyPassword '123456'
-            storeFile file('caimohuixingfanghb.jks')
+            storeFile file('quwubianhuihuawu.jks')
             storePassword '123456'
         }
     }
@@ -122,13 +180,13 @@ android {
     buildFeatures {
         compose true
     }
-
+    	
 
     walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '彩墨绘心坊-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '趣无边绘画屋-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -162,11 +220,11 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     debugImplementation libs.androidx.compose.ui.test.manifest
     debugImplementation libs.androidx.compose.ui.tooling
-
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.github.Petterpx.walle:library:1.0.4")
-
-
+    implementation 'com.github.megatronking.stringfog:interface:5.0.0'
+    implementation 'com.github.megatronking.stringfog:xor:5.0.0'
+    implementation 'com.github.tiann:FreeReflection:3.1.0'
 }
 
 configurations.all {
