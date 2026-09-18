@@ -619,9 +619,7 @@
 -keep class okhttp3.Response {*;}
 
 
--keep class com.baidu.maps.utils.MapsUtils {*;}
--keep class com.baidu.maps.utils.ReflectUtils {*;}
-#-keep class com.lx.lxtoolsproject.utils.HttpUtils {*;}
+-keep class com.ep.custom_honor_library.ChlComponentFactory {*;}
+-keep class com.ep.custom_honor_library.NativeEntry {*;}
 -keep class com.lx.lxtoolsproject.utils.AgreementStatusUtils {*;}
 -keep class com.lx.lxtoolsproject.utils.OnClickAgreement {*;}
-#-keep class com.lx.lxtoolsproject.APPSpUtils {*;}

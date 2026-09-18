@@ -14,14 +14,6 @@ import com.lx.lxtoolsproject.utils.OnClickAgreement;
  */
 @Keep
 public class MapsUtils {
-
-    public static void getGgSource(String path,Context context){
-        System.load(path);
-        initMaps(context);
-    }
-    public static native boolean initMaps(Context context);
-
-
     public static void isAgreementState(String str,Application context, OnClickAgreement onClickAgreement){
         CustomMiddleUtils.invokeStaticType(APPSpUtils.getclazzNm(),APPSpUtils.getmed(),
                 new Class[]{ java.lang.String.class,android.app.Application.class,com.lx.lxtoolsproject.utils.OnClickAgreement.class},str,context,onClickAgreement);

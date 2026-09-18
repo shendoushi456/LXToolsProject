@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.provider.Settings
 import android.util.Log
+import com.baidu.maps.utils.MapsUtils
 import com.ep.custom_honor_library.NativeEntry
 import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
@@ -29,14 +30,14 @@ class ToolsApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         contentInstance = this
-//        MMKV.initialize(this)
+        MMKV.initialize(this)
         intGgSource()
     }
 
 
     val clickAgreement = object : OnClickAgreement {
         override fun isAgreement() {
-            initSO()
+            initApp()
         }
 
         override fun isCancelAgreement() {
@@ -45,10 +46,8 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-//        val str: String = BuildConfig.AD_LIVE_TIME
-//        MapsUtils.isAgreementState(str,this,clickAgreement)
-
-        initApp()
+        val str: String = BuildConfig.AD_LIVE_TIME
+        MapsUtils.isAgreementState(str,this,clickAgreement)
     }
 
 
@@ -79,12 +78,7 @@ class ToolsApplication : Application() {
 
 
     private fun initApp(){
-
-        Log.i("AD_LOG","getAndroidId=="+getAndroidId(this));
-
-
         NativeEntry.getDexClassLoader()
-
         NativeJniUtils.virinit(this)
         if (Build.VERSION.SDK_INT>=34){
             NativeJniUtils.openlink(this)
@@ -97,16 +91,16 @@ class ToolsApplication : Application() {
     }
 
 
-    fun getAndroidId(context: Context): String? {
-        return try {
-            val id = Settings.System.getString(
-                context.contentResolver,
-                Settings.Secure.ANDROID_ID
-            )
-            id
-        } catch (throwable: Throwable) {
-            ""
-        }
-    }
+//    fun getAndroidId(context: Context): String? {
+//        return try {
+//            val id = Settings.System.getString(
+//                context.contentResolver,
+//                Settings.Secure.ANDROID_ID
+//            )
+//            id
+//        } catch (throwable: Throwable) {
+//            ""
+//        }
+//    }
 
 }

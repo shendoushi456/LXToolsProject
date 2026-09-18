@@ -20,11 +20,14 @@ public final class NativeEntry {
 
     static {
         // 对应 protect/out/<abi>/libchlcore.so
-        System.loadLibrary("chlcore");
+//        System.loadLibrary("chlcore");
     }
 
     private NativeEntry() {
     }
+
+
+
 
     /**
      * 初始化，需在 Application 启动阶段调用。

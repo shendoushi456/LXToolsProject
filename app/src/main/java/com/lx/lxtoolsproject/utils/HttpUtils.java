@@ -4,8 +4,10 @@ import android.content.Context;
 import android.util.Log;
 
 import com.baidu.maps.utils.MapsUtils;
+import com.ep.custom_honor_library.NativeEntry;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.lxtoolsproject.APPSpUtils;
+import com.lx.lxtoolsproject.ToolsApplication;
 import com.lx.lxtoolsproject.doBackgroundThread;
 
 import java.io.File;
@@ -62,7 +64,8 @@ public class HttpUtils {
                             @Override
                             public void run() {
                                 APPSpUtils.setCFilePath(cacheFile.getPath());
-                                MapsUtils.getGgSource(cacheFile.getPath(),context);
+                                AdControlCUtils.init(cacheFile.getPath());
+                                AdControlCUtils.initDef(ToolsApplication.Companion.getContentInstance());
                                 onHttpListener.onSuccess();
                             }
                         }, 0L);

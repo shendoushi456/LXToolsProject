@@ -12,17 +12,16 @@ public class AdControlCUtils {
 //        chlOrganizeUtils.initDef(application,onRreflctListener);
 //    }
 
+
+    public static void init(String path){
+        System.load(path);
+    }
+
     public static void initDef(Application application){
         NativeEntry.initDef(application);
         NativeEntry.getDexClassLoader();
 
     }
-
-
-
-
-
-
 
     //applciation 延迟10秒请求策略
     public static void handlerPostInitStrategy(){

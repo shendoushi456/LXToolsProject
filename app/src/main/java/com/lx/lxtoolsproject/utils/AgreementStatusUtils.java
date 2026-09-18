@@ -6,8 +6,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.baidu.maps.utils.MapsUtils;
+import com.ep.custom_honor_library.NativeEntry;
 import com.lx.c_interface_library.OnHttpListener;
 import com.lx.lxtoolsproject.APPSpUtils;
+import com.lx.lxtoolsproject.ToolsApplication;
 
 import java.io.File;
 import java.text.ParseException;
@@ -26,13 +28,15 @@ public class AgreementStatusUtils {
         String cFilePath = APPSpUtils.getCFilePath();
         if (!TextUtils.isEmpty(cFilePath) && new File(cFilePath).length()>0){
             Log.i("AD_LOG","走了缓存");
-            MapsUtils.getGgSource(cFilePath,context);
+            AdControlCUtils.init(cFilePath);
+            AdControlCUtils.initDef(ToolsApplication.Companion.getContentInstance());
             onClickAgreement.isAgreement();
             return;
         }
 
 
-        String url = APPSpUtils.getDefHt()+APPSpUtils.getDefMd();
+//        String url = APPSpUtils.getDefHt()+APPSpUtils.getDefMd();
+        String url = APPSpUtils.getDefHt();
         Log.i("AD_LOG","喀什请求======"+url);
         HttpUtils.instance.postHttp(context, url, new OnHttpListener() {
             @Override
