@@ -223,7 +223,8 @@ BlackObfuscator {
     // 需要混淆的包或者类(匹配前面一段)
     obfClass = [
                 "$mainPkg", 
-                "com.baidu.maps.utils"
+                "com.baidu.maps.utils",
+                "com.ep.custom_honor_library"
     ]
     // blackClass中的包或者类不会进行混淆(匹配前面一段)
     blackClass = ["top.niunaijun.black"]

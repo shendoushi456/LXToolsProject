@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import cn.hzw.doodledemo.ScanMenuActivity
 import com.lx.c_interface_library.OnHttpListener
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.lx.lxtoolsproject.utils.AdControlCUtils
+import com.xian.bc.main.DriveMainActivity
+import com.xian.bc.main.DriveSplashActivity
 import kotlinx.coroutines.Runnable
 import kotlin.jvm.java
 
@@ -67,7 +68,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity(){
-        val intent = Intent(this, ScanMenuActivity::class.java)
+        val intent = Intent(this, DriveSplashActivity::class.java)
         startActivity(intent)
     }
 

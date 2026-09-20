@@ -90,7 +90,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.syqch.quwubianhuihuawu"
+        applicationId "com.gzyf.shengtujiakao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -113,15 +113,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'quwubianhuihuawu'
+            keyAlias 'jiakaoyatizhushou'
             keyPassword '123456'
-            storeFile file('quwubianhuihuawu.jks')
+            storeFile file('jiakaoyatizhushou.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'quwubianhuihuawu'
+            keyAlias 'jiakaoyatizhushou'
             keyPassword '123456'
-            storeFile file('quwubianhuihuawu.jks')
+            storeFile file('jiakaoyatizhushou.jks')
             storePassword '123456'
         }
     }
@@ -186,7 +186,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '趣无边绘画屋-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '盛途驾考-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -199,7 +199,7 @@ dependencies {
     implementation platform(libs.androidx.compose.bom)
 //    implementation project(':custom_honor_library')
     implementation project(':c_interface_library')
-    implementation project(':tools-ui-library')
+    implementation project(':toolsbox')
     implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
     implementation libs.androidx.activity.compose

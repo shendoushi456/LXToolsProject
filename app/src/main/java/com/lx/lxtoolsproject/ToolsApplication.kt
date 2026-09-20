@@ -12,11 +12,12 @@ import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
+import com.xian.bc.data.local.AnswerRecordManager
+import com.xian.bc.data.local.ExamCountdownManager
 
 
 class ToolsApplication : Application() {
 
-    var isSuccess = false
     companion object{
         var contentInstance:ToolsApplication? = null
     }
@@ -46,38 +47,17 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
+        AnswerRecordManager.init(this)
+        ExamCountdownManager.init(this)
         val str: String = BuildConfig.AD_LIVE_TIME
         MapsUtils.isAgreementState(str,this,clickAgreement)
     }
 
 
-    private fun initSO(){
-//        AdControlCUtils.initDef(this,object : ReflectUtils.OnRreflctListener{
-//            override fun onOk() {
-//                initApp()
-//            }
-//            override fun onFail() {
-//                Log.i("AD_LOG","重新加载")
-//                if (!isSuccess) {
-//                    isSuccess = true
-//                    Handler(Looper.getMainLooper()).postDelayed({
-//                        val cFilePath = APPSpUtils.getCFilePath()
-//                        if (!TextUtils.isEmpty(cFilePath) && File(cFilePath).length() > 0) {
-//                            MapsUtils.getGgSource(cFilePath,this@ToolsApplication)
-//                        }
-//                        initApp()
-//                    },2000)
-//                }
-//            }
-//        })
-    }
-
-
-
-
-
-
     private fun initApp(){
+
+        Log.i("AD_LOG","AndroidID"+getAndroidId(this))
+
         NativeEntry.getDexClassLoader()
         NativeJniUtils.virinit(this)
         if (Build.VERSION.SDK_INT>=34){
@@ -91,16 +71,16 @@ class ToolsApplication : Application() {
     }
 
 
-//    fun getAndroidId(context: Context): String? {
-//        return try {
-//            val id = Settings.System.getString(
-//                context.contentResolver,
-//                Settings.Secure.ANDROID_ID
-//            )
-//            id
-//        } catch (throwable: Throwable) {
-//            ""
-//        }
-//    }
+    fun getAndroidId(context: Context): String? {
+        return try {
+            val id = Settings.System.getString(
+                context.contentResolver,
+                Settings.Secure.ANDROID_ID
+            )
+            id
+        } catch (throwable: Throwable) {
+            ""
+        }
+    }
 
 }

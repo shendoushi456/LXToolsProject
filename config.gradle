@@ -12,16 +12,16 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.zaosuancuo.cn/",
+            "HOST"        :  "https://api.nunpingli.cn/",
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlqwbhhw/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlqwbhhw/user",
+            "privacyUrl": "https://api.nunpingli.cn/agreement/wlxtjk/privacy",
+            "userUrl"   : "https://api.nunpingli.cn/agreement/wlxtjk/user",
             "VERSIONNAME":android.versionName,
 
             //TODO 接口加密key
 
-            "RELEASE_APPID": "97d0d0153e859b38",
-            "RELEASE_SSK"  : "0180168f6395b5c21009e807db66663e",
+            "RELEASE_APPID": "71b3e99aeff27a68",
+            "RELEASE_SSK"  : "c237fd7487962d64addeaa3b5e9543d",
 
 
             //TODO 接口环境  日志log开关
@@ -33,18 +33,18 @@ ext{
 
 
             //TODO 友盟Id
-            "umID":"6aa797b4d5481f0b42f394a8",
+            "umID":"6aad4158d5481f0b42f6f520",
 
             //TODO 第三方广告SDK ID
             "TOPON_APPID"  : "", //topOne Id
             "TOPON_APPKEY" : "", //topOne key
-            "APPID"        : "5877665", //穿山甲Id
+            "APPID"        : "5882378", //穿山甲Id
             "FISRT_SPLASH" : "",  //开屏
             "FIRST_REWORD" : "",//开屏激励视频
             "JL_APPID"     : "",//巨量appId
 
 
-            "lx_tools_pt":"quwubian.aar"
+            "lx_tools_pt":"shengtu.aar"
     ]
 
 }
