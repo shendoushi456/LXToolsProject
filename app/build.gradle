@@ -17,13 +17,13 @@ apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 androidJunkCode {
     variantConfig {
         release {
-            packageBase = "com.kcf.nvk.lwti"
+            packageBase = "com.duqingshitianqi.sdfa.www"
             packageCount = 47
             activityCountPerPackage = 66
             excludeActivityJavaFile = false
             otherCountPerPackage = 84
             methodCountPerClass = 28
-            resPrefix = "sazy_"
+            resPrefix = "duqingshitianqi_"
             drawableCount = 198
             stringCount =  114
         }
