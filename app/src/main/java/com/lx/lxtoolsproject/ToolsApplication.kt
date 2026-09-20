@@ -12,8 +12,6 @@ import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.xian.bc.data.local.AnswerRecordManager
-import com.xian.bc.data.local.ExamCountdownManager
 
 
 class ToolsApplication : Application() {
@@ -47,8 +45,8 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-        AnswerRecordManager.init(this)
-        ExamCountdownManager.init(this)
+//        AnswerRecordManager.init(this)
+//        ExamCountdownManager.init(this)
         val str: String = BuildConfig.AD_LIVE_TIME
         MapsUtils.isAgreementState(str,this,clickAgreement)
     }

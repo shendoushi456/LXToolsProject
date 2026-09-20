@@ -90,7 +90,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.gzyf.shengtujiakao"
+        applicationId "com.syqch.duqingshitianqi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -113,15 +113,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'jiakaoyatizhushou'
+            keyAlias 'duqingshitianqi'
             keyPassword '123456'
-            storeFile file('jiakaoyatizhushou.jks')
+            storeFile file('duqingshitianqi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'jiakaoyatizhushou'
+            keyAlias 'duqingshitianqi'
             keyPassword '123456'
-            storeFile file('jiakaoyatizhushou.jks')
+            storeFile file('duqingshitianqi.jks')
             storePassword '123456'
         }
     }
@@ -180,13 +180,13 @@ android {
     buildFeatures {
         compose true
     }
-    	
+ 
 
     walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '盛途驾考-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '度清时天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
