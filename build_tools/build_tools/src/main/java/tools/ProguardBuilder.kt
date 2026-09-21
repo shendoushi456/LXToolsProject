@@ -78,9 +78,31 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
         val dependencySources = backupDependencySources()
         val xmlGuardOutput = runCmd("sh ./gradlew app:xmlClassGuardRelease")
         if (xmlGuardOutput.contains("BUILD FAILED")) {
+            // XmlClassGuard 解析失败时，gradle 输出里会有形如 “> /abs/path/Xxx.kt parser fail” 的内容。
+            // 注意它是先 renameTo 改名、再解析，所以这里拿到的是“改名后”的路径；
+            // 此时文件内容里的 package / 类名还没被同步，可以据此反推它原本对应哪个源文件。
+            val failedFiles = Regex("""([^\s>'"]+\.(?:kt|java))\s+parser fail""")
+                .findAll(xmlGuardOutput)
+                .map { it.groupValues[1] }
+                .distinct()
+                .toList()
+            // 必须在回滚之前读取，否则残留文件会被删掉
+            val originHints = failedFiles.associateWith { describeOrigin(it) }
             restoreDependencySources(dependencySources)
             warningMsg("xmlClassGuardRelease 执行失败，已回滚依赖模块源码，避免留下文件名与类名不一致的文件")
-            throw IllegalStateException("xmlClassGuardRelease 执行失败")
+            if (failedFiles.isEmpty()) {
+                warningMsg("未能从 gradle 输出中解析出报错文件，请查看上方完整日志")
+            } else {
+                warningMsg("XmlClassGuard 解析失败的文件共 ${failedFiles.size} 个：")
+                failedFiles.forEach { path ->
+                    log("    $path")
+                    originHints[path]?.let { log("        ↳ 疑似原始文件：$it") }
+                }
+            }
+            throw IllegalStateException(
+                if (failedFiles.isEmpty()) "xmlClassGuardRelease 执行失败"
+                else "xmlClassGuardRelease 执行失败，报错文件：${failedFiles.joinToString("; ")}"
+            )
         }
         Thread.sleep(500)
         runCmd("sh ./gradlew app:packageChangeRelease")
@@ -102,6 +124,20 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
         InsertCode.insertJAVACode()
         InsertKotlinCode.insertKotlinCode()
+    }
+
+    /**
+     * XmlClassGuard 报错时给出的是改名后的路径，且文件内容里的 package / 类名尚未同步，
+     * 这里读取内容反推出它原本对应的源文件，便于定位修复。
+     */
+    private fun describeOrigin(path: String): String? {
+        val file = File(path)
+        if (!file.exists()) return null
+        val text = file.readText()
+        val pkg = Regex("""^\s*package\s+([\w.]+)""", RegexOption.MULTILINE).find(text)?.groupValues?.get(1)
+        val name = Regex("""\b(?:class|interface|object)\s+([A-Za-z_]\w*)""").find(text)?.groupValues?.get(1)
+            ?: Regex("""\bfun\s+([A-Za-z_]\w*)""").find(text)?.groupValues?.get(1)
+        return if (pkg != null && name != null) "$pkg.$name  →  ${pkg.replace('.', '/')}/$name.kt" else null
     }
 
     /**
