@@ -17,13 +17,13 @@ apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 androidJunkCode {
     variantConfig {
         release {
-            packageBase = "com.duqingshitianqi.sdfa.www"
+            packageBase = "com.caisehuimeng.sdfa.www"
             packageCount = 47
             activityCountPerPackage = 66
             excludeActivityJavaFile = false
             otherCountPerPackage = 84
             methodCountPerClass = 28
-            resPrefix = "duqingshitianqi_"
+            resPrefix = "caisehuimeng_"
             drawableCount = 198
             stringCount =  114
         }
@@ -90,7 +90,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.syqch.duqingshitianqi"
+        applicationId "com.shenzxcmh.caisehuimeng"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -113,15 +113,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'duqingshitianqi'
+            keyAlias 'caisehuimeng'
             keyPassword '123456'
-            storeFile file('duqingshitianqi.jks')
+            storeFile file('caisehuimeng.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'duqingshitianqi'
+            keyAlias 'caisehuimeng'
             keyPassword '123456'
-            storeFile file('duqingshitianqi.jks')
+            storeFile file('caisehuimeng.jks')
             storePassword '123456'
         }
     }
@@ -186,7 +186,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '度清时天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '彩色绘梦-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
