@@ -70,9 +70,18 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
         prepareXmlGuard(pkg)
         prepareBlackObfuscator(pkg)
 
-
-
-        runCmd("sh ./gradlew app:xmlClassGuardRelease")
+        // XmlClassGuard 的 XmlClassGuardTask 会通过 allDependencyAndroidProjects 一并处理依赖模块（如 toolsbox）
+        // 的类：它先 renameTo 改文件名，再用 KtFileParser 解析文件，最后才由 replaceJavaText 同步内容
+        // （package、类名）。一旦 KtFileParser 解析失败（例如字符串里的 "//" 被误判为行注释、导致 { } 计数
+        // 不平衡），任务就会中断，留下“文件名已改、类名没改”的不一致文件。modules/modulesUI 是未跟踪
+        // 目录、无法用 git 恢复，所以这里先备份，失败时回滚，避免工作区被改坏。
+        val dependencySources = backupDependencySources()
+        val xmlGuardOutput = runCmd("sh ./gradlew app:xmlClassGuardRelease")
+        if (xmlGuardOutput.contains("BUILD FAILED")) {
+            restoreDependencySources(dependencySources)
+            warningMsg("xmlClassGuardRelease 执行失败，已回滚依赖模块源码，避免留下文件名与类名不一致的文件")
+            throw IllegalStateException("xmlClassGuardRelease 执行失败")
+        }
         Thread.sleep(500)
         runCmd("sh ./gradlew app:packageChangeRelease")
         Thread.sleep(500)
@@ -93,6 +102,41 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
         InsertCode.insertJAVACode()
         InsertKotlinCode.insertKotlinCode()
+    }
+
+    /**
+     * 备份依赖模块（modules、modulesUI）的源码内容，用于 xmlClassGuardRelease 失败时回滚。
+     */
+    private fun backupDependencySources(): Map<String, String> {
+        val backup = mutableMapOf<String, String>()
+        listOf("modules", "modulesUI").forEach { root ->
+            val dir = File("${workPath}$root")
+            if (!dir.exists()) return@forEach
+            findFiles(dir) { it.extension == "kt" || it.extension == "java" }
+                .filter { !it.path.contains("/build/") }
+                .forEach { backup[it.path] = it.readText() }
+        }
+        return backup
+    }
+
+    /**
+     * 回滚依赖模块源码：还原被改名/改内容的文件，并删除 XmlClassGuard 新产生的残留文件。
+     */
+    private fun restoreDependencySources(backup: Map<String, String>) {
+        backup.forEach { (path, content) ->
+            val file = File(path)
+            if (!file.exists() || file.readText() != content) {
+                file.parentFile?.mkdirs()
+                file.writeText(content)
+            }
+        }
+        listOf("modules", "modulesUI").forEach { root ->
+            val dir = File("${workPath}$root")
+            if (!dir.exists()) return@forEach
+            findFiles(dir) { it.extension == "kt" || it.extension == "java" }
+                .filter { !it.path.contains("/build/") && !backup.containsKey(it.path) }
+                .forEach { it.delete() }
+        }
     }
 
 
