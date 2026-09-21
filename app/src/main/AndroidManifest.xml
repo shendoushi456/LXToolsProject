@@ -43,7 +43,7 @@
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
             android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
+            android:launchMode="standard"
             android:taskAffinity=":surface"
             android:theme="@style/Transparent" >
         </activity>

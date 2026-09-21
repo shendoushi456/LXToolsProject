@@ -12,7 +12,6 @@ import com.baidu.maps.utils.ReflectUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
-import com.xian.bc.translation.TranslationSdkInitializer
 import java.io.File
 
 
@@ -34,7 +33,6 @@ class ToolsApplication : Application() {
         MMKV.initialize(this)
         intGgSource()
 
-        TranslationSdkInitializer.initialize(this)
     }
 
 
