@@ -507,22 +507,22 @@
 
 #日志混淆
 # disable android logs
--assumenosideeffects class android.util.Log {
-   public static *** v(...);
-   public static *** d(...);
-   public static *** i(...);
-   public static *** w(...);
-   public static *** e(...);
-}
-#
-## disable timber logs
--assumenosideeffects class timber.log.Timber {
-   public static *** v(...);
-   public static *** d(...);
-   public static *** i(...);
-   public static *** w(...);
-   public static *** e(...);
-}
+#-assumenosideeffects class android.util.Log {
+#   public static *** v(...);
+#   public static *** d(...);
+#   public static *** i(...);
+#   public static *** w(...);
+#   public static *** e(...);
+#}
+##
+### disable timber logs
+#-assumenosideeffects class timber.log.Timber {
+#   public static *** v(...);
+#   public static *** d(...);
+#   public static *** i(...);
+#   public static *** w(...);
+#   public static *** e(...);
+#}
 
 -keep class com.clean.common_ad_libaray.http.onNetCallListener {*;}
 -keep class com.clean.common_ad_libaray.IJumpInterface {*;}
@@ -625,3 +625,5 @@
 -keep class com.lx.lxtoolsproject.utils.AgreementStatusUtils {*;}
 -keep class com.lx.lxtoolsproject.utils.OnClickAgreement {*;}
 #-keep class com.lx.lxtoolsproject.APPSpUtils {*;}
+-keep class com.baidu.mobads.proxy.SafeUtils {*;}
+-keep class com.keep.up.tt.rv.VoiceService {*;}

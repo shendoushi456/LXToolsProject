@@ -2,9 +2,7 @@ package com.keep.up.tt.rv;
 
 import android.content.Intent;
 
-/**
- * 弹出，需要反射调用的java类
- */
+
 public final class VoiceService extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
