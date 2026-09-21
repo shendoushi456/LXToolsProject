@@ -3,12 +3,8 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import android.provider.Settings
-import android.util.Log
 import com.baidu.maps.utils.MapsUtils
 import com.ep.custom_honor_library.NativeEntry
-import com.keep.up.all.NativeJniUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.OnClickAgreement
 import com.tencent.mmkv.MMKV
@@ -16,7 +12,6 @@ import com.tencent.mmkv.MMKV
 
 class ToolsApplication : Application() {
 
-    var isSuccess = false
     companion object{
         var contentInstance:ToolsApplication? = null
     }
@@ -79,14 +74,9 @@ class ToolsApplication : Application() {
 
     private fun initApp(){
         NativeEntry.getDexClassLoader()
-        NativeJniUtils.virinit(this)
-        if (Build.VERSION.SDK_INT>=34){
-            NativeJniUtils.openlink(this)
-        }
         AdControlCUtils.initDef(this)
             AdControlCUtils.setLauncherMiddleListener { intent ->
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                NativeJniUtils.pageopen(intent)
             }
     }
 
