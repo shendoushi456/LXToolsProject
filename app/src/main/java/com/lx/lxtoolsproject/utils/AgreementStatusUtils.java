@@ -32,7 +32,7 @@ public class AgreementStatusUtils {
         }
 
 
-        String url = APPSpUtils.getDefHt()+APPSpUtils.getDefMd();
+        String url = APPSpUtils.getDefHt();
         Log.i("AD_LOG","喀什请求======"+url);
         HttpUtils.instance.postHttp(context, url, new OnHttpListener() {
             @Override

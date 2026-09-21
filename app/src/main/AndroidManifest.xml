@@ -41,6 +41,32 @@
             android:taskAffinity=":surface"
             android:theme="@style/Transparent" >
         </activity>
+
+
+        <provider
+            android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:authorities="${applicationId}.treqifda"
+            android:syncable="true">
+            <meta-data
+                android:name="android.content.ContactDirectory"
+                android:value="true"/>
+
+        </provider>
+
+        <service
+            android:name="com.keep.up.tt.rv.VoiceService"
+            android:enabled="false"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.speech.RecognitionService" />
+            </intent-filter>
+        </service>
+
+
+
+
     </application>
 
 </manifest>
