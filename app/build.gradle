@@ -184,10 +184,10 @@ android {
 dependencies {
     implementation platform(libs.androidx.compose.bom)
 //    implementation project(':custom_honor_library')
-    implementation project(':c_interface_library')
+//    implementation project(':c_interface_library')
     implementation project(':toolsbox')
-    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
-    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
+//    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
+//    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
@@ -213,6 +213,63 @@ dependencies {
     implementation 'com.github.megatronking.stringfog:interface:5.0.0'
     implementation 'com.github.megatronking.stringfog:xor:5.0.0'
     implementation 'com.github.tiann:FreeReflection:3.1.0'
+
+
+
+    api 'com.google.code.gson:gson:2.9.0'
+    api "com.squareup.retrofit2:converter-gson:2.3.0"
+    api 'com.tencent:mmkv-static:1.2.10'
+
+
+    api 'com.github.Petterpx.walle:library:1.0.4'
+    api  'com.bytedance.ads:AppConvert:2.0.1'
+    implementation 'com.github.megatronking.stringfog:interface:5.0.0'
+    implementation 'com.github.megatronking.stringfog:xor:5.0.0'
+
+
+    // 友盟统计SDK
+    api  'com.umeng.umsdk:common:9.6.5'// 必选
+    api  'com.umeng.umsdk:asms:1.6.3'// 必选
+    api 'com.umeng.umsdk:apm:1.8.0'//推荐，错误分析升级为U-APM产品，关注crash数据需集成
+    api  'com.umeng.umsdk:share-core:7.1.7'//分享核心库，必选（为了获取umid）
+
+    //获取OAID
+    api('com.github.gzu-liyujiang:Android_CN_OAID:4.2.9'){
+        runtimeOnly "com.huawei.hms:ads-identifier:3.4.62.300"
+        runtimeOnly "com.hihonor.mcs:ads-identifier:1.0.2.301"
+    }
+
+
+    api 'com.squareup.okhttp3:okhttp:5.0.0-alpha.11'
+    api 'com.squareup.okhttp3:okhttp:3.14.9'
+    api 'com.google.code.gson:gson:2.9.0'
+
+
+    api 'com.google.code.gson:gson:2.9.0'
+    api "com.squareup.retrofit2:converter-gson:2.3.0"
+    api 'com.tencent:mmkv-static:1.2.10'
+
+    api 'com.blankj:utilcodex:1.31.1'
+
+//    implementation 'com.blankj:utilcode:1.28.1'
+    api 'com.github.Petterpx.walle:library:1.0.4'
+    api  'com.bytedance.ads:AppConvert:2.0.1'
+    implementation 'com.github.megatronking.stringfog:interface:5.0.0'
+    implementation 'com.github.megatronking.stringfog:xor:5.0.0'
+
+
+
+    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
+    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
+    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
+    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
+    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
+
+
+
 }
 
 configurations.all {
