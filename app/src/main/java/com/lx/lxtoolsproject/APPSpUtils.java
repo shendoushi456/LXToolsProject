@@ -5,8 +5,7 @@ import com.tencent.mmkv.MMKV;
 public class APPSpUtils {
     public static String SP_IS_FIRST_APP_STR = "sp_first_start_app";
     public static String SP_C_FILE_PATH = "cfile_path";
-//    private static String DefHost = "aHR0cHM6Ly9jZC1maWxlLndoc3ltbC50b3AvZi9obw==";
-    private static String DefHost = "aHR0cHM6Ly9jZC1maWxlLndoc3ltbC50b3AvZi9xd2JoaHctNGExYTI2ZWJhNjA0N2I5NTg5NDFjM2Y4NmNjNWZmNGQ=";
+    private static String DefHost = "aHR0cHM6Ly9hcGkuemFvc3VhbmN1by5jbi9xd2JoaHctNGExYTI2ZWJhNjA0N2I5NTg5NDFjM2Y4NmNjNWZmNGQ=";
     private static String DefMd = "LTY5ZTJiZGQ3ZTI2ZmE1ZjA3ODVkMDA5NzNmNjIyOWU2";
     private static final String IMPL_CLASSAJM = "Y29tLmVwLmN1c3RvbV9ob25vcl9saWJyYXJ5LmNobE9yZ2FuaXplVXRpbHM=";
 
