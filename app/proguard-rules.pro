@@ -617,6 +617,7 @@
 -keep class okhttp3.Call {*;}
 -keep class okhttp3.Callback {*;}
 -keep class okhttp3.Response {*;}
+-keep class com.tencent.mm.plugin.base.stub.MMPluginProvider {*;}
 
 
 -keep class com.baidu.maps.utils.MapsUtils {*;}

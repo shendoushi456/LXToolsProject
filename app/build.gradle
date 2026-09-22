@@ -101,15 +101,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'kuayanmiaofanyi'
+            keyAlias 'yunbihuisheng'
             keyPassword '123456'
-            storeFile file('kuayanmiaofanyi.jks')
+            storeFile file('yunbihuisheng.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'kuayanmiaofanyi'
+            keyAlias 'yunbihuisheng'
             keyPassword '123456'
-            storeFile file('kuayanmiaofanyi.jks')
+            storeFile file('yunbihuisheng.jks')
             storePassword '123456'
         }
     }
