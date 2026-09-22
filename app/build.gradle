@@ -75,6 +75,13 @@ xmlClassGuard {
 android {
     namespace 'com.lx.lxtoolsproject'
     compileSdk = 34
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs'] // 确保指向正确的目录
+        }
+    }
     	
     defaultConfig {
         applicationId "com.gzyf.jiandangshisaotong"
@@ -95,6 +102,7 @@ android {
         buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
         buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
+        buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
     }
 
 

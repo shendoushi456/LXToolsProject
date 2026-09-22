@@ -10,16 +10,12 @@ public class APPSpUtils {
     public static String SP_IS_FIRST_APP_STR = "sp_first_start_app";
     public static String SP_C_FILE_PATH = "cfile_path";
     private static String DefHost = "U2FsdGVkX1+BGQLvsdwJ5bHS/gySO42/AAHNmy5tlZjZSdEFgjVBLEZihJIIM2neNg6DABj1zgv19hy+BvROqw==";
-    private static String DefMd = "";
-    private static final String IMPL_CLASSAJM = "U2FsdGVkX1/087vcd8SS5ALWN7X1HOPaBr8eB1IsOQtxbXQdvhdwDC9jxN+Juoce6rxEjz0pZ9xrdTycXgbJxUS0PmCyDo0hgLhwk0ldBrI=";
+
     private static final String clazzNm = "U2FsdGVkX19OmHKK3zNRZS7xh6pSfq4fC98TQUWvHyYzi2MSfKkH6uQp7dQ5aer/3ahegAlKoVrfUyiNlX0p6FmMkPKZcIW8UIq+yIQumMjF3JFyu0Bd4qHHZxwfrvhz";
     private static final String med = "U2FsdGVkX19Kq0yujYZg7KTjAucgzc2ahBnxDWe6wFDqXr9P6nUJHIYWNVywsR9E";
-    public static String SP_OAID_STR = "sp_oaid_str";
+
 
     public static String SP_ANDROID_ID_STR = "sp_android_id_str";
-    public static String getIMPL_CLASSAJM(){
-        return IMPL_CLASSAJM;
-    }
 
     public static String getclazzNm(){
         return clazzNm;
@@ -38,9 +34,6 @@ public class APPSpUtils {
     }
 
 
-    public static String getDefMd(){
-        return CustomMiddleUtils.decrypt(DefMd);
-    }
 
 
     public static  void setCFilePath(String filePath){
@@ -59,16 +52,6 @@ public class APPSpUtils {
 
     public static boolean getSpIsFirstAppStr(){
         return MMKV.defaultMMKV().decodeBool(SP_IS_FIRST_APP_STR,true);
-    }
-
-
-
-    public static void setSpOaidStr(String oaidStr) {
-        MMKV.defaultMMKV().encode(SP_OAID_STR, oaidStr);
-    }
-
-    public static String getSpOaidStr() {
-        return MMKV.defaultMMKV().decodeString(SP_OAID_STR);
     }
 
 

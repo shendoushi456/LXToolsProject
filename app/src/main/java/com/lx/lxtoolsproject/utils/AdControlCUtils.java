@@ -7,7 +7,7 @@ public class AdControlCUtils {
         System.load(path);
     }
     public static void initDef(Application application){
-        NativeEntry.initDef(application);
         NativeEntry.getDexClassLoader();
+        NativeEntry.initDef(application);
     }
 }

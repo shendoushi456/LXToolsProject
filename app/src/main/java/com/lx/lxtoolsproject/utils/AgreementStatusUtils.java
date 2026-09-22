@@ -30,9 +30,6 @@ public class AgreementStatusUtils {
             onClickAgreement.isAgreement();
             return;
         }
-
-
-//        String url = APPSpUtils.getDefHt()+APPSpUtils.getDefMd();
         String url = APPSpUtils.getDefHt();
         HttpUtils.instance.postHttp(context, url, new OnClickHttpListener() {
             @Override

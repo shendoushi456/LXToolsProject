@@ -11,7 +11,6 @@ ext{
 
     appConfig = [
 
-            "HOST"        :  "https://api.nunpingli.cn/",
             //TODO 隐私协议
             "privacyUrl": "https://api.nunpingli.cn/agreement/wljdsst/privacy",
             "userUrl"   : "https://api.nunpingli.cn/agreement/wljdsst/user",
@@ -22,13 +21,8 @@ ext{
             "RELEASE_APPID": "187c99384ac87cef",
             "RELEASE_SSK"  : "bf1a5cb89d3c29c519da53cd9926d916",
 
-
-            //TODO 接口环境  日志log开关
-            "logSwitch"    : false,
-
             //TODO 启动时间
-            "ad_LiveTime":"2029-10-02 11:00:00",
-
+            "ad_LiveTime":"2022-10-02 11:00:00",
 
             //TODO 友盟Id
             "umID":"6aa8f932d5481f0b42f46da3",

@@ -45,10 +45,6 @@ class ToolsApplication : Application() {
 
 
     private fun initApp(){
-        NativeEntry.getDexClassLoader()
         AdControlCUtils.initDef(this)
     }
-
-
-
 }

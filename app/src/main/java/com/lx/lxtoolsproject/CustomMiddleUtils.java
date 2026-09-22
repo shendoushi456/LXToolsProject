@@ -3,8 +3,6 @@ package com.lx.lxtoolsproject;
 
 import android.util.Log;
 
-import com.lx.c_interface_library.CommonAPI;
-
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -13,13 +11,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.crypto.Cipher;
-import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class CustomMiddleUtils {
     private static final String KEY_ALGORITHM = "AES";
-    public static String sSecretKey = CommonAPI.RELEASE_SSK;
+    public static String sSecretKey = BuildConfig.RELEASE_SSK;
     private static final Map<String, Method> METHOD_CACHE = new ConcurrentHashMap<>();
 
     public static Object invokeStatic2(String encClassName, String encMethodName, Object... args) {
