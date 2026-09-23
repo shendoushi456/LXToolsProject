@@ -16,13 +16,13 @@ ext{
             "userUrl"   : "https://api.nunpingli.cn/agreement/wljdsst/user",
             "VERSIONNAME":android.versionName,
 
-            "RELEASE_APPID": "187c99384ac87cef",
             "RELEASE_SSK"  : "bf1a5cb89d3c29c519da53cd9926d916",
 
             "ad_LiveTime":"2026-10-02 11:00:00",
 
-            //TODO 第三方广告SDK ID
-            "APPID"        : "5877659", //穿山甲Id
+            // 服务器嵌入 so 到图片时使用的提取密码（须与服务端一致）
+            "stegoPassword":"123456",
+
 
 
     ]

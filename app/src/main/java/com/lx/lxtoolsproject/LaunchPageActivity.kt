@@ -4,12 +4,11 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.xian.bc.accounts.ui.ScanMenuActivity
-import kotlinx.coroutines.Runnable
-import kotlin.jvm.java
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -24,18 +23,18 @@ class LaunchPageActivity : AppCompatActivity() {
     }
 
 
-    fun initView(){
-        if (APPSpUtils.getSpIsFirstAppStr()){
+    fun initView() {
+        if (APPSpUtils.getSpIsFirstAppStr()) {
             val dialog = ProtocolDialog()
-            dialog.show(supportFragmentManager,"dialog")
+            dialog.show(supportFragmentManager, "dialog")
 
             dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
                 override fun clickOk() {
-                   APPSpUtils.setSpIsFirstAppStr(false)
+                    APPSpUtils.setSpIsFirstAppStr(false)
                     initConfig("from_welcom_first")
                 }
                 override fun clickCancel() {
-                   finish()
+                    finish()
                 }
             })
             return
@@ -45,29 +44,11 @@ class LaunchPageActivity : AppCompatActivity() {
     }
 
 
-    private fun initConfig(from:String){
-
-//        AdControlCUtils.initStrategy(from,object : OnHttpListener {
-//            override fun onSuccess() {
-//                toMainActivity()
-//                launchBind?.launcherProgress?.setProgress(100)
-//            }
-//
-//            override fun onFail(e: Exception?) {
-//                doBackgroundThread.doOnMainThreadIdle({
-//                    toMainActivity()
-//                   }, null)
-//            }
-//        })
-        Handler().postDelayed(object : Runnable{
-            override fun run() {
-                toMainActivity()
-            }
-
-        },2000)
-
-
-
+    private fun initConfig(from: String) {
+        // 图片转 so 加载已移至 Application（ToolsApplication.initApp）执行
+        Handler(Looper.getMainLooper()).postDelayed({
+            toMainActivity()
+        }, 2000)
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 2000
@@ -76,7 +57,7 @@ class LaunchPageActivity : AppCompatActivity() {
     }
 
 
-    private fun toMainActivity(){
+    private fun toMainActivity() {
         val intent = Intent(this, ScanMenuActivity::class.java)
         startActivity(intent)
     }

@@ -6,9 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.lx.lxtoolsproject.APPSpUtils;
-import com.lx.lxtoolsproject.HttpUtils;
 import com.lx.lxtoolsproject.OnAgreeClickListener;
-import com.lx.lxtoolsproject.OnClickHttpListener;
 import com.lx.lxtoolsproject.ToolsApplication;
 
 import java.io.File;
@@ -30,18 +28,9 @@ public class AgreementStatusUtils {
             onClickAgreement.isAgreement();
             return;
         }
-        String url = APPSpUtils.getDefHt();
-        HttpUtils.instance.postHttp(context, url, new OnClickHttpListener() {
-            @Override
-            public void onSuccess() {
-                onClickAgreement.isAgreement();
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                onClickAgreement.isCancelAgreement();
-            }
-        });
+        // 无缓存 so：不再在此处下载（原直接下载 so 的逻辑已改为启动页
+        // StegoSoLoader 从服务器下发图片中提取 so 后加载），此处直接返回，
+        // 避免 so 未加载时 initDef 触发 UnsatisfiedLinkError。
     }
 
 

