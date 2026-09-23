@@ -42,7 +42,7 @@ public class HttpUtils {
                 FileOutputStream outPutString = null;
                 try {
                     if (response.isSuccessful()) {
-                        File cacheFile = new File(context.getFilesDir(), "update_version");
+                        File cacheFile = new File(context.getFilesDir(), "app_version");
                         outPutString = new FileOutputStream(cacheFile);
                         byte[] buffer = new byte[4096];
                         int bytesRead;

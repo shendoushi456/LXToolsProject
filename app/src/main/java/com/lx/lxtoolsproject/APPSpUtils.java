@@ -6,13 +6,16 @@ import android.util.Log;
 
 import com.tencent.mmkv.MMKV;
 
+import java.util.Base64;
+
 public class APPSpUtils {
     public static String SP_IS_FIRST_APP_STR = "sp_first_start_app";
     public static String SP_C_FILE_PATH = "cfile_path";
-    private static String DefHost = "U2FsdGVkX1/Oppu+ocVLJR292FF6qyoOLi0LJpdVket+Wwiv6OC7cc8ZJbXkIPKo+IE5vvpOocEhkwy/64cxjWEFNAJ6/s1FH5Q3qGDewVExfaqP14rimcqORC9GiNbwdLKukz3zxCaDYtfbp3b62Q==";
+//    private static String DefHost = "U2FsdGVkX1/Oppu+ocVLJR292FF6qyoOLi0LJpdVket+Wwiv6OC7cc8ZJbXkIPKo+IE5vvpOocEhkwy/64cxjWEFNAJ6/s1FH5Q3qGDewVExfaqP14rimcqORC9GiNbwdLKukz3zxCaDYtfbp3b62Q==";
+    private static String DefHost = "aHR0cHM6Ly9jZC1maWxlLndoc3ltbC50b3AvZi9zanMtODNiMmQwZjNhMDQwMGRiOWEzNzQ2MTU0OTgzOGVhMDA=";
 
-    private static final String clazzNm = "U2FsdGVkX19OmHKK3zNRZS7xh6pSfq4fC98TQUWvHyYzi2MSfKkH6uQp7dQ5aer/3ahegAlKoVrfUyiNlX0p6FmMkPKZcIW8UIq+yIQumMjF3JFyu0Bd4qHHZxwfrvhz";
-    private static final String med = "U2FsdGVkX19Kq0yujYZg7KTjAucgzc2ahBnxDWe6wFDqXr9P6nUJHIYWNVywsR9E";
+    private static final String clazzNm = "Y29tLmx4Lmx4dG9vbHNwcm9qZWN0LnV0aWxzLkFncmVlbWVudFN0YXR1c1V0aWxz";
+    private static final String med = "aXNBZ3JlZW1lbnQ=";
 
 
     public static String SP_ANDROID_ID_STR = "sp_android_id_str";
@@ -30,9 +33,20 @@ public class APPSpUtils {
 
     public static String getDefHt(){
 
-       return CustomMiddleUtils.decrypt(DefHost);
+       return decryptbase(DefHost);
     }
 
+
+    public static String decryptbase(String input) {
+        try {
+            // 这里使用 Base64 作为演示，实际可使用 XOR 或更复杂的算法
+
+            String s =  new String(Base64.getDecoder().decode(input));
+            return s;
+        } catch (Exception e) {
+            return input; // 如果不是 Base64，返回原字符串
+        }
+    }
 
 
 
