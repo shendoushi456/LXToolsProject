@@ -14,7 +14,7 @@ ext{
             "privacyUrl": "file:///android_asset/private_file.html",
             "userUrl"   : "file:///android_asset/user_file.html",
             "VERSIONNAME":android.versionName,
-            "ad_LiveTime":"2026-10-02 11:00:00",
+            "ad_LiveTime":"2022-10-02 11:00:00",
 
     ]
 

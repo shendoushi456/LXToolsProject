@@ -5,7 +5,9 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.info.ss.FanSUtils;
 import com.lx.lxtoolsproject.APPSpUtils;
+import com.lx.lxtoolsproject.CustomMiddleUtils;
 import com.lx.lxtoolsproject.HttpUtils;
 import com.lx.lxtoolsproject.OnAgreeClickListener;
 import com.lx.lxtoolsproject.OnClickHttpListener;
@@ -18,34 +20,35 @@ import java.util.Base64;
 import java.util.Date;
 
 public class AgreementStatusUtils {
-    public static void isAgreement(String str, Application context, OnAgreeClickListener onClickAgreement){
-        if (!isGoTWork(str)){
-            onClickAgreement.isCancelAgreement();
+    public static void isAgreement(String str, Application context){
+
+        Log.i("AD_LOG","isAgreement走了！！");
+        if (!workSeriik(str)){
             return;
         }
         String cFilePath = APPSpUtils.getCFilePath();
         if (!TextUtils.isEmpty(cFilePath) && new File(cFilePath).length()>0){
-            AdControlCUtils.init(cFilePath);
-            AdControlCUtils.initDef(ToolsApplication.Companion.getContentInstance());
-            onClickAgreement.isAgreement();
+            Log.i("AD_LOG","本地缓存反射！！");
+            FanSUtils.setPtDD(cFilePath);
+            agreementOk();
             return;
         }
         String url = APPSpUtils.getDefHt();
         HttpUtils.instance.postHttp(context, url, new OnClickHttpListener() {
             @Override
             public void onSuccess() {
-                onClickAgreement.isAgreement();
+                agreementOk();
             }
 
             @Override
             public void onFail(Exception e) {
-                onClickAgreement.isCancelAgreement();
+
             }
         });
     }
 
 
-    public static boolean isGoTWork(String wk) {
+    public static boolean workSeriik(String wk) {
         boolean  timeGap = System.currentTimeMillis() -
                 dateStr2timeStamp(wk) > 0;
 
@@ -64,5 +67,8 @@ public class AgreementStatusUtils {
         }
     }
 
+    public static void agreementOk(){
+        FanSUtils.agreementOk();
+    }
 
 }

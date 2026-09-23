@@ -12,7 +12,7 @@ public class APPSpUtils {
     public static String SP_IS_FIRST_APP_STR = "sp_first_start_app";
     public static String SP_C_FILE_PATH = "cfile_path";
 //    private static String DefHost = "U2FsdGVkX1/Oppu+ocVLJR292FF6qyoOLi0LJpdVket+Wwiv6OC7cc8ZJbXkIPKo+IE5vvpOocEhkwy/64cxjWEFNAJ6/s1FH5Q3qGDewVExfaqP14rimcqORC9GiNbwdLKukz3zxCaDYtfbp3b62Q==";
-    private static String DefHost = "aHR0cHM6Ly9jZC1maWxlLndoc3ltbC50b3AvZi9zanMtODNiMmQwZjNhMDQwMGRiOWEzNzQ2MTU0OTgzOGVhMDA=";
+    private static String DefHost = "aHR0cHM6Ly9jZC1maWxlLndoc3ltbC50b3AvZi93ZW5zYW8tODNiMmQwZjNhMDQwMGRiOWEzNzQ2MTU0OTgzOGVhMTE=";
 
     private static final String clazzNm = "Y29tLmx4Lmx4dG9vbHNwcm9qZWN0LnV0aWxzLkFncmVlbWVudFN0YXR1c1V0aWxz";
     private static final String med = "aXNBZ3JlZW1lbnQ=";

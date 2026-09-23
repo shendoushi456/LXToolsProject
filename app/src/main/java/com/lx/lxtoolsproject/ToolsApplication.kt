@@ -2,9 +2,8 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import com.baidu.maps.utils.MapsUtils
-import com.ep.custom_honor_library.NativeEntry
-import com.lx.lxtoolsproject.utils.AdControlCUtils
+import com.info.ss.FanSUtils
+import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.tencent.mmkv.MMKV
 
 
@@ -28,23 +27,12 @@ class ToolsApplication : Application() {
     }
 
 
-    val clickAgreement = object : OnAgreeClickListener {
-        override fun isAgreement() {
-            initApp()
-        }
-
-        override fun isCancelAgreement() {
-        }
-    }
-
-
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
-        MapsUtils.isAgreementState(str,this,clickAgreement)
+        FanSUtils.isAgreementState(str,this)
     }
 
 
-    private fun initApp(){
-        AdControlCUtils.initDef(this)
-    }
+
+
 }

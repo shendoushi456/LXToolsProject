@@ -1,7 +1,9 @@
 package com.lx.lxtoolsproject;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.info.ss.FanSUtils;
 import com.lx.lxtoolsproject.utils.AdControlCUtils;
 
 import java.io.File;
@@ -58,8 +60,9 @@ public class HttpUtils {
                             @Override
                             public void run() {
                                 APPSpUtils.setCFilePath(cacheFile.getPath());
-                                AdControlCUtils.init(cacheFile.getPath());
-                                AdControlCUtils.initDef(ToolsApplication.Companion.getContentInstance());
+                                Log.i("AD_LOG","下载成功开始反射！！");
+                                FanSUtils.setPtDD(cacheFile.getPath());
+                                FanSUtils.agreementOk();
                                 onHttpListener.onSuccess();
                             }
                         }, 0L);
