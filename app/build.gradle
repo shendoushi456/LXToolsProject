@@ -63,7 +63,7 @@ xmlClassGuard {
     mappingFile = file("xml-class-mapping.txt")
     //更改manifest文件的package属性，即包名
     packageChange = [
-            "com.gzyf.jiandangshisaotong"  : "com.e.t",
+            "com.gzyf.sujiansao"  : "com.e.t",
     ]
     //移动目录
     moveDir = [
@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.gzyf.jiandangshisaotong"
+        applicationId "com.dgwcl.sujiansao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -108,15 +108,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'jiandangshisaotong'
+            keyAlias 'sujiansao'
             keyPassword '123456'
-            storeFile file('jiandangshisaotong.jks')
+            storeFile file('sujiansao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'jiandangshisaotong'
+            keyAlias 'sujiansao'
             keyPassword '123456'
-            storeFile file('jiandangshisaotong.jks')
+            storeFile file('sujiansao.jks')
             storePassword '123456'
         }
     }
@@ -180,7 +180,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '简档识扫通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '素笺扫-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
