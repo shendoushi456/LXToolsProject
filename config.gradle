@@ -12,11 +12,9 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.nunpingli.cn/agreement/wljdsst/privacy",
-            "userUrl"   : "https://api.nunpingli.cn/agreement/wljdsst/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlyyfywza/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlyyfywza/user",
             "VERSIONNAME":android.versionName,
-
-            "RELEASE_SSK"  : "bf1a5cb89d3c29c519da53cd9926d916",
 
             "ad_LiveTime":"2026-10-02 11:00:00",
 
