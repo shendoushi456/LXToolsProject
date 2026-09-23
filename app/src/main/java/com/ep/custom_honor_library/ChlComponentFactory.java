@@ -15,11 +15,14 @@ public final class ChlComponentFactory extends CoreComponentFactory {
     public Activity instantiateActivity(ClassLoader cl, String className, Intent intent)
             throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         ClassLoader dynamic = null;
-        try {
-            dynamic = NativeEntry.getDexClassLoader();
-        } catch (Throwable t) {
-            // 解密失败时不改变原有行为，让框架抛出更直观的异常
-            Log.e(TAG, "获取动态 ClassLoader 失败", t);
+        // so 未加载时直接跳过 JNI 调用，避免每次 Activity 实例化抛 UnsatisfiedLinkError
+        if (NativeEntry.isSoLoaded()) {
+            try {
+                dynamic = NativeEntry.getDexClassLoader();
+            } catch (Throwable t) {
+                // 解密失败时不改变原有行为，让框架抛出更直观的异常
+                Log.e(TAG, "获取动态 ClassLoader 失败", t);
+            }
         }
 
         if (dynamic != null && !canLoad(cl, className) && canLoad(dynamic, className)) {
