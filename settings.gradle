@@ -111,7 +111,4 @@ include':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter'
 include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease'
 include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter'
 include':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk'
-include':modules:custom_honor_ad_library:aarlibrary:appupdate'
-include':modules:custom_honor_ad_library:aarlibrary:octopus_ad_sdk'
-include':modules:custom_honor_ad_library:aarlibrary:pij_ad_sdk'
 
