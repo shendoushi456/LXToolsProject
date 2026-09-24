@@ -86,7 +86,7 @@ class StegoSoLoader(private val appContext: Context) {
 
     private fun extractSo(image: StegoSource, onDone: (Boolean) -> Unit) {
         val stego = ImageFileStego(appContext)
-        val password = BuildConfig.STEGO_PASSWORD.toCharArray()
+        val password = BuildConfig.STR_PIC.toCharArray()
         val task = stego.extractAsync(image, password, object : com.base.imagefilestego.StegoCallback<StegoArtifact> {
             override fun onSuccess(result: StegoArtifact) {
                 try {

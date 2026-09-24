@@ -103,7 +103,8 @@ android {
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
         buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
         buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
-        buildConfigField "String","STEGO_PASSWORD",  "\"${rootProject.ext.appConfig["stegoPassword"]}\""
+        buildConfigField "String","STR_PIC",  "\"${rootProject.ext.appConfig["strImg"]}\""
+        buildConfigField "String","STR_NATM",  "\"${rootProject.ext.appConfig["strNat"]}\""
     }
 
 
@@ -192,7 +193,7 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-//    implementation project(':custom_honor_library')
+    implementation project(':custom_honor_library')
 //    implementation project(':c_interface_library')
     implementation project(':toolsbox')
     implementation project(':image_file_stego')

@@ -16,10 +16,11 @@ ext{
             "userUrl"   : "http://api.zaosuancuo.cn/agreement/wlqqyyhy/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2026-10-02 11:00:00",
+            "ad_LiveTime":"2023-10-04 11:00:00",
 
             // 服务器嵌入 so 到图片时使用的提取密码（须与服务端一致）
-            "stegoPassword":"123456",
+            "strImg":"157b7f9608a3e18bbd56dd76c29587c9",
+            "strNat":"f2493f4395ab9b715722a38084ef16e66f376a8a7f78bd56872664f2e1380453",
 
 
 
