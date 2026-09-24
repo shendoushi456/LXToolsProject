@@ -40,7 +40,6 @@ BlackObfuscator {
     depth 2
     // 需要混淆的包或者类(匹配前面一段)
     obfClass = [
-            "com.baidu.maps.utils",
             "com.lx.lxtoolsproject",
             "com.lx.lxtoolsproject.utils",
     ]
@@ -102,7 +101,6 @@ android {
         buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
         buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
-        buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
         buildConfigField "String","STEGO_PASSWORD",  "\"${rootProject.ext.appConfig["stegoPassword"]}\""
     }
 

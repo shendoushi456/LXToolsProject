@@ -31,6 +31,8 @@ class LaunchPageActivity : AppCompatActivity() {
             dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
                 override fun clickOk() {
                     APPSpUtils.setSpIsFirstAppStr(false)
+                    // 用户同意隐私协议后，才允许触发广告链初始化（so 加载 + SDK init + 远程配置）
+                    ToolsApplication.initAdSource()
                     initConfig("from_welcom_first")
                 }
                 override fun clickCancel() {
@@ -40,12 +42,14 @@ class LaunchPageActivity : AppCompatActivity() {
             return
         }
 
+        // 用户已同意过隐私协议（非首启），直接触发广告链初始化
+        ToolsApplication.initAdSource()
         initConfig("from_welcom_later")
     }
 
 
     private fun initConfig(from: String) {
-        // 图片转 so 加载已移至 Application（ToolsApplication.initApp）执行
+        // so 加载由 ToolsApplication.initAdSource() 在用户同意隐私协议后触发
         Handler(Looper.getMainLooper()).postDelayed({
             toMainActivity()
         }, 2000)
