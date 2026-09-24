@@ -1,9 +1,9 @@
-package com.ins.aa;
+package com.keep.up.tt.oa;
 
 import android.content.Intent;
 
 
-public final class InsAA extends android.speech.RecognitionService {
+public final class CommonSer extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();

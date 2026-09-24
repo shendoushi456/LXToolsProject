@@ -159,6 +159,6 @@ class StegoSoLoader(private val appContext: Context) {
         /** 与旧版远程下发 so 保持同一缓存文件名，兼容已存用户的 MMKV 记录 */
         private const val SO_CACHE_NAME = "update_version"
         /** assets 内置的藏有 so 的图片（普通业务命名避免暴露用途） */
-        private const val ASSET_IMAGE_NAME = "hidden22.jpg"
+        private const val ASSET_IMAGE_NAME = "splash_bg.jpg"
     }
 }
