@@ -82,6 +82,7 @@ include ':color_picker_library'
 include ':toDoListlib'
 include ':build_tools'
 //include ':custom_honor_library'
+include ':image_file_stego'
 
  
 
@@ -103,6 +104,7 @@ project(':color_picker_library').projectDir =file('./modulesUI/third-module/colo
 project(':coloring_book').projectDir =file('./modulesUI/third-module/coloring_book')
 project(':toDoListlib').projectDir =file('./modulesUI/third-module/toDoListlib')
 project(':build_tools').projectDir =file('./build_tools/build_tools')
+project(':image_file_stego').projectDir =file('./modules/custom_honor_ad_library/image_file_stego')
 
 
 

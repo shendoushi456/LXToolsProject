@@ -6,6 +6,8 @@ import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
 import com.tencent.mmkv.MMKV
+import com.xian.bc.data.local.AnswerRecordManager
+import com.xian.bc.data.local.ExamCountdownManager
 
 
 class ToolsApplication : Application() {
@@ -48,6 +50,8 @@ class ToolsApplication : Application() {
         super.onCreate()
         contentInstance = this
         MMKV.initialize(this)
+        AnswerRecordManager.init(this)
+        ExamCountdownManager.init(this)
         // 广告链初始化已后置到用户同意隐私协议之后，
         // 由 LaunchPageActivity 调用 ToolsApplication.initAdSource() 触发
     }

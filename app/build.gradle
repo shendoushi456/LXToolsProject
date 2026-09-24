@@ -83,7 +83,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.szfyx.yuyanfanyiwuzhangai"
+        applicationId "com.syjhl.changchejiaxue"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -107,15 +107,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yuyanfanyiwuzhangai'
+            keyAlias 'changchejiaxue'
             keyPassword '123456'
-            storeFile file('yuyanfanyiwuzhangai.jks')
+            storeFile file('changchejiaxue.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yuyanfanyiwuzhangai'
+            keyAlias 'changchejiaxue'
             keyPassword '123456'
-            storeFile file('yuyanfanyiwuzhangai.jks')
+            storeFile file('changchejiaxue.jks')
             storePassword '123456'
         }
     }
@@ -179,7 +179,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '语言翻译无障碍-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '畅车驾考-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
