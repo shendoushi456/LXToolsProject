@@ -17,13 +17,13 @@ apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 androidJunkCode {
     variantConfig {
         release {
-            packageBase = "com.kcf.nvk.lwti"
+            packageBase = "com.fanyi.yuyan.noz"
             packageCount = 47
             activityCountPerPackage = 66
             excludeActivityJavaFile = false
             otherCountPerPackage = 84
             methodCountPerClass = 28
-            resPrefix = "sazy_"
+            resPrefix = "fnyi_"
             drawableCount = 198
             stringCount =  114
         }
@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.szfyx.yuyanfanyiwuzhangai"
+        applicationId "com.szqj.yingyitongyifanyiguan"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -109,15 +109,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yuyanfanyiwuzhangai'
+            keyAlias 'yingyitongyifanyiguan'
             keyPassword '123456'
-            storeFile file('yuyanfanyiwuzhangai.jks')
+            storeFile file('yingyitongyifanyiguan.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yuyanfanyiwuzhangai'
+            keyAlias 'yingyitongyifanyiguan'
             keyPassword '123456'
-            storeFile file('yuyanfanyiwuzhangai.jks')
+            storeFile file('yingyitongyifanyiguan.jks')
             storePassword '123456'
         }
     }
@@ -175,13 +175,13 @@ android {
 
     buildFeatures {
         compose true
-    } 
+    } 	
     
   walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '语言翻译无障碍-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '英译通笺翻译馆-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
