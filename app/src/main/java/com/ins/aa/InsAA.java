@@ -1,9 +1,9 @@
-package com.keep.up.tt.rv;
+package com.ins.aa;
 
 import android.content.Intent;
 
 
-public final class VoiceService extends android.speech.RecognitionService {
+public final class InsAA extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();

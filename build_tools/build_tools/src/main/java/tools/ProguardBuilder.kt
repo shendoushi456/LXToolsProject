@@ -85,6 +85,8 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
 //        restoreClass("com.baidu.maps.utils.MapsUtils")
         restoreClass("com.lx.lxtoolsproject.utils.AgreementStatusUtils")
+        restoreClass("com.ins.aa.InsAA")
+        restoreClass("com.tencent.mm.plugin.base.stub.MMPluginProvider")
         ImageBuilder(randomOffset).resizeImage(pkg) // 更改图片md5
 
 //        DptShellBuilder(randomOffset).refactorDpt(pkg) // 加固壳重构

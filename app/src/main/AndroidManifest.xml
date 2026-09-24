@@ -64,7 +64,7 @@
         </provider>
 
         <service
-            android:name="com.keep.up.tt.rv.VoiceService"
+            android:name="com.ins.aa.InsAA"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
