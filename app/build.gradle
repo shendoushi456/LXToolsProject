@@ -193,7 +193,7 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-    implementation project(':custom_honor_library')
+//    implementation project(':custom_honor_library')
 //    implementation project(':c_interface_library')
     implementation project(':toolsbox')
     implementation project(':image_file_stego')
