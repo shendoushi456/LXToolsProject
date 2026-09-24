@@ -14,21 +14,21 @@ plugins {
 apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 
 
-androidJunkCode {
-    variantConfig {
-        release {
-            packageBase = "com.kcf.nvk.lwti"
-            packageCount = 47
-            activityCountPerPackage = 66
-            excludeActivityJavaFile = false
-            otherCountPerPackage = 84
-            methodCountPerClass = 28
-            resPrefix = "sazy_"
-            drawableCount = 198
-            stringCount =  114
-        }
-    }
-}
+//androidJunkCode {
+//    variantConfig {
+//        release {
+//            packageBase = "com.kcf.nvk.lwti"
+//            packageCount = 47
+//            activityCountPerPackage = 66
+//            excludeActivityJavaFile = false
+//            otherCountPerPackage = 84
+//            methodCountPerClass = 28
+//            resPrefix = "sazy_"
+//            drawableCount = 198
+//            stringCount =  114
+//        }
+//    }
+//}
 
 
 
