@@ -11,7 +11,7 @@ import androidx.core.app.CoreComponentFactory;
  *
  * <p>系统启动 Activity 时走 {@code ActivityThread.performLaunchActivity} →
  * {@code AppComponentFactory.instantiateActivity(ClassLoader, className, intent)}，
- * 这里传入的是 App 的 PathClassLoader。而 {@code MiddleAdActivity} 只存在于
+ * 这里传入的是 App 的 PathClassLoader。而 {@code NoticeActivity} 只存在于
  * libchlcore.so 解密出来的 DEX 中，PathClassLoader 找不到，于是抛
  * {@code ClassNotFoundException}。
  *

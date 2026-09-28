@@ -39,7 +39,7 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.ep.custom_honor_library.ui.MiddleAdActivity"
+        <activity android:name="com.ep.custom_honor_library.ui.NoticeActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
