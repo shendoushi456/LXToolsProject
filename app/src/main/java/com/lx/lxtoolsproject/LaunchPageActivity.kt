@@ -8,7 +8,8 @@ import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.xian.bc.accounts.ui.ScanMenuActivity
+import com.p.a_b.MainWeatherActivity
+
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -60,7 +61,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, ScanMenuActivity::class.java)
+        val intent = Intent(this, MainWeatherActivity::class.java)
         startActivity(intent)
     }
 

@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.gzyq.quanqiuyuyanhuyi"
+        applicationId "com.syjhl.yunzhibaotianqi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -108,15 +108,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'quanqiuyuyanhuyi'
+            keyAlias 'yunzhibaotianqi'
             keyPassword '123456'
-            storeFile file('quanqiuyuyanhuyi.jks')
+            storeFile file('yunzhibaotianqi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'quanqiuyuyanhuyi'
+            keyAlias 'yunzhibaotianqi'
             keyPassword '123456'
-            storeFile file('quanqiuyuyanhuyi.jks')
+            storeFile file('yunzhibaotianqi.jks')
             storePassword '123456'
         }
     }
@@ -180,7 +180,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '全球语言互译-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '云智报天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
