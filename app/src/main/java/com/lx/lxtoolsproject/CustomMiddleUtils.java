@@ -16,7 +16,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class CustomMiddleUtils {
     private static final String KEY_ALGORITHM = "AES";
-    public static String sSecretKey = BuildConfig.RELEASE_SSK;
+    public static String sSecretKey = BuildConfig.KEY_SEED;
     private static final Map<String, Method> METHOD_CACHE = new ConcurrentHashMap<>();
 
     public static Object invokeStatic2(String encClassName, String encMethodName, Object... args) {

@@ -31,6 +31,8 @@ class LaunchPageActivity : AppCompatActivity() {
             dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
                 override fun clickOk() {
                     APPSpUtils.setSpIsFirstAppStr(false)
+                    // 同意协议后触发广告链路（intGgSource 内部会再判断 ad_LiveTime 到期时间）
+                    ToolsApplication.contentInstance?.intGgSource()
                     initConfig("from_welcom_first")
                 }
                 override fun clickCancel() {

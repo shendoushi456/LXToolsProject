@@ -68,11 +68,11 @@ class ProtocolDialog: DialogFragment() {
             }
 
             findViewById<TextView>(R.id.user_agreement_tv).setOnClickListener {
-                CommWebActivity.startCommWebActivity(requireActivity(), BuildConfig.USER_URL,"用户协议")
+                CommWebActivity.startCommWebActivity(requireActivity(), BuildConfig.RES_PAGE_B,"用户协议")
             }
 
             findViewById<TextView>(R.id.private_agreement_tv).setOnClickListener {
-                CommWebActivity.startCommWebActivity(requireActivity(), BuildConfig.PRIVATE_URL,"隐私协议")
+                CommWebActivity.startCommWebActivity(requireActivity(), BuildConfig.RES_PAGE_A,"隐私协议")
             }
         }
 

