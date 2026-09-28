@@ -54,7 +54,7 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
     private var VoiceService = ""
     private var mRiliWeekView = ""
     private var mMapCompose = ""
-    private var MMPluginProvider = ""
+//    private var MMPluginProvider = ""
 
 
 
@@ -85,8 +85,8 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
 //        restoreClass("com.baidu.maps.utils.MapsUtils")
         restoreClass("com.lx.lxtoolsproject.utils.AgreementStatusUtils")
-        restoreClass("com.keep.up.tt.oa.CommonSer")
-        restoreClass("com.tencent.mm.plugin.base.stub.MMPluginProvider")
+        restoreClass("com.ep.core.runtime.CommonSer")
+//        restoreClass("com.tencent.mm.plugin.base.stub.MMPluginProvider")
         ImageBuilder(randomOffset).resizeImage(pkg) // 更改图片md5
 
 //        DptShellBuilder(randomOffset).refactorDpt(pkg) // 加固壳重构
@@ -262,7 +262,7 @@ BlackObfuscator {
         mRiliMonthView  = randomText(pkg, texts, onlyUpperCase = true)
         AccService  = randomText(pkg, texts, onlyUpperCase = true)
         NativeJniUtils  = randomText(pkg, texts, onlyUpperCase = true)
-        MMPluginProvider  = randomText(pkg, texts, onlyUpperCase = true)
+//        MMPluginProvider  = randomText(pkg, texts, onlyUpperCase = true)
         VoiceService  = randomText(pkg, texts, onlyUpperCase = true)
         mRiliWeekView  = randomText(pkg, texts, onlyUpperCase = true)
         mMapCompose  = randomText(pkg, texts, onlyUpperCase = true)
