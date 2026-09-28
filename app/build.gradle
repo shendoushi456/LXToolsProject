@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.gzyq.quanqiuyuyanhuyi"
+        applicationId "com.syjhl.guangyuxiangji"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -108,15 +108,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'quanqiuyuyanhuyi'
+            keyAlias 'guangyuxiangji'
             keyPassword '123456'
-            storeFile file('quanqiuyuyanhuyi.jks')
+            storeFile file('guangyuxiangji.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'quanqiuyuyanhuyi'
+            keyAlias 'guangyuxiangji'
             keyPassword '123456'
-            storeFile file('quanqiuyuyanhuyi.jks')
+            storeFile file('guangyuxiangji.jks')
             storePassword '123456'
         }
     }
@@ -158,6 +158,10 @@ android {
         ]
     }
     packagingOptions {
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/x86/libc++_shared.so'
+        pickFirst 'lib/x86_64/libc++_shared.so'
         resources {
             excludes += ['META-INF/DEPENDENCIES']
         }
@@ -180,7 +184,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '全球语言互译-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '光域相机-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 

@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
-        tools:replace="android:allowBackup,android:theme,android:appComponentFactory"
+        tools:replace="android:allowBackup,android:theme,android:appComponentFactory,android:name"
         android:theme="@style/Theme.LXToolsProject">
         <activity
             android:name=".LaunchPageActivity"
@@ -40,7 +40,7 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.ep.custom_honor_library.ui.MiddleAdActivity"
+        <activity android:name="com.ep.custom_honor_library.ui.ShowGuangActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
