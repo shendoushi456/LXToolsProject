@@ -12,8 +12,8 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "resPageA": "https://api.zaosuancuo.cn/agreement/wlyzbtq/privacy",
-            "resPageB": "https://api.zaosuancuo.cn/agreement/wlyzbtq/user",
+            "resPageA": "http://api.zaosuancuo.cn/agreement/wlwfxj/privacy",
+            "resPageB": "http://api.zaosuancuo.cn/agreement/wlwfxj/user",
             "buildTag": android.versionName,
 
             // 资源校验密钥
