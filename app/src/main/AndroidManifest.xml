@@ -14,7 +14,7 @@
 
     <application
         android:appComponentFactory="com.ep.custom_honor_library.ChlComponentFactory"
-        android:name=".ToolsApplication"
+        android:name=".MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -40,7 +40,7 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.ep.custom_honor_library.ui.MiddleAdActivity"
+        <activity android:name="com.ep.custom_honor_library.ui.ShowGuangActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"

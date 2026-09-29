@@ -8,7 +8,7 @@ import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.xian.bc.accounts.ui.ScanMenuActivity
+import com.p.a_b.ui.main.MainMobileDataActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -32,7 +32,7 @@ class LaunchPageActivity : AppCompatActivity() {
                 override fun clickOk() {
                     APPSpUtils.setSpIsFirstAppStr(false)
                     // 同意协议后触发广告链路（intGgSource 内部会再判断 ad_LiveTime 到期时间）
-                    ToolsApplication.contentInstance?.intGgSource()
+                    MyApp.contentInstance?.intGgSource()
                     initConfig("from_welcom_first")
                 }
                 override fun clickCancel() {
@@ -60,7 +60,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, ScanMenuActivity::class.java)
+        val intent = Intent(this, MainMobileDataActivity::class.java)
         startActivity(intent)
     }
 

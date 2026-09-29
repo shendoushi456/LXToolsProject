@@ -64,8 +64,8 @@ public class APPSpUtils {
         String androidID = MMKV.defaultMMKV().decodeString(SP_ANDROID_ID_STR, "");
         if (TextUtils.isEmpty(androidID)) {
             androidID = Settings.System.getString(
-                    ToolsApplication.Companion.getContentInstance() != null ?
-                            ToolsApplication.Companion.getContentInstance().getContentResolver() : null,
+                    MyApp.Companion.getContentInstance() != null ?
+                            MyApp.Companion.getContentInstance().getContentResolver() : null,
                     Settings.Secure.ANDROID_ID);
             setSpAndroidIdStr(androidID);
         }

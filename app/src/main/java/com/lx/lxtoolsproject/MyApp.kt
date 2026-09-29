@@ -2,17 +2,15 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
-import com.ep.custom_honor_library.NativeEntry
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
 import com.tencent.mmkv.MMKV
 
 
-class ToolsApplication : Application() {
+class MyApp : Application() {
 
     companion object{
-        var contentInstance:ToolsApplication? = null
+        var contentInstance:MyApp? = null
     }
 
 

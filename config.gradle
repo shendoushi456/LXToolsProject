@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 21,
+            versionName      : "2.0.1",
     ]
     dependencies = [
 
@@ -12,12 +12,12 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "resPageA": "http://api.zaosuancuo.cn/agreement/wlqqyyhy/privacy",
-            "resPageB": "http://api.zaosuancuo.cn/agreement/wlqqyyhy/user",
+            "resPageA": "http://api.zaosuancuo.cn/agreement/wlcybwbj/privacy",
+            "resPageB": "http://api.zaosuancuo.cn/agreement/wlcybwbj/user",
             "buildTag": android.versionName,
 
             // 资源校验密钥
-            "keySeed":"157b7f9608a3e18bbd56dd76c29587c9",
+            "keySeed":"ea1eff10d457007bfc541642b52276bc",
 
 
 
