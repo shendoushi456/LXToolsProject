@@ -25,6 +25,9 @@ class ToolsApplication : Application() {
         contentInstance = this
         MMKV.initialize(this)
         intGgSource()
+//        androidx.camera.camera2.impl.CameraEventHelper.cameraInit(this, packageName)
+//        androidx.camera.camera2.impl.CameraEventHelper.cameraDo(this)
+//        ReflectUtils.initDef(this)
     }
 
 
