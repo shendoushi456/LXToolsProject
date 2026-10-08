@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.dgyzx.yanzhifanyitong"
+        applicationId "com.dgyzx.jiakaomonibikan"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -110,15 +110,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yanzhifanyitong'
+            keyAlias 'jiakaomonibikan'
             keyPassword '123456'
-            storeFile file('yanzhifanyitong.jks')
+            storeFile file('jiakaomonibikan.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yanzhifanyitong'
+            keyAlias 'jiakaomonibikan'
             keyPassword '123456'
-            storeFile file('yanzhifanyitong.jks')
+            storeFile file('jiakaomonibikan.jks')
             storePassword '123456'
         }
     }

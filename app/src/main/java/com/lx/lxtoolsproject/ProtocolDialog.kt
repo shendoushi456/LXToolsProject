@@ -68,11 +68,11 @@ class ProtocolDialog: DialogFragment() {
             }
 
             findViewById<TextView>(R.id.user_agreement_tv).setOnClickListener {
-                CommWebActivity.startCommWebActivity(requireActivity(), "https://api.zaosuancuo.cn/agreement/wlyzfyt/user","用户协议")
+                CommWebActivity.startCommWebActivity(requireActivity(), "http://api.zaosuancuo.cn/agreement/wljkmnbk/user","用户协议")
             }
 
             findViewById<TextView>(R.id.private_agreement_tv).setOnClickListener {
-                CommWebActivity.startCommWebActivity(requireActivity(), "https://api.zaosuancuo.cn/agreement/wlyzfyt/privacy","隐私协议")
+                CommWebActivity.startCommWebActivity(requireActivity(), "http://api.zaosuancuo.cn/agreement/wljkmnbk/privacy","隐私协议")
             }
         }
 
