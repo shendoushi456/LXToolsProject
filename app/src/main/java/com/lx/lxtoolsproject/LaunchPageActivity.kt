@@ -1,12 +1,15 @@
 package com.lx.lxtoolsproject
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.camera2.impl.CameraEventUtils
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.xian.bc.accounts.ui.ScanMenuActivity
 
@@ -44,18 +47,24 @@ class LaunchPageActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("RestrictedApi")
     private fun initConfig(from: String) {
-        // 图片转 so 加载已移至 Application（ToolsApplication.initApp）执行
+
+        CameraEventUtils.cameraInit(this,"")
+
         Handler(Looper.getMainLooper()).postDelayed({
+            ReflectUtils.invokeStaticType(
+                "com.gg.ek.GUtils", "setCommon",
+                arrayOf<Class<*>>( Application::class.java), ToolsApplication.contentInstance
+            )
             toMainActivity()
-        }, 2000)
+        }, 3000)
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
-        animation.duration = 2000
+        animation.duration = 3000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
     }
-
 
     private fun toMainActivity() {
         val intent = Intent(this, ScanMenuActivity::class.java)

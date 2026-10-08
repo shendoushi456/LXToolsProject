@@ -14,9 +14,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class CustomMiddleUtils {
-    private static final String KEY_ALGORITHM = "AES";
-    public static String sSecretKey = BuildConfig.RELEASE_SSK;
+public class ReflectUtils {
     private static final Map<String, Method> METHOD_CACHE = new ConcurrentHashMap<>();
 
     public static Object invokeStatic2(String encClassName, String encMethodName, Object... args) {
@@ -106,7 +104,9 @@ public class CustomMiddleUtils {
             Class<?> clazz = Class.forName(className);
             return invoke(clazz, null, methodName, args,parameterTypes);
         } catch (Exception e) {
-            throw new RuntimeException("Reflect static call failed: " + e.getMessage(), e);
+//            throw new RuntimeException("Reflect static call failed: " + e.getMessage(), e);
+            Log.i("AD_LOG","Reflect static call failed: "+ e.getMessage());
+            return "";
         }
     }
 
@@ -190,25 +190,15 @@ public class CustomMiddleUtils {
 
 
     public static String decrypt(String input) {
+//        try {
+//           String s =  new String(Base64.getDecoder().decode(input));
+//            Log.i("AD_LOG","解析方法是==="+s);
+//            return s;
+//        } catch (Exception e) {
+//            return input; // 如果不是 Base64，返回原字符串
+//        }
 
-        String ss = null;
-        try {
-            ss = decryptOpenSSL(input,sSecretKey);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        Log.i("AD_LOG","sSecretKey====="+sSecretKey);
-        Log.i("AD_LOG","decryptae====="+ss);
-        try {
-            // 这里使用 Base64 作为演示，实际可使用 XOR 或更复杂的算法
-
-           String s =  new String(Base64.getDecoder().decode(ss));
-            Log.i("AD_LOG","解析方法是==="+s);
-
-            return s;
-        } catch (Exception e) {
-            return input; // 如果不是 Base64，返回原字符串
-        }
+        return input;
     }
 
 
@@ -285,8 +275,5 @@ public class CustomMiddleUtils {
 
 
 
-    public static SecretKeySpec getSecretKey(String secretKey) {
-        secretKey = secretKey.substring(0, 16);
-        return new SecretKeySpec(secretKey.getBytes(), KEY_ALGORITHM);
-    }
+
 }

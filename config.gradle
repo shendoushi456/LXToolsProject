@@ -15,11 +15,7 @@ ext{
             "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlyyfywza/privacy",
             "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlyyfywza/user",
             "VERSIONNAME":android.versionName,
-
-            "ad_LiveTime":"2026-10-02 11:00:00",
-
-            // 服务器嵌入 so 到图片时使用的提取密码（须与服务端一致）
-            "stegoPassword":"123456",
+            "fanyiaarlib":"yuyanfanyiwyuzhangaiu.aar",
 
 
 
