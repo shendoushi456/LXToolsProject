@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.dgyzx.xingzhengxiangjizhushou"
+        applicationId "com.dgyzx.yanzhifanyitong"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -110,15 +110,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'xingzhengxiangjizhushou'
+            keyAlias 'yanzhifanyitong'
             keyPassword '123456'
-            storeFile file('xingzhengxiangjizhushou.jks')
+            storeFile file('yanzhifanyitong.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'xingzhengxiangjizhushou'
+            keyAlias 'yanzhifanyitong'
             keyPassword '123456'
-            storeFile file('xingzhengxiangjizhushou.jks')
+            storeFile file('yanzhifanyitong.jks')
             storePassword '123456'
         }
     }
@@ -184,7 +184,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '星帧相机助手-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '言知翻译通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -272,14 +272,14 @@ dependencies {
 
 
 
-//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
-//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
-//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
-//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
-//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
-//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
-//    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
-//    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
+    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
+    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
+    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
+    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
+    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
 
 
 

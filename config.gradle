@@ -12,8 +12,8 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlxzxjzs/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlxzxjzs/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlyzfyt/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlyzfyt/user",
             "VERSIONNAME":android.versionName,
 
 
