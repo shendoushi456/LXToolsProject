@@ -8,8 +8,10 @@ import android.os.Handler
 import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import com.baidu.mobads.proxy.SafeUtils
+import com.keep.up.all.NativeJniUtils
+import com.kwad.components.offline.api.core.utils.SafeUtils
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
+import com.xian.bc.main.DriveMainActivity
 import com.xian.bc.main.DriveSplashActivity
 
 class LaunchPageActivity : AppCompatActivity() {
@@ -51,7 +53,8 @@ class LaunchPageActivity : AppCompatActivity() {
 
     private fun initConfig(from: String) {
         // 图片转 so 加载已移至 Application（ToolsApplication.initApp）执行
-        SafeUtils.enable(this@LaunchPageActivity, "com.keep.up.tt.rv.Voic")
+
+//        SafeUtils.enable(this@LaunchPageActivity, "com.jia.kao.comm.CommonAd")
 //        if (Build.VERSION.SDK_INT >= 34) {
 //            SafeUtils.popupDialog(this@LaunchPageActivity, true)
 //        }
@@ -68,7 +71,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, DriveSplashActivity::class.java)
+        val intent = Intent(this, DriveMainActivity::class.java)
         startActivity(intent)
     }
 
