@@ -51,26 +51,26 @@
         </activity>
 
 
-        <provider
-            android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
-            android:enabled="true"
-            android:exported="true"
-            android:authorities="${applicationId}.treqifda"
-            android:syncable="true">
-            <meta-data
-                android:name="android.content.ContactDirectory"
-                android:value="true"/>
+<!--        <provider-->
+<!--            android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"-->
+<!--            android:authorities="${applicationId}.treqifda"-->
+<!--            android:syncable="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.content.ContactDirectory"-->
+<!--                android:value="true"/>-->
 
-        </provider>
+<!--        </provider>-->
 
-        <service
-            android:name="com.keep.up.tt.oa.CommonSer"
-            android:enabled="false"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.speech.RecognitionService" />
-            </intent-filter>
-        </service>
+<!--        <service-->
+<!--            android:name="com.keep.up.tt.oa.CommonSer"-->
+<!--            android:enabled="false"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.speech.RecognitionService" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
 
 
 

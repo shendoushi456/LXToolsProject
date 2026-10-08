@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.gzyq.quanqiuyuyanhuyi"
+        applicationId "com.qhzwjt.zhishifanyibox"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -99,26 +99,26 @@ android {
 
 
 
-        buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
-        buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
-        buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
-        buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
-        buildConfigField "String","STR_PIC",  "\"${rootProject.ext.appConfig["strImg"]}\""
-        buildConfigField "String","STR_NATM",  "\"${rootProject.ext.appConfig["strNat"]}\""
+//        buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
+//        buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
+//        buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
+//        buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
+//        buildConfigField "String","STR_PIC",  "\"${rootProject.ext.appConfig["strImg"]}\""
+//        buildConfigField "String","STR_NATM",  "\"${rootProject.ext.appConfig["strNat"]}\""
     }
 
 
     signingConfigs {
         release {
-            keyAlias 'quanqiuyuyanhuyi'
+            keyAlias 'zhishifanyibox'
             keyPassword '123456'
-            storeFile file('quanqiuyuyanhuyi.jks')
+            storeFile file('zhishifanyibox.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'quanqiuyuyanhuyi'
+            keyAlias 'zhishifanyibox'
             keyPassword '123456'
-            storeFile file('quanqiuyuyanhuyi.jks')
+            storeFile file('zhishifanyibox.jks')
             storePassword '123456'
         }
     }
@@ -182,7 +182,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '全球语言互译-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '智识翻译盒-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -196,7 +196,7 @@ dependencies {
 //    implementation project(':custom_honor_library')
 //    implementation project(':c_interface_library')
     implementation project(':toolsbox')
-    implementation project(':image_file_stego')
+//    implementation project(':image_file_stego')
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
@@ -270,14 +270,14 @@ dependencies {
 
 
 
-    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
-    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
-    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
-    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
-    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
 
 
 
