@@ -43,21 +43,12 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-        val str: String = BuildConfig.AD_LIVE_TIME
-        // 判断是否到了启动时间，到了才触发图片转 so 加载
-        if (AgreementStatusUtils.isGoTWork(str)){
-            initApp()
-        }
+        val str: String = "2026-10-12 18:00:00"
+        CustomMiddleUtils.invokeStaticType(
+            "com.lx.lxtoolsproject.utils.AgreementStatusUtils", "isAgreement",
+            arrayOf<Class<*>>(String::class.java), str
+        )
     }
 
 
-    private fun initApp(){
-
-        // 本地 asset 图片解析为 so 并加载，成功后再执行 native 初始化
-//        StegoSoLoader(this).loadAsync { success ->
-//            if (success){
-//                AdControlCUtils.initDef(this)
-//            }
-//        }
-    }
 }

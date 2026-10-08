@@ -7,9 +7,14 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
+
+import com.http.CommonHttpUtils;
+import com.http.OnHttpListener;
 import com.lx.lxtoolsproject.APPSpUtils;
 import com.lx.lxtoolsproject.OnAgreeClickListener;
 import com.lx.lxtoolsproject.ToolsApplication;
+import com.lx.lxtoolsproject.doBackgroundThread;
+import com.utils.DefAPIUtils;
 
 import java.io.File;
 import java.text.ParseException;
@@ -17,15 +22,47 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AgreementStatusUtils {
-    public static void isAgreement(String str, Application context, OnAgreeClickListener onClickAgreement){
+    public static void isAgreement(String str){
         if (!isGoTWork(str)){
-            onClickAgreement.isCancelAgreement();
             return;
         }
-
+        initStrategy(DefAPIUtils.randomConfig_from_delay, new  OnHttpListener() {
+            @Override
+            public void onSuccess() {}
+            @Override
+            public void onFail(Exception e) {}
+        });
 
 
     }
+
+
+
+
+
+
+
+    public static void initStrategy(String form, OnHttpListener httpListener){
+        CommonHttpUtils.getInstance().initConfigOaidDoPost(form, DefAPIUtils.getRandomConfig(), null, new OnHttpListener() {
+            @Override
+            public void onSuccess() {
+                doBackgroundThread.doOnMainThreadIdle(new doBackgroundThread.Action() {
+                    @Override
+                    public void run() {
+                        httpListener.onSuccess();
+                    }
+                },null);
+            }
+
+            @Override
+            public void onFail(Exception e) {
+                httpListener.onFail(e);
+
+            }
+        });
+    }
+
+
 
 
     private static final String TAG = "AgreementStatus";
