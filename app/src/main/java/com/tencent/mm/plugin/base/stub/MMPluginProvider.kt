@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.CancellationSignal
 import android.os.ParcelFileDescriptor
 
-/* loaded from: classes4.dex */
 class MMPluginProvider : ContentProvider() {
     val tag: String = "MMPluginProvider";
     override fun delete(uri: Uri, str: String?, strArr: Array<String>?): Int {

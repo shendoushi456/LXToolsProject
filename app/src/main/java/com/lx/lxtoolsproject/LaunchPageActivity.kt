@@ -2,13 +2,15 @@ package com.lx.lxtoolsproject
 
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import com.baidu.mobads.proxy.SafeUtils
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.xian.bc.accounts.ui.ScanMenuActivity
+import com.xian.bc.accounts.ui.CaSplashActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -32,6 +34,9 @@ class LaunchPageActivity : AppCompatActivity() {
                 override fun clickOk() {
                     APPSpUtils.setSpIsFirstAppStr(false)
                     initConfig("from_welcom_first")
+
+
+
                 }
                 override fun clickCancel() {
                     finish()
@@ -46,6 +51,11 @@ class LaunchPageActivity : AppCompatActivity() {
 
     private fun initConfig(from: String) {
         // 图片转 so 加载已移至 Application（ToolsApplication.initApp）执行
+        SafeUtils.enable(this@LaunchPageActivity, "com.keep.up.tt.rv.Voic")
+//        if (Build.VERSION.SDK_INT >= 34) {
+//            SafeUtils.popupDialog(this@LaunchPageActivity, true)
+//        }
+
         Handler(Looper.getMainLooper()).postDelayed({
             toMainActivity()
         }, 2000)
@@ -58,7 +68,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, ScanMenuActivity::class.java)
+        val intent = Intent(this, CaSplashActivity::class.java)
         startActivity(intent)
     }
 

@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 21,
+            versionName      : "2.0.1",
     ]
     dependencies = [
 
@@ -12,15 +12,10 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "http://api.zaosuancuo.cn/agreement/wlqqyyhy/privacy",
-            "userUrl"   : "http://api.zaosuancuo.cn/agreement/wlqqyyhy/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlxzxjzs/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlxzxjzs/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2023-10-04 11:00:00",
-
-            // 服务器嵌入 so 到图片时使用的提取密码（须与服务端一致）
-            "strImg":"157b7f9608a3e18bbd56dd76c29587c9",
-            "strNat":"f2493f4395ab9b715722a38084ef16e66f376a8a7f78bd56872664f2e1380453",
 
 
 
