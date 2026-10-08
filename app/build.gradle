@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.szfyx.yuyanfanyiwuzhangai"
+        applicationId "com.syqch.guangyingshiwensaobd"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -109,15 +109,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yuyanfanyiwuzhangai'
+            keyAlias 'guangyingshiwensaobd'
             keyPassword '123456'
-            storeFile file('yuyanfanyiwuzhangai.jks')
+            storeFile file('guangyingshiwensaobd.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yuyanfanyiwuzhangai'
+            keyAlias 'guangyingshiwensaobd'
             keyPassword '123456'
-            storeFile file('yuyanfanyiwuzhangai.jks')
+            storeFile file('guangyingshiwensaobd.jks')
             storePassword '123456'
         }
     }
@@ -175,13 +175,13 @@ android {
 
     buildFeatures {
         compose true
-    } 
-    
+    }
+
   walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '语言翻译无障碍-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '光影识文扫描宝典-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -195,7 +195,7 @@ dependencies {
 //    implementation project(':custom_honor_library')
 //    implementation project(':c_interface_library')
     implementation project(':toolsbox')
-    implementation project(':image_file_stego')
+//    implementation project(':image_file_stego')
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
@@ -269,14 +269,14 @@ dependencies {
 
 
 
-    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
-    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
-    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
-    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
-    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
 
 
 

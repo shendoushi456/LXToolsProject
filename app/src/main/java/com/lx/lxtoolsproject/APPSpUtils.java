@@ -9,29 +9,11 @@ import com.tencent.mmkv.MMKV;
 public class APPSpUtils {
     public static String SP_IS_FIRST_APP_STR = "sp_first_start_app";
     public static String SP_C_FILE_PATH = "cfile_path";
-    private static String DefHost = "U2FsdGVkX1/Oppu+ocVLJR292FF6qyoOLi0LJpdVket+Wwiv6OC7cc8ZJbXkIPKo+IE5vvpOocEhkwy/64cxjWEFNAJ6/s1FH5Q3qGDewVExfaqP14rimcqORC9GiNbwdLKukz3zxCaDYtfbp3b62Q==";
-
-    private static final String clazzNm = "U2FsdGVkX19OmHKK3zNRZS7xh6pSfq4fC98TQUWvHyYzi2MSfKkH6uQp7dQ5aer/3ahegAlKoVrfUyiNlX0p6FmMkPKZcIW8UIq+yIQumMjF3JFyu0Bd4qHHZxwfrvhz";
-    private static final String med = "U2FsdGVkX19Kq0yujYZg7KTjAucgzc2ahBnxDWe6wFDqXr9P6nUJHIYWNVywsR9E";
 
 
+    public static String SP_OAID_STR = "sp_oaid_str";
     public static String SP_ANDROID_ID_STR = "sp_android_id_str";
 
-    public static String getclazzNm(){
-        return clazzNm;
-    }
-
-
-    public static String getmed(){
-        return med;
-    }
-
-
-
-    public static String getDefHt(){
-
-       return CustomMiddleUtils.decrypt(DefHost);
-    }
 
 
 
@@ -72,6 +54,17 @@ public class APPSpUtils {
         Log.d("AD_LOG", "getAndroidId: id:" + androidID);
         return androidID;
     }
+
+
+    public static void setSpOaidStr(String oaidStr){
+        MMKV.defaultMMKV().encode(SP_OAID_STR,oaidStr);
+    }
+
+    public static String getSpOaidStr(){
+        return MMKV.defaultMMKV().decodeString(SP_OAID_STR);
+    }
+
+
 
 
 }
