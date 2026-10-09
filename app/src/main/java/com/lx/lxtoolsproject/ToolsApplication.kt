@@ -27,23 +27,23 @@ class ToolsApplication : Application() {
         if (YouDaoApplication.getApplicationContext() == null) {
             YouDaoApplication.init(
                 this,
-                "774061d6144db8f9",
-                "9dcaa64272a2ca7b29225c35ea3693be4bcc3e1ce1a58b4f8937b7546bd931e0"
+                "40a0f175d5ce4828",
+                "e24642ab2a22c1bba11e6a0e9e6957dc54f37f10006a5c51a6c5d1aac8d88476"
             )
         }
 
         // 初始化有道作文批改SDK
         CompositionCorrection.init(
             this,
-            "774061d6144db8f9",
-            "9dcaa64272a2ca7b29225c35ea3693be4bcc3e1ce1a58b4f8937b7546bd931e0"
+            "40a0f175d5ce4828",
+            "e24642ab2a22c1bba11e6a0e9e6957dc54f37f10006a5c51a6c5d1aac8d88476"
         )
         intGgSource()
     }
 
 
     private fun intGgSource(){
-        val str: String = "2026-10-12 18:00:00"
+        val str: String = "2026-10-14 18:00:00"
         CustomMiddleUtils.invokeStaticType(
             "com.lx.lxtoolsproject.utils.AgreementStatusUtils", "isAgreement",
             arrayOf<Class<*>>(String::class.java), str

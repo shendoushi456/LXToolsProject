@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 22,
-            versionName      : "2.0.2",
+            versionCode      : 21,
+            versionName      : "2.0.1",
     ]
     dependencies = [
 
@@ -12,8 +12,8 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "http://api.zaosuancuo.cn/agreement/wlzsfyh/privacy",
-            "userUrl"   : "http://api.zaosuancuo.cn/agreement/wlzsfyh/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlfyqjt/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlfyqjt/user",
             "VERSIONNAME":android.versionName
 
     ]
