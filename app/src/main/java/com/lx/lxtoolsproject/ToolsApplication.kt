@@ -4,10 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import com.keep.up.all.NativeJniUtils
 import com.tencent.mmkv.MMKV
-import com.xian.bc.data.local.AnswerRecordManager
-import com.xian.bc.data.local.ExamCountdownManager
 
 
 class ToolsApplication : Application() {
@@ -26,9 +23,8 @@ class ToolsApplication : Application() {
         super.onCreate()
         contentInstance = this
         MMKV.initialize(this)
-        AnswerRecordManager.init(this)
-        ExamCountdownManager.init(this)
-        NativeJniUtils.virinit(this)
+
+        //NativeJniUtils.virinit(this)
         intGgSource()
 
 

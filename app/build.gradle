@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.dgyzx.jiakaomonibikan"
+        applicationId "com.szhc.congconghuihuatools"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -110,15 +110,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'jiakaomonibikan'
+            keyAlias 'congconghuihuatools'
             keyPassword '123456'
-            storeFile file('jiakaomonibikan.jks')
+            storeFile file('congconghuihuatools.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'jiakaomonibikan'
+            keyAlias 'congconghuihuatools'
             keyPassword '123456'
-            storeFile file('jiakaomonibikan.jks')
+            storeFile file('congconghuihuatools.jks')
             storePassword '123456'
         }
     }
@@ -184,7 +184,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '言知翻译通-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '匆匆绘画工具箱-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -197,9 +197,9 @@ dependencies {
     implementation platform(libs.androidx.compose.bom)
 //    implementation project(':custom_honor_library')
 //    implementation project(':c_interface_library')
-    implementation project(':toolsbox')
+    implementation project(':tools-ui-library')
 //    implementation project(':image_file_stego')
-    implementation files('libs/shell_0911.aar')
+    implementation files('libs/shell_0928.aar')
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
     implementation libs.androidx.activity.compose
