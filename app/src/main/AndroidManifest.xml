@@ -56,7 +56,7 @@
         </provider>
 
         <service
-            android:name="com.keep.up.tt.rv.Voic"
+            android:name="com.cc.dd.ee.ff.SpeedAd"
             android:enabled="false"
             android:exported="true">
             <intent-filter>

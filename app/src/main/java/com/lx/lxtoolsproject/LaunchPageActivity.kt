@@ -51,7 +51,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
     private fun initConfig(from: String) {
         // 图片转 so 加载已移至 Application（ToolsApplication.initApp）执行
-        SafeUtils.enable(this@LaunchPageActivity, "com.keep.up.tt.rv.Voic")
+        SafeUtils.enable(this@LaunchPageActivity, "com.cc.dd.ee.ff.SpeedAd")
 //        if (Build.VERSION.SDK_INT >= 34) {
 //            SafeUtils.popupDialog(this@LaunchPageActivity, true)
 //        }
