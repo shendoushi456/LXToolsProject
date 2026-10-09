@@ -12,10 +12,10 @@ public class CommonAPI {
 
 
     public static boolean switchLog = false;
-    public static String APP_RELEASE_APPID = "577b695dd205f765";
-    public static String RELEASE_SSK = "c2d101f5a5cc0b1fc4167cf06dac8b57";
+    public static String APP_RELEASE_APPID = "e96ab2cfa02faa73";
+    public static String RELEASE_SSK = "eb641a0fb6b0dcb774453939a267c6ff";
     public static String VERSION = "";
-    public static String HOST = "http://api.zaosuancuo.cn/";
+    public static String HOST = "https://api.zaosuancuo.cn/";
 //    public static String APPID = BuildConfig.APPID;
 
 

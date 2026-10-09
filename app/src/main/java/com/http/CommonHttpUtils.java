@@ -199,7 +199,6 @@ public class CommonHttpUtils {
 //        params.put("from", phoneState);
         TreeMap<String, Object> stringStringHashMap = addCommonParams(params);
 
-
         Request request = new Request.Builder()
                 .url(CommonAPI.HOST+url)
                 .post(RequestBody.create(
@@ -215,6 +214,7 @@ public class CommonHttpUtils {
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+
                 try {
                     String body = response.body().string();
                     JSONObject jsonStr = new JSONObject(body);
@@ -234,10 +234,12 @@ public class CommonHttpUtils {
 
 
                         if (strategyKey.equals("common")){
+
                             CommonSpUtils.setUserStatus(true);
                             GsonUtils.toInitConfig(decrypt,from);
                             onHttpListener.onSuccess();
                         }else{
+
                             CommonSpUtils.setUserStatus(false);
                             onHttpListener.onFail(new Exception("The Phone ==Not attributed"));
                         }
