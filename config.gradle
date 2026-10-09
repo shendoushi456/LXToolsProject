@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 21,
-            versionName      : "2.0.1",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
@@ -15,8 +15,6 @@ ext{
             "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlgyswsm/privacy",
             "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlgyswsm/user",
             "VERSIONNAME":android.versionName,
-
-            "ad_LiveTime":"2026-10-02 11:00:00",
     ]
 
 }

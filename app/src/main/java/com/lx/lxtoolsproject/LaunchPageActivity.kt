@@ -31,7 +31,7 @@ class LaunchPageActivity : AppCompatActivity() {
             dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
                 override fun clickOk() {
                     APPSpUtils.setSpIsFirstAppStr(false)
-                    initConfig("from_welcom_first")
+                    initConfig()
                 }
                 override fun clickCancel() {
                     finish()
@@ -40,15 +40,18 @@ class LaunchPageActivity : AppCompatActivity() {
             return
         }
 
-        initConfig("from_welcom_later")
+        initConfig()
     }
 
 
-    private fun initConfig(from: String) {
-        // 图片转 so 加载已移至 Application（ToolsApplication.initApp）执行
-        Handler(Looper.getMainLooper()).postDelayed({
-            toMainActivity()
-        }, 2000)
+    private fun initConfig() {
+        ApHtUtils.getOid { s->
+            CommonUtils.getConfig(object : CommonUtils.OnCgListener {
+                override fun onCgSuccess() {
+                    toMainActivity()
+                }
+            })
+        }
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 2000

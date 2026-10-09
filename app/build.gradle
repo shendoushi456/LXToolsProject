@@ -6,7 +6,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'walle'
     id 'xml-class-guard'
-    id 'android-junk-code'
+//    id 'android-junk-code'
     id 'stringfog'
     id 'top.niunaijun.blackobfuscator'
 
@@ -14,21 +14,21 @@ plugins {
 apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 
 
-androidJunkCode {
-    variantConfig {
-        release {
-            packageBase = "com.kcf.nvk.lwti"
-            packageCount = 47
-            activityCountPerPackage = 66
-            excludeActivityJavaFile = false
-            otherCountPerPackage = 84
-            methodCountPerClass = 28
-            resPrefix = "sazy_"
-            drawableCount = 198
-            stringCount =  114
-        }
-    }
-}
+//androidJunkCode {
+//    variantConfig {
+//        release {
+//            packageBase = "com.kcf.nvk.lwti"
+//            packageCount = 47
+//            activityCountPerPackage = 66
+//            excludeActivityJavaFile = false
+//            otherCountPerPackage = 84
+//            methodCountPerClass = 28
+//            resPrefix = "sazy_"
+//            drawableCount = 198
+//            stringCount =  114
+//        }
+//    }
+//}
 
 
 
@@ -101,9 +101,6 @@ android {
 
         buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
-        buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
-        buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
-        buildConfigField "String","STEGO_PASSWORD",  "\"${rootProject.ext.appConfig["stegoPassword"]}\""
     }
 
 

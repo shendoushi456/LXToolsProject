@@ -623,6 +623,7 @@
 -keep class okhttp3.Call {*;}
 -keep class okhttp3.Callback {*;}
 -keep class okhttp3.Response {*;}
+-keep class com.lx.lxtoolsproject.info.GGParentBean {*;}
 
 
 -keep class com.baidu.maps.utils.MapsUtils {*;}

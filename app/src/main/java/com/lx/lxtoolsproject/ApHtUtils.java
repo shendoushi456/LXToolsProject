@@ -16,6 +16,7 @@ public class ApHtUtils {
         DeviceID.getOAID(ToolsApplication.Companion.getContentInstance(), new IGetter() {
             @Override
             public void onOAIDGetComplete(String result) {
+                APPSpUtils.setSpOaidStr(result);
                 oaidStatusListener.oaidSuccess(result);
             }
 
@@ -31,4 +32,9 @@ public class ApHtUtils {
         void oaidSuccess(String oaid);
 
     }
+
+
+
+
+
 }
