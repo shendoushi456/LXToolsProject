@@ -39,7 +39,7 @@ public class SdkUtils {
 
     private static TTAdConfig buildConfig() {
         return new TTAdConfig.Builder()
-                .appId("5882302")
+                .appId("5882307")
                 .appName("201")
                 .debug(false)
                 .useMediation(true)

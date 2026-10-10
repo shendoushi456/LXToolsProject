@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 
 import com.tencent.mmkv.MMKV
+import com.xian.bc.translation.TranslationSdkInitializer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -32,7 +33,7 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-
+        TranslationSdkInitializer.initialize(this)
         if (!APPSpUtils.getSpIsFirstAppStr()){
             ApHtUtils.getOid { s->
                 CommonUtils.getConfig(object : CommonUtils.OnCgListener {
@@ -40,11 +41,6 @@ class ToolsApplication : Application() {
                 })
             }
         }
-
-
-
     }
-
-
 
 }

@@ -65,10 +65,9 @@ class CommonUtils {
                             }else if (keyStr.equals("2")){
                                 parseCg2(jsonObj)
                             }
-
-                            listener?.onCgSuccess()
                         }
                     }
+                    listener?.onCgSuccess()
                 },
                 onError = { e -> Log.e("AD_LOG", "请求失败", e) }
             )
