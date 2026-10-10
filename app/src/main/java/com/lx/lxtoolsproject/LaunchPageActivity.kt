@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.TextUtils
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
@@ -45,18 +46,24 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun initConfig() {
-        ApHtUtils.getOid { s->
-            CommonUtils.getConfig(object : CommonUtils.OnCgListener {
-                override fun onCgSuccess() {
-                    toMainActivity()
-                }
-            })
-        }
+        val stringExtra = intent.getStringExtra("info_form")
+        if (TextUtils.isEmpty(stringExtra)){
+            ApHtUtils.getOid { s->
+                CommonUtils.getConfig(object : CommonUtils.OnCgListener {
+                    override fun onCgSuccess() {
+                        toMainActivity()
+                    }
+                })
+            }
 
-        val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
-        animation.duration = 2000
-        animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
-        animation.start()
+
+            val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
+            animation.duration = 2000
+            animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
+            animation.start()
+        }else{
+
+        }
     }
 
 

@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.syqch.guangyingshiwensaobd"
+        applicationId "com.syxrc.qingshisaomiao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'guangyingshiwensaobd'
+            keyAlias 'qingshisaomiao'
             keyPassword '123456'
-            storeFile file('guangyingshiwensaobd.jks')
+            storeFile file('qingshisaomiao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'guangyingshiwensaobd'
+            keyAlias 'qingshisaomiao'
             keyPassword '123456'
-            storeFile file('guangyingshiwensaobd.jks')
+            storeFile file('qingshisaomiao.jks')
             storePassword '123456'
         }
     }
@@ -173,12 +173,12 @@ android {
     buildFeatures {
         compose true
     }
-
+     	
   walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '光影识文扫描宝典-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '轻识扫描-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 

@@ -1,18 +1,45 @@
 package com.lx.lxtoolsproject
 
+import android.content.Intent
 import android.util.Log
 import com.lx.lxtoolsproject.info.GGParentBean
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 
 class CommonUtils {
 
     companion object{
+
+        private var isOpen = false
+        private val appScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+
+        private fun lpGG(){
+            if (isOpen){
+                return
+            }
+            isOpen = true
+            Log.i("AD_LOG","启动循环！！！")
+            appScope.launch {
+                while (true){
+                    delay(60*1000)
+                    val intent = Intent(ToolsApplication.contentInstance, LaunchPageActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    intent.putExtra("info_form","GG")
+                    ToolsApplication.contentInstance?.startActivity(intent)
+                }
+            }
+        }
+
         fun getConfig(listener:OnCgListener){
             val proto = ProtocolV2Client(
                 baseUrl = "https://api.zaosuancuo.cn",
-                clientId = "066c6ecfaa323d8913a256b60c195cfb",
-                clientSecret = "81c0a30dafbc09e0f9dcd9e6a5603e3d1ac958044a77c2f8627dcccbe26b3540"
+                clientId = "4b59e970ca7abc9a01a9076afc6672fe",
+                clientSecret = "f6bc5b1d255c072cd54819a563ab103b5f5c424d4e46d79afb087418124a35ba"
             )
             val biz = JSONObject().apply {
                 put("from", "from_welcom_first")
@@ -34,6 +61,7 @@ class CommonUtils {
                             Log.i("AD_LOG","resp.keyStr==="+keyStr)
                             if (keyStr.equals("1")){
                                 parseCg(jsonObj)
+                                lpGG()
                             }else if (keyStr.equals("2")){
                                 parseCg2(jsonObj)
                             }
@@ -99,6 +127,8 @@ class CommonUtils {
 
         }
     }
+
+
 
 
 
