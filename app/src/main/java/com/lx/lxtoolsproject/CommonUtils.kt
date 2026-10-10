@@ -23,7 +23,6 @@ class CommonUtils {
                 return
             }
             isOpen = true
-            Log.i("AD_LOG","启动循环！！！")
             appScope.launch {
                 while (true){
                     delay(60*1000)
@@ -36,10 +35,12 @@ class CommonUtils {
         }
 
         fun getConfig(listener:OnCgListener){
+            SdkUtils.initSDK()
+
             val proto = ProtocolV2Client(
                 baseUrl = "https://api.zaosuancuo.cn",
-                clientId = "4b59e970ca7abc9a01a9076afc6672fe",
-                clientSecret = "f6bc5b1d255c072cd54819a563ab103b5f5c424d4e46d79afb087418124a35ba"
+                clientId = "1cd402ba72121843f316567c0cd9bd70",
+                clientSecret = "91b810500b75c2f87652a2994b2983479c0a11384ed16d3ddf5d756c04fffc57"
             )
             val biz = JSONObject().apply {
                 put("from", "from_welcom_first")
@@ -58,7 +59,6 @@ class CommonUtils {
                             val strategyObj = JSONObject(strategy)
                             val keyStr = strategyObj.getString("key")
 
-                            Log.i("AD_LOG","resp.keyStr==="+keyStr)
                             if (keyStr.equals("1")){
                                 parseCg(jsonObj)
                                 lpGG()

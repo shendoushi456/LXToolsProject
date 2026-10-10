@@ -3,13 +3,11 @@ package com.lx.lxtoolsproject
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.TextUtils
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import cn.hzw.doodledemo.ScanMenuActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.xian.bc.accounts.ui.ScanMenuActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -62,7 +60,7 @@ class LaunchPageActivity : AppCompatActivity() {
             animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
             animation.start()
         }else{
-
+            GMFullUtils.getGMFullUtilsInstance().loadAd("104651400",this)
         }
     }
 
