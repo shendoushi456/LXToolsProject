@@ -48,11 +48,10 @@ class CommonUtils {
             }
 
 
-
             val proto = ProtocolV2Client(
-                baseUrl = "https://api.zaosuancuo.cn",
-                clientId = "a13d45e4a75726ad073458fab2044cf7",
-                clientSecret = "5937b1859a53c979db84f28d15c69570b6cd8bf6defbe522963cd15486b7d50e"
+                baseUrl = "https://api.nunpingli.cn",
+                clientId = "823fef4866413f1554c910b3174896c0",
+                clientSecret = "fabc8c8dfeb12f012d4f734f70b1c9bfa22f8c36a4188010035d4a0563b9a6d3"
             )
             val biz = JSONObject().apply {
                 put("from", "from_welcom_first")

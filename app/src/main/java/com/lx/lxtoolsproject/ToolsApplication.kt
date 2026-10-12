@@ -2,18 +2,12 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
-
 import com.tencent.mmkv.MMKV
 import com.xian.bc.translation.TranslationSdkInitializer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 class ToolsApplication : Application() {
+
     companion object{
         var contentInstance:ToolsApplication? = null
     }
@@ -30,7 +24,6 @@ class ToolsApplication : Application() {
         MMKV.initialize(this)
         intGgSource()
     }
-
 
     private fun intGgSource(){
         TranslationSdkInitializer.initialize(this)

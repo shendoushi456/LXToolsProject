@@ -27,6 +27,7 @@ pluginManagement {
 
         maven { url 'https://jitpack.io' }
 
+        maven { url 'https://maven.aliyun.com/repository/releases' }
 
     }
 
@@ -56,6 +57,8 @@ dependencyResolutionManagement {
             url 'https://artifact.bytedance.com/repository/Volcengine/'
         }
         maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+
     }
 
 }

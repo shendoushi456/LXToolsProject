@@ -81,10 +81,10 @@ android {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs'] // 确保指向正确的目录
         }
-    }
+    }	
     	
     defaultConfig {
-        applicationId "com.syxrc.yujianwentongafanyi"
+        applicationId "com.dolw.moyeshisao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yujianwentongafanyi'
+            keyAlias 'moyeshisao'
             keyPassword '123456'
-            storeFile file('yujianwentongafanyi.jks')
+            storeFile file('moyeshisao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yujianwentongafanyi'
+            keyAlias 'moyeshisao'
             keyPassword '123456'
-            storeFile file('yujianwentongafanyi.jks')
+            storeFile file('moyeshisao.jks')
             storePassword '123456'
         }
     }
@@ -178,7 +178,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '语见文通翻译-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '墨页识扫-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -209,6 +209,8 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     debugImplementation libs.androidx.compose.ui.test.manifest
     debugImplementation libs.androidx.compose.ui.tooling
+
+    implementation 'com.aliyun.ams:alicloud-android-hotfix:3.4.2'
 
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.github.Petterpx.walle:library:1.0.4")
