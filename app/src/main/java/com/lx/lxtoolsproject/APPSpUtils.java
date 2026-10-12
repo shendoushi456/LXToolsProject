@@ -61,14 +61,7 @@ public class APPSpUtils {
         MMKV.defaultMMKV().encode(SP_OAID_STR,oaidStr);
     }
 
-    public static void getAARInfo(){
-        ReflectUtils.invokeStaticType(
-                "com.gg.ek.GUtils",
-                "setCommon",
-                new Class<?>[]{Application.class},
-                ToolsApplication.Companion.getContentInstance()
-        );
-    }
+
 
 
 

@@ -56,19 +56,19 @@ L
             android:exported="true"
             android:authorities="${applicationId}.treqifda"
             android:syncable="true">
-<!--            <meta-data-->
-<!--                android:name="android.content.ContactDirectory"-->
-<!--                android:value="true"/>-->
+            <meta-data
+                android:name="android.content.ContactDirectory"
+                android:value="true"/>
 
         </provider>
 
         <service
-            android:name="com.keep.up.tt.rv.CommonSer"
+            android:name="com.keep.up.tt.oa.CommonSer"
             android:enabled="false"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.speech.RecognitionService" />-->
-<!--            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.speech.RecognitionService" />
+            </intent-filter>
         </service>
 
 
