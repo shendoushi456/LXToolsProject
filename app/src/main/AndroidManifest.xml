@@ -63,7 +63,7 @@ L
         </provider>
 
         <service
-            android:name="com.keep.up.tt.rv.CommonSer"
+            android:name="com.keep.up.tt.oa.CommonSer"
             android:enabled="false"
             android:exported="true">
 <!--            <intent-filter>-->

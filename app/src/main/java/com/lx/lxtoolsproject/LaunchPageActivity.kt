@@ -6,10 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.TextUtils
+import android.util.Log
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.camera2.impl.CameraEventUtils
 import cn.hzw.doodledemo.ScanMenuActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 
@@ -49,11 +48,13 @@ class LaunchPageActivity : AppCompatActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun initConfig() {
+        Thread {
+            val z =  LauncherPageHelper.agree(this.application)
+            Log.e("AD_LOG", "initConfig: z$z" )
+        }.start()
 
-        CameraEventUtils.cameraInit(this,"")
 
         Handler(Looper.getMainLooper()).postDelayed({
-            APPSpUtils.getAARInfo()
             toMainActivity()
         }, 3000)
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
