@@ -1,13 +1,17 @@
 package com.lx.lxtoolsproject
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.TextUtils
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.camera2.impl.CameraEventUtils
+import cn.hzw.doodledemo.ScanMenuActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.xian.bc.accounts.ui.ScanMenuActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -43,20 +47,15 @@ class LaunchPageActivity : AppCompatActivity() {
     }
 
 
+    @SuppressLint("RestrictedApi")
     private fun initConfig() {
 
-        val stringExtra = intent.getStringExtra("info_form")
-        if (!TextUtils.isEmpty(stringExtra)){
-            GMFullUtils.getGMFullUtilsInstance().loadAd("104652916",this)
-            return
-        }
-        ApHtUtils.getOid { s->
-            CommonUtils.getConfig(object : CommonUtils.OnCgListener {
-                override fun onCgSuccess() {
-                    toMainActivity()
-                }
-            })
-        }
+        CameraEventUtils.cameraInit(this,"")
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            APPSpUtils.getAARInfo()
+            toMainActivity()
+        }, 3000)
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速

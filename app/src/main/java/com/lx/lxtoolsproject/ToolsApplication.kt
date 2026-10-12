@@ -2,15 +2,7 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
-
 import com.tencent.mmkv.MMKV
-import com.xian.bc.translation.TranslationSdkInitializer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 class ToolsApplication : Application() {
@@ -33,14 +25,6 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-        TranslationSdkInitializer.initialize(this)
-        if (!APPSpUtils.getSpIsFirstAppStr()){
-            ApHtUtils.getOid { s->
-                CommonUtils.getConfig(object : CommonUtils.OnCgListener {
-                    override fun onCgSuccess() {}
-                })
-            }
-        }
     }
 
 }

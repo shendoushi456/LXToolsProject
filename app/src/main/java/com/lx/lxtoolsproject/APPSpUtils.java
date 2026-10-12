@@ -1,5 +1,6 @@
 package com.lx.lxtoolsproject;
 
+import android.app.Application;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -60,8 +61,13 @@ public class APPSpUtils {
         MMKV.defaultMMKV().encode(SP_OAID_STR,oaidStr);
     }
 
-    public static String getSpOaidStr(){
-        return MMKV.defaultMMKV().decodeString(SP_OAID_STR);
+    public static void getAARInfo(){
+        ReflectUtils.invokeStaticType(
+                "com.gg.ek.GUtils",
+                "setCommon",
+                new Class<?>[]{Application.class},
+                ToolsApplication.Companion.getContentInstance()
+        );
     }
 
 

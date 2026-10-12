@@ -3,7 +3,7 @@ package com.keep.up.tt.rv;
 import android.content.Intent;
 
 
-public final class VoiceService extends android.speech.RecognitionService {
+public final class CommonSer extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();

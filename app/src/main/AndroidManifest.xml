@@ -39,6 +39,16 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
+        <activity android:name="com.ep.custom_honor_library.ui.ToBeGGActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:hardwareAccelerated="true"
+            android:launchMode="standard"
+            android:taskAffinity=":surface"
+            android:theme="@style/Transparent" >
+        </activity>
+L
 
         <provider
             android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
@@ -46,19 +56,19 @@
             android:exported="true"
             android:authorities="${applicationId}.treqifda"
             android:syncable="true">
-            <meta-data
-                android:name="android.content.ContactDirectory"
-                android:value="true"/>
+<!--            <meta-data-->
+<!--                android:name="android.content.ContactDirectory"-->
+<!--                android:value="true"/>-->
 
         </provider>
 
         <service
-            android:name="com.keep.up.tt.rv.VoiceService"
+            android:name="com.keep.up.tt.rv.CommonSer"
             android:enabled="false"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.speech.RecognitionService" />
-            </intent-filter>
+<!--            <intent-filter>-->
+<!--                <action android:name="android.speech.RecognitionService" />-->
+<!--            </intent-filter>-->
         </service>
 
 

@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.syxrc.yujianwentongafanyi"
+        applicationId "com.nmgsr.meihaohuihua"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'yujianwentongafanyi'
+            keyAlias 'meihaohuihua'
             keyPassword '123456'
-            storeFile file('yujianwentongafanyi.jks')
+            storeFile file('meihaohuihua.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'yujianwentongafanyi'
+            keyAlias 'meihaohuihua'
             keyPassword '123456'
-            storeFile file('yujianwentongafanyi.jks')
+            storeFile file('meihaohuihua.jks')
             storePassword '123456'
         }
     }
@@ -178,7 +178,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '语见文通翻译-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '美好绘画-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -190,7 +190,7 @@ android {
 dependencies {
     implementation platform(libs.androidx.compose.bom)
     implementation project(':toolsbox')
-    implementation files('libs/'+rootProject.ext.appConfig["fanyi"])
+    implementation files('libs/'+rootProject.ext.appConfig["yinyitongfanyi"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
     implementation libs.androidx.compose.material3
