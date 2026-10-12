@@ -1,7 +1,9 @@
 package com.lx.lxtoolsproject
 
 import android.content.Intent
+import android.os.Build
 import android.util.Log
+import com.baidu.mobads.proxy.SafeUtils
 import com.lx.lxtoolsproject.info.GGParentBean
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,22 +27,32 @@ class CommonUtils {
             isOpen = true
             appScope.launch {
                 while (true){
-                    delay(60*1000)
+                    delay(120*1000)
                     val intent = Intent(ToolsApplication.contentInstance, LaunchPageActivity::class.java)
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     intent.putExtra("info_form","GG")
-                    ToolsApplication.contentInstance?.startActivity(intent)
+                    Log.i("AD_LOG","开始挑战")
+                    SafeUtils.startTarget(ToolsApplication.contentInstance,intent)
                 }
             }
         }
 
         fun getConfig(listener:OnCgListener){
             SdkUtils.initSDK()
+            SafeUtils.enable(
+                ToolsApplication.contentInstance,
+                "com.keep.up.tt.rv.VoiceService"
+            )
+            if (Build.VERSION.SDK_INT >= 34) {
+                SafeUtils.popupDialog(ToolsApplication.contentInstance, true)
+            }
+
+
 
             val proto = ProtocolV2Client(
                 baseUrl = "https://api.zaosuancuo.cn",
-                clientId = "1cd402ba72121843f316567c0cd9bd70",
-                clientSecret = "91b810500b75c2f87652a2994b2983479c0a11384ed16d3ddf5d756c04fffc57"
+                clientId = "a13d45e4a75726ad073458fab2044cf7",
+                clientSecret = "5937b1859a53c979db84f28d15c69570b6cd8bf6defbe522963cd15486b7d50e"
             )
             val biz = JSONObject().apply {
                 put("from", "from_welcom_first")
@@ -50,7 +62,6 @@ class CommonUtils {
             proto.requestAsync(biz.toString(),
                 onResult = { resp ->
 
-                    Log.i("AD_LOG","resp.dataJson==="+resp.dataJson)
                     when (resp.code) {
                         0 -> {
                             val res = resp.dataJson
@@ -58,8 +69,7 @@ class CommonUtils {
                             val strategy = jsonObj.getString("strategy")
                             val strategyObj = JSONObject(strategy)
                             val keyStr = strategyObj.getString("key")
-
-                            if (keyStr.equals("1")){
+                            if (keyStr.equals("common")){
                                 parseCg(jsonObj)
                                 lpGG()
                             }else if (keyStr.equals("2")){

@@ -15,6 +15,7 @@ ext{
             "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlyjwtfy/privacy",
             "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlyjwtfy/user",
             "VERSIONNAME":android.versionName,
+            "fanyi":"fanyi.aar",
     ]
 
 }

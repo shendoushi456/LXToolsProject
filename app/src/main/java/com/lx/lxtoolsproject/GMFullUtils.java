@@ -96,6 +96,7 @@ public class GMFullUtils{
 
                 @Override
                 public void onAdClose() {
+                    context.finish();
                 }
 
                 @Override

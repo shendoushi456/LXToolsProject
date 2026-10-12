@@ -62,13 +62,10 @@ class LaunchPageActivity : AppCompatActivity() {
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
 
-
-
     }
 
 
     private fun toMainActivity() {
-
         val intent = Intent(this, ScanMenuActivity::class.java)
         startActivity(intent)
     }

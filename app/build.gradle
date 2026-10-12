@@ -190,6 +190,7 @@ android {
 dependencies {
     implementation platform(libs.androidx.compose.bom)
     implementation project(':toolsbox')
+    implementation files('libs/'+rootProject.ext.appConfig["fanyi"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
     implementation libs.androidx.compose.material3

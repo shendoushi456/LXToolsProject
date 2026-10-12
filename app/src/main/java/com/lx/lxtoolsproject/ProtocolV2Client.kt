@@ -197,6 +197,8 @@ class ProtocolV2Client(
             .joinToString("") { "%02x".format(it) }
 
     fun parseResponse(respJson: String): V2Response {
+
+        Log.i("AD_LOG","+respJson==="+respJson)
         val obj = JSONObject(respJson)
         val code = obj.optInt("code", -1)
         val msg = obj.optString("msg", "")
@@ -215,6 +217,9 @@ class ProtocolV2Client(
             throw SecurityException("响应验签失败")
         }
         val plain = AesGcm.decrypt(obj.optString("payload", ""), encKey)
+
+        Log.i("AD_LOG","String(plain, Charsets.UTF_8)==="+String(plain, Charsets.UTF_8))
+
         return V2Response(code, msg, String(plain, Charsets.UTF_8))
     }
 
