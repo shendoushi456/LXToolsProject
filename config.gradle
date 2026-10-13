@@ -12,8 +12,8 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.nunpingli.cn/agreement/wlqstq/privacy",
-            "userUrl"   : "https://api.nunpingli.cn/agreement/wlqstq/user",
+            "privacyUrl": "https://api.nunpingli.cn/agreement/wlxcbqb/privacy",
+            "userUrl"   : "http://api.nunpingli.cn/agreement/wlxcbqb/user",
             "VERSIONNAME":android.versionName,
 
             "yinyitongfanyi":"qingshitianqi.aar",

@@ -18,7 +18,7 @@ material = "1.12.0"
 coil_compose_version = "2.5.0"
 viewmodel_compose_version = "2.4.0"
 walle = "1.0.4"
-
+ksp = "2.2.10-2.0.2"
 
 
 
@@ -50,6 +50,7 @@ androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-r
 walle-plugin = { group = "com.github.Petterpx.walle", name = "plugin", version.ref = "walle" }
 
 [plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 #kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinCompose" }

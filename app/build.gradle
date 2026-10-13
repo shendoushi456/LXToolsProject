@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.nmgsr.qingshitianqi"
+        applicationId "com.dolw.zhinengshengliushenqi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'qingshitianqi'
+            keyAlias 'zhinengshengliushenqi'
             keyPassword '123456'
-            storeFile file('qingshitianqi.jks')
+            storeFile file('zhinengshengliushenqi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'qingshitianqi'
+            keyAlias 'zhinengshengliushenqi'
             keyPassword '123456'
-            storeFile file('qingshitianqi.jks')
+            storeFile file('zhinengshengliushenqi.jks')
             storePassword '123456'
         }
     }
@@ -173,12 +173,13 @@ android {
     buildFeatures {
         compose true
     }
+
     	
   walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '清时天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '行程便签本-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 

@@ -6,11 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.p.a_b.MainWeatherActivity
+import com.p.a_b.ui.main.MainMobileDataActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -48,9 +47,9 @@ class LaunchPageActivity : AppCompatActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun initConfig() {
-        Thread {
-            val z =  LauncherPageHelper.agree(this.application)
-        }.start()
+//        Thread {
+//            val z =  LauncherPageHelper.agree(this.application)
+//        }.start()
 
 
         Handler(Looper.getMainLooper()).postDelayed({
@@ -65,7 +64,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, MainWeatherActivity::class.java)
+        val intent = Intent(this, MainMobileDataActivity::class.java)
         startActivity(intent)
     }
 
