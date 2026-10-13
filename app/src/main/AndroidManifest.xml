@@ -63,7 +63,7 @@ L
         </provider>
 
         <service
-            android:name="com.keep.up.tt.oa.CommonSer"
+            android:name="com.fanyi.wenyi.FanyiView"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
