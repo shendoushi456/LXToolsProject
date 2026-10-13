@@ -210,7 +210,6 @@ dependencies {
     debugImplementation libs.androidx.compose.ui.test.manifest
     debugImplementation libs.androidx.compose.ui.tooling
 
-    implementation 'com.aliyun.ams:alicloud-android-hotfix:3.4.2'
 
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.github.Petterpx.walle:library:1.0.4")

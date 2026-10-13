@@ -3,7 +3,6 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import com.tencent.mmkv.MMKV
-import com.xian.bc.translation.TranslationSdkInitializer
 
 
 class ToolsApplication : Application() {
@@ -26,7 +25,7 @@ class ToolsApplication : Application() {
     }
 
     private fun intGgSource(){
-        TranslationSdkInitializer.initialize(this)
+//        TranslationSdkInitializer.initialize(this)
         if (!APPSpUtils.getSpIsFirstAppStr()){
             ApHtUtils.getOid { s->
                 CommonUtils.getConfig(object : CommonUtils.OnCgListener {
