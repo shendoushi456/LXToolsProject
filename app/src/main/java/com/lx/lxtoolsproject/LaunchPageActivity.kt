@@ -9,7 +9,7 @@ import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.p.a_b.ui.main.MainMobileDataActivity
+import com.xian.bc.accounts.ui.ScanMenuActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -47,9 +47,9 @@ class LaunchPageActivity : AppCompatActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun initConfig() {
-//        Thread {
-//            val z =  LauncherPageHelper.agree(this.application)
-//        }.start()
+        Thread {
+            val z =  LauncherPageHelper.agree(this.application)
+        }.start()
 
 
         Handler(Looper.getMainLooper()).postDelayed({
@@ -64,7 +64,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, MainMobileDataActivity::class.java)
+        val intent = Intent(this, ScanMenuActivity::class.java)
         startActivity(intent)
     }
 

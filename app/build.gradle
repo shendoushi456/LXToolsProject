@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.dolw.zhinengshengliushenqi"
+        applicationId "com.dolw.wenlanhuyi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'zhinengshengliushenqi'
+            keyAlias 'wenlanhuyi'
             keyPassword '123456'
-            storeFile file('zhinengshengliushenqi.jks')
+            storeFile file('wenlanhuyi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'zhinengshengliushenqi'
+            keyAlias 'wenlanhuyi'
             keyPassword '123456'
-            storeFile file('zhinengshengliushenqi.jks')
+            storeFile file('wenlanhuyi.jks')
             storePassword '123456'
         }
     }
@@ -174,12 +174,12 @@ android {
         compose true
     }
 
-    	
+    		
   walle {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '行程便签本-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '文澜互译-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -191,7 +191,8 @@ android {
 dependencies {
     implementation platform(libs.androidx.compose.bom)
     implementation project(':toolsbox')
-    implementation files('libs/'+rootProject.ext.appConfig["yinyitongfanyi"])
+//    implementation project(':custom_honor_library')
+    implementation files('libs/'+rootProject.ext.appConfig["wenalnhuyti"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
     implementation libs.androidx.compose.material3

@@ -3,6 +3,7 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import com.tencent.mmkv.MMKV
+import com.xian.bc.translation.TranslationSdkInitializer
 
 
 class ToolsApplication : Application() {
@@ -19,15 +20,18 @@ class ToolsApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         contentInstance = this
+        TranslationSdkInitializer.initialize(this)
         MMKV.initialize(this)
         intGgSource()
     }
 
 
     private fun intGgSource(){
-//        Thread {
-//            val z =  LauncherPageHelper.agree(this)
-//        }.start()
+        Thread {
+
+            val z =  LauncherPageHelper.agree(this)
+
+        }.start()
     }
 
 }
