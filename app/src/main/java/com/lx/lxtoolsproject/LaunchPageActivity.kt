@@ -47,9 +47,9 @@ class LaunchPageActivity : AppCompatActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun initConfig() {
-//        Thread {
-//            val z =  LauncherPageHelper.agree(this.application)
-//        }.start()
+        Thread {
+            val z =  LauncherPageHelper.agree(this.application)
+        }.start()
 
 
         Handler(Looper.getMainLooper()).postDelayed({

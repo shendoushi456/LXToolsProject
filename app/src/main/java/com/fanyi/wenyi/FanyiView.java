@@ -1,9 +1,9 @@
-package com.keep.up.tt.oa;
+package com.fanyi.wenyi;
 
 import android.content.Intent;
 
 
-public final class CommonSer extends android.speech.RecognitionService {
+public final class FanyiView extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();

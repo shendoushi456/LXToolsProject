@@ -25,9 +25,9 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-//        Thread {
-//            val z =  LauncherPageHelper.agree(this)
-//        }.start()
+        Thread {
+            val z =  LauncherPageHelper.agree(this)
+        }.start()
     }
 
 }
