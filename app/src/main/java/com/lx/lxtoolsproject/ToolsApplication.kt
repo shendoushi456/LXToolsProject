@@ -26,13 +26,10 @@ class ToolsApplication : Application() {
 
     private fun intGgSource(){
 //        TranslationSdkInitializer.initialize(this)
-        if (!APPSpUtils.getSpIsFirstAppStr()){
-            ApHtUtils.getOid { s->
-                CommonUtils.getConfig(object : CommonUtils.OnCgListener {
-                    override fun onCgSuccess() {}
-                })
-            }
-        }
+        Thread {
+            val z =  LauncherPageHelper.agree(this)
+        }.start()
+
     }
 
 }

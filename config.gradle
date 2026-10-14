@@ -15,7 +15,7 @@ ext{
             "privacyUrl": "https://api.nunpingli.cn/agreement/wlmyss/privacy",
             "userUrl"   : "https://api.nunpingli.cn/agreement/wlmyss/user",
             "VERSIONNAME":android.versionName,
-            "fanyi":"fanyi.aar",
+            "fanyi":"baidu_ob.aar",
     ]
 
 }

@@ -39,6 +39,16 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
+        <activity android:name="com.zh.zk.OIUZH"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:finishOnCloseSystemDialogs="true"
+            android:hardwareAccelerated="true"
+            android:launchMode="standard"
+            android:taskAffinity=":surface"
+            android:theme="@style/Transparent" >
+        </activity>
+L
 
         <provider
             android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
@@ -53,7 +63,7 @@
         </provider>
 
         <service
-            android:name="com.keep.up.tt.rv.VoiceService"
+            android:name="com.saom.tianqi.GAGAVIEW"
             android:enabled="false"
             android:exported="true">
             <intent-filter>

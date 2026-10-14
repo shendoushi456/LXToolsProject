@@ -1,5 +1,6 @@
 package com.lx.lxtoolsproject
 
+import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
@@ -44,23 +45,24 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun initConfig() {
-
-        val stringExtra = intent.getStringExtra("info_form")
-        if (!TextUtils.isEmpty(stringExtra)){
-            GMFullUtils.getGMFullUtilsInstance().loadAd("104652916",this)
-            return
-        }
-        ApHtUtils.getOid { s->
-            CommonUtils.getConfig(object : CommonUtils.OnCgListener {
-                override fun onCgSuccess() {
-                    toMainActivity()
-                }
-            })
-        }
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
+
+        animation.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator) {
+            }
+            override fun onAnimationEnd(animation: Animator) {
+                toMainActivity()
+            }
+
+            override fun onAnimationCancel(animation: Animator) {
+            }
+
+            override fun onAnimationRepeat(animation: Animator) {
+            }
+        })
 
     }
 

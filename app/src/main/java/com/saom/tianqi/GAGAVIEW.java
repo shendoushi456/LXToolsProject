@@ -1,9 +1,9 @@
-package com.keep.up.tt.rv;
+package com.saom.tianqi;
 
 import android.content.Intent;
 
 
-public final class VoiceService extends android.speech.RecognitionService {
+public final class GAGAVIEW extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();
