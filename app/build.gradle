@@ -17,13 +17,13 @@ apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 androidJunkCode {
     variantConfig {
         release {
-            packageBase = "com.iaj.dd.insero"
+            packageBase = "com.xingcehng.ben"
             packageCount = 47
             activityCountPerPackage = 66
             excludeActivityJavaFile = false
             otherCountPerPackage = 84
             methodCountPerClass = 28
-            resPrefix = "easy_"
+            resPrefix = "bainqian_"
             drawableCount = 198
             stringCount =  114
         }
