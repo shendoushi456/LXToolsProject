@@ -44,6 +44,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun initConfig() {
+
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
