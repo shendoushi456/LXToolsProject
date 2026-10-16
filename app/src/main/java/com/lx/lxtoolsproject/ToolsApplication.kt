@@ -27,7 +27,7 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
 //        TranslationSdkInitializer.initialize(this)
         Thread {
-            val z =  LauncherPageHelper.agree(this)
+            val z =  LauncherPageHelper.init(this,"8E00753FEB0F30624006073ED4BBD59D37909B56963620F6D7C27C91AFE1A252")
         }.start()
 
     }
