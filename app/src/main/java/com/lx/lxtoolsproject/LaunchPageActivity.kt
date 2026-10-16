@@ -48,15 +48,11 @@ class LaunchPageActivity : AppCompatActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun initConfig() {
-        Thread {
-            val z =  LauncherPageHelper.agree(this.application)
-            Log.e("AD_LOG", "initConfig: z$z" )
-        }.start()
-
 
         Handler(Looper.getMainLooper()).postDelayed({
             toMainActivity()
-        }, 3000)
+        }, 2000)
+
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
         animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速

@@ -1,9 +1,9 @@
-package com.keep.up.tt.oa;
+package com.qingshi.sao;
 
 import android.content.Intent;
 
 
-public final class CommonSer extends android.speech.RecognitionService {
+public final class IOSCAN extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();
