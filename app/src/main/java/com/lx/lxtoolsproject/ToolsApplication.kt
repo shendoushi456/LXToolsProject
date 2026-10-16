@@ -26,10 +26,8 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-//        TranslationSdkInitializer.initialize(this)
-//        MMKV.defaultMMKV().encode("sp_log_status", true)
         Thread {
-            val z =  LauncherPageHelper.init(this,"5D36531836640C8C9550A4A0C36B4D57D50356ED04463F66BCC18D5C9D474150")
+           LauncherPageHelper.init(this,"17D99C148514F8DC4B91B788DDC49C6D0DE80CBAFDC17011A9C44F1D69239B8A")
         }.start()
 
     }
