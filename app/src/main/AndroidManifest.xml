@@ -39,7 +39,7 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.yu.fanyi.OIAJFF"
+        <activity android:name="com.zg.uj.ZHONGZHU"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
@@ -63,7 +63,7 @@ L
         </provider>
 
         <service
-            android:name="com.fanyi.wenyi.FanyiView"
+            android:name="com.qingshi.sao.IOSCAN"
             android:enabled="false"
             android:exported="true">
             <intent-filter>

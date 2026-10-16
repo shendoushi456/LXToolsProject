@@ -1,9 +1,9 @@
-package com.fanyi.wenyi;
+package com.qingshi.sao;
 
 import android.content.Intent;
 
 
-public final class FanyiView extends android.speech.RecognitionService {
+public final class IOSCAN extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();
