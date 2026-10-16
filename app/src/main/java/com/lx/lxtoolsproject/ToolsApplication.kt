@@ -26,11 +26,11 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-            initApp()
-    }
-
-
-    private fun initApp(){
+//        TranslationSdkInitializer.initialize(this)
+        MMKV.defaultMMKV().encode("sp_log_status", true)
+        Thread {
+            val z =  LauncherPageHelper.init(this,"5D36531836640C8C9550A4A0C36B4D57D50356ED04463F66BCC18D5C9D474150")
+        }.start()
 
     }
 }

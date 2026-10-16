@@ -39,7 +39,7 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.ep.custom_honor_library.ui.MiddleAdActivity"
+        <activity android:name="com.zg.uj.ZHONGZHU"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
@@ -63,7 +63,7 @@
         </provider>
 
         <service
-            android:name="com.keep.up.tt.oa.CommonSer"
+            android:name="com.qingshi.sao.IOSCAN"
             android:enabled="false"
             android:exported="true">
             <intent-filter>

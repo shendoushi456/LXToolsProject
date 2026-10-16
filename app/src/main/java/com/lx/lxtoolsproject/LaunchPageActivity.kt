@@ -9,7 +9,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
-import androidx.camera.camera2.impl.CameraEventUtils
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
 import com.xian.bc.accounts.ui.ScanMenuActivity
 
@@ -34,7 +33,7 @@ class LaunchPageActivity : AppCompatActivity() {
             dialog.setOnProtocolListener(object : ProtocolDialog.OnProtocolListener {
                 override fun clickOk() {
                     APPSpUtils.setSpIsFirstAppStr(false)
-                    initConfig("from_welcom_first")
+                    initConfig("")
                 }
                 override fun clickCancel() {
                     finish()
@@ -43,25 +42,19 @@ class LaunchPageActivity : AppCompatActivity() {
             return
         }
 
-        initConfig("from_welcom_later")
+        initConfig("")
     }
 
 
     @SuppressLint("RestrictedApi")
     private fun initConfig(from: String) {
 
-        CameraEventUtils.cameraInit(this,"")
-
         Handler(Looper.getMainLooper()).postDelayed({
-            ReflectUtils.invokeStaticType(
-                "com.gg.ek.GUtils", "setCommon",
-                arrayOf<Class<*>>( Application::class.java), ToolsApplication.contentInstance
-            )
             toMainActivity()
-        }, 3000)
+        }, 2000)
 
         val animation = ObjectAnimator.ofInt(launchBind?.launcherProgress, "progress", 0, 100)
-        animation.duration = 3000
+        animation.duration = 2000
         animation.interpolator = LinearInterpolator() // 使用线性插值器，保证匀速
         animation.start()
     }

@@ -81,11 +81,11 @@ include ':coloring_book'
 include ':color_picker_library'
 include ':toDoListlib'
 include ':build_tools'
-include ':custom_honor_library'
+//include ':custom_honor_library'
 
  
 
-project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
+//project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
 project(':toolsbox').projectDir =file('./modulesUI/toolsbox_moduel/toolsbox')
 project(':setting').projectDir =file('./modulesUI/third-module/setting')
 project(':hotSceniclib').projectDir =file('./modulesUI/third-module/hotSceniclib')
