@@ -1,19 +1,18 @@
 ext{
     android = [
-            versionCode      : 21,
-            versionName      : "2.0.1",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
     ]
 
 
-
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.nunpingli.cn/agreement/wlnjzxbwl/privacy",
-            "userUrl"   : "https://api.nunpingli.cn/agreement/wlnjzxbwl/user",
+            "privacyUrl": "https://api.nunpingli.cn/agreement/wlywsm/privacy",
+            "userUrl"   : "https://api.nunpingli.cn/agreement/wlywsm/user",
             "VERSIONNAME":android.versionName,
             "fanyi":"baidu_ob.aar",
     ]

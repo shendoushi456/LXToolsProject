@@ -84,7 +84,7 @@ android {
     }	
     	
     defaultConfig {
-        applicationId "com.nmgsr.nuanjichaoxibeiwanglu"
+        applicationId "com.gzyf.yingwensaomiao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'nuanjichaoxibeiwanglu'
+            keyAlias 'yingwensaomiao'
             keyPassword '123456'
-            storeFile file('nuanjichaoxibeiwanglu.jks')
+            storeFile file('yingwensaomiao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'nuanjichaoxibeiwanglu'
+            keyAlias 'yingwensaomiao'
             keyPassword '123456'
-            storeFile file('nuanjichaoxibeiwanglu.jks')
+            storeFile file('yingwensaomiao.jks')
             storePassword '123456'
         }
     }
@@ -178,7 +178,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '暖记朝夕备忘录-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '影文扫描-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
