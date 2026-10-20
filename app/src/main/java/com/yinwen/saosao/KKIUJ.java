@@ -1,9 +1,9 @@
-package com.qingshi.sao;
+package com.yinwen.saosao;
 
 import android.content.Intent;
 
 
-public final class IOSCAN extends android.speech.RecognitionService {
+public final class KKIUJ extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();

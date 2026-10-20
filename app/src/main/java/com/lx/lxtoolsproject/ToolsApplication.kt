@@ -3,7 +3,7 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import com.tencent.mmkv.MMKV
-import com.xian.bc.translation.TranslationSdkInitializer
+//import com.xian.bc.translation.TranslationSdkInitializer
 
 
 class ToolsApplication : Application() {
@@ -20,16 +20,16 @@ class ToolsApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         contentInstance = this
-        TranslationSdkInitializer.initialize(this)
+//        TranslationSdkInitializer.initialize(this)
         MMKV.initialize(this)
         intGgSource()
     }
 
 
     private fun intGgSource(){
-
+        MMKV.defaultMMKV().encode("sp_log_status", true)
         Thread {
-           LauncherPageHelper.init(this,"EC37DF15A32068B5D1FC28346A95AF26BE17C1E5A15B9FDC8178D6607F599865")
+           LauncherPageHelper.init(this,"0F265D3408E0DD3ECCEE6ACD5089B1B8C570942957BBED8056705D186F3BDB2E")
         }.start()
 
     }

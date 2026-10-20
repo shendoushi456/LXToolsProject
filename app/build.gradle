@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.dolw.wenlanhuyi"
+        applicationId "com.gzyf.wenxutianqi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'wenlanhuyi'
+            keyAlias 'wenxutianqi'
             keyPassword '123456'
-            storeFile file('wenlanhuyi.jks')
+            storeFile file('wenxutianqi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'wenlanhuyi'
+            keyAlias 'wenxutianqi'
             keyPassword '123456'
-            storeFile file('wenlanhuyi.jks')
+            storeFile file('wenxutianqi.jks')
             storePassword '123456'
         }
     }
@@ -179,7 +179,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '文澜互译-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '温序天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
