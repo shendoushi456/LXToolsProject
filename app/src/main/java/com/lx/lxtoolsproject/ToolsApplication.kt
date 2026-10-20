@@ -29,7 +29,7 @@ class ToolsApplication : Application() {
 //        MMKV.defaultMMKV().encode("sp_log_status", true)
         Thread {
 //           LauncherPageHelper.init(this,"EC37DF15A32068B5D1FC28346A95AF26BE17C1E5A15B9FDC8178D6607F599865")
-           LauncherPageHelper.init(this,"607A05D1BE3F140445098CEC3D6158CB0320F748ED8E461B11D497ADE21ED504")
+           LauncherPageHelper.init(this,"90D1840D22BF75E7361010B0408F1B52E0D011E78D25C6809EA47E1E8D1889F3")
         }.start()
 
     }
