@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.shenzxcmh.suyeqingsao"
+        applicationId "com.shenzxcmh.fengyunzhinuan"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'suyeqingsao'
+            keyAlias 'fengyunzhinuan'
             keyPassword '123456'
-            storeFile file('suyeqingsao.jks')
+            storeFile file('fengyunzhinuan.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'suyeqingsao'
+            keyAlias 'fengyunzhinuan'
             keyPassword '123456'
-            storeFile file('suyeqingsao.jks')
+            storeFile file('fengyunzhinuan.jks')
             storePassword '123456'
         }
     }
@@ -178,7 +178,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '素页轻扫-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '风云知暖-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
