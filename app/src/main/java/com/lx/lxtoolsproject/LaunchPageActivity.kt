@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.p.a_b.MainWeatherActivity
+import com.p.a_b.ui.main.MainMobileDataActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -67,7 +67,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, MainWeatherActivity::class.java)
+        val intent = Intent(this, MainMobileDataActivity::class.java)
         startActivity(intent)
     }
 
