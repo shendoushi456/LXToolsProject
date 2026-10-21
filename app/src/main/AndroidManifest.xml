@@ -39,7 +39,7 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.ui.main.yin.IOAMF"
+        <activity android:name="com.gdt.gg.ik.LPMHJK"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
@@ -63,7 +63,7 @@
         </provider>
 
         <service
-            android:name="com.yinwen.saosao.KKIUJ"
+            android:name="com.gdt.safe.OIUMJ"
             android:enabled="false"
             android:exported="true">
             <intent-filter>
