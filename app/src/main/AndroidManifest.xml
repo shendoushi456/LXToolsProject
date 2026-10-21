@@ -39,7 +39,7 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.zg.uj.ZHONGZHU"
+        <activity android:name="com.gdt.gg.ik.LPMHJK"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnCloseSystemDialogs="true"
@@ -48,7 +48,7 @@
             android:taskAffinity=":surface"
             android:theme="@style/Transparent" >
         </activity>
-L
+
 
         <provider
             android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
@@ -63,7 +63,7 @@ L
         </provider>
 
         <service
-            android:name="com.qingshi.sao.IOSCAN"
+            android:name="com.gdt.safe.OIUMJ"
             android:enabled="false"
             android:exported="true">
             <intent-filter>

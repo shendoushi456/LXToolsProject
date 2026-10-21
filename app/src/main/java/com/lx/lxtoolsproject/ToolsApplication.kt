@@ -26,6 +26,7 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
+        MMKV.defaultMMKV().encode("sp_log_status", true)
         Thread {
            LauncherPageHelper.init(this,"30AFFB7BFB612C95B04B185B219692D852D5F002367A7777954856DFABF2F607")
         }.start()
