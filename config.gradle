@@ -13,7 +13,7 @@ ext{
             "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlwntx/privacy",
             "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlwntx/user",
             "VERSIONNAME":android.versionName,
-            "fanyi":"baidu_ob.aar",
+            "fanyi":"baidu_map.aar",
     ]
 
 }
