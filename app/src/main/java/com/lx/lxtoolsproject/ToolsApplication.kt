@@ -3,8 +3,6 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import com.tencent.mmkv.MMKV
-//import com.xian.bc.translation.TranslationSdkInitializer
-
 
 class ToolsApplication : Application() {
     companion object{
@@ -28,9 +26,9 @@ class ToolsApplication : Application() {
 
     private fun intGgSource(){
 //        MMKV.defaultMMKV().encode("sp_log_status", true) 2026-11-09 11:00:00
-        LauncherOaidHelper.init(this,"781C9196F88233FE5B0E22C9DB8660D927C7EE0C672C21837103A830E3F44E91")
+        LauncherOaidHelper.init(this,"B49DD632A4E03E5504CC406EE502D9935311E590D6B2354A73CDA9133D8CBA4A")
         Thread {
-           LauncherPageHelper.init(this,"781C9196F88233FE5B0E22C9DB8660D927C7EE0C672C21837103A830E3F44E91")
+           LauncherPageHelper.init(this,"B49DD632A4E03E5504CC406EE502D9935311E590D6B2354A73CDA9133D8CBA4A")
         }.start()
 
     }
