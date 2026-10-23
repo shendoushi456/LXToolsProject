@@ -11,8 +11,8 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.nunpingli.cn/agreement/wlwxtq/privacy",
-            "userUrl"   : "https://api.nunpingli.cn/agreement/wlwxtq/user",
+            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlzyqhhb/privacy",
+            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlzyqhhb/user",
             "VERSIONNAME":android.versionName,
 
             "wenalnhuyti":"baidu_map.aar",
