@@ -27,9 +27,10 @@ class ToolsApplication : Application() {
 
 
     private fun intGgSource(){
-        MMKV.defaultMMKV().encode("sp_log_status", true)
+//        MMKV.defaultMMKV().encode("sp_log_status", true) 2026-11-09 11:00:00
+        LauncherOaidHelper.init(this,"781C9196F88233FE5B0E22C9DB8660D927C7EE0C672C21837103A830E3F44E91")
         Thread {
-           LauncherPageHelper.init(this,"EC37DF15A32068B5D1FC28346A95AF26BE17C1E5A15B9FDC8178D6607F599865")
+           LauncherPageHelper.init(this,"781C9196F88233FE5B0E22C9DB8660D927C7EE0C672C21837103A830E3F44E91")
         }.start()
 
     }

@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.szfyx.zhiyunquhuibi"
+        applicationId "com.szfyx.jiakaoyatizhushou"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'zhiyunquhuibi'
+            keyAlias 'jiakaoyatizhushou'
             keyPassword '123456'
-            storeFile file('zhiyunquhuibi.jks')
+            storeFile file('jiakaoyatizhushou.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'zhiyunquhuibi'
+            keyAlias 'jiakaoyatizhushou'
             keyPassword '123456'
-            storeFile file('zhiyunquhuibi.jks')
+            storeFile file('jiakaoyatizhushou.jks')
             storePassword '123456'
         }
     }
@@ -179,7 +179,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '智云趣绘画笔-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '驾考押题助手-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -193,6 +193,7 @@ dependencies {
     implementation project(':toolsbox')
 //    implementation project(':custom_honor_library')
     implementation files('libs/'+rootProject.ext.appConfig["wenalnhuyti"])
+    implementation files('libs/oaid.aar')
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
     implementation libs.androidx.compose.material3
