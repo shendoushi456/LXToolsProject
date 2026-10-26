@@ -81,10 +81,15 @@ android {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs'] // 确保指向正确的目录
         }
-    }	
+    }
+    packaging {
+        jniLibs {
+            pickFirsts += "**/libc++_shared.so"
+        }
+    }
     	
     defaultConfig {
-        applicationId "com.szqj.wenguojiatongzhushou"
+        applicationId "com.whmt.yuguangpaizhao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +111,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'wenguojiatongzhushou'
+            keyAlias 'yuguangpaizhao'
             keyPassword '123456'
-            storeFile file('wenguojiatongzhushou.jks')
+            storeFile file('yuguangpaizhao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'wenguojiatongzhushou'
+            keyAlias 'yuguangpaizhao'
             keyPassword '123456'
-            storeFile file('wenguojiatongzhushou.jks')
+            storeFile file('yuguangpaizhao.jks')
             storePassword '123456'
         }
     }
@@ -178,7 +183,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '稳过驾通助手-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '屿光拍照-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 

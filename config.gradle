@@ -10,8 +10,8 @@ ext{
 
     appConfig = [
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlwgjtzs/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlwgjtzs/user",
+            "privacyUrl": "https://api.xujinle1.top/agreement/bbygpz/privacy",
+            "userUrl"   : "https://api.xujinle1.top/agreement/bbygpz/user",
             "VERSIONNAME":android.versionName,
             "fanyi":"bb_map.aar",
     ]
