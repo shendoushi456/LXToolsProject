@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.shenzxcmh.suyeqingsao"
+        applicationId "com.whsj.mohengyunsao"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'suyeqingsao'
+            keyAlias 'mohengyunsao'
             keyPassword '123456'
-            storeFile file('suyeqingsao.jks')
+            storeFile file('mohengyunsao.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'suyeqingsao'
+            keyAlias 'mohengyunsao'
             keyPassword '123456'
-            storeFile file('suyeqingsao.jks')
+            storeFile file('mohengyunsao.jks')
             storePassword '123456'
         }
     }
@@ -178,7 +178,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '素页轻扫-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '墨痕云扫-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -190,8 +190,8 @@ android {
 dependencies {
     implementation platform(libs.androidx.compose.bom)
     implementation project(':toolsbox')
-//    implementation project(':custom_honor_library')
-    implementation files('libs/'+rootProject.ext.appConfig["yinyitongfanyi"])
+    implementation project(':custom_honor_library')
+//    implementation files('libs/'+rootProject.ext.appConfig["yinyitongfanyi"])
     implementation libs.androidx.activity.compose
     implementation libs.androidx.appcompat
     implementation libs.androidx.compose.material3
@@ -269,9 +269,16 @@ dependencies {
     api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
     api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
     api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
-    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
 
-
+    api project(':modules:custom_honor_ad_library:aarlibrary:sigmob_common')
+    api project(':modules:custom_honor_ad_library:aarlibrary:sigmob_mill_sdk')
+    api project(':modules:custom_honor_ad_library:aarlibrary:sigmob_sdk')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_csj_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_gdt_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_baidu_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_gromore_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_kuaishou_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_xbid_adapter')
 
 }
 

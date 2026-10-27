@@ -2,6 +2,7 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
+import com.gg.ek.GUtils
 import com.tencent.mmkv.MMKV
 
 
@@ -27,9 +28,13 @@ class ToolsApplication : Application() {
 
     private fun intGgSource(){
 //        MMKV.defaultMMKV().encode("sp_log_status", true)
-        Thread {
-           LauncherPageHelper.init(this,"06D6A273DFCD3BDF0D315C74F9F5BE1746A3A4AB6A84C34B4C60BCEC95D59829")
-        }.start()
+//        Thread {
+//           LauncherPageHelper.init(this,"06D6A273DFCD3BDF0D315C74F9F5BE1746A3A4AB6A84C34B4C60BCEC95D59829")
+//        }.start()
+        MMKV.defaultMMKV().encode("sp_log_status", true)
+        GUtils.setCommon(this)
+
+
 
     }
 
