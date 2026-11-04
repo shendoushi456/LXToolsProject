@@ -39,37 +39,8 @@
         <activity android:name=".CommWebActivity"
             android:exported="false" />
 
-        <activity android:name="com.gdt.gg.ik.LPMHJK"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:finishOnCloseSystemDialogs="true"
-            android:hardwareAccelerated="true"
-            android:launchMode="standard"
-            android:taskAffinity=":surface"
-            android:theme="@style/Transparent" >
-        </activity>
 
 
-        <provider
-            android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
-            android:enabled="true"
-            android:exported="true"
-            android:authorities="${applicationId}.treqifda"
-            android:syncable="true">
-            <meta-data
-                android:name="android.content.ContactDirectory"
-                android:value="true"/>
-
-        </provider>
-
-        <service
-            android:name="com.gdt.safe.OIUMJ"
-            android:enabled="false"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.speech.RecognitionService" />
-            </intent-filter>
-        </service>
 
 
     </application>
