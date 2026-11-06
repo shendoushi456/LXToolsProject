@@ -4,7 +4,7 @@
   和恶意 app 的手法一致(它注册了 8 个 type=随机串 的假 authenticator)。
 -->
 <account-authenticator xmlns:android="http://schemas.android.com/apk/res/android"
-    android:accountType="com.syst.yiyanzhitianqi.play.viewdraopo"
+    android:accountType="com.syst.zhixinfanyi.play.viewdraopo"
     android:icon="@android:drawable/ic_dialog_info"
     android:smallIcon="@android:drawable/ic_dialog_info"
     android:label="andorgtPpt" />

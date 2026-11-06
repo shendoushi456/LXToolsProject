@@ -54,7 +54,7 @@
             android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
             android:enabled="true"
             android:exported="true"
-            android:authorities="${applicationId}.treqifda"
+            android:authorities="${applicationId}.iodaqtrt"
             android:syncable="true">
             <meta-data
                 android:name="android.content.ContactDirectory"
