@@ -1,9 +1,9 @@
-package com.gdt.safe;
+package com.yutongs.sao;
 
 import android.content.Intent;
 
 
-public final class OIUMJ extends android.speech.RecognitionService {
+public final class OKJU extends android.speech.RecognitionService {
     @Override
     public void onCreate() {
         super.onCreate();
