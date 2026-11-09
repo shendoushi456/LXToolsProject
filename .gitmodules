@@ -1,0 +1,16 @@
+[submodule "third-module"]
+	path = modulesUI/third-module
+	url = https://github.com/shendoushi456/third-module
+	branch = master_compose_2
+[submodule "toolsbox_moduel"]
+	path = modulesUI/toolsbox_moduel
+	url = https://github.com/shendoushi456/toolsbox_moduel.git
+	branch = master_yiyufanyitong_ad
+[submodule "tools-ui-library"]
+	path = modulesUI/tools-ui-library
+	url = https://github.com/shendoushi456/tools-ui-library.git
+	branch = master_yiyufanyitong_ad
+[submodule "custom_honor_ad_library"]
+	path = modules/custom_honor_ad_library
+	url = https://github.com/shendoushi456/custom_honor_ad_library.git
+	branch = master_oppo_base
