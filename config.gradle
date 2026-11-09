@@ -12,11 +12,11 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.zaosuancuo.cn/agreement/wlsyqs/privacy",
-            "userUrl"   : "https://api.zaosuancuo.cn/agreement/wlsyqs/user",
+            "privacyUrl": "http://api.fumanban.cn/agreement/wlyyfyt/privacy",
+            "userUrl"   : "http://api.fumanban.cn/agreement/wlyyfyt/user",
             "VERSIONNAME":android.versionName,
 
-            "yinyitongfanyi":"baidu_map.aar",
+            "yinyitongfanyi":"header_1109.aar",
 
 
 

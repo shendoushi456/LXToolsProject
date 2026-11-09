@@ -72,6 +72,7 @@ include ':weather_lib'
 include ':calculatorlibrary'
 
 include ':tallynotes'
+include ':draw_pic_toolslib'
 include ':pic_toolslibrary'
 include ':pic_edit_library'
 include ':smalltoolslibrary'
@@ -96,6 +97,7 @@ project(':scanlibrary').projectDir =file('./modulesUI/third-module/scanlibrary')
 project(':weather_lib').projectDir =file('./modulesUI/third-module/weather_lib')
 project(':calculatorlibrary').projectDir =file('./modulesUI/third-module/calculatorlibrary')
 project(':tallynotes').projectDir =file('./modulesUI/third-module/tallynotes')
+project(':draw_pic_toolslib').projectDir =file('./modulesUI/third-module/draw_pic_toolslib')
 project(':pic_toolslibrary').projectDir =file('./modulesUI/third-module/pic_toolslibrary')
 project(':pic_edit_library').projectDir =file('./modulesUI/third-module/pic_edit_library')
 project(':smalltoolslibrary').projectDir =file('./modulesUI/third-module/smalltoolslibrary')

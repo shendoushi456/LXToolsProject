@@ -17,7 +17,7 @@ apply from: "${rootDir}/build_tools/jiagu/jiagu.gradle"
 androidJunkCode {
     variantConfig {
         release {
-            packageBase = "com.meihao.dd.huihua"
+            packageBase = "com.syxqd.yuyifanyitong"
             packageCount = 47
             activityCountPerPackage = 66
             excludeActivityJavaFile = false
@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.shenzxcmh.suyeqingsao"
+        applicationId "com.syxqd.yuyifanyitong"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -106,15 +106,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'suyeqingsao'
+            keyAlias 'yuyifanyitong'
             keyPassword '123456'
-            storeFile file('suyeqingsao.jks')
+            storeFile file('yuyifanyitong.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'suyeqingsao'
+            keyAlias 'yuyifanyitong'
             keyPassword '123456'
-            storeFile file('suyeqingsao.jks')
+            storeFile file('yuyifanyitong.jks')
             storePassword '123456'
         }
     }
