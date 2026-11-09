@@ -1,0 +1,9 @@
+dir mapping:
+    com.lx.lxtoolsproject -> emx.zzes.coue 
+    com.lx.lxtoolsproject.utils -> emx.cbei.kwg 
+    com.stringf.gg -> emx.qnn.xobt 
+
+class mapping:
+    com.lx.lxtoolsproject.LaunchPageActivity -> emx.zzes.coue.CAQ
+    com.lx.lxtoolsproject.utils.AgreementStatusUtils -> emx.cbei.kwg.BWKS
+    com.stringf.gg.CustomStringFogImpl -> emx.qnn.xobt.QLV

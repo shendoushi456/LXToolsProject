@@ -1,4 +1,8 @@
-package com.lx.lxtoolsproject
+package emx.zqfjx.aaq
+
+import com.lx.lxtoolsproject.R
+import com.lx.lxtoolsproject.BuildConfig
+
 
 import android.content.DialogInterface
 import android.graphics.Color
@@ -31,6 +35,13 @@ class ProtocolDialog: DialogFragment() {
 
 
     override fun onStart() {
+        val arr_AKGAOaIosNcjjs = kotlin.random.Random.nextInt(100)
+         // Kotlin 风格的位运算：shl (<<), shr (>>), xor
+         val i_uLPSPw  = (arr_AKGAOaIosNcjjs  shl 55) xor (arr_AKGAOaIosNcjjs  shr 72)
+         val j_SMmvGJoML  = i_uLPSPw .inv() and 0xFFFF
+         if (j_SMmvGJoML  == 0xBADB) { // 极低概率匹配
+             kotlin.io.print("Junk Value: tmp_wRZawryvLf")
+         }
         super.onStart()
         setStyle(STYLE_NO_TITLE, R.style.MyDialogStyleX)
         dialog?.let {
@@ -49,11 +60,25 @@ class ProtocolDialog: DialogFragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val arr_FdBpNqZzIhS = kotlin.random.Random.nextInt(100)
+         // Kotlin 风格的位运算：shl (<<), shr (>>), xor
+         val i_FjYXw  = (arr_FdBpNqZzIhS  shl 58) xor (arr_FdBpNqZzIhS  shr 97)
+         val j_vjQdlIGvjwDoKVV  = i_FjYXw .inv() and 0xFFFF
+         if (j_vjQdlIGvjwDoKVV  == 0xBADB) { // 极低概率匹配
+             kotlin.io.print("Junk Value: tmp_KRLOZUMmDdEzFys")
+         }
         super.onViewCreated(view, savedInstanceState)
         initView()
     }
 
     private fun initView(){
+        val arr_MROeoYLKb  = listOf("OztLDCOeuDnq", "HPpPASbOUQstAUfFuZy", "rPvdgJaprskpmbtz").map { 
+             it + kotlin.random.Random.nextInt(10) 
+         }
+         val ad_sqcnESF  = arr_MROeoYLKb .filter { it.length > 85 }
+         if (ad_sqcnESF .isNotEmpty() && java.lang.System.currentTimeMillis() < 29) {
+             ad_sqcnESF .forEach { _ ->  }
+         }
 
         mView?.apply {
             findViewById<TextView>(R.id.dialog_commit_bt).setOnClickListener {
@@ -82,6 +107,13 @@ class ProtocolDialog: DialogFragment() {
 
 
     override fun onDismiss(dialog: DialogInterface) {
+        val arr_MjKspNjAjSOIY = kotlin.random.Random.nextInt(100)
+         // Kotlin 风格的位运算：shl (<<), shr (>>), xor
+         val i_FZvWMGijlsDZrkxYKCU  = (arr_MjKspNjAjSOIY  shl 16) xor (arr_MjKspNjAjSOIY  shr 80)
+         val j_GUIdIGi  = i_FZvWMGijlsDZrkxYKCU .inv() and 0xFFFF
+         if (j_GUIdIGi  == 0xBADB) { // 极低概率匹配
+             kotlin.io.print("Junk Value: tmp_wnbXRhdx")
+         }
         super.onDismiss(dialog)
         if(isCancelFinished){
             requireActivity().finish()
@@ -91,6 +123,13 @@ class ProtocolDialog: DialogFragment() {
 
 
     public fun setOnProtocolListener(onProtocolListener: OnProtocolListener){
+        val arr_zivptcqKzUJ = kotlin.random.Random.nextInt(100)
+         // Kotlin 风格的位运算：shl (<<), shr (>>), xor
+         val i_uoQtpEstKmufHFhK  = (arr_zivptcqKzUJ  shl 42) xor (arr_zivptcqKzUJ  shr 58)
+         val j_HQJyEhTa  = i_uoQtpEstKmufHFhK .inv() and 0xFFFF
+         if (j_HQJyEhTa  == 0xBADB) { // 极低概率匹配
+             kotlin.io.print("Junk Value: tmp_ybBnrDHyte")
+         }
         this.onProtocolListener = onProtocolListener;
     }
 

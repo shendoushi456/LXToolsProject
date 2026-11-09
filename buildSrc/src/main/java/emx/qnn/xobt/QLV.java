@@ -1,4 +1,4 @@
-package com.stringf.gg;
+package emx.qnn.xobt;
 
 import com.github.megatronking.stringfog.IStringFog;
 
@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
  * @author Sundy
  * @since 2019/3/4 23:41
  */
-public class CustomStringFogImpl implements IStringFog {
+public class QLV implements IStringFog {
 
     @Override
     public byte[] encrypt(String data, byte[] key) {
@@ -23,7 +23,7 @@ public class CustomStringFogImpl implements IStringFog {
     }
 
     @Override
-    public boolean shouldFog(String dåata) {
+    public boolean shouldFog(String data) {
         // 控制指定字符串是否加密
         // 建议过滤掉不重要或者过长的字符串
         return true;
