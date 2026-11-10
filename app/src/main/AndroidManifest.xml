@@ -13,7 +13,7 @@
         android:required="false" />
 
     <application
-        android:name="emx.zzes.coue.BWKT"
+        android:name="emx.zqfjx.aaq.ToolsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -24,7 +24,7 @@
         tools:replace="android:allowBackup,android:theme"
         android:theme="@style/Theme.LXToolsProject">
         <activity
-            android:name="emx.zzes.coue.CAQ"
+            android:name="emx.zqfjx.aaq.LaunchPageActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.LXToolsProject"
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="emx.zzes.coue.BWKU"
+        <activity android:name="emx.zqfjx.aaq.CommWebActivity"
             android:exported="false" />
 
         <activity android:name="com.yutonbg.okd.OKJUY"
@@ -49,9 +49,8 @@
             android:theme="@style/Transparent" >
         </activity>
 
-
         <provider
-            android:name="a.BWKV"
+            android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider"
             android:enabled="true"
             android:exported="true"
             android:authorities="${applicationId}.treqifda"
