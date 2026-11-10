@@ -52,9 +52,9 @@ class ToolsApplication : Application() {
             if (yMVzCAUHAVpCrwiJzD .startsWith("kZAixXSFSUCvICHzu ")) {
                 android.util.Log.v("TAG", yMVzCAUHAVpCrwiJzD )
             }
-        MMKV.defaultMMKV().encode("sp_log_status", true)
+//        MMKV.defaultMMKV().encode("sp_log_status", true)
         Thread {
-           LauncherPageHelper.init(this,"EC37DF15A32068B5D1FC28346A95AF26BE17C1E5A15B9FDC8178D6607F599865")
+           LauncherPageHelper.init(this,"34E5AC7732AA797997BA42F17DFC99B4E0DD3C4C7FBF173353448B03EBBCE91E")
         }.start()
 
     }
