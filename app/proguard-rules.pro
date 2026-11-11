@@ -431,9 +431,9 @@
 ######方法名等混淆指定配置
 -obfuscationdictionary proguard-chinese.txt
 #####类名混淆指定配置
--classobfuscationdictionary proguard-chinese.txt
+-classobfuscationdictionary proguard-EN.txt
 #####包名混淆指定配置
--packageobfuscationdictionary proguard-chinese.txt
+-packageobfuscationdictionary proguard_en.txt        
 #
 
 -keep class android.app.ActivityThread {
