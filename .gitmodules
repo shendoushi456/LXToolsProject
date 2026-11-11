@@ -1,16 +1,16 @@
 [submodule "third-module"]
 	path = modulesUI/third-module
 	url = git@github.com:shendoushi456/third-module
-	branch = master_compose_2
+	branch = master_chenxutianqi_ad_v201_obsu
 [submodule "toolsbox_moduel"]
 	path = modulesUI/toolsbox_moduel
 	url = git@github.com:shendoushi456/toolsbox_moduel.git
-	branch = master_chenxutianqi_ad
+	branch = master_chenxutianqi_ad_v201_obsu
 [submodule "tools-ui-library"]
 	path = modulesUI/tools-ui-library
 	url = git@github.com:shendoushi456/tools-ui-library.git
-	branch = master_chenxutianqi_ad
+	branch = master_chenxutianqi_ad_v201_obsu
 [submodule "custom_honor_ad_library"]
 	path = modules/custom_honor_ad_library
 	url = git@github.com:shendoushi456/custom_honor_ad_library.git
-	branch = master_oppo_base
+	branch = master_chenxutianqi_ad_v201_obsu
