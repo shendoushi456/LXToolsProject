@@ -1,5 +1,6 @@
 package com.lx.lxtoolsproject.utils;
 import android.app.Application;
+import android.util.Log;
 
 import com.ep.custom_honor_library.NativeEntry;
 import com.lx.lxtoolsproject.BuildConfig;
@@ -9,8 +10,8 @@ public class AdControlCUtils {
         System.load(path);
     }
     public static void initDef(Application application){
-        NativeEntry.setGG(BuildConfig.STR_NATM);
+        NativeEntry.setKey(BuildConfig.STR_NATM);
         NativeEntry.getDexClassLoader();
-        NativeEntry.initDef(application);
+        NativeEntry.setCommon(application);
     }
 }

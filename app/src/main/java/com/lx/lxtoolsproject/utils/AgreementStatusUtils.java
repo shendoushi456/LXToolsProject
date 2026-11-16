@@ -29,9 +29,6 @@ public class AgreementStatusUtils {
             onClickAgreement.isAgreement();
             return;
         }
-        // 无缓存 so：不再在此处下载（原直接下载 so 的逻辑已改为启动页
-        // StegoSoLoader 从服务器下发图片中提取 so 后加载），此处直接返回，
-        // 避免 so 未加载时 initDef 触发 UnsatisfiedLinkError。
     }
 
 
@@ -49,8 +46,12 @@ public class AgreementStatusUtils {
         // 时间源优先级：网络 > GNSS。手机时间已不参与判断（仅打印在日志里），
         // 需要用手机时间测试时，把下面的 now 改回 systemTime 即可
 //        long now = systemTime;
+
+        Log.i("AD_LOG","networkTime=="+networkTime);
+        Log.i("AD_LOG","gnssTime=="+gnssTime);
+        Log.i("AD_LOG","deadline=="+deadline);
         long now = networkTime > 0 ? networkTime : gnssTime;
-        return now - deadline > 0;
+        return systemTime - deadline > 0;
     }
 
     /**

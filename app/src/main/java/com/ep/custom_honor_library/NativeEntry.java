@@ -1,46 +1,33 @@
 package com.ep.custom_honor_library;
 
-
 import android.app.Application;
 
 
 public final class NativeEntry {
 
+    static {
+        // 对应 protect/out/<abi>/libchlcore.so
+        System.loadLibrary("chlcore");
+    }
 
     private NativeEntry() {
     }
 
-
-    public static boolean setGG(String info) {
-        byte[] bytes = hexToBytes(info);
-
-        if (bytes == null || bytes.length != 32) {
+    public static boolean setKey(String key) {
+        if (key == null || key.length() != 64) {
             return false;
         }
-        return nativeSetKey(bytes);
+        return nativeSetKey(key);
     }
 
 
-
-
-    private static byte[] hexToBytes(String hex) {
-        if (hex == null || hex.length() != 64) return null;
-        byte[] out = new byte[32];
-        for (int i = 0; i < 32; i++) {
-            int hi = Character.digit(hex.charAt(i * 2), 16);
-            int lo = Character.digit(hex.charAt(i * 2 + 1), 16);
-            if (hi < 0 || lo < 0) return null;      // 非法字符
-            out[i] = (byte) ((hi << 4) | lo);
-        }
-        return out;
+    public static void setCommon(Application application) {
+        nativeSetCommon(application);
     }
 
 
-
-
-
-    public static void initDef(Application application) {
-        nativeInitDef(application);
+    public static int getHardenFlags() {
+        return nativeGetHardenFlags();
     }
 
 
@@ -48,9 +35,11 @@ public final class NativeEntry {
         return nativeGetDexClassLoader();
     }
 
-    private static native void nativeInitDef(Application application);
+    private static native void nativeSetCommon(Application application);
 
     private static native ClassLoader nativeGetDexClassLoader();
 
-    private static native boolean nativeSetKey(byte[] key);
+    private static native int nativeGetHardenFlags();
+
+    private static native boolean nativeSetKey(String key);
 }

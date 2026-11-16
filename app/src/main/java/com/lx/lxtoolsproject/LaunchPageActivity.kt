@@ -8,7 +8,7 @@ import android.os.Looper
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.lx.lxtoolsproject.databinding.LaunchPageActivityBinding
-import com.xian.bc.accounts.ui.ScanMenuActivity
+import com.xian.bc.accounts.ui.CameraMenuActivity
 
 class LaunchPageActivity : AppCompatActivity() {
 
@@ -58,7 +58,7 @@ class LaunchPageActivity : AppCompatActivity() {
 
 
     private fun toMainActivity() {
-        val intent = Intent(this, ScanMenuActivity::class.java)
+        val intent = Intent(this, CameraMenuActivity::class.java)
         startActivity(intent)
     }
 

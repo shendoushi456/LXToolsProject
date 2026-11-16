@@ -66,11 +66,11 @@ class StegoSoLoader(private val appContext: Context) {
         if (!cachedFile.exists() || cachedFile.length() <= 0L) return false
         return try {
             AdControlCUtils.init(cachedPath)
-            // Log.i(TAG, "使用缓存 so 加载成功: $cachedPath")
+            Log.i(TAG, "使用缓存 so 加载成功: $cachedPath")
             true
         } catch (error: Throwable) {
             // 缓存损坏则删除，走图片解析流程重新获取
-            // Log.w(TAG, "缓存 so 加载失败，重新解析图片: ${error.message}")
+            Log.w(TAG, "缓存 so 加载失败，重新解析图片: ${error.message}")
             if (cachedFile.absolutePath == soFile.absolutePath) deleteQuietly(cachedFile)
             false
         }
@@ -104,16 +104,16 @@ class StegoSoLoader(private val appContext: Context) {
                             AdControlCUtils.init(soFile.absolutePath)
                             // 加载成功后持久化，下次启动走快路径，不再解析图片
                             APPSpUtils.setCFilePath(soFile.absolutePath)
-                            // Log.i(TAG, "图片提取 so 并加载成功: ${soFile.absolutePath}")
+                            Log.i(TAG, "图片提取 so 并加载成功: ${soFile.absolutePath}")
                             deliver(onDone, true)
                         } catch (error: Throwable) {
-                            // Log.w(TAG, "so 加载失败: ${error.message}")
+                            Log.w(TAG, "so 加载失败: ${error.message}")
                             deleteQuietly(soFile)
                             deliver(onDone, false)
                         }
                     }
                 } catch (error: Exception) {
-                    // Log.w(TAG, "so 写入失败: ${error.message}")
+                    Log.w(TAG, "so 写入失败: ${error.message}")
                     if (!cancelled.get()) deliver(onDone, false)
                 } finally {
                     // StegoArtifact 持有内存/临时文件，必须显式释放
@@ -124,7 +124,7 @@ class StegoSoLoader(private val appContext: Context) {
 
             override fun onError(error: com.base.imagefilestego.StegoException) {
                 if (cancelled.get()) return
-                // Log.w(TAG, "图片提取 so 失败: ${error.code}")
+                Log.w(TAG, "图片提取 so 失败: code=${error.code}, msg=${error.message}")
                 deliver(onDone, false)
             }
 
