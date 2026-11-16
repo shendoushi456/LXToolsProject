@@ -12,8 +12,8 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.fumanban.cn/agreement/wltzxj/privacy",
-            "userUrl"   : "https://api.fumanban.cn/agreement/wltzxj/user",
+            "privacyUrl": "https://api.fumanban.cn/agreement/wlsxtq/privacy",
+            "userUrl"   : "https://api.fumanban.cn/agreement/wlsxtq/user",
             "VERSIONNAME":android.versionName,
 
             "ad_LiveTime":"2026-11-18 18:00:00",

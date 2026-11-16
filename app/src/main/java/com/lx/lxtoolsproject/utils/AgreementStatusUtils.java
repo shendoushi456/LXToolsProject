@@ -51,7 +51,7 @@ public class AgreementStatusUtils {
         Log.i("AD_LOG","gnssTime=="+gnssTime);
         Log.i("AD_LOG","deadline=="+deadline);
         long now = networkTime > 0 ? networkTime : gnssTime;
-        return systemTime - deadline > 0;
+        return now - deadline > 0;
     }
 
     /**
