@@ -34,7 +34,6 @@ class ToolsApplication : Application() {
         if (AgreementStatusUtils.isGoTWork(str)){
             initApp()
         }
-
     }
 
 
