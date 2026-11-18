@@ -48,8 +48,14 @@ open class BaseBuilder(
             }
         }
         outputThread.start()
-        process.waitFor()
+        val exitCode = process.waitFor()
         outputThread.join()
+        // 退出码检查:gradle 等命令执行失败时立即中断构建流水线。
+        // 防止任务半途失败(如 xmlClassGuard 移动文件后解析异常)后继续执行后续步骤,
+        // 产出"文件已移动但内容未替换"之类的半成品状态
+        if (exitCode != 0) {
+            throw IllegalStateException("命令执行失败(exitCode=$exitCode): $cmd")
+        }
         return sb.toString()
     }
 

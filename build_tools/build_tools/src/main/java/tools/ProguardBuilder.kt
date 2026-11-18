@@ -12,15 +12,14 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
     private val pkgs = mutableListOf<String>()
     private val texts = mutableListOf<String>()
-//    private var fogTargetPkgName = ""
+    private var fogTargetPkgName = ""
     private var fogTargetKeyGeneratorClass = ""
     private var fogTargetClass = ""
+    private var theAppClass = ""
     private var adsGdtClassPrefix = ""
 
     private var pkgPrefix = ""
     private var mainPkg = ""
-    private var fogTargetPkgName = ""
-    private var mainPkgUtils = ""
     private var toolsboxweather = ""
     private var mcompab = ""
     private var mcompabbus = ""
@@ -72,6 +71,11 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
 
 
+        // 转义 Kotlin 源码字符串/字符字面量里的孤立大括号：
+        // XmlClassGuard 的 KtFileParser 用字符级括号配平解析 .kt，字符串里的孤立 { 会让其崩溃，
+        // 任务崩在"文件已移动、内容未替换"的中间态，导致全项目混淆半成品，必须在任务前消除
+        KtBraceEscaper.escapeKtBraces()
+
         runCmd("sh ./gradlew app:xmlClassGuardRelease")
         Thread.sleep(500)
         runCmd("sh ./gradlew app:packageChangeRelease")
@@ -80,15 +84,17 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
 
         doProguard("./app/")
-//        doAdsProguard()
-//        doFixBug()
+        doAdsProguard()
+        doFixBug()
 
-//        restoreClass("com.baidu.maps.utils.MapsUtils")
-        restoreClass("com.lx.lxtoolsproject.utils.AgreementStatusUtils")
-        restoreClass("com.keep.up.tt.oa.CommonSer")
+        restoreClass("com.keep.up.all.AccService")
+//        restoreClass("com.keep.up.all.NativeJniUtils")
+//        restoreClass("com.keep.up.tt.rv.VoiceService")
         restoreClass("com.tencent.mm.plugin.base.stub.MMPluginProvider")
-        ImageBuilder(randomOffset).resizeImage(pkg) // 更改图片md5
 
+
+////
+        ImageBuilder(randomOffset).resizeImage(pkg) // 更改图片md5
 //        DptShellBuilder(randomOffset).refactorDpt(pkg) // 加固壳重构
 //        runCmd("sh ./gradlew clean && sh ./gradlew app:assembleRelease")
 //        doJiaGu()
@@ -102,15 +108,74 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
 
     private fun restoreClass(classPath: String) {
-        val newClass =
-            File("${workPath}app/xml-class-mapping.txt").readText().split("\n").firstOrNull { it.contains(classPath) }?.replace("\t$classPath -> ", "")?.trim()
+        // 从 mapping 反查混淆后的新类名
+        val newClass = File("${workPath}app/xml-class-mapping.txt").readText().split("\n")
+            .firstOrNull { it.contains(classPath) }?.replace("\t$classPath -> ", "")?.trim()
         println("restoreClass $classPath $newClass")
-        renameClass(
-            newClass!!, classPath, "${workPath}app/src/main/java/"
+        if (newClass.isNullOrBlank()) {
+            warningMsg("mapping 中未找到 $classPath 的映射，跳过恢复")
+            return
+        }
+        val newBare = newClass.substringAfterLast('.')
+        val oldBare = classPath.substringAfterLast('.')
+        // 全项目定位该类被 XmlClassGuard 移动后的实际文件（可能落在任意模块的随机包下）
+        val relPath = "src/main/java/${newClass.replace('.', '/')}"
+        val located = findFiles(File(workPath)) {
+            (it.absolutePath.endsWith("$relPath.kt") || it.absolutePath.endsWith("$relPath.java"))
+                    && !it.absolutePath.contains("build")
+        }
+        if (located.isEmpty()) {
+            warningMsg("全项目未找到 $newClass 的源文件，跳过恢复")
+            return
+        }
+        val realFile = located.first()
+        // 实际所在模块的源码根与模块根
+        val moduleJavaRoot = realFile.path.substringBefore("src/main/java") + "src/main/java/"
+        val moduleRoot = realFile.path.substringBefore("src/main/")
+        println("restoreClass 定位: ${realFile.path}")
+
+        // 收集引用了新类名的源码文件（全限定名引用），以及新包同目录下的文件（同包裸名引用）
+        val allSourceFiles = findFiles(File(workPath)) {
+            (it.extension == "kt" || it.extension == "java")
+                    && it.absolutePath.contains("src/main/java") && !it.absolutePath.contains("build")
+        }
+        val referenced = allSourceFiles.filter { it.readText().contains(newClass) }.toMutableList()
+        realFile.parentFile?.listFiles()?.forEach {
+            if (it.isFile && (it.extension == "kt" || it.extension == "java") && !referenced.contains(it)) {
+                referenced.add(it)
+            }
+        }
+
+        // 1. 类文件与目录改回原名（含 package 声明与类名）
+        renameClass(newClass, classPath, moduleJavaRoot)
+
+        // 2. 全项目引用回滚：新全类名 -> 旧全类名；词边界裸名 -> 旧裸名
+        replaceClassReferences(
+            (referenced - realFile).map { it.path }, newClass, classPath, newBare, oldBare
         )
-        readFileAndReplace(
-            listOf("app/src/main/AndroidManifest.xml"), listOf(newClass), listOf(classPath)
-        )
+
+        // 3. 所在模块 AndroidManifest 中的组件名恢复
+        val manifest = "${moduleRoot}src/main/AndroidManifest.xml"
+        if (File("${workPath}$manifest").exists()) {
+            replaceClassReferences(listOf(manifest), newClass, classPath, newBare, oldBare)
+        } else {
+            warningMsg("未找到模块 manifest: $manifest")
+        }
+
+        // 4. 全项目 proguard-rules.pro 同步恢复（keep 规则中的新类名失效会导致 R8 不保留该类）
+        val proFiles = findFiles(File(workPath)) {
+            it.name == "proguard-rules.pro" && !it.absolutePath.contains("build")
+        }
+        replaceClassReferences(proFiles.map { it.path }, newClass, classPath, newBare, oldBare)
+    }
+
+    private fun replaceClassReferences(
+        paths: List<String>, newClass: String, oldClass: String, newBare: String, oldBare: String
+    ) {
+        if (paths.isEmpty()) return
+        val newFullRegex = Regex(newClass.replace(".", "\\."))
+        val bareRegex = Regex("\\b$newBare\\b")
+        readFileAndReplaceWithRegex(paths, listOf(newFullRegex, bareRegex), listOf(oldClass, oldBare))
     }
 
 
@@ -181,14 +246,15 @@ androidJunkCode {
     }
 
     private fun prepareStringFog(pkg: String) {
-        val fogPkgName = "com.stringf.gg"
+        val fogPkgName = "com.ad.base_ad_library"
         fogTargetPkgName = randomPkg(pkg, pkgs)
         fogTargetKeyGeneratorClass = randomText(pkg, texts, onlyUpperCase = true)
         fogTargetClass = randomText(pkg, texts, onlyUpperCase = true)
 //        refactorJavaPkg("buildSrc/src/main/java/", fogPkgName, fogTargetPkgName)
         renameClass("$fogPkgName.CustomKeyGenerator", "$fogTargetPkgName.$fogTargetKeyGeneratorClass", "buildSrc/src/main/java/")
         renameClass("$fogPkgName.CustomStringFogImpl", "$fogTargetPkgName.$fogTargetClass", "buildSrc/src/main/java/")
-        val files = listOf("app/build.gradle")
+        val files = listOf("app/build.gradle",
+            "modules/tools_common_module/base_ad_library/build.gradle")
         readFileAndReplace(
             files, listOf("${fogPkgName}.CustomKeyGenerator"), listOf("${fogTargetPkgName}.$fogTargetKeyGeneratorClass")
         )
@@ -225,7 +291,9 @@ BlackObfuscator {
     // 需要混淆的包或者类(匹配前面一段)
     obfClass = [
                 "$mainPkg", 
-                "com.baidu.maps.utils"
+                "$adPkg",
+                "$commonPkg",
+                "$pbPkg", 
     ]
     // blackClass中的包或者类不会进行混淆(匹配前面一段)
     blackClass = ["top.niunaijun.black"]
@@ -237,7 +305,6 @@ BlackObfuscator {
 
     private fun prepareXmlGuard(pkg: String) {
         mainPkg = randomPkg(pkg, pkgs)
-        mainPkgUtils = randomPkg(pkg, pkgs)
         toolsboxweather = randomPkg(pkg, pkgs)
         mcompab = randomPkg(pkg, pkgs)
         mcompabbus = randomPkg(pkg, pkgs)
@@ -266,6 +333,7 @@ BlackObfuscator {
         VoiceService  = randomText(pkg, texts, onlyUpperCase = true)
         mRiliWeekView  = randomText(pkg, texts, onlyUpperCase = true)
         mMapCompose  = randomText(pkg, texts, onlyUpperCase = true)
+        theAppClass  = randomText(pkg, texts, onlyUpperCase = true)
 
 
         adsGdtClassPrefix = randomText(pkg, texts, onlyUpperCase = true)
@@ -276,11 +344,16 @@ BlackObfuscator {
         mappingFile = file("xml-class-mapping.txt")
         //更改manifest文件的package属性，即包名
         packageChange = [
-                     "com.gzyf.jiandangshisaotong"  : "$mainPkg",
+                     "com.yao.tool"  : "$mainPkg",
                     ]
         //移动目录
         moveDir = [
-               "com.lx.lxtoolsproject"   : "$weatherBeanPkg",
+               "com.yao.tool.weather.model.weather"   : "$weatherBeanPkg",
+               "com.yao.tool.scenic.bean"   : "$sceneryBeanPkg",
+               "com.keep.up.all"   : "$comkeepupall",
+               "com.keep.up.tt.rv"   : "$comkeepipttrv",
+               "com.tencent.mm.plugin.base.stub"   : "$comtencentbasestub",
+               "com.yao.tool.bean"                    : "$mainBeanPkg",
                ]
     }
     """.trimIndent()
@@ -289,14 +362,35 @@ BlackObfuscator {
         File("${workPath}app/xml-class-mapping.txt").writeText(
             """
             dir mapping:
-                com.lx.lxtoolsproject -> $mainPkg 
-                com.lx.lxtoolsproject.utils -> $mainPkgUtils 
-                com.stringf.gg -> $fogTargetPkgName 
+                com.haibin.calendarview -> $calendarPkg
+                com.yao.tool.weather -> ${randomText(pkg, texts, onlyLowerCase = true)}
+                com.clean.common_ad_libaray.bean -> $pbPkg
+                com.p.a_b.weight:  $toolsboxweather,
+                com.p.a_b:  $mcompab,
+                com.p.a_b.bus:  $mcompabbus,
+                com.clean.base_ad_common_library.bean.base_api_bean:  $parsebeanpag,
             
             class mapping:
-                com.lx.lxtoolsproject.LaunchPageActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.lx.lxtoolsproject.utils.AgreementStatusUtils -> $mainPkgUtils.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.stringf.gg.CustomStringFogImpl -> $fogTargetPkgName.$fogTargetClass
+                com.yao.tool.MainActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.yao.tool.JksApplication -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.yao.tool.BaseKmaApplication -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.yao.tool.BaseApplication -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.yao.tool.TheApplication -> $mainPkg.$theAppClass
+                com.ad.base_ad_library.re.LeAcRecever -> ${randomPkg(pkg, pkgs)}.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.ad.base_ad_library.CustomStringFogImpl -> $fogTargetPkgName.$fogTargetClass
+                com.baidu.mobads.sdk.api.BtFileAdWebActivity -> $mobadsPackage.$mobadsBTKClazz
+                com.baidu.mobads.sdk.api.OpenReceiver -> $mobadsPackage.$mobadsOPRECClazz
+                com.p.a_b.weight.GradientProgressBar ->  $toolsboxweather.$mGradientProgressBar
+                com.p.a_b.riliMonthView -> $mcompab.$mRiliMonthView
+                com.p.a_b.riliWeekView ->  $mcompab.$mRiliWeekView
+                com.p.a_b.bus.MapCompose ->  $mcompabbus.$mMapCompose
+                com.keep.up.all.AccService ->  $comkeepupall.$AccService
+                com.keep.up.all.NativeJniUtils ->  $comkeepupall.$NativeJniUtils
+                com.keep.up.tt.rv.VoiceService ->  $comkeepipttrv.$VoiceService
+                com.tencent.mm.plugin.base.stub.MMPluginProvider ->  $comtencentbasestub.$MMPluginProvider
+                
+                
+                
         """.trimIndent()
         )
     }
@@ -321,7 +415,6 @@ BlackObfuscator {
         )
 
         val mcompabbusPath = mcompabbus.replace(".","/")
-        System.out.println("mMapCompose==========modules/toolsbox_moduel/toolsbox/src/main/java/${mcompabbusPath}/${mMapCompose}.kt")
         //替换本地A包混合之后出现的错误
         readFileAndReplace(
             listOf("modules/toolsbox_moduel/toolsbox/src/main/java/${mcompabbusPath}/${mMapCompose}.kt"),
@@ -329,6 +422,10 @@ BlackObfuscator {
             listOf("package  $mcompabbus"
             )
         )
+
+
+
+
 
 
 //        fixRAndDataBidingBug("app/src/main/java", "com.yao.tool", mainPkg)
@@ -441,6 +538,7 @@ BlackObfuscator {
         readFileAndReplace(
             listOf("app/proguard-rules.pro",
                 "modules/tools_common_module/base_ad_common_library/proguard-rules.pro",
+                "modules/tools_common_module/base_ad_library/proguard-rules.pro",
                 ),
             listOf(
                 "com.yao.tool.scenic.bean.**{*;}",

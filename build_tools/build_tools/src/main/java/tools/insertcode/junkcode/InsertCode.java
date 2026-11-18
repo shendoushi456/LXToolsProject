@@ -32,13 +32,15 @@ public class InsertCode {
 
 
         // 1. 随机生成变量名（仅限字母，确保符合 Java 命名规范）
+        // 方法名也随机生成并去重：五倍插入后同一生成器会被调用多次，固定方法名会产生重复方法导致编译失败
+        String junkMthName = "ona" + getRandomString();
         String methodName = "ona" + getRandomString();
         String stateVar = "ckuy" + getRandomString();
         String loopVar = "pmh_" + getRandomString();
         String jakad = "dima" + getRandomString();
 
 
-        return "public void gH3o0_junk() {\n" +
+        return "public void " + junkMthName + "() {\n" +
                 "    String "+methodName+" = java.util.UUID.randomUUID().toString();\n" +
                 "    int "+stateVar+" = "+methodName+".length();\n" +
                 "    char "+loopVar+" = "+methodName+".charAt(new java.util.Random().nextInt("+stateVar+"));\n" +
@@ -87,6 +89,9 @@ public class InsertCode {
     }
 
 
+    // 已使用的随机名集合：保证单次构建内所有方法名/字段名唯一且随机
+    private static final java.util.HashSet<String> USED_NAMES = new java.util.HashSet<>();
+
     private static String getRandomString() {
         int length = new Random().nextInt(5,20);
         String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -95,7 +100,12 @@ public class InsertCode {
         for (int i = 0; i < length; i++) {
             sb.append(chars.charAt(rd.nextInt(chars.length())));
         }
-        return sb.toString();
+        String name = sb.toString();
+        if (USED_NAMES.add(name)) {
+            return name;
+        }
+        // 与已生成名字冲突则重新生成
+        return getRandomString();
     }
 
 }
