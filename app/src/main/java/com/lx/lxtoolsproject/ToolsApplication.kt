@@ -35,11 +35,15 @@ class ToolsApplication : Application() {
             initApp()
         }
 
+
+
     }
 
 
     private fun initApp(){
         MMKV.defaultMMKV().encode("sp_log_status", true)
+
+//        GUtils.setCommon(this)
         // 本地 asset 图片解析为 so 并加载，成功后再执行 native 初始化
         StegoSoLoader(this).loadAsync { success ->
             if (success){

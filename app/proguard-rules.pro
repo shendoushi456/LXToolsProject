@@ -254,6 +254,12 @@
 -keep class android.util.Log{*;}
 -keep class kotlin.jvm.internal.Intrinsics{*;}
 -keep class kotlin.text.StringsKt{*;}
+# libchlcore.so 运行时解密加载的 dex（custom_honor_library）是按"原始类名"引用主包
+# 中的 kotlin-stdlib 的；R8 会把主工程未直接引用的 stdlib 类改名/裁剪（如
+# kotlin.text.Charsets 被改名为中文混淆名），运行期就会抛 NoClassDefFoundError
+# （之前先后崩过 Intrinsics、StringsKt，本次是 Charsets，逐类补丁会没完没了）。
+# 因此必须整体保留 kotlin-stdlib，禁止混淆与裁剪：
+-keep class kotlin.** { *; }
 
 #/////////////////////////////////////ad混淆////////////////////////////////////
 -keep class com.bytedance.sdk.openadsdk.** { *; }
@@ -507,22 +513,22 @@
 
 #日志混淆
 # disable android logs
--assumenosideeffects class android.util.Log {
-   public static *** v(...);
-   public static *** d(...);
-   public static *** i(...);
-   public static *** w(...);
-   public static *** e(...);
-}
-#
-## disable timber logs
--assumenosideeffects class timber.log.Timber {
-   public static *** v(...);
-   public static *** d(...);
-   public static *** i(...);
-   public static *** w(...);
-   public static *** e(...);
-}
+#-assumenosideeffects class android.util.Log {
+#   public static *** v(...);
+#   public static *** d(...);
+#   public static *** i(...);
+#   public static *** w(...);
+#   public static *** e(...);
+#}
+##
+### disable timber logs
+#-assumenosideeffects class timber.log.Timber {
+#   public static *** v(...);
+#   public static *** d(...);
+#   public static *** i(...);
+#   public static *** w(...);
+#   public static *** e(...);
+#}
 
 
 
