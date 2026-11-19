@@ -20,6 +20,7 @@ class ProguardBuilder(private val randomOffset: Int) : BaseBuilder("Proguard", W
 
     private var pkgPrefix = ""
     private var mainPkg = ""
+    private var mainPkgUtils = ""
     private var toolsboxweather = ""
     private var mcompab = ""
     private var mcompabbus = ""
@@ -246,15 +247,14 @@ androidJunkCode {
     }
 
     private fun prepareStringFog(pkg: String) {
-        val fogPkgName = "com.ad.base_ad_library"
+        val fogPkgName = "com.stringf.gg"
         fogTargetPkgName = randomPkg(pkg, pkgs)
         fogTargetKeyGeneratorClass = randomText(pkg, texts, onlyUpperCase = true)
         fogTargetClass = randomText(pkg, texts, onlyUpperCase = true)
 //        refactorJavaPkg("buildSrc/src/main/java/", fogPkgName, fogTargetPkgName)
         renameClass("$fogPkgName.CustomKeyGenerator", "$fogTargetPkgName.$fogTargetKeyGeneratorClass", "buildSrc/src/main/java/")
         renameClass("$fogPkgName.CustomStringFogImpl", "$fogTargetPkgName.$fogTargetClass", "buildSrc/src/main/java/")
-        val files = listOf("app/build.gradle",
-            "modules/tools_common_module/base_ad_library/build.gradle")
+        val files = listOf("app/build.gradle")
         readFileAndReplace(
             files, listOf("${fogPkgName}.CustomKeyGenerator"), listOf("${fogTargetPkgName}.$fogTargetKeyGeneratorClass")
         )
@@ -291,9 +291,7 @@ BlackObfuscator {
     // 需要混淆的包或者类(匹配前面一段)
     obfClass = [
                 "$mainPkg", 
-                "$adPkg",
-                "$commonPkg",
-                "$pbPkg", 
+                "com.baidu.maps.utils"
     ]
     // blackClass中的包或者类不会进行混淆(匹配前面一段)
     blackClass = ["top.niunaijun.black"]
@@ -305,6 +303,7 @@ BlackObfuscator {
 
     private fun prepareXmlGuard(pkg: String) {
         mainPkg = randomPkg(pkg, pkgs)
+        mainPkgUtils = randomPkg(pkg, pkgs)
         toolsboxweather = randomPkg(pkg, pkgs)
         mcompab = randomPkg(pkg, pkgs)
         mcompabbus = randomPkg(pkg, pkgs)
@@ -344,16 +343,11 @@ BlackObfuscator {
         mappingFile = file("xml-class-mapping.txt")
         //更改manifest文件的package属性，即包名
         packageChange = [
-                     "com.yao.tool"  : "$mainPkg",
+                     "com.gzyf.jiandangshisaotong"  : "$mainPkg",
                     ]
         //移动目录
         moveDir = [
-               "com.yao.tool.weather.model.weather"   : "$weatherBeanPkg",
-               "com.yao.tool.scenic.bean"   : "$sceneryBeanPkg",
-               "com.keep.up.all"   : "$comkeepupall",
-               "com.keep.up.tt.rv"   : "$comkeepipttrv",
-               "com.tencent.mm.plugin.base.stub"   : "$comtencentbasestub",
-               "com.yao.tool.bean"                    : "$mainBeanPkg",
+               "com.lx.lxtoolsproject"   : "$weatherBeanPkg",
                ]
     }
     """.trimIndent()
@@ -362,35 +356,14 @@ BlackObfuscator {
         File("${workPath}app/xml-class-mapping.txt").writeText(
             """
             dir mapping:
-                com.haibin.calendarview -> $calendarPkg
-                com.yao.tool.weather -> ${randomText(pkg, texts, onlyLowerCase = true)}
-                com.clean.common_ad_libaray.bean -> $pbPkg
-                com.p.a_b.weight:  $toolsboxweather,
-                com.p.a_b:  $mcompab,
-                com.p.a_b.bus:  $mcompabbus,
-                com.clean.base_ad_common_library.bean.base_api_bean:  $parsebeanpag,
+                com.lx.lxtoolsproject -> $mainPkg 
+                com.lx.lxtoolsproject.utils -> $mainPkgUtils 
+                com.stringf.gg -> $fogTargetPkgName 
             
             class mapping:
-                com.yao.tool.MainActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.yao.tool.JksApplication -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.yao.tool.BaseKmaApplication -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.yao.tool.BaseApplication -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.yao.tool.TheApplication -> $mainPkg.$theAppClass
-                com.ad.base_ad_library.re.LeAcRecever -> ${randomPkg(pkg, pkgs)}.${randomText(pkg, texts, onlyUpperCase = true)}
-                com.ad.base_ad_library.CustomStringFogImpl -> $fogTargetPkgName.$fogTargetClass
-                com.baidu.mobads.sdk.api.BtFileAdWebActivity -> $mobadsPackage.$mobadsBTKClazz
-                com.baidu.mobads.sdk.api.OpenReceiver -> $mobadsPackage.$mobadsOPRECClazz
-                com.p.a_b.weight.GradientProgressBar ->  $toolsboxweather.$mGradientProgressBar
-                com.p.a_b.riliMonthView -> $mcompab.$mRiliMonthView
-                com.p.a_b.riliWeekView ->  $mcompab.$mRiliWeekView
-                com.p.a_b.bus.MapCompose ->  $mcompabbus.$mMapCompose
-                com.keep.up.all.AccService ->  $comkeepupall.$AccService
-                com.keep.up.all.NativeJniUtils ->  $comkeepupall.$NativeJniUtils
-                com.keep.up.tt.rv.VoiceService ->  $comkeepipttrv.$VoiceService
-                com.tencent.mm.plugin.base.stub.MMPluginProvider ->  $comtencentbasestub.$MMPluginProvider
-                
-                
-                
+                com.lx.lxtoolsproject.LaunchPageActivity -> $mainPkg.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.lx.lxtoolsproject.utils.AgreementStatusUtils -> $mainPkgUtils.${randomText(pkg, texts, onlyUpperCase = true)}
+                com.stringf.gg.CustomStringFogImpl -> $fogTargetPkgName.$fogTargetClass
         """.trimIndent()
         )
     }
