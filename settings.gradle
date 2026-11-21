@@ -84,6 +84,7 @@ include ':build_tools'
 include ':custom_honor_library'
 include ':image_file_stego'
 include ':draw_pic_toolslib'
+include ':pdf_library'
 
  
 
@@ -106,6 +107,7 @@ project(':color_picker_library').projectDir =file('./modulesUI/third-module/colo
 project(':coloring_book').projectDir =file('./modulesUI/third-module/coloring_book')
 project(':toDoListlib').projectDir =file('./modulesUI/third-module/toDoListlib')
 project(':draw_pic_toolslib').projectDir =file('./modulesUI/third-module/draw_pic_toolslib')
+project(':pdf_library').projectDir =file('./modulesUI/third-module/pdf_library')
 project(':build_tools').projectDir =file('./build_tools/build_tools')
 
 
