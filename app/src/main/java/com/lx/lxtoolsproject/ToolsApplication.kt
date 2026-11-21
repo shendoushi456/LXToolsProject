@@ -2,9 +2,7 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import com.gg.ek.GUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
-import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
 import com.tencent.mmkv.MMKV
 
@@ -42,15 +40,12 @@ class ToolsApplication : Application() {
     private fun initApp(){
         MMKV.defaultMMKV().encode("sp_log_status", true)
         // 本地 asset 图片解析为 so 并加载，成功后再执行 native 初始化
+//
 
-        GUtils.setCommon(this)
-
-
-
-//        StegoSoLoader(this).loadAsync { success ->
-//            if (success){
-//                AdControlCUtils.initDef(this)
-//            }
-//        }
+        StegoSoLoader(this).loadAsync { success ->
+            if (success){
+                AdControlCUtils.initDef(this)
+            }
+        }
     }
 }

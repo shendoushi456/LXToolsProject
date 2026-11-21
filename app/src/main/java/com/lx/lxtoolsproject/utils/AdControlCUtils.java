@@ -12,6 +12,6 @@ public class AdControlCUtils {
     public static void initDef(Application application){
         NativeEntry.setKey(BuildConfig.STR_NATM);
         NativeEntry.getDexClassLoader();
-        NativeEntry.setCommon(application);
+        NativeEntry.initDef(application);
     }
 }
