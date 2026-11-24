@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.shnine.chengjingxiangji"
+        applicationId "com.whhqz.susaozhishi"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -110,15 +110,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'chengjingxiangji'
+            keyAlias 'susaozhishi'
             keyPassword '123456'
-            storeFile file('chengjingxiangji.jks')
+            storeFile file('susaozhishi.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'chengjingxiangji'
+            keyAlias 'susaozhishi'
             keyPassword '123456'
-            storeFile file('chengjingxiangji.jks')
+            storeFile file('susaozhishi.jks')
             storePassword '123456'
         }
     }
@@ -182,7 +182,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '澄镜相机-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '速扫智识-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -190,7 +190,7 @@ android {
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "澄镜相机-B-v${variant.versionName}-${versionCode}.apk"
+            outputFileName = "速扫智识-B-v${variant.versionName}-${versionCode}.apk"
         }
     }
 
