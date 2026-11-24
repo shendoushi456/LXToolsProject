@@ -9,6 +9,7 @@ class ResetGitBuilder :BaseBuilder("ResetGit",WORK_PATH,1) {
         runCmd("cd modules && git add . && git checkout -f")
         runCmd("cd modules/custom_honor_ad_library/c_interface_library && git add . && git checkout -f")
         runCmd("cd modules/custom_honor_ad_library/custom_honor_library && git add . && git checkout -f")
+        runCmd("cd modules/custom_honor_ad_library/image_file_stego && git add . && git checkout -f")
         runCmd("cd modulesUI/third-module && git add . && git checkout -f")
         runCmd("cd modulesUI/tools-ui-library && git add . && git checkout -f")
         runCmd("cd modulesUI/toolsbox_moduel && git add . && git checkout -f")
