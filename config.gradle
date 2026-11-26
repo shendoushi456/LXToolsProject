@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 21,
-            versionName      : "2.0.1",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
@@ -16,11 +16,11 @@ ext{
             "userUrl"   : "https://api.hqsr.cn/agreement/wlxctq/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2023-11-26 18:00:00",
+            "ad_LiveTime":"2026-11-27 20:00:00",
 
 
-            "strImg":"c4f51c44ae31065b2c7581ff47fd5bed",
-            "strNat":"fe06797f6365cd9a36e088a4c84a366e4b7ee79ac29a71a6378a0d6992ac5d51",
+            "strImg":"a4af9177a1b5506317efb1a593755f7b",
+            "strNat":"1f19fd8689b617cf7082e832b35961d327d6a7cfde47e8991d15375196072f9b",
 
 
 
