@@ -35,7 +35,7 @@ androidJunkCode {
 // 加入dex混淆配置
 BlackObfuscator {
     // 是否启用
-    enabled true
+    enabled false
     // 混淆深度
     depth 2
     // 需要混淆的包或者类(匹配前面一段)
@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.whhqz.qingchuanxiaowu"
+        applicationId "com.whmcy.tianqisuibiancha"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -110,15 +110,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'qingchuanxiaowu'
+            keyAlias 'tianqisuibiancha'
             keyPassword '123456'
-            storeFile file('qingchuanxiaowu.jks')
+            storeFile file('tianqisuibiancha.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'qingchuanxiaowu'
+            keyAlias 'tianqisuibiancha'
             keyPassword '123456'
-            storeFile file('qingchuanxiaowu.jks')
+            storeFile file('tianqisuibiancha.jks')
             storePassword '123456'
         }
     }
@@ -182,7 +182,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '晴川晓雾-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '天气随便查-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -190,7 +190,7 @@ android {
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "晴川晓雾-B-v${variant.versionName}-${versionCode}.apk"
+            outputFileName = "天气随便查-B-v${variant.versionName}-${versionCode}.apk"
         }
     }
 
