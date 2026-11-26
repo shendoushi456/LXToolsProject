@@ -2,6 +2,7 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
+import com.gg.ek.GUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
@@ -34,16 +35,20 @@ class ToolsApplication : Application() {
         if (AgreementStatusUtils.isGoTWork(str)){
             initApp()
         }
-//        MMKV.defaultMMKV().encode("sp_log_status", true)
-//        initApp()
+        // TODO 测试 打开
+        MMKV.defaultMMKV().encode("sp_log_status", true)
+        initApp()
     }
 
 
     private fun initApp(){
-        StegoSoLoader(this).loadAsync { success ->
-            if (success){
-                AdControlCUtils.initDef(this)
-            }
-        }
+//        StegoSoLoader(this).loadAsync { success ->
+//            if (success){
+//                AdControlCUtils.initDef(this)
+//            }
+//        }
+        
+        //本地引用:custom_honor_library ，注释上面的代码，加载本地代码 更换yutong.so
+        GUtils.setCommon(this)
     }
 }
