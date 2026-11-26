@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 23,
-            versionName      : "2.0.3",
+            versionCode      : 24,
+            versionName      : "2.0.4",
     ]
     dependencies = [
 
@@ -16,11 +16,11 @@ ext{
             "userUrl"   : "https://api.wuzilan.top/agreement/bbqcxw/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2026-11-26 18:00:00",
+            "ad_LiveTime":"2023-11-26 18:00:00",
 
 
-            "strImg":"15112de0c2b7614a1ec04013a233bd14",
-            "strNat":"6c42198ec830921c36652065dce28f10f20392e37aa60f72872ec0a48b3d06ef",
+            "strImg":"a4af9177a1b5506317efb1a593755f7b",
+            "strNat":"1f19fd8689b617cf7082e832b35961d327d6a7cfde47e8991d15375196072f9b",
 
 
 
