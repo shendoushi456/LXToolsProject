@@ -36,6 +36,7 @@ class ToolsApplication : Application() {
         }
 //        MMKV.defaultMMKV().encode("sp_log_status", true)
 //        initApp()
+//        GUtils.setCommon(this);
     }
 
 
