@@ -12,15 +12,15 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.hqsr.cn/agreement/wlxctq/privacy",
-            "userUrl"   : "https://api.hqsr.cn/agreement/wlxctq/user",
+            "privacyUrl": "https://api.hqsr.cn/agreement/wljytq/privacy",
+            "userUrl"   : "https://api.hqsr.cn/agreement/wljytq/user",
             "VERSIONNAME":android.versionName,
 
             "ad_LiveTime":"2023-11-26 18:00:00",
 
 
-            "strImg":"c4f51c44ae31065b2c7581ff47fd5bed",
-            "strNat":"fe06797f6365cd9a36e088a4c84a366e4b7ee79ac29a71a6378a0d6992ac5d51",
+            "strImg":"2c1d91caf8fd8d24be6848cdde295e95",
+            "strNat":"15249529664a1c1a8f26474b429d6fe573f18dc0ced4e4f4cdd8f68e52703d1e",
 
 
 
