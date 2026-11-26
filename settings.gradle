@@ -1,5 +1,9 @@
 pluginManagement {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -10,27 +14,17 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
         google()
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url "https://jitpack.io" }
         maven { url "https://artifact.bytedance.com/repository/pangle" }
-
         maven { url 'https://developer.huawei.com/repo' }
         maven { url 'https://developer.hihonor.com/repo' }
-
         // 巨量广告转化 融合归因
         maven {
             url 'https://artifact.bytedance.com/repository/Volcengine/'
         }
-
-        maven { url 'https://jitpack.io' }
-
-
     }
-
 }
+
 plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 //    id 'com.google.devtools.ksp' version '2.1.0-1.0.29' apply false
@@ -38,27 +32,24 @@ plugins {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url "https://jitpack.io" }
         maven { url "https://artifact.bytedance.com/repository/pangle" }
-
         maven { url 'https://developer.huawei.com/repo' }
         maven { url 'https://developer.hihonor.com/repo' }
-
         // 巨量广告转化 融合归因
         maven {
             url 'https://artifact.bytedance.com/repository/Volcengine/'
         }
-        maven { url 'https://jitpack.io' }
     }
-
 }
+
 
 rootProject.name = "LXToolsProject"
 include ':app'
@@ -81,15 +72,13 @@ include ':coloring_book'
 include ':color_picker_library'
 include ':toDoListlib'
 include ':build_tools'
-include ':custom_honor_library'
 include ':image_file_stego'
 include ':draw_pic_toolslib'
 include ':pdf_library'
 include ':h5_lib'
 
- 
 
-project(':custom_honor_library').projectDir =file('./modules/custom_honor_ad_library/custom_honor_library')
+
 project(':image_file_stego').projectDir =file('./modules/custom_honor_ad_library/image_file_stego')
 project(':toolsbox').projectDir =file('./modulesUI/toolsbox_moduel/toolsbox')
 project(':setting').projectDir =file('./modulesUI/third-module/setting')
