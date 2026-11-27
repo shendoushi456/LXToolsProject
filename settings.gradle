@@ -118,16 +118,16 @@ project(':build_tools').projectDir =file('./build_tools/build_tools')
 
 
 
-include':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release'
-include':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter'
-include':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal'
-include':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter'
-include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease'
-include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter'
-include':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk'
-include':modules:custom_honor_ad_library:aarlibrary:appupdate'
-include':modules:custom_honor_ad_library:aarlibrary:octopus_ad_sdk'
-include':modules:custom_honor_ad_library:aarlibrary:pij_ad_sdk'
+//include':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release'
+//include':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter'
+//include':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal'
+//include':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter'
+//include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease'
+//include':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter'
+//include':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk'
+//include':modules:custom_honor_ad_library:aarlibrary:appupdate'
+//include':modules:custom_honor_ad_library:aarlibrary:octopus_ad_sdk'
+//include':modules:custom_honor_ad_library:aarlibrary:pij_ad_sdk'
 
 //////////////////////////TaKu TaKu TaKu TaKu////////////////////////////////
 include':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_core'
@@ -143,11 +143,13 @@ include':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_mobr
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:open_ad_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:baidu_mobads_sdk_release')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:gdtsdk_unionnormal')
+include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:kssdk_ct_publishRelease')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_inter_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_splash_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_hianalytics_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_enc_ha_sdk')
+include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_identifier_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_security_encrypt_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_security_ssl_sdk')
 include(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_util_sdk')

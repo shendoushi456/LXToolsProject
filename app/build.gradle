@@ -276,14 +276,6 @@ dependencies {
 
 
 
-    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
-    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
-    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
-    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
-    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
-    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
 
 
 
