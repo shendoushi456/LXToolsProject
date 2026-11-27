@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 23,
-            versionName      : "2.0.3",
+            versionCode      : 21,
+            versionName      : "2.0.1",
     ]
     dependencies = [
 
@@ -12,15 +12,14 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.wuzilan.top/agreement/bbqcxw/privacy",
-            "userUrl"   : "https://api.wuzilan.top/agreement/bbqcxw/user",
+            "privacyUrl": "https://api.hqsr.cn/agreement/wlwlcxzxj/privacy",
+            "userUrl"   : "https://api.hqsr.cn/agreement/wlwlcxzxj/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2026-11-26 18:00:00",
+            "ad_LiveTime":"2026-10-26 18:00:00",
 
-
-            "strImg":"15112de0c2b7614a1ec04013a233bd14",
-            "strNat":"6c42198ec830921c36652065dce28f10f20392e37aa60f72872ec0a48b3d06ef",
+            "strImg":"6f349ad4f19007025271e93ed08d4ae4",
+            "strNat":"ff9e33b9751cd88f5bf635829678dae78a6c8519cd354554347154a2561b640a",
 
 
 
