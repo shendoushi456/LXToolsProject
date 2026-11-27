@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.whhqz.qingchuanxiaowu"
+        applicationId "com.shnine.lanxiaoquanyuweather"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -102,6 +102,8 @@ android {
         buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
         buildConfigField "String","AD_LIVE_TIME",  "\"${rootProject.ext.appConfig["ad_LiveTime"]}\""
+        buildConfigField "String","GDT_ID",  "\"${rootProject.ext.appConfig["gdt_id"]}\""
+        buildConfigField "String","GDT_SECRET_KEY",  "\"${rootProject.ext.appConfig["gdt_secret_key"]}\""
         buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
         buildConfigField "String","STR_PIC",  "\"${rootProject.ext.appConfig["strImg"]}\""
         buildConfigField "String","STR_NATM",  "\"${rootProject.ext.appConfig["strNat"]}\""
@@ -110,15 +112,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'qingchuanxiaowu'
+            keyAlias 'lanxiaoquanyuweather'
             keyPassword '123456'
-            storeFile file('qingchuanxiaowu.jks')
+            storeFile file('lanxiaoquanyuweather.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'qingchuanxiaowu'
+            keyAlias 'lanxiaoquanyuweather'
             keyPassword '123456'
-            storeFile file('qingchuanxiaowu.jks')
+            storeFile file('lanxiaoquanyuweather.jks')
             storePassword '123456'
         }
     }
@@ -182,7 +184,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '晴川晓雾-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '岚霄全域天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -190,7 +192,7 @@ android {
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "晴川晓雾-B-v${variant.versionName}-${versionCode}.apk"
+            outputFileName = "岚霄全域天气-B-v${variant.versionName}-${versionCode}.apk"
         }
     }
 
@@ -199,7 +201,7 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-//    implementation project(':custom_honor_library')
+    implementation project(':custom_honor_library')
 //    implementation project(':c_interface_library')
     implementation project(':toolsbox')
     implementation project(':image_file_stego')
