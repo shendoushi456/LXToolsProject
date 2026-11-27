@@ -16,7 +16,7 @@ ext{
             "userUrl"   : "https://api.fumanban.cn/agreement/wllxqytq/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2026-11-26 18:00:00",
+            "ad_LiveTime":"2023-11-26 18:00:00",
             "GDT_ID"       : "1225994117",//GDT ID
             "GDT_SECRET_KEY" : "def23996bc9d99b72c12838913bb3316",
 
