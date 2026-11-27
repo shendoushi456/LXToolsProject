@@ -105,6 +105,8 @@ android {
         buildConfigField "String","RELEASE_SSK",  "\"${rootProject.ext.appConfig["RELEASE_SSK"]}\""
         buildConfigField "String","STR_PIC",  "\"${rootProject.ext.appConfig["strImg"]}\""
         buildConfigField "String","STR_NATM",  "\"${rootProject.ext.appConfig["strNat"]}\""
+        buildConfigField "String","GDT_ID",  "\"${rootProject.ext.appConfig["GDT_ID"]}\""
+        buildConfigField "String","GDT_SECRET_KEY",  "\"${rootProject.ext.appConfig["GDT_SECRET_KEY"]}\""
     }
 
 
@@ -199,10 +201,11 @@ android {
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-    implementation project(':custom_honor_library')
+//    implementation project(':custom_honor_library')
 //    implementation project(':c_interface_library')
     implementation project(':tools-ui-library')
     implementation project(':image_file_stego')
+    implementation files('libs/GDTActionSDK.min.1.9.8.aar')
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
@@ -276,7 +279,32 @@ dependencies {
 
 
 
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_core')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_csj')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:open_ad_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_baidu')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_common_util')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_gdt')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_ks')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:baidu_mobads_sdk_release')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:gdtsdk_unionnormal')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:kssdk_ct_publishRelease')
 
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_honor')
+
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_splash_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_inter_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_identifier_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_hianalytics_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_enc_ha_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_security_encrypt_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_security_ssl_sdk')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:honor_aggregation_access_sdk')
+
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_kuying')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_adx_sdk_kuying')
+    api project(':modules:custom_honor_ad_library:common_ad_taku:aarlibrary:anythink_mobrain')
 
 
 }

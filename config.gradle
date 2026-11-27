@@ -16,11 +16,13 @@ ext{
             "userUrl"   : "https://api.fumanban.cn/agreement/wlwymhh/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2026-11-25 18:00:00",
+            "ad_LiveTime":"2023-11-25 18:00:00",
+            "GDT_ID":"1225994102",
+            "GDT_SECRET_KEY":"c3eaa63850771ad9a53c50c72eff8b3e",
 
 
-            "strImg":"15112de0c2b7614a1ec04013a233bd14",
-            "strNat":"6c42198ec830921c36652065dce28f10f20392e37aa60f72872ec0a48b3d06ef",
+            "strImg":"f0bdaf8114a17a7f21d3d6484e61914d",
+            "strNat":"ef0e2f5c45ed2ae51ca32df62708ccdce7f95e011c86ea4750571e37dfe04bdb",
 
 
 
