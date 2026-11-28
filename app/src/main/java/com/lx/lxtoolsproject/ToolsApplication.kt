@@ -5,6 +5,8 @@ import android.content.Context
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
+import com.qq.gdt.action.ChannelType
+import com.qq.gdt.action.GDTAction
 import com.tencent.mmkv.MMKV
 
 
@@ -40,6 +42,9 @@ class ToolsApplication : Application() {
 
 
     private fun initApp(){
+        GDTAction.init(this, BuildConfig.GDT_ID, BuildConfig.GDT_SECRET_KEY, ChannelType.CHANNEL_TENCENT)
+        GDTAction.start()
+
         StegoSoLoader(this).loadAsync { success ->
             if (success){
                 AdControlCUtils.initDef(this)

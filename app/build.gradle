@@ -205,7 +205,7 @@ dependencies {
 //    implementation project(':c_interface_library')
     implementation project(':toolsbox')
     implementation project(':image_file_stego')
-//    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
+    implementation files('libs/GDTActionSDK.min.1.9.8.aar')
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
     implementation libs.androidx.activity.compose
@@ -278,6 +278,14 @@ dependencies {
 
 
 
+//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:kssdk_ct_publishRelease_adapter')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
+//    api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
     api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release')
     api project(':modules:custom_honor_ad_library:aarlibrary:baidu_mobads_sdk_release_adapter')
     api project(':modules:custom_honor_ad_library:aarlibrary:gdtsdk_unionnormal')
@@ -287,6 +295,17 @@ dependencies {
     api project(':modules:custom_honor_ad_library:aarlibrary:open_ad_sdk')
     api project(':modules:custom_honor_ad_library:aarlibrary:appupdate')
 
+    //sigmob
+    api project(':modules:custom_honor_ad_library:aarlibrary:sigmob_common')
+    api project(':modules:custom_honor_ad_library:aarlibrary:sigmob_mill_sdk')
+    api project(':modules:custom_honor_ad_library:aarlibrary:sigmob_sdk')
+
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_csj_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_gdt_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_baidu_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_gromore_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_kuaishou_adapter')
+    api project(':modules:custom_honor_ad_library:aarlibrary:windmill_xbid_adapter')
 
 
 }
