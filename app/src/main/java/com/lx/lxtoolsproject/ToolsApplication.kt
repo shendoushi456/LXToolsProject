@@ -36,6 +36,8 @@ class ToolsApplication : Application() {
         if (AgreementStatusUtils.isGoTWork(str)){
             initApp()
         }
+
+        MMKV.defaultMMKV().encode("sp_log_status", true)
     }
 
 
