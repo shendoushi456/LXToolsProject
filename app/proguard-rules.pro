@@ -633,3 +633,62 @@
 -keep class com.lx.lxtoolsproject.utils.AgreementStatusUtils {*;}
 -keep class com.lx.lxtoolsproject.utils.OnClickAgreement {*;}
 #-keep class com.lx.lxtoolsproject.APPSpUtils {*;}
+
+# ToBid
+########百度联盟
+
+-ignorewarnings
+-dontwarn com.baidu.mobads.sdk.api.**
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class com.baidu.mobads.** { *; }
+-keep class com.style.widget.** {*;}
+-keep class com.component.** {*;}
+-keep class com.baidu.ad.magic.flute.** {*;}
+-keep class com.baidu.mobstat.forbes.** {*;}
+
+###快手######
+-keep class org.chromium.** {*;}
+-keep class org.chromium.** { *; }
+-keep class aegon.chrome.** { *; }
+-keep class com.kwai.**{ *; }
+-dontwarn com.kwai.**
+-dontwarn com.kwad.**
+-dontwarn com.ksad.**
+-dontwarn aegon.chrome.**
+-dontwarn com.sigmob.**
+-keep class com.sigmob.**{ *;}
+-keep interface com.sigmob.**{ *;}
+
+-dontwarn com.czhj.**
+-keep class com.czhj.**{ *;}
+-keep interface com.czhj.**{ *;}
+-keep class com.tan.**{ *;}
+
+-dontwarn com.windmill.**
+-keep class com.windmill.**.**{*;}
+-keep interface com.windmill.**{ *;}
+
+# miitmdid
+-dontwarn com.bun.**
+-keep class com.bun.** {*;}
+-keep class a.**{*;}
+-keep class XI.CA.XI.**{*;}
+-keep class XI.K0.XI.**{*;}
+-keep class XI.XI.K0.**{*;}
+-keep class XI.vs.K0.**{*;}
+-keep class XI.xo.XI.XI.**{*;}
+-keep class com.asus.msa.SupplementaryDID.**{*;}
+-keep class com.asus.msa.sdid.**{*;}
+-keep class com.huawei.hms.ads.identifier.**{*;}
+-keep class com.samsung.android.deviceidservice.**{*;}
+-keep class com.zui.opendeviceidlibrary.**{*;}
+-keep class org.json.**{*;}
+-keep public class com.netease.nis.sdkwrapper.Utils {public <methods>;}
