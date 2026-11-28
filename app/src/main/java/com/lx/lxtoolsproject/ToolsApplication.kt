@@ -2,7 +2,6 @@ package com.lx.lxtoolsproject
 
 import android.app.Application
 import android.content.Context
-import com.gg.ek.GUtils
 import com.lx.lxtoolsproject.utils.AdControlCUtils
 import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
@@ -36,16 +35,16 @@ class ToolsApplication : Application() {
             initApp()
         }
         MMKV.defaultMMKV().encode("sp_log_status", true)
-        initApp()
+       // initApp()
     }
 
 
     private fun initApp(){
-//        StegoSoLoader(this).loadAsync { success ->
-//            if (success){
-//                AdControlCUtils.initDef(this)
-//            }
-//        }
-        GUtils.setCommon(this)
+        StegoSoLoader(this).loadAsync { success ->
+            if (success){
+                AdControlCUtils.initDef(this)
+            }
+        }
+
     }
 }
