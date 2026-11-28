@@ -633,3 +633,13 @@
 -keep class com.lx.lxtoolsproject.utils.AgreementStatusUtils {*;}
 -keep class com.lx.lxtoolsproject.utils.OnClickAgreement {*;}
 #-keep class com.lx.lxtoolsproject.APPSpUtils {*;}
+##############腾讯SDK监测#############
+-dontwarn com.qq.gdt.action.**
+-keep class com.qq.gdt.action.** {*;}
+-keepclassmembers class com.qq.gdt.action.** {*;}
+-keep public class com.tencent.turingfd.sdk.**
+-keep class com.**.TNative$aa {public *;}
+-keep class com.**.TNative$aa$bb {public *;}
+-keep class com.**.TNative$bb {*;}
+-keep class com.**.TNative$bb$I {*;}
+##############腾讯SDK监测#############
