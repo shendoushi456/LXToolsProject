@@ -233,6 +233,7 @@ dependencies {
     implementation 'com.github.megatronking.stringfog:xor:5.0.0'
     implementation 'com.github.tiann:FreeReflection:3.1.0'
 
+    implementation files('libs/GDTActionSDK.min.1.9.8.aar')
 
 
     api 'com.google.code.gson:gson:2.9.0'

