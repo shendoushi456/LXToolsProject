@@ -92,12 +92,18 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        flavorDimensions "default"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
 
         ndk { // 设置支持的 SO 库构架，注意这里要根据你的实际情况来设置
             abiFilters   "arm64-v8a"
         }
 
-
+        buildConfigField "String","GDT_ID","\"${rootProject.ext.appConfig["GDT_ID"]}\""
+        buildConfigField "String","GDT_SECRET_KEY","\"${rootProject.ext.appConfig["GDT_SECRET_KEY"]}\""
 
         buildConfigField "String","PRIVATE_URL",  "\"${rootProject.ext.appConfig["privacyUrl"]}\""
         buildConfigField "String","USER_URL",  "\"${rootProject.ext.appConfig["userUrl"]}\""
@@ -205,6 +211,7 @@ dependencies {
 //    implementation project(':c_interface_library')
     implementation project(':tools-ui-library')
     implementation project(':image_file_stego')
+    implementation files('libs/GDTActionSDK.min.1.9.8.aar')
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt"])
 //    implementation files('libs/'+rootProject.ext.appConfig["lx_tools_pt2"])
 //    implementation files('libs/'+rootProject.ext.appConfig["ad_aar"])
