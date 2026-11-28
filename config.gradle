@@ -12,13 +12,13 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.fumanban.cn/agreement/wllxqytq/privacy",
-            "userUrl"   : "https://api.fumanban.cn/agreement/wllxqytq/user",
+            "privacyUrl": "https://api.fumanban.cn/agreement/wlxyhcxj/privacy",
+            "userUrl"   : "https://api.fumanban.cn/agreement/wlxyhcxj/user",
             "VERSIONNAME":android.versionName,
 
             "ad_LiveTime":"2026-11-26 18:00:00",
-            "GDT_ID"       : "1225994117",//GDT ID
-            "GDT_SECRET_KEY" : "def23996bc9d99b72c12838913bb3316",
+            "GDT_ID"       : "1225994123",//GDT ID
+            "GDT_SECRET_KEY" : "3085468c36db6f4bd39359a88049c63d",
 
             "strImg":"15112de0c2b7614a1ec04013a233bd14",
             "strNat":"6c42198ec830921c36652065dce28f10f20392e37aa60f72872ec0a48b3d06ef",

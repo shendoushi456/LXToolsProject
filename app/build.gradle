@@ -84,7 +84,7 @@ android {
     }
     	
     defaultConfig {
-        applicationId "com.shnine.lanxiaoquanyuweather"
+        applicationId "com.shnine.xingyuhuancaixiangji"
         minSdk 26
         targetSdk 33
         versionCode rootProject.ext.android["versionCode"]
@@ -112,15 +112,15 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'lanxiaoquanyuweather'
+            keyAlias 'xingyuhuancaixiangji'
             keyPassword '123456'
-            storeFile file('lanxiaoquanyuweather.jks')
+            storeFile file('xingyuhuancaixiangji.jks')
             storePassword '123456'
         }
         debug {
-            keyAlias 'lanxiaoquanyuweather'
+            keyAlias 'xingyuhuancaixiangji'
             keyPassword '123456'
-            storeFile file('lanxiaoquanyuweather.jks')
+            storeFile file('xingyuhuancaixiangji.jks')
             storePassword '123456'
         }
     }
@@ -184,7 +184,7 @@ android {
         // 指定渠道包的输出路径
         apkOutputFolder = new File("${project.buildDir}/outputs/channels");
         // 定制渠道包的APK的文件名称
-        apkFileNameFormat = '岚霄全域天气-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        apkFileNameFormat = '星隅幻彩相机-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
         // 渠道配置文件
         channelFile = new File("${project.getProjectDir()}/channel/channel.txt")
 
@@ -192,7 +192,7 @@ android {
 
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "岚霄全域天气-B-v${variant.versionName}-${versionCode}.apk"
+            outputFileName = "星隅幻彩相机-B-v${variant.versionName}-${versionCode}.apk"
         }
     }
 
