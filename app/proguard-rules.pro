@@ -656,3 +656,25 @@
 -keepclassmembers public class com.anythink.myoffer.ui.** {
    public *;
 }
+
+##############腾讯SDK监测#############
+-dontwarn com.qq.gdt.action.**
+-keep class com.qq.gdt.action.** {*;}
+-keepclassmembers class com.qq.gdt.action.** {*;}
+-keep public class com.tencent.turingfd.sdk.**
+-keep class com.**.TNative$aa {public *;}
+-keep class com.**.TNative$aa$bb {public *;}
+-keep class com.**.TNative$bb {*;}
+-keep class com.**.TNative$bb$I {*;}
+##############腾讯SDK监测#############
+
+-keep class com.sigmob.**{ *;}
+-keep interface com.sigmob.**{ *;}
+
+-dontwarn com.czhj.**
+-keep class com.czhj.**{ *;}
+-keep interface com.czhj.**{ *;}
+-keep class com.tan.**{ *;}
+-dontwarn com.windmill.**
+-keep class com.windmill.**.**{*;}
+-keep interface com.windmill.**{ *;}

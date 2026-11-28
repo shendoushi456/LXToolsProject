@@ -1,7 +1,7 @@
 ext{
     android = [
-            versionCode      : 21,
-            versionName      : "2.0.1",
+            versionCode      : 22,
+            versionName      : "2.0.2",
     ]
     dependencies = [
 
@@ -12,17 +12,17 @@ ext{
     appConfig = [
 
             //TODO 隐私协议
-            "privacyUrl": "https://api.fumanban.cn/agreement/wlwymhh/privacy",
-            "userUrl"   : "https://api.fumanban.cn/agreement/wlwymhh/user",
+            "privacyUrl": "https://api.zhangningjiang1.top/agreement/bbyzsm/privacy",
+            "userUrl"   : "https://api.zhangningjiang1.top/agreement/bbyzsm/user",
             "VERSIONNAME":android.versionName,
 
-            "ad_LiveTime":"2023-11-25 18:00:00",
-            "GDT_ID":"1225994102",
-            "GDT_SECRET_KEY":"c3eaa63850771ad9a53c50c72eff8b3e",
+            "ad_LiveTime":"2026-12-01 16:00:00",
+            "GDT_ID":"1226013490",
+            "GDT_SECRET_KEY":"7e072c2dd441174b4b476a43098459c4",
 
 
-            "strImg":"f0bdaf8114a17a7f21d3d6484e61914d",
-            "strNat":"ef0e2f5c45ed2ae51ca32df62708ccdce7f95e011c86ea4750571e37dfe04bdb",
+            "strImg":"cae379d8f69717109cb5784b1aa874dd",
+            "strNat":"eecbf3159c31280825a24ed72991410a562844f39c6aaeb142c69775918c2dfb",
 
 
 
